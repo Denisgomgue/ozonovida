@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <!-- Head Component será cargado dinámicamente -->
+  <div id="head-placeholder"></div>
+</head>
+<body>
+  <a href="#inicio" class="skip-link">Saltar al contenido</a>
+
+  <!-- Header Component -->
+  <div id="header-placeholder"></div>
+
+  <main>
+    <section class="hero" aria-label="Prueba Simplificada">
+      <div class="container">
+        <div class="hero__content">
+          <h1>Prueba Simplificada del Sistema</h1>
+          <p>Esta página usa solo el sistema de componentes, sin app.js para evitar conflictos.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Estado del Sistema</h2>
+        <div id="system-status">
+          <p>Cargando componentes...</p>
+        </div>
+        
+        <div style="margin: 2rem 0; padding: 1rem; background: var(--glass); border-radius: 8px;">
+          <h3>Contenido de Prueba</h3>
+          <p>Este contenido debería cambiar cuando uses el botón de tema.</p>
+          <p>Tema actual: <span id="current-theme">Verificando...</span></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- UI Components (botones de acción) -->
+  <div id="ui-components-placeholder"></div>
+
+  <!-- Footer Component -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Scripts del sistema de componentes SOLO -->
+  <script src="../js/metadata-config.js"></script>
+  <script src="../js/component-loader-independent.js"></script>
+  <!-- NO incluimos app.js para evitar conflictos -->
+  
+  <script>
+    // Script simplificado para verificar el sistema
+    setTimeout(() => {
+      const statusDiv = document.getElementById('system-status');
+      const themeSpan = document.getElementById('current-theme');
+      
+      const headLoaded = document.querySelector('meta[name="description"]');
+      const headerLoaded = document.querySelector('.header');
+      const footerLoaded = document.querySelector('.footer');
+      const toTopLoaded = document.querySelector('#to-top');
+      const themeLoaded = document.querySelector('#theme-toggle');
+      
+      let status = '<h3>Estado de los Componentes:</h3><ul>';
+      status += `<li>Head: ${headLoaded ? '✅ Cargado' : '❌ No cargado'}</li>`;
+      status += `<li>Header: ${headerLoaded ? '✅ Cargado' : '❌ No cargado'}</li>`;
+      status += `<li>Footer: ${footerLoaded ? '✅ Cargado' : '❌ No cargado'}</li>`;
+      status += `<li>Botón Subir: ${toTopLoaded ? '✅ Cargado' : '❌ No cargado'}</li>`;
+      status += `<li>Botón Tema: ${themeLoaded ? '✅ Cargado' : '❌ No cargado'}</li>`;
+      status += '</ul>';
+      
+      statusDiv.innerHTML = status;
+      
+      // Actualizar tema actual
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      themeSpan.textContent = currentTheme;
+      
+      // Probar funcionalidad del botón de tema
+      if (themeLoaded) {
+        setTimeout(() => {
+          const originalTheme = document.documentElement.getAttribute('data-theme');
+          console.log('Testing theme toggle, original theme:', originalTheme);
+          
+          themeLoaded.click();
+          
+          setTimeout(() => {
+            const newTheme = document.documentElement.getAttribute('data-theme');
+            console.log('After click, new theme:', newTheme);
+            
+            if (newTheme !== originalTheme) {
+              console.log('✅ Theme toggle works!');
+              // Restaurar tema original
+              document.documentElement.setAttribute('data-theme', originalTheme);
+              localStorage.setItem('theme', originalTheme);
+              const themeIcon = document.getElementById('theme-icon');
+              if (themeIcon) {
+                themeIcon.className = originalTheme === 'light' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+              }
+            } else {
+              console.log('❌ Theme toggle does not work');
+            }
+            
+            themeSpan.textContent = document.documentElement.getAttribute('data-theme');
+          }, 200);
+        }, 1000);
+      }
+    }, 3000);
+  </script>
+</body>
+</html>

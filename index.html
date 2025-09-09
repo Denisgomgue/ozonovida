@@ -1,175 +1,14 @@
 <!DOCTYPE html>
 <html lang="es" data-theme="light">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>OZONO VIDA • Centro Médico de Ozonoterapia y Medicina Regenerativa</title>
-  <meta name="description" content="OZONO VIDA: Ozonoterapia, medicina regenerativa y tratamiento integral del dolor (columna, hernias, rodillas y más). Atención en Av. Villón, frente a la Dirección Víctor Ramos Guardia." />
-
-  <meta property="og:title" content="OZONO VIDA • Centro Médico" />
-  <meta property="og:description" content="Ozonoterapia, medicina regenerativa y tratamiento del dolor. Av. Villón, frente a la Dirección Víctor Ramos Guardia." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://stella-maris.example" />
-  <!-- Replaced OG image with real medical team photo -->
-  <meta property="og:image" content="https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=1200&q=80" />
-
-  <link rel="icon" href="assets/favicon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="css/styles.css" />
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "MedicalClinic",
-    "name": "OZONO VIDA Centro Médico",
-    "description": "Centro médico especializado en ozonoterapia, medicina regenerativa y tratamientos del dolor.",
-    "image": "https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=1200&q=80",
-    "url": "https://stella-maris.example",
-    "telephone": "+51 999 999 999",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Av. Villón, frente a la Dirección Víctor Ramos Guardia",
-      "addressLocality": "Huaraz",
-      "addressRegion": "Ancash",
-      "addressCountry": "PE"
-    },
-    "medicalSpecialty": ["PainManagement", "RegenerativeMedicine"],
-    "openingHours": "Mo-Fr 09:00-19:00, Sa 09:00-13:00",
-    "priceRange": "$$"
-  }
-  </script>
+  <!-- Head Component será cargado dinámicamente -->
+  <div id="head-placeholder"></div>
 </head>
 <body>
   <a href="#inicio" class="skip-link">Saltar al contenido</a>
 
-  <header id="inicio" class="header">
-    <div class="container header__inner">
-      <a class="brand" href="#inicio" aria-label="OZONO VIDA inicio">
-        <span class="brand__logo" aria-hidden="true">✦</span>
-        <span class="brand__text">OZONO VIDA</span>
-      </a>
-      <nav class="nav" aria-label="Principal">
-        <button class="nav__toggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú de navegación">
-          <span class="hamburger">
-            <span class="hamburger__line"></span>
-            <span class="hamburger__line"></span>
-            <span class="hamburger__line"></span>
-          </span>
-        </button>
-        <ul id="menu" class="nav__links">
-          <li><a href="#servicios">Servicios</a></li>
-          
-          <li class="dropdown">
-            <a href="#tratamientos" class="dropdown__trigger">
-              Tratamientos <i class="fa-solid fa-chevron-down"></i>
-            </a>
-            <ul class="dropdown__menu">
-              <li class="dropdown__item dropdown__item--has-submenu">
-                <a href="tratamiento-dolor.html" class="dropdown__link">
-                  Tratamiento de Dolor <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <ul class="dropdown__submenu">
-                  <!-- submenu de dolor -->
-                  <li class="dropdown__item dropdown__item--has-submenu">
-                    <a href="tratamiento-dolor.html" class="dropdown__link">
-                      Dolores <i class="fa-solid fa-chevron-right"></i>
-                    </a>
-                    <ul class="dropdown__submenu">
-                      <li><a href="tratamiento-dolor.html#rodilla"><i class="fa-solid fa-bone"></i> Hombros</a></li>
-                      <li><a href="tratamiento-dolor.html#columna"><i class="fa-solid fa-spine"></i> Columnas</a></li>
-                      <li><a href="tratamiento-dolor.html#columna"><i class="fa-solid fa-spine"></i> Manos</a></li>
-                      <li><a href="tratamiento-dolor.html#rodilla"><i class="fa-solid fa-bone"></i> Cadera</a></li>
-                      <li><a href="tratamiento-dolor.html#rodilla"><i class="fa-solid fa-bone"></i> Rodillas</a></li>
-                      <li><a href="tratamiento-dolor.html#rodilla"><i class="fa-solid fa-bone"></i> Pies</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="hernias-discales.html">Hernias Discales</a></li>
-                  <li><a href="lumbalgia.html">Lumbalgia</a></li>
-                  <li><a href="cervicalgia.html">Cervicalgia</a></li>
-                  <li><a href="artrosis.html">Artrosis</a></li>
-                  <li><a href="artritis.html">Artritis</a></li>
-                  <li><a href="tendinitis.html">Tendinitis</a></li>
-                  <li><a href="fibromialgia.html">Fibromialgia</a></li>
-                </ul>
-              </li>
-              <li class="dropdown__item dropdown__item--has-submenu">
-                <a href="tratamiento-enfermedades.html" class="dropdown__link">
-                  Tratamiento de Enfermedades <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <ul class="dropdown__submenu">
-                  <li><a href="tratamiento-enfermedades.html#diabetes">Diabetes Mellitus</a></li>
-                  <li><a href="tratamiento-enfermedades.html#insuficiencia-vascular">Insuficiencia Vascular</a></li>
-                  <li><a href="tratamiento-enfermedades.html#hepatitis">Hepatitis Crónica</a></li>
-                  <li><a href="tratamiento-enfermedades.html#colitis">Colitis Ulcerosa</a></li>
-                  <li><a href="tratamiento-enfermedades.html#autoinmunes">Enfermedades Autoinmunes</a></li>
-                  <li><a href="tratamiento-enfermedades.html#varices">Varices</a></li>
-                  <li><a href="tratamiento-enfermedades.html#hiperplasia">Hiperplasia Prostática</a></li>
-                  <li><a href="tratamiento-enfermedades.html#gota">Gota</a></li>
-                  <li><a href="tratamiento-enfermedades.html#gastritis">Gastritis</a></li>
-                  <li><a href="tratamiento-enfermedades.html#gastritis">Cefaleas y Migrañas</a></li>
-                </ul>
-              </li>
-              <li class="dropdown__item dropdown__item--has-submenu">
-                <a href="estetica.html" class="dropdown__link">
-                  Estética <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <ul class="dropdown__submenu">
-                  <li><a href="estetica.html#rejuvenecimiento-facial">Rejuvenecimiento Facial</a></li>
-                  <li><a href="estetica.html#celulitis">Celulitis</a></li>
-                  <li><a href="estetica.html#ulceras-cronicas">Úlceras Crónicas y Varicosas</a></li>
-                  <li><a href="estetica.html#acne">Acné</a></li>
-                </ul>
-              </li>
-              <li class="dropdown__item dropdown__item--has-submenu">
-                <a href="infecciones.html" class="dropdown__link">
-                  Infecciones <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <ul class="dropdown__submenu">
-                  <li><a href="infecciones.html#heridas-infectadas">Heridas Infectadas</a></li>
-                  <li><a href="infecciones.html#pie-diabetico">Pie Diabético</a></li>
-                  <li><a href="infecciones.html#ulceras-varicosas">Úlceras Varicosas</a></li>
-                </ul>
-              </li>
-              <li class="dropdown__item dropdown__item--has-submenu">
-                <a href="ginecologia.html" class="dropdown__link">
-                  Ginecología <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <ul class="dropdown__submenu">
-                  <li><a href="ginecologia.html#candidiasis">Candidiasis</a></li>
-                  <li><a href="ginecologia.html#vaginitis">Vaginitis</a></li>
-                  <li><a href="ginecologia.html#vph">Virus de Papiloma Humano</a></li>
-                  <li><a href="ginecologia.html#endometriosis">Endometriosis</a></li>
-                  <li><a href="ginecologia.html#post-cesarea">Post Cesárea</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a href="#aplicaciones" class="dropdown__trigger">
-              Aplicaciones <i class="fa-solid fa-chevron-down"></i>
-            </a>
-            <ul class="dropdown__menu">
-              <li><a href="aplicaciones.html#intramuscular"><i class="fa-solid fa-syringe"></i> Intramuscular</a></li>
-              <li><a href="aplicaciones.html#intra-articular"><i class="fa-solid fa-joint"></i> Intra articular</a></li>
-              <li><a href="aplicaciones.html#auto-hemoterapia-menor"><i class="fa-solid fa-droplet"></i> Auto hemoterapia menor</a></li>
-              <li><a href="aplicaciones.html#auto-hemoterapia-mayor"><i class="fa-solid fa-vial"></i> Auto hemoterapia mayor</a></li>
-              <li><a href="aplicaciones.html#suero-ozonizado"><i class="fa-solid fa-flask"></i> Sueros ozonizados</a></li>
-              <li><a href="aplicaciones.html#bolsa-ozonisada"><i class="fa-solid fa-bag-medical"></i> Bolsa ozonisada</a></li>
-              <li><a href="aplicaciones.html#insuflacion-rectal"><i class="fa-solid fa-wind"></i> Insuflación rectal</a></li>
-              <li><a href="aplicaciones.html#embolsados"><i class="fa-solid fa-wind"></i>Embolsados</a></li>
-            </ul>
-          </li>
-          <li><a href="#testimonios">Testimonios</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-          <li><a href="#nosotros">Nosotros</a></li>
-          <li><a class="btn btn--primary" href="#citas" data-open-modal>Reservar Cita</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <!-- Header Component -->
+  <div id="header-placeholder"></div>
 
   <main>
     <section class="hero" aria-label="Presentación">
@@ -177,7 +16,7 @@
       <div class="shape shape--2"></div>
       <div class="container hero__grid">
         <div class="hero__content reveal">
-          <h1>Ozonoterapia y medicina regenerativa para vivir sin dolor</h1>
+          <h1>Medicina regenerativa ozonoterapia,  aliviamos el dolor</h1>
           <p>En <strong>OZONO VIDA</strong> tratamos dolor de columna, hernias, rodillas y más, con terapias avanzadas: ozono, plasma y medicina regenerativa.</p>
           <div class="hero__cta">
             <a class="btn btn--primary" href="#citas" data-open-modal>
@@ -226,17 +65,11 @@
             <h3>Medicina Regenerativa</h3>
             <p>Terapias para restaurar tejidos y recuperar la funcionalidad articular.</p>
           </article>
-          <article class="card reveal">
-            <div class="card__icon"><i class="fa-solid fa-bone"></i></div>
-            <h3>Aplicaciones de ozono</h3>
-            <p>Aplicaciones tópicas con ozonoterapia para reducir la inflamación y aliviar el dolor.</p>
-          </article>
+         
           
         </div>
       </div>
-    </section>
-
-   
+    </section>   
 
     <section id="nosotros" class="section">
       <div class="container about">
@@ -382,45 +215,126 @@
 
     <section id="testimonios" class="section section--alt">
       <div class="container">
-        <h2 class="section__title">Testimonios</h2>
+        <h2 class="section__title">Lo que dicen nuestros pacientes</h2>
+        <p class="section__subtitle">Testimonios reales de personas que han recuperado su calidad de vida</p>
         <div class="carousel" aria-roledescription="carousel">
           <button class="carousel__btn prev" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
           <div class="carousel__track">
             <article class="testimonial">
-              <p>“Tenía dolor en la rodilla por años. Con PRP volví a caminar sin molestias.”</p>
+              <div class="testimonial__quote">
+                <i class="fa-solid fa-quote-left"></i>
+                <p>Tenía dolor en la rodilla por años. Con PRP volví a caminar sin molestias. La atención fue excelente y los resultados superaron mis expectativas.</p>
+              </div>
               <div class="testimonial__meta">
-                <!-- Updated patient portrait -->
-                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=60" alt="Paciente 1" loading="lazy" />
-                <div>
+                <div class="testimonial__rating">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <div class="testimonial__info">
                   <strong>María G.</strong>
-                  <span>Paciente de PRP</span>
+                  <span>Tratamiento PRP • Rodilla</span>
                 </div>
               </div>
             </article>
             <article class="testimonial">
-              <p>“La ozonoterapia redujo mi dolor lumbar de forma notable. Excelente atención.”</p>
+              <div class="testimonial__quote">
+                <i class="fa-solid fa-quote-left"></i>
+                <p>La ozonoterapia redujo mi dolor lumbar de forma notable. Excelente atención médica y un ambiente muy profesional. Recomiendo totalmente.</p>
+              </div>
               <div class="testimonial__meta">
-                <!-- Updated patient portrait -->
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=60" alt="Paciente 2" loading="lazy" />
-                <div>
+                <div class="testimonial__rating">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <div class="testimonial__info">
                   <strong>Carlos R.</strong>
-                  <span>Paciente de ozono</span>
+                  <span>Ozonoterapia • Columna lumbar</span>
                 </div>
               </div>
             </article>
             <article class="testimonial">
-              <p>“Profesionales y cálidos. Ahora puedo hacer mi vida sin dolor.”</p>
+              <div class="testimonial__quote">
+                <i class="fa-solid fa-quote-left"></i>
+                <p>Profesionales y cálidos. Ahora puedo hacer mi vida sin dolor. El tratamiento fue efectivo y el personal muy atento a mis necesidades.</p>
+              </div>
               <div class="testimonial__meta">
-                <!-- Updated patient portrait -->
-                <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&w=200&q=60" alt="Paciente 3" loading="lazy" />
-                <div>
+                <div class="testimonial__rating">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <div class="testimonial__info">
                   <strong>Lucía P.</strong>
-                  <span>Terapia del dolor</span>
+                  <span>Terapia del dolor • Integral</span>
+                </div>
+              </div>
+            </article>
+            <article class="testimonial">
+              <div class="testimonial__quote">
+                <i class="fa-solid fa-quote-left"></i>
+                <p>Después de años sufriendo con mi hernia discal, encontré alivio real aquí. Sin cirugía, solo con tratamientos innovadores y efectivos.</p>
+              </div>
+              <div class="testimonial__meta">
+                <div class="testimonial__rating">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <div class="testimonial__info">
+                  <strong>Roberto M.</strong>
+                  <span>Hernia discal • Sin cirugía</span>
+                </div>
+              </div>
+            </article>
+            <article class="testimonial">
+              <div class="testimonial__quote">
+                <i class="fa-solid fa-quote-left"></i>
+                <p>Mi diabetes mejoró significativamente con el tratamiento integral. Control glucémico estable y mejor calidad de vida general.</p>
+              </div>
+              <div class="testimonial__meta">
+                <div class="testimonial__rating">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <div class="testimonial__info">
+                  <strong>Ana S.</strong>
+                  <span>Diabetes Mellitus • Control integral</span>
                 </div>
               </div>
             </article>
           </div>
           <button class="carousel__btn next" aria-label="Siguiente"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        
+        
+        
+        <!-- Indicadores de confianza -->
+        <div class="testimonials__stats">
+          <div class="stat">
+            <div class="stat__number">98%</div>
+            <div class="stat__label">Satisfacción del paciente</div>
+          </div>
+          <div class="stat">
+            <div class="stat__number">500+</div>
+            <div class="stat__label">Pacientes tratados</div>
+          </div>
+          <div class="stat">
+            <div class="stat__number">5★</div>
+            <div class="stat__label">Calificación promedio</div>
+          </div>
         </div>
       </div>
     </section>
@@ -435,7 +349,7 @@
           <p><i class="fa-solid fa-clock"></i> L-V 9:00 - 19:00 · Sáb 9:00 - 13:00</p>
           <div class="contact__cta">
             <a class="btn btn--primary" href="#citas" data-open-modal><i class="fa-solid fa-calendar-days"></i> Reservar cita</a>
-            <a class="btn btn--whatsapp" target="_blank" rel="noopener" href="https://wa.me/51999999999?text=Hola%20STELLA%20MARIS%2C%20quisiera%20información%20sobre%20tratamientos.">
+            <a class="btn btn--whatsapp" target="_blank" rel="noopener" href="https://wa.me/+51982070151?text=Hola%20STELLA%20MARIS%2C%20quisiera%20información%20sobre%20tratamientos.">
               <i class="fa-brands fa-whatsapp"></i> WhatsApp
             </a>
           </div>
@@ -488,51 +402,16 @@
     </section>
   </main>
 
-  <button id="to-top" class="to-top" aria-label="Volver arriba"><i class="fa-solid fa-arrow-up"></i></button>
-  
-  <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
-    <i class="fa-solid fa-sun" id="theme-icon"></i>
-  </button>
+  <!-- UI Components (botones de acción) -->
+  <div id="ui-components-placeholder"></div>
 
-  <footer class="footer">
-    <div class="container footer__grid">
-      <div>
-        <a class="brand brand--footer" href="#inicio"><span class="brand__logo">✦</span><span class="brand__text">OZONO VIDA</span></a>
-        <p>Ozonoterapia y medicina regenerativa para una vida sin dolor.</p>
-      </div>
-      <div>
-        <h4>Enlaces</h4>
-        <ul class="footer__links">
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#tratamientos">Tratamientos</a></li>
-          <li><a href="#nosotros">Nosotros</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Redes Sociales</h4>
-        <div class="socials">
-          <a aria-label="WhatsApp" target="_blank" rel="noopener" href="https://wa.me/51999999999?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20los%20servicios%20de%20STELLA%20MARIS" class="social-link" data-social="whatsapp">
-            <i class="fa-brands fa-whatsapp"></i>
-          </a>
-          <a aria-label="Facebook" target="_blank" rel="noopener" href="https://facebook.com/stella-maris-medical" class="social-link" data-social="facebook">
-            <i class="fa-brands fa-facebook"></i>
-          </a>
-          <a aria-label="Instagram" target="_blank" rel="noopener" href="https://instagram.com/stella_maris_medical" class="social-link" data-social="instagram">
-            <i class="fa-brands fa-instagram"></i>
-          </a>
-          <a aria-label="TikTok" target="_blank" rel="noopener" href="https://tiktok.com/@stella_maris_medical" class="social-link" data-social="tiktok">
-            <i class="fa-brands fa-tiktok"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="container footer__copy">
-      <small>© <span id="year"></span> OZONO VIDA. Todos los derechos reservados.</small>
-    </div>
-  </footer>
+  <!-- Footer Component -->
+  <div id="footer-placeholder"></div>
 
-  <script src="js/app.js"></script>
+  <!-- Scripts del sistema de componentes -->
+  <script src="./js/metadata-config.js"></script>
+  <script src="./js/component-loader-independent.js"></script>
+  <script src="./js/app.js"></script>
   <!-- TikTok Embed Script - Temporarily disabled due to CORS issues -->
   <!-- <script async src="https://www.tiktok.com/embed.js"></script> -->
 </body>

@@ -1,108 +1,14 @@
-<!DOCTYPE html>
-<html lang="es">
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="light">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ginecología - OZONO VIDA</title>
-  <meta name="description" content="Atención ginecológica especializada con ozonoterapia y medicina regenerativa. Tratamientos para mujeres en OZONO VIDA." />
-
-  <link rel="icon" href="assets/favicon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-MW2fVb6mVdJr8q1bVb4V5s5kAqv8T4kq3bq8v2z1CkJdYVj3m1JZpQfT8tqv2m+q2t1pQ1yQm6Lwzq7x8JvQw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <!-- Head Component será cargado dinámicamente -->
+  <div id="head-placeholder"></div>
 </head>
 <body>
   <a href="#inicio" class="skip-link">Saltar al contenido</a>
 
-  <header id="inicio" class="header">
-    <div class="container header__inner">
-      <a class="brand" href="index.html" aria-label="OZONO VIDA inicio">
-        <span class="brand__logo" aria-hidden="true">✦</span>
-        <span class="brand__text">OZONO VIDA</span>
-      </a>
-      <nav class="nav" aria-label="Principal">
-        <button class="nav__toggle" aria-expanded="false" aria-controls="menu"><i class="fa-solid fa-bars"></i></button>
-        <ul id="menu" class="nav__links">
-          <li><a href="index.html#servicios">Servicios</a></li>
-          <li class="dropdown">
-            <a href="index.html#tratamientos" class="dropdown__trigger">
-              Tratamientos <i class="fa-solid fa-chevron-down"></i>
-            </a>
-            <ul class="dropdown__menu">
-              <li class="dropdown__item dropdown__item--has-submenu">
-                <a href="tratamiento-dolor.html" class="dropdown__link">
-                  Tratamiento de Dolor <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <ul class="dropdown__submenu">
-                  <li><a href="tratamiento-dolor.html#hernias-discales">Hernias Discales</a></li>
-                  <li><a href="tratamiento-dolor.html#lumbalgia">Lumbalgia</a></li>
-                  <li><a href="tratamiento-dolor.html#artrosis">Artrosis</a></li>
-                  <li><a href="tratamiento-dolor.html#artritis">Artritis</a></li>
-                  <li><a href="tratamiento-dolor.html#tendinitis">Tendinitis</a></li>
-                  <li><a href="tratamiento-dolor.html#fibromialgia">Fibromialgia</a></li>
-                </ul>
-              </li>
-              <li class="dropdown__item dropdown__item--has-submenu">
-                <a href="tratamiento-enfermedades.html" class="dropdown__link">
-                  Tratamiento de Enfermedades <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <ul class="dropdown__submenu">
-                  <li><a href="tratamiento-enfermedades.html#diabetes">Diabetes Mellitus</a></li>
-                  <li><a href="tratamiento-enfermedades.html#insuficiencia-vascular">Insuficiencia Vascular</a></li>
-                  <li><a href="tratamiento-enfermedades.html#hepatitis">Hepatitis Crónica</a></li>
-                  <li><a href="tratamiento-enfermedades.html#colitis">Colitis Ulcerosa</a></li>
-                  <li><a href="tratamiento-enfermedades.html#autoinmunes">Enfermedades Autoinmunes</a></li>
-                  <li><a href="tratamiento-enfermedades.html#varices">Varices</a></li>
-                  <li><a href="tratamiento-enfermedades.html#hiperplasia">Hiperplasia Prostática</a></li>
-                  <li><a href="tratamiento-enfermedades.html#gota">Gota</a></li>
-                  <li><a href="tratamiento-enfermedades.html#gastritis">Gastritis</a></li>
-                </ul>
-              </li>
-              <li class="dropdown__item dropdown__item--has-submenu">
-                <a href="estetica.html" class="dropdown__link">
-                  Estética <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <ul class="dropdown__submenu">
-                  <li><a href="estetica.html#rejuvenecimiento-facial">Rejuvenecimiento Facial</a></li>
-                  <li><a href="estetica.html#celulitis">Celulitis</a></li>
-                  <li><a href="estetica.html#ulceras-cronicas">Úlceras Crónicas y Varicosas</a></li>
-                  <li><a href="estetica.html#acne">Acné</a></li>
-                </ul>
-              </li>
-              <li class="dropdown__item dropdown__item--has-submenu">
-                <a href="infecciones.html" class="dropdown__link">
-                  Infecciones <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <ul class="dropdown__submenu">
-                  <li><a href="infecciones.html#heridas-infectadas">Heridas Infectadas</a></li>
-                  <li><a href="infecciones.html#pie-diabetico">Pie Diabético</a></li>
-                  <li><a href="infecciones.html#ulceras-varicosas">Úlceras Varicosas</a></li>
-                </ul>
-              </li>
-              <li class="dropdown__item dropdown__item--has-submenu">
-                <a href="ginecologia.html" class="dropdown__link">
-                  Ginecología <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <ul class="dropdown__submenu">
-                  <li><a href="ginecologia.html#candidiasis">Candidiasis</a></li>
-                  <li><a href="ginecologia.html#vaginitis">Vaginitis</a></li>
-                  <li><a href="ginecologia.html#vph">Virus de Papiloma Humano</a></li>
-                  <li><a href="ginecologia.html#endometriosis">Endometriosis</a></li>
-                  <li><a href="ginecologia.html#post-cesarea">Post Cesárea</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li><a href="index.html#nosotros">Nosotros</a></li>
-          <li><a href="index.html#testimonios">Testimonios</a></li>
-          <li><a href="index.html#contacto">Contacto</a></li>
-          <li><a class="btn btn--primary" href="index.html#citas" data-open-modal>Reservar Cita</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <!-- Header Component -->
+  <div id="header-placeholder"></div>
 
   <main>
     <section class="hero" aria-label="Ginecología">
@@ -113,7 +19,7 @@
           <h1>Ginecología Especializada</h1>
           <p>En <strong>OZONO VIDA</strong> ofrecemos atención ginecológica integral con ozonoterapia y medicina regenerativa para el bienestar y salud de la mujer en todas las etapas de la vida.</p>
           <div class="hero__cta">
-            <a class="btn btn--primary" href="index.html#citas" data-open-modal>
+            <a class="btn btn--primary" href="../../index.html#citas" data-open-modal>
               <i class="fa-solid fa-calendar-check"></i> Consulta ginecológica
             </a>
             <a class="btn btn--ghost" href="#servicios">
@@ -318,7 +224,7 @@
           <h2 class="section__title">¿Necesitas atención ginecológica?</h2>
           <p>En OZONO VIDA entendemos las necesidades específicas de la mujer. Ofrecemos un ambiente seguro y profesional para tu salud ginecológica.</p>
           <div class="contact__cta">
-            <a class="btn btn--primary" href="index.html#citas" data-open-modal><i class="fa-solid fa-calendar-days"></i> Consulta ginecológica</a>
+            <a class="btn btn--primary" href="../../index.html#citas" data-open-modal><i class="fa-solid fa-calendar-days"></i> Consulta ginecológica</a>
             <a class="btn btn--whatsapp" target="_blank" rel="noopener" href="https://wa.me/51999999999?text=Hola%20STELLA%20MARIS%2C%20quisiera%20información%20sobre%20consulta%20ginecológica.">
               <i class="fa-brands fa-whatsapp"></i> WhatsApp
             </a>
@@ -328,37 +234,17 @@
     </section>
   </main>
 
-  <button id="to-top" class="to-top" aria-label="Volver arriba"><i class="fa-solid fa-arrow-up"></i></button>
+  <!-- UI Components (botones de acción) -->
+  <div id="ui-components-placeholder"></div>
 
-  <footer class="footer">
-    <div class="container footer__grid">
-      <div>
-        <a class="brand brand--footer" href="index.html"><span class="brand__logo">✦</span><span class="brand__text">OZONO VIDA</span></a>
-        <p>Ginecología especializada con medicina regenerativa y ozonoterapia.</p>
-      </div>
-      <div>
-        <h4>Enlaces</h4>
-        <ul class="footer__links">
-          <li><a href="index.html#servicios">Servicios</a></li>
-          <li><a href="index.html#tratamientos">Tratamientos</a></li>
-          <li><a href="index.html#nosotros">Nosotros</a></li>
-          <li><a href="index.html#contacto">Contacto</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Redes</h4>
-        <div class="socials">
-          <a aria-label="WhatsApp" target="_blank" rel="noopener" href="https://wa.me/51999999999"><i class="fa-brands fa-whatsapp"></i></a>
-          <a aria-label="Facebook" target="_blank" rel="noopener" href="#"><i class="fa-brands fa-facebook"></i></a>
-          <a aria-label="Instagram" target="_blank" rel="noopener" href="#"><i class="fa-brands fa-instagram"></i></a>
-        </div>
-      </div>
-    </div>
-    <div class="container footer__copy">
-      <small>© <span id="year"></span> OZONO VIDA. Todos los derechos reservados.</small>
-    </div>
-  </footer>
+  <!-- Footer Component -->
+  <div id="footer-placeholder"></div>
 
-  <script src="js/app.js"></script>
+  <!-- Scripts del sistema de componentes -->
+  <script src="../../../js/metadata-config.js"></script>
+  <script src="../../../js/component-loader-independent.js"></script>
+  <script src="../../../js/app.js"></script>
 </body>
 </html>
+
+

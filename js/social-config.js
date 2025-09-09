@@ -3,7 +3,7 @@
 
 const SOCIAL_CONFIG = {
   // Tu número de WhatsApp (formato internacional sin +)
-  whatsappNumber: '51999999999', // Cambia por tu número real
+  whatsappNumber: '51988126804', // Cambia por tu número real
   
   // Tus perfiles de redes sociales
   facebook: 'https://facebook.com/stella-maris-medical', // Cambia por tu perfil real
