@@ -348,17 +348,20 @@ class OptimizedComponentLoader {
     } else if (this.basePath === "../") {
       // Una carpeta de profundidad - ajustar rutas relativas
       return processedContent
-        .replace(/href="\.\.\/pages\//g, 'href="../pages/')
+        .replace(/href="\.\.\/tratamientos\//g, 'href="../tratamientos/')
+        .replace(/href="\.\.\/aplicaciones\//g, 'href="../aplicaciones/')
         .replace(/href="\.\.\/index\.html/g, 'href="../index.html');
     } else if (this.basePath === "../../") {
       // Dos carpetas de profundidad
       return processedContent
-        .replace(/href="\.\.\/pages\//g, 'href="../../pages/')
+        .replace(/href="\.\.\/tratamientos\//g, 'href="../../tratamientos/')
+        .replace(/href="\.\.\/aplicaciones\//g, 'href="../../aplicaciones/')
         .replace(/href="\.\.\/index\.html/g, 'href="../../index.html');
     } else if (this.basePath === "../../../") {
       // Tres carpetas de profundidad
       return processedContent
-        .replace(/href="\.\.\/pages\//g, 'href="../../../pages/')
+        .replace(/href="\.\.\/tratamientos\//g, 'href="../../../tratamientos/')
+        .replace(/href="\.\.\/aplicaciones\//g, 'href="../../../aplicaciones/')
         .replace(/href="\.\.\/index\.html/g, 'href="../../../index.html');
     }
 
