@@ -1,121 +1,156 @@
-# OZONO VIDA - Estructura del Proyecto
+# OZONO VIDA - Sitio Web Médico
 
-## 📁 Nueva Estructura Jerárquica Basada en Menú
+Sitio web profesional para OZONO VIDA, centro médico especializado en ozonoterapia y medicina regenerativa.
 
-```
-STELLA MARIS/
-├── index.html                    # Página principal
-├── components/                   # Componentes reutilizables
-│   ├── header.html              # Header completo reutilizable
-│   ├── footer.html              # Footer completo reutilizable
-│   └── page-template.html       # Template base para páginas
-├── css/
-│   └── styles.css              # Estilos principales
-├── js/
-│   ├── app.js                  # JavaScript principal
-│   └── social-config.js        # Configuración de redes sociales
-├── assets/                      # Recursos estáticos
-│   └── README.txt
-└── pages/                       # Páginas organizadas por niveles de menú
-    ├── tratamientos/            # Nivel 1: Tratamientos
-    │   ├── dolor/              # Nivel 2: Tratamiento de Dolor
-    │   │   ├── index.html      # Página principal de dolor
-    │   │   ├── hernias-discales.html
-    │   │   ├── lumbalgia.html
-    │   │   ├── cervicalgia.html
-    │   │   ├── artrosis.html
-    │   │   ├── artritis.html
-    │   │   ├── tendinitis.html
-    │   │   └── fibromialgia.html
-    │   ├── enfermedades/        # Nivel 2: Tratamiento de Enfermedades
-    │   │   ├── index.html      # Página principal de enfermedades
-    │   │   ├── diabetes.html
-    │   │   ├── hepatitis.html
-    │   │   ├── colitis.html
-    │   │   └── ...
-    │   ├── estetica/           # Nivel 2: Estética
-    │   │   ├── index.html      # Página principal de estética
-    │   │   ├── rejuvenecimiento-facial.html
-    │   │   ├── celulitis.html
-    │   │   └── ...
-    │   ├── infecciones/        # Nivel 2: Infecciones
-    │   │   ├── index.html      # Página principal de infecciones
-    │   │   ├── heridas-infectadas.html
-    │   │   └── ...
-    │   └── ginecologia/        # Nivel 2: Ginecología
-    │       ├── index.html      # Página principal de ginecología
-    │       ├── candidiasis.html
-    │       └── ...
-    └── aplicaciones/           # Nivel 1: Aplicaciones
-        ├── index.html          # Página principal de aplicaciones
-        ├── intramuscular/       # Nivel 2: Intramuscular
-        │   └── index.html
-        ├── intra-articular/     # Nivel 2: Intra articular
-        │   └── index.html
-        ├── auto-hemoterapia-menor/  # Nivel 2: Auto hemoterapia menor
-        │   └── index.html
-        ├── auto-hemoterapia-mayor/  # Nivel 2: Auto hemoterapia mayor
-        │   └── index.html
-        ├── sueros-ozonizados/   # Nivel 2: Sueros ozonizados
-        │   └── index.html
-        ├── bolsa-ozonisada/     # Nivel 2: Bolsa ozonisada
-        │   └── index.html
-        ├── insuflacion-rectal/  # Nivel 2: Insuflación rectal
-        │   └── index.html
-        └── embolsados/          # Nivel 2: Embolsados
-            └── index.html
+## 🚀 Inicio Rápido
+
+### Requisitos
+
+- Node.js (para scripts de automatización)
+- Servidor web local (Python, Node.js, etc.)
+
+### Instalación
+
+```bash
+# Clonar el repositorio
+git clone [url-del-repositorio]
+cd ozonovida
+
+# Servir localmente
+python -m http.server 8000
+# o
+npx serve .
 ```
 
-## 🎯 Beneficios de la Nueva Estructura
+## 📁 Estructura del Proyecto
 
-### ✅ **Organización Jerárquica**
-- **Estructura basada en menú**: Cada nivel del menú tiene su propia carpeta
-- **Navegación intuitiva**: URLs que reflejan la estructura del menú
-- **Escalabilidad**: Fácil adición de nuevos niveles y subcategorías
+```
+ozonovida/
+├── 📁 css/                    # Estilos CSS
+│   ├── styles.css            # Estilos principales
+│   └── critical.css          # CSS crítico
+├── 📁 js/                     # Scripts JavaScript
+│   ├── app.js                # Aplicación principal
+│   ├── metadata-config.js    # Configuración de metadata
+│   ├── component-loader.js   # Cargador de componentes
+│   └── optimized-component-loader.js # Cargador optimizado
+├── 📁 components/             # Componentes reutilizables
+│   ├── head.html             # Head dinámico
+│   ├── header.html           # Navegación
+│   ├── footer.html           # Pie de página
+│   └── ui-components.html    # Botones de acción
+├── 📁 pages/                  # Páginas principales
+│   └── tratamientos/         # Páginas de tratamientos
+├── 📁 tratamientos/          # Páginas específicas de tratamientos
+├── 📁 aplicaciones/          # Páginas de aplicaciones
+├── 📁 assets/                # Recursos estáticos
+├── 📁 scripts/               # Scripts de automatización
+│   ├── README.md             # Documentación de scripts
+│   ├── generate-optimized-pages.js    # Generador de páginas
+│   └── update-all-html-files.js       # Actualizador masivo
+├── 📁 docs/                  # Documentación técnica
+│   ├── README.md             # Documentación principal
+│   ├── SYSTEM_STATUS.md      # Estado del sistema
+│   ├── TROUBLESHOOTING.md    # Solución de problemas
+│   ├── COMPONENT_SYSTEM.md   # Sistema de componentes
+│   └── *.md                  # Otra documentación
+├── run-script.js             # Script de conveniencia
+└── index.html                # Página principal
+```
 
-### ✅ **Componentes Reutilizables**
-- **Header unificado**: Un solo archivo `components/header.html` para todas las páginas
-- **Footer consistente**: Un solo archivo `components/footer.html` para todas las páginas
-- **Template base**: `components/page-template.html` para crear nuevas páginas
-- **Mantenimiento simplificado**: Cambios en un solo lugar se aplican a todas las páginas
+## 🛠️ Scripts de Automatización
 
-### ✅ **URLs Descriptivas**
-- **Estructura clara**: `/pages/tratamientos/dolor/index.html`
-- **SEO mejorado**: URLs que describen el contenido
-- **Navegación lógica**: Fácil de entender para usuarios y motores de búsqueda
+### Opción 1: Script de Conveniencia (Recomendado)
 
-### ✅ **Desarrollo Eficiente**
-- **Menos duplicación**: Componentes compartidos reducen código repetitivo
-- **Mantenimiento centralizado**: Cambios de navegación en un solo archivo
-- **Estructura predecible**: Patrón consistente para todas las páginas
+```bash
+# Generar páginas optimizadas
+node run-script.js generate
 
-## 🔗 Sistema de Enlaces
+# Actualizar archivos HTML existentes
+node run-script.js update
 
-### **Rutas Relativas**
-- **Profundidad 2**: `../../` para acceder a recursos desde subcarpetas
-- **Navegación interna**: Enlaces relativos entre páginas del mismo nivel
-- **Consistencia**: Mismo patrón de enlaces en toda la estructura
+# Ver ayuda
+node run-script.js help
+```
 
-### **Componentes Dinámicos**
-- **Carga automática**: JavaScript carga header y footer automáticamente
-- **Actualización centralizada**: Cambios en componentes se reflejan en todas las páginas
-- **Mantenimiento simplificado**: Un solo lugar para actualizar navegación
+### Opción 2: Ejecución Directa
 
-## 📋 Próximos Pasos
+```bash
+# Generar páginas optimizadas
+cd scripts
+node generate-optimized-pages.js
 
-1. **Crear páginas faltantes**: Completar todas las páginas de aplicaciones
-2. **Implementar componentes**: Usar el sistema de componentes en todas las páginas
-3. **Optimizar enlaces**: Asegurar que todos los enlaces funcionen correctamente
-4. **Testing**: Probar navegación en todas las páginas
+# Actualizar archivos HTML existentes
+cd scripts
+node update-all-html-files.js
+```
 
-## 🚀 Deployment
+### Documentación de Scripts
 
-Esta estructura es compatible con:
-- **Servidores web estáticos** (Apache, Nginx)
-- **CDNs** y servicios de hosting
-- **Plataformas de deployment** (Netlify, Vercel, GitHub Pages)
-- **Sistemas de componentes** (para futuras migraciones)
+Ver `scripts/README.md` para documentación detallada de los scripts.
+
+## 🎯 Características Principales
+
+- ✅ **CSS Crítico Inline** - Elimina FOUC (Flash of Unstyled Content)
+- ✅ **Carga Paralela** - Componentes cargan simultáneamente
+- ✅ **Preload Optimizado** - Recursos críticos precargados
+- ✅ **Sistema de Componentes** - Arquitectura modular
+- ✅ **Responsive Design** - Adaptable a todos los dispositivos
+- ✅ **SEO Optimizado** - Metadata dinámica y structured data
+- ✅ **Tema Claro/Oscuro** - Cambio de tema persistente
+
+## 📱 Páginas Disponibles
+
+- **Inicio** (`index.html`) - Página principal
+- **Tratamientos** (`pages/tratamientos/`) - Tratamientos médicos
+- **Ginecología** (`tratamientos/ginecologia/`) - Tratamientos ginecológicos
+- **Aplicaciones** (`aplicaciones/`) - Aplicaciones de ozonoterapia
+
+## 🔧 Desarrollo
+
+### Agregar Nueva Página
+
+1. Crear archivo HTML en la carpeta correspondiente
+2. Usar el template de componentes:
+   ```html
+   <div id="header-placeholder"></div>
+   <div id="footer-placeholder"></div>
+   <div id="ui-components-placeholder"></div>
+   ```
+3. Ejecutar script de actualización
+
+### Modificar Componentes
+
+- **Header:** `components/header.html`
+- **Footer:** `components/footer.html`
+- **UI Components:** `components/ui-components.html`
+
+## 📚 Documentación
+
+Ver carpeta `docs/` para documentación técnica detallada:
+
+- `SYSTEM_STATUS.md` - Estado actual del sistema
+- `TROUBLESHOOTING.md` - Guía de solución de problemas
+- `COMPONENT_SYSTEM.md` - Sistema de componentes
+- `RESPONSIVE_IMPROVEMENTS.md` - Mejoras responsivas
+
+## 🌐 Despliegue
+
+El sitio es estático y puede desplegarse en cualquier servidor web:
+
+- GitHub Pages
+- Netlify
+- Vercel
+- Servidor tradicional
+
+## 📞 Contacto
+
+**OZONO VIDA Centro Médico**
+
+- 📍 Av. Villón, frente a la Dirección Víctor Ramos Guardia
+- 📱 +51 999 999 999
+- 🌐 [Sitio Web](https://stella-maris.example)
 
 ---
 
-*Estructura creada siguiendo principios de organización jerárquica y componentes reutilizables para máxima eficiencia de desarrollo y mantenimiento.*
+_Desarrollado con tecnologías web modernas para una experiencia óptima del usuario._

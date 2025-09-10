@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- CSS Crítico -->
+  <link rel="stylesheet" href="{{BASE_PATH}}css/critical.css" />
+  
+
+  <!-- Preload de recursos críticos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  
+  <!-- Preload del CSS principal -->
+  <link rel="preload" href="{{BASE_PATH}}css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="{{BASE_PATH}}css/styles.css" /></noscript>
+  
+  <!-- Preload de Font Awesome -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /></noscript>
+  
+  <!-- Preload de Google Fonts -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" /></noscript>
+
+  <!-- Metadata dinámica -->
+  <title data-page-title>{{PAGE_TITLE}} • OZONO VIDA</title>
+  <meta name="description" content="{{PAGE_DESCRIPTION}}" />
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="{{PAGE_TITLE}} • OZONO VIDA" />
+  <meta property="og:description" content="{{PAGE_DESCRIPTION}}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{PAGE_URL}}" />
+  <meta property="og:image" content="{{PAGE_IMAGE}}" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{PAGE_TITLE}} • OZONO VIDA" />
+  <meta name="twitter:description" content="{{PAGE_DESCRIPTION}}" />
+  <meta name="twitter:image" content="{{PAGE_IMAGE}}" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="{{PAGE_URL}}" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="{{BASE_PATH}}assets/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="{{BASE_PATH}}assets/favicon.ico" type="image/x-icon" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "name": "OZONO VIDA Centro Médico",
+    "description": "{{PAGE_DESCRIPTION}}",
+    "image": "{{PAGE_IMAGE}}",
+    "url": "{{PAGE_URL}}",
+    "telephone": "+51 999 999 999",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Villón, frente a la Dirección Víctor Ramos Guardia",
+      "addressLocality": "Huaraz",
+      "addressRegion": "Ancash",
+      "addressCountry": "PE"
+    },
+    "medicalSpecialty": ["PainManagement", "RegenerativeMedicine"],
+    "openingHours": "Mo-Fr 09:00-19:00, Sa 09:00-13:00",
+    "priceRange": "$$"
+  }
+  </script>
+  <!-- CSS Crítico -->
+  <link rel="stylesheet" href="../css/critical.css" />
+  
+</head>
+<body>
+  <a href="#inicio" class="skip-link">Saltar al contenido</a>
+
+  <!-- Header Component -->
+  <div id="header-placeholder"></div>
+
+  <main>
+    {{MAIN_CONTENT}}
+  </main>
+
+  <!-- UI Components (botones de acción) -->
+  <div id="ui-components-placeholder"></div>
+
+  <!-- Footer Component -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Scripts del sistema de componentes - Carga optimizada -->
+  <script>
+    // Script crítico inline para evitar bloqueo
+    window.addEventListener('DOMContentLoaded', function() {
+      // Marcar como cargado para evitar FOUC
+      document.body.classList.remove('loading');
+      document.body.classList.add('loaded');
+    });
+  </script>
+  
+  <!-- Scripts principales con defer para no bloquear -->
+  <script src="{{BASE_PATH}}js/metadata-config.js" defer></script>
+  <script src="{{BASE_PATH}}js/component-loader-independent.js" defer></script>
+  <script src="{{BASE_PATH}}js/app.js" defer></script>
+</body>
+</html>

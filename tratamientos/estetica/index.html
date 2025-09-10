@@ -1,8 +1,79 @@
 ﻿<!DOCTYPE html>
 <html lang="es" data-theme="light">
 <head>
-  <!-- Head Component será cargado dinámicamente -->
-  <div id="head-placeholder"></div>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- CSS Crítico -->
+  <link rel="stylesheet" href="../../../css/critical.css" />
+  
+
+  <!-- Preload de recursos críticos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  
+  <!-- Preload del CSS principal -->
+  <link rel="preload" href="../../../css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="../../../css/styles.css" /></noscript>
+  
+  <!-- Preload de Font Awesome -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /></noscript>
+  
+  <!-- Preload de Google Fonts -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" /></noscript>
+
+  <!-- Metadata dinámica -->
+  <title data-page-title>Estética Médica • OZONO VIDA</title>
+  <meta name="description" content="Estética médica avanzada con medicina regenerativa y ozonoterapia para rejuvenecimiento facial, celulitis, úlceras crónicas y acné." />
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Estética Médica • OZONO VIDA" />
+  <meta property="og:description" content="Estética médica avanzada con medicina regenerativa y ozonoterapia para rejuvenecimiento facial, celulitis, úlceras crónicas y acné." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://stella-maris.example/tratamientos/estetica" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=1200&q=80" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Estética Médica • OZONO VIDA" />
+  <meta name="twitter:description" content="Estética médica avanzada con medicina regenerativa y ozonoterapia para rejuvenecimiento facial, celulitis, úlceras crónicas y acné." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=1200&q=80" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://stella-maris.example/tratamientos/estetica" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="../../../assets/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="../../../assets/favicon.ico" type="image/x-icon" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "name": "OZONO VIDA Centro Médico",
+    "description": "Estética médica avanzada con medicina regenerativa y ozonoterapia para rejuvenecimiento facial, celulitis, úlceras crónicas y acné.",
+    "image": "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=1200&q=80",
+    "url": "https://stella-maris.example/tratamientos/estetica",
+    "telephone": "+51 999 999 999",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Villón, frente a la Dirección Víctor Ramos Guardia",
+      "addressLocality": "Huaraz",
+      "addressRegion": "Ancash",
+      "addressCountry": "PE"
+    },
+    "medicalSpecialty": ["PainManagement", "RegenerativeMedicine"],
+    "openingHours": "Mo-Fr 09:00-19:00, Sa 09:00-13:00",
+    "priceRange": "$$"
+  }
+  </script>
+  <!-- CSS Crítico -->
+  <link rel="stylesheet" href="../../css/critical.css" />
+  
 </head>
 <body>
   <a href="#inicio" class="skip-link">Saltar al contenido</a>
@@ -196,7 +267,7 @@
           <p>Descubre cómo la medicina regenerativa puede ayudarte a lucir más joven y radiante de forma natural y segura.</p>
           <div class="contact__cta">
             <a class="btn btn--primary" href="../../index.html#citas" data-open-modal><i class="fa-solid fa-calendar-days"></i> Consulta estética</a>
-            <a class="btn btn--whatsapp" target="_blank" rel="noopener" href="https://wa.me/51982070151?text=Hola%20STELLA%20MARIS%2C%20quisiera%20información%20sobre%20tratamientos%20estéticos.">
+            <a class="btn btn--whatsapp" target="_blank" rel="noopener" href="https://wa.me/51982070151?data-whatsapp-message">
               <i class="fa-brands fa-whatsapp"></i> WhatsApp
             </a>
           </div>
@@ -211,10 +282,21 @@
   <!-- Footer Component -->
   <div id="footer-placeholder"></div>
 
-  <!-- Scripts del sistema de componentes -->
-  <script src="../../../js/metadata-config.js"></script>
-  <script src="../../../js/component-loader-independent.js"></script>
-  <script src="../../../js/app.js"></script>
+  <!-- Scripts del sistema de componentes - Carga optimizada -->
+  <script>
+    // Script crítico inline para evitar bloqueo
+    window.addEventListener('DOMContentLoaded', function() {
+      // Marcar como cargado para evitar FOUC
+      document.body.classList.remove('loading');
+      document.body.classList.add('loaded');
+    });
+  </script>
+  
+  <!-- Scripts principales con defer para no bloquear -->
+  <script src="../../../js/metadata-config.js" defer></script>
+  <script src="../../js/social-config.js" defer></script>
+  <script src="../../../js/optimized-component-loader.js" defer></script>
+  <script src="../../../js/app.js" defer></script>
 </body>
 </html>
 

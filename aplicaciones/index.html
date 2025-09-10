@@ -312,7 +312,7 @@
           <p>Contáctanos para más información sobre nuestros tratamientos de ozonoterapia y la aplicación más adecuada para tu condición.</p>
           <div class="contact__cta">
             <a class="btn btn--primary" href="../../index.html#citas" data-open-modal><i class="fa-solid fa-calendar-days"></i> Consulta especializada</a>
-            <a class="btn btn--whatsapp" target="_blank" rel="noopener" href="https://wa.me/51999999999?text=Hola%20STELLA%20MARIS%2C%20quisiera%20información%20sobre%20aplicaciones%20de%20ozonoterapia.">
+            <a class="btn btn--whatsapp" target="_blank" rel="noopener" href="https://wa.me/51999999999?data-whatsapp-message">
               <i class="fa-brands fa-whatsapp"></i> WhatsApp
             </a>
           </div>
@@ -328,8 +328,10 @@
   <div id="footer-placeholder"></div>
 
   <!-- Scripts del sistema de componentes -->
-  <script src="../../js/metadata-config.js"></script>
-  <script src="../../js/component-loader-independent.js"></script>
-  <script src="../../js/app.js"></script>
+  <!-- Scripts principales con defer para no bloquear -->
+  <script src="../js/metadata-config.js" defer></script>
+  <script src="../js/social-config.js" defer></script>
+  <script src="../js/optimized-component-loader.js" defer></script>
+  <script src="../js/app.js" defer></script>
 </body>
 </html>

@@ -1,8 +1,9 @@
-// Component Loader - Sistema de componentes dinámicos (Versión Independiente)
-class ComponentLoader {
+// Component Loader Optimizado - Sistema de componentes dinámicos (Versión Optimizada)
+class OptimizedComponentLoader {
   constructor() {
     this.basePath = this.getBasePath();
     this.metadata = getPageMetadata();
+    this.loadedComponents = new Set();
     this.init();
   }
 
@@ -22,115 +23,164 @@ class ComponentLoader {
     }
   }
 
-  // Inicializar el sistema
+  // Inicializar el sistema con carga paralela
   async init() {
-    await this.loadHeadComponent();
-    await this.loadHeaderComponent();
-    await this.loadFooterComponent();
-    await this.loadUIComponents();
-    this.updatePageTitle();
-  }
+    // Marcar página como cargando
+    document.body.classList.add("loading");
 
-  // Cargar componente head con metadata dinámica
-  async loadHeadComponent() {
     try {
-      const response = await fetch(`${this.basePath}components/head.html`);
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const headContent = await response.text();
+      // Cargar componentes en paralelo para mejor rendimiento
+      const componentPromises = [
+        this.loadHeadComponent(),
+        this.loadHeaderComponent(),
+        this.loadFooterComponent(),
+        this.loadUIComponents(),
+      ];
 
-      // Reemplazar placeholders con datos reales
-      const processedContent = this.processTemplate(headContent);
+      // Esperar a que todos los componentes se carguen
+      await Promise.all(componentPromises);
 
-      // Insertar en el head del documento
-      const headElement = document.head;
-      const tempDiv = document.createElement("div");
-      tempDiv.innerHTML = processedContent;
+      // Actualizar título después de cargar todo
+      this.updatePageTitle();
 
-      // Mover todos los elementos al head real
-      while (tempDiv.firstChild) {
-        headElement.appendChild(tempDiv.firstChild);
-      }
+      // Ejecutar reemplazo de enlaces de redes sociales
+      this.executeSocialLinksReplacement();
 
-      console.log("Head component loaded successfully");
+      // Marcar como cargado
+      document.body.classList.remove("loading");
+      document.body.classList.add("loaded");
+
+      console.log("All components loaded successfully");
     } catch (error) {
-      console.error("Error cargando componente head:", error);
-      console.error("Base path:", this.basePath);
-      console.error("URL intentada:", `${this.basePath}components/head.html`);
+      console.error("Error loading components:", error);
+      // Aún así marcar como cargado para evitar bloqueo
+      document.body.classList.remove("loading");
+      document.body.classList.add("loaded");
     }
   }
 
-  // Cargar componente header
-  async loadHeaderComponent() {
+  // Cargar componente head con caché
+  async loadHeadComponent() {
+    if (this.loadedComponents.has("head")) {
+      return;
+    }
+
     try {
-      const response = await fetch(`${this.basePath}components/header.html`);
+      const response = await fetch(`${this.basePath}components/head.html`, {
+        cache: "force-cache",
+      });
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-      const headerContent = await response.text();
 
-      // Procesar rutas relativas en el header
+      const headContent = await response.text();
+      const processedContent = this.processHeadPaths(headContent);
+
+      const headPlaceholder = document.getElementById("head-placeholder");
+      if (headPlaceholder) {
+        headPlaceholder.innerHTML = processedContent;
+        this.loadedComponents.add("head");
+        console.log("Head component loaded successfully");
+      }
+    } catch (error) {
+      console.error("Error loading head component:", error);
+    }
+  }
+
+  // Cargar componente header con caché
+  async loadHeaderComponent() {
+    if (this.loadedComponents.has("header")) {
+      return;
+    }
+
+    try {
+      const response = await fetch(`${this.basePath}components/header.html`, {
+        cache: "force-cache",
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const headerContent = await response.text();
       const processedContent = this.processHeaderPaths(headerContent);
 
       const headerPlaceholder = document.getElementById("header-placeholder");
       if (headerPlaceholder) {
         headerPlaceholder.innerHTML = processedContent;
+        this.loadedComponents.add("header");
         console.log("Header component loaded successfully");
       } else {
         console.warn("Header placeholder not found");
       }
     } catch (error) {
       console.error("Error cargando componente header:", error);
-      console.error("Base path:", this.basePath);
-      console.error("URL intentada:", `${this.basePath}components/header.html`);
     }
   }
 
-  // Cargar componente footer
+  // Cargar componente footer con caché
   async loadFooterComponent() {
+    if (this.loadedComponents.has("footer")) {
+      return;
+    }
+
     try {
-      const response = await fetch(`${this.basePath}components/footer.html`);
+      const response = await fetch(`${this.basePath}components/footer.html`, {
+        cache: "force-cache",
+      });
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-      const footerContent = await response.text();
 
-      // Procesar rutas relativas en el footer
+      const footerContent = await response.text();
       const processedContent = this.processFooterPaths(footerContent);
 
       const footerPlaceholder = document.getElementById("footer-placeholder");
       if (footerPlaceholder) {
         footerPlaceholder.innerHTML = processedContent;
+        this.loadedComponents.add("footer");
         console.log("Footer component loaded successfully");
+
+        // Cargar redes sociales después de cargar el footer
+        this.loadSocialLinksInFooter();
       } else {
         console.warn("Footer placeholder not found");
       }
     } catch (error) {
       console.error("Error cargando componente footer:", error);
-      console.error("Base path:", this.basePath);
-      console.error("URL intentada:", `${this.basePath}components/footer.html`);
     }
   }
 
-  // Cargar componentes de UI (botones de acción)
+  // Cargar componentes de UI con caché
   async loadUIComponents() {
+    if (this.loadedComponents.has("ui-components")) {
+      return;
+    }
+
     try {
       const response = await fetch(
-        `${this.basePath}components/ui-components.html`
+        `${this.basePath}components/ui-components.html`,
+        {
+          cache: "force-cache",
+        }
       );
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
+
       const uiContent = await response.text();
 
       // Insertar los componentes de UI antes del footer
       const footerPlaceholder = document.getElementById("footer-placeholder");
       if (footerPlaceholder) {
         footerPlaceholder.insertAdjacentHTML("beforebegin", uiContent);
+        this.loadedComponents.add("ui-components");
         console.log("UI components loaded successfully");
 
-        // Reinicializar funcionalidad de los botones después de cargar
+        // Inicializar funcionalidad de los botones después de cargar
         this.initializeUIComponents();
       } else {
         console.warn(
@@ -141,11 +191,6 @@ class ComponentLoader {
       }
     } catch (error) {
       console.error("Error cargando componentes de UI:", error);
-      console.error("Base path:", this.basePath);
-      console.error(
-        "URL intentada:",
-        `${this.basePath}components/ui-components.html`
-      );
     }
   }
 
@@ -156,6 +201,45 @@ class ComponentLoader {
 
     // Botón de cambiar tema
     this.initializeThemeToggle();
+  }
+
+  // Cargar redes sociales en el footer
+  loadSocialLinksInFooter() {
+    const socialContainer = document.getElementById("social-links-container");
+    if (socialContainer && typeof generateSocialHTML === "function") {
+      socialContainer.innerHTML = generateSocialHTML();
+      console.log("Social links loaded in footer");
+
+      // Re-aplicar event listeners a los nuevos enlaces
+      const newSocialLinks = document.querySelectorAll(".social-link");
+      newSocialLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          const platform = link.getAttribute("data-social");
+          const currentPage =
+            window.location.pathname.split("/").pop() || "index.html";
+          console.log(`Social media click: ${platform} from ${currentPage}`);
+        });
+      });
+    } else {
+      console.warn(
+        "Social container not found or generateSocialHTML not available"
+      );
+    }
+  }
+
+  // Ejecutar reemplazo de enlaces de redes sociales
+  executeSocialLinksReplacement() {
+    if (typeof replaceAllSocialLinks === "function") {
+      // Ejecutar inmediatamente
+      replaceAllSocialLinks();
+
+      // También ejecutar después de un pequeño delay para asegurar que todo esté cargado
+      setTimeout(() => {
+        replaceAllSocialLinks();
+      }, 100);
+    } else {
+      console.warn("replaceAllSocialLinks function not available");
+    }
   }
 
   // Inicializar botón de subir arriba
@@ -191,7 +275,7 @@ class ComponentLoader {
     console.log("To-top button initialized");
   }
 
-  // Inicializar botón de cambiar tema (versión independiente)
+  // Inicializar botón de cambiar tema (versión optimizada)
   initializeThemeToggle() {
     const themeToggle = document.getElementById("theme-toggle");
     const themeIcon = document.getElementById("theme-icon");
@@ -199,8 +283,6 @@ class ComponentLoader {
 
     if (!themeToggle || !themeIcon) {
       console.warn("Theme toggle elements not found");
-      console.log("Theme toggle:", themeToggle);
-      console.log("Theme icon:", themeIcon);
       return;
     }
 
@@ -216,14 +298,11 @@ class ComponentLoader {
     // Actualizar icono basado en el tema actual
     const updateIcon = () => {
       const currentTheme = html.getAttribute("data-theme");
-      console.log("Updating icon for theme:", currentTheme);
 
       if (currentTheme === "light") {
         themeIcon.className = "fa-solid fa-moon";
-        console.log("Icon set to moon (light theme)");
       } else {
         themeIcon.className = "fa-solid fa-sun";
-        console.log("Icon set to sun (dark theme)");
       }
     };
 
@@ -235,8 +314,6 @@ class ComponentLoader {
       const currentTheme = html.getAttribute("data-theme");
       const newTheme = currentTheme === "dark" ? "light" : "dark";
 
-      console.log("Toggling theme from", currentTheme, "to", newTheme);
-
       html.setAttribute("data-theme", newTheme);
       localStorage.setItem("theme", newTheme);
       updateIcon();
@@ -247,8 +324,6 @@ class ComponentLoader {
           detail: { theme: newTheme },
         })
       );
-
-      console.log("Theme changed successfully to:", newTheme);
     };
 
     // Configurar icono inicial
@@ -259,19 +334,6 @@ class ComponentLoader {
     window.themeToggleHandler = toggleTheme;
 
     console.log("Theme toggle button initialized successfully");
-    console.log("Initial theme:", savedTheme);
-    console.log("Theme toggle element:", themeToggle);
-    console.log("Theme icon element:", themeIcon);
-  }
-
-  // Procesar template con datos dinámicos
-  processTemplate(template) {
-    return template
-      .replace(/\{\{PAGE_TITLE\}\}/g, this.metadata.title)
-      .replace(/\{\{PAGE_DESCRIPTION\}\}/g, this.metadata.description)
-      .replace(/\{\{PAGE_URL\}\}/g, this.metadata.url)
-      .replace(/\{\{PAGE_IMAGE\}\}/g, this.metadata.image)
-      .replace(/\{\{BASE_PATH\}\}/g, this.basePath);
   }
 
   // Procesar rutas en el header
@@ -303,6 +365,38 @@ class ComponentLoader {
     return processedContent;
   }
 
+  // Procesar rutas en el head
+  processHeadPaths(content) {
+    // Reemplazar placeholders con rutas correctas según la profundidad
+    let processedContent = content.replace(/\{\{BASE_PATH\}\}/g, this.basePath);
+
+    // Ajustar rutas específicas según la profundidad de la página
+    if (this.basePath === "./") {
+      // Página raíz - las rutas ya están correctas
+      return processedContent;
+    } else if (this.basePath === "../") {
+      // Una carpeta de profundidad - ajustar rutas relativas
+      return processedContent
+        .replace(/href="\.\.\/css\//g, 'href="../css/')
+        .replace(/href="\.\.\/js\//g, 'href="../js/')
+        .replace(/href="\.\.\/assets\//g, 'href="../assets/');
+    } else if (this.basePath === "../../") {
+      // Dos carpetas de profundidad
+      return processedContent
+        .replace(/href="\.\.\/css\//g, 'href="../../css/')
+        .replace(/href="\.\.\/js\//g, 'href="../../js/')
+        .replace(/href="\.\.\/assets\//g, 'href="../../assets/');
+    } else if (this.basePath === "../../../") {
+      // Tres carpetas de profundidad
+      return processedContent
+        .replace(/href="\.\.\/css\//g, 'href="../../../css/')
+        .replace(/href="\.\.\/js\//g, 'href="../../../js/')
+        .replace(/href="\.\.\/assets\//g, 'href="../../../assets/');
+    }
+
+    return processedContent;
+  }
+
   // Procesar rutas en el footer
   processFooterPaths(content) {
     return this.processHeaderPaths(content);
@@ -321,28 +415,35 @@ class ComponentLoader {
 }
 
 // Función para inicializar cuando el DOM esté listo
-function initializeComponents() {
-  console.log("Initializing components...");
+function initializeOptimizedComponents() {
+  console.log("Initializing optimized components...");
 
-  // Verificar que las funciones de metadata estén disponibles
-  if (typeof getPageMetadata === "function") {
-    console.log("Metadata functions available, creating ComponentLoader");
-    new ComponentLoader();
+  // Verificar que las funciones de metadata y social estén disponibles
+  if (
+    typeof getPageMetadata === "function" &&
+    typeof SOCIAL_CONFIG !== "undefined"
+  ) {
+    console.log(
+      "Metadata and social functions available, creating OptimizedComponentLoader"
+    );
+    new OptimizedComponentLoader();
   } else {
-    console.log("Metadata functions not available, retrying in 100ms...");
+    console.log("Functions not available, retrying in 100ms...");
+    console.log("getPageMetadata:", typeof getPageMetadata);
+    console.log("SOCIAL_CONFIG:", typeof SOCIAL_CONFIG);
     // Si no está disponible, esperar un poco y reintentar
-    setTimeout(initializeComponents, 100);
+    setTimeout(initializeOptimizedComponents, 100);
   }
 }
 
 // Inicializar cuando el DOM esté listo
 if (document.readyState === "loading") {
   console.log("DOM still loading, waiting for DOMContentLoaded");
-  document.addEventListener("DOMContentLoaded", initializeComponents);
+  document.addEventListener("DOMContentLoaded", initializeOptimizedComponents);
 } else {
   console.log("DOM already loaded, initializing immediately");
-  initializeComponents();
+  initializeOptimizedComponents();
 }
 
 // Exportar para uso global
-window.ComponentLoader = ComponentLoader;
+window.OptimizedComponentLoader = OptimizedComponentLoader;

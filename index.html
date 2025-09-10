@@ -1,8 +1,79 @@
 <!DOCTYPE html>
 <html lang="es" data-theme="light">
 <head>
-  <!-- Head Component será cargado dinámicamente -->
-  <div id="head-placeholder"></div>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- CSS Crítico -->
+  <link rel="stylesheet" href="./css/critical.css" />
+  
+
+  <!-- Preload de recursos críticos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  
+  <!-- Preload del CSS principal -->
+  <link rel="preload" href="./css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="./css/styles.css" /></noscript>
+  
+  <!-- Preload de Font Awesome -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /></noscript>
+  
+  <!-- Preload de Google Fonts -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" /></noscript>
+
+  <!-- Metadata dinámica -->
+  <title data-page-title>OZONO VIDA • Medicina Regenerativa</title>
+  <meta name="description" content="OZONO VIDA: Ozonoterapia, medicina regenerativa y tratamiento integral del dolor (columna, hernias, rodillas y más). Atención en Av. Villón, frente a la Dirección Víctor Ramos Guardia." />
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="OZONO VIDA • Medicina Regenerativa" />
+  <meta property="og:description" content="OZONO VIDA: Ozonoterapia, medicina regenerativa y tratamiento integral del dolor (columna, hernias, rodillas y más). Atención en Av. Villón, frente a la Dirección Víctor Ramos Guardia." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://stella-maris.example" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=1200&q=80" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="OZONO VIDA • Medicina Regenerativa" />
+  <meta name="twitter:description" content="OZONO VIDA: Ozonoterapia, medicina regenerativa y tratamiento integral del dolor (columna, hernias, rodillas y más). Atención en Av. Villón, frente a la Dirección Víctor Ramos Guardia." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=1200&q=80" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://stella-maris.example" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="./assets/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "name": "OZONO VIDA Centro Médico",
+    "description": "OZONO VIDA: Ozonoterapia, medicina regenerativa y tratamiento integral del dolor (columna, hernias, rodillas y más). Atención en Av. Villón, frente a la Dirección Víctor Ramos Guardia.",
+    "image": "https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=1200&q=80",
+    "url": "https://stella-maris.example",
+    "telephone": "+51 999 999 999",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Villón, frente a la Dirección Víctor Ramos Guardia",
+      "addressLocality": "Huaraz",
+      "addressRegion": "Ancash",
+      "addressCountry": "PE"
+    },
+    "medicalSpecialty": ["PainManagement", "RegenerativeMedicine"],
+    "openingHours": "Mo-Fr 09:00-19:00, Sa 09:00-13:00",
+    "priceRange": "$$"
+  }
+  </script>
+  <!-- CSS Crítico -->
+  <link rel="stylesheet" href="css/critical.css" />
+  
 </head>
 <body>
   <a href="#inicio" class="skip-link">Saltar al contenido</a>
@@ -140,7 +211,7 @@
               <div class="tiktok-embed">
                 <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@stella_maris_medical/video/1234567891" data-video-id="1234567891" style="max-width: 325px;min-width: 325px;">
                   <section>
-                    <a target="_blank" title="@stella_maris_medical" href="https://www.tiktok.com/@stella_maris_medical">@stella_maris_medical</a>
+                    <a target="_blank" title="@stella_maris_medical" href="data-tiktok-link">@stella_maris_medical</a>
                     <p>Consejos para prevenir el dolor de espalda</p>
                     <a target="_blank" title="♬ sonido original - OZONO VIDA" href="https://www.tiktok.com/music/sonido-original-STELLA-MARIS-1234567891">♬ sonido original - OZONO VIDA</a>
                   </section>
@@ -162,7 +233,7 @@
               <div class="tiktok-embed">
                 <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@stella_maris_medical/video/1234567892" data-video-id="1234567892" style="max-width: 325px;min-width: 325px;">
                   <section>
-                    <a target="_blank" title="@stella_maris_medical" href="https://www.tiktok.com/@stella_maris_medical">@stella_maris_medical</a>
+                    <a target="_blank" title="@stella_maris_medical" href="data-tiktok-link">@stella_maris_medical</a>
                     <p>Testimonio de paciente recuperado</p>
                     <a target="_blank" title="♬ sonido original - OZONO VIDA" href="https://www.tiktok.com/music/sonido-original-STELLA-MARIS-1234567892">♬ sonido original - OZONO VIDA</a>
                   </section>
@@ -184,7 +255,7 @@
               <div class="tiktok-embed">
                 <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@stella_maris_medical/video/1234567893" data-video-id="1234567893" style="max-width: 325px;min-width: 325px;">
                   <section>
-                    <a target="_blank" title="@stella_maris_medical" href="https://www.tiktok.com/@stella_maris_medical">@stella_maris_medical</a>
+                    <a target="_blank" title="@stella_maris_medical" href="data-tiktok-link">@stella_maris_medical</a>
                     <p>Medicina regenerativa explicada</p>
                     <a target="_blank" title="♬ sonido original - OZONO VIDA" href="https://www.tiktok.com/music/sonido-original-STELLA-MARIS-1234567893">♬ sonido original - OZONO VIDA</a>
                   </section>
@@ -205,7 +276,7 @@
           <div class="tiktok-cta reveal">
             <h3>¿Quieres ver más contenido?</h3>
             <p>Síguenos en TikTok para consejos diarios de salud, testimonios de pacientes y contenido educativo sobre nuestros tratamientos.</p>
-            <a href="https://tiktok.com/@stella_maris_medical" target="_blank" rel="noopener" class="btn btn--primary">
+            <a href="data-tiktok-link" target="_blank" rel="noopener" class="btn btn--primary">
               <i class="fa-brands fa-tiktok"></i> Seguir en TikTok
             </a>
           </div>
@@ -349,7 +420,7 @@
           <p><i class="fa-solid fa-clock"></i> L-V 9:00 - 19:00 · Sáb 9:00 - 13:00</p>
           <div class="contact__cta">
             <a class="btn btn--primary" href="#citas" data-open-modal><i class="fa-solid fa-calendar-days"></i> Reservar cita</a>
-            <a class="btn btn--whatsapp" target="_blank" rel="noopener" href="https://wa.me/+51982070151?text=Hola%20STELLA%20MARIS%2C%20quisiera%20información%20sobre%20tratamientos.">
+            <a class="btn btn--whatsapp" target="_blank" rel="noopener" href="https://wa.me/+51982070151?data-whatsapp-message">
               <i class="fa-brands fa-whatsapp"></i> WhatsApp
             </a>
           </div>
@@ -408,11 +479,20 @@
   <!-- Footer Component -->
   <div id="footer-placeholder"></div>
 
-  <!-- Scripts del sistema de componentes -->
-  <script src="./js/metadata-config.js"></script>
-  <script src="./js/component-loader-independent.js"></script>
-  <script src="./js/app.js"></script>
-  <!-- TikTok Embed Script - Temporarily disabled due to CORS issues -->
-  <!-- <script async src="https://www.tiktok.com/embed.js"></script> -->
+  <!-- Scripts del sistema de componentes - Carga optimizada -->
+  <script>
+    // Script crítico inline para evitar bloqueo
+    window.addEventListener('DOMContentLoaded', function() {
+      // Marcar como cargado para evitar FOUC
+      document.body.classList.remove('loading');
+      document.body.classList.add('loaded');
+    });
+  </script>
+  
+  <!-- Scripts principales con defer para no bloquear -->
+  <script src="./js/metadata-config.js" defer></script>
+  <script src="./js/social-config.js" defer></script>
+  <script src="./js/optimized-component-loader.js" defer></script>
+  <script src="./js/app.js" defer></script>
 </body>
 </html> 

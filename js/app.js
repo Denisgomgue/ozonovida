@@ -1,166 +1,176 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
   const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 
   // Year in footer
   const year = new Date().getFullYear();
-  const yearEl = $('#year');
+  const yearEl = $("#year");
   if (yearEl) yearEl.textContent = String(year);
 
   // Mobile nav toggle
-  const toggle = $('.nav__toggle');
-  const menu = $('#menu');
+  const toggle = $(".nav__toggle");
+  const menu = $("#menu");
   if (toggle && menu) {
-    toggle.addEventListener('click', (e) => {
+    toggle.addEventListener("click", (e) => {
       e.stopPropagation();
-      const isOpen = menu.classList.toggle('is-open');
-      toggle.setAttribute('aria-expanded', String(isOpen));
-      
+      const isOpen = menu.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+
       // Prevent body scroll when menu is open
       if (isOpen) {
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = "hidden";
         // Close all dropdowns when opening mobile menu
-        $$('.dropdown').forEach(dropdown => {
-          dropdown.classList.remove('is-open');
+        $$(".dropdown").forEach((dropdown) => {
+          dropdown.classList.remove("is-open");
         });
-        $$('.dropdown__item--has-submenu').forEach(item => {
-          item.classList.remove('is-open');
+        $$(".dropdown__item--has-submenu").forEach((item) => {
+          item.classList.remove("is-open");
         });
         // Close all nested submenus
-        $$('.dropdown__submenu .dropdown__item--has-submenu').forEach(nestedItem => {
-          nestedItem.classList.remove('is-open');
-        });
+        $$(".dropdown__submenu .dropdown__item--has-submenu").forEach(
+          (nestedItem) => {
+            nestedItem.classList.remove("is-open");
+          }
+        );
       } else {
-        document.body.style.overflow = '';
+        document.body.style.overflow = "";
       }
     });
-    
+
     // Close menu when clicking on links
-    $$('#menu a').forEach(link => {
-      link.addEventListener('click', () => {
-        menu.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
+    $$("#menu a").forEach((link) => {
+      link.addEventListener("click", () => {
+        menu.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = "";
       });
     });
-    
+
     // Close menu when clicking outside or pressing escape
-    document.addEventListener('click', (e) => {
+    document.addEventListener("click", (e) => {
       if (!menu.contains(e.target) && !toggle.contains(e.target)) {
-        menu.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
+        menu.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = "";
       }
     });
-    
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && menu.classList.contains('is-open')) {
-        menu.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && menu.classList.contains("is-open")) {
+        menu.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = "";
       }
     });
   }
 
   // Dropdown menu functionality
-  const dropdown = $('.dropdown');
-  const dropdownTrigger = $('.dropdown__trigger');
-  const dropdownMenu = $('.dropdown__menu');
-  
+  const dropdown = $(".dropdown");
+  const dropdownTrigger = $(".dropdown__trigger");
+  const dropdownMenu = $(".dropdown__menu");
+
   if (dropdown && dropdownTrigger && dropdownMenu) {
     // Close dropdown when clicking outside
-    document.addEventListener('click', (e) => {
+    document.addEventListener("click", (e) => {
       if (!dropdown.contains(e.target)) {
-        dropdown.classList.remove('is-open');
+        dropdown.classList.remove("is-open");
       }
     });
-    
+
     // Toggle dropdown on trigger click (for mobile)
-    dropdownTrigger.addEventListener('click', (e) => {
+    dropdownTrigger.addEventListener("click", (e) => {
       if (window.innerWidth <= 720) {
         e.preventDefault();
-        dropdown.classList.toggle('is-open');
-        
+        dropdown.classList.toggle("is-open");
+
         // Close other dropdowns
-        $$('.dropdown').forEach(otherDropdown => {
+        $$(".dropdown").forEach((otherDropdown) => {
           if (otherDropdown !== dropdown) {
-            otherDropdown.classList.remove('is-open');
+            otherDropdown.classList.remove("is-open");
           }
         });
       }
     });
-    
+
     // Prevent dropdown from closing when clicking inside
-    dropdownMenu.addEventListener('click', (e) => {
+    dropdownMenu.addEventListener("click", (e) => {
       e.stopPropagation();
     });
-    
+
     // Handle submenu functionality
-    const submenuItems = $$('.dropdown__item--has-submenu');
-    submenuItems.forEach(item => {
-      const submenu = $('.dropdown__submenu', item);
-      const link = $('.dropdown__link', item);
-      
+    const submenuItems = $$(".dropdown__item--has-submenu");
+    submenuItems.forEach((item) => {
+      const submenu = $(".dropdown__submenu", item);
+      const link = $(".dropdown__link", item);
+
       if (submenu && link) {
         // Prevent submenu from closing when clicking inside
-        submenu.addEventListener('click', (e) => {
+        submenu.addEventListener("click", (e) => {
           e.stopPropagation();
         });
-        
+
         // Handle mobile submenu toggle
-        link.addEventListener('click', (e) => {
+        link.addEventListener("click", (e) => {
           if (window.innerWidth <= 720) {
             e.preventDefault();
-            const isOpen = item.classList.toggle('is-open');
-            
+            const isOpen = item.classList.toggle("is-open");
+
             // Close other submenus at the same level
-            const parentDropdown = item.closest('.dropdown');
+            const parentDropdown = item.closest(".dropdown");
             if (parentDropdown) {
-              const siblings = parentDropdown.querySelectorAll('.dropdown__item--has-submenu');
-              siblings.forEach(sibling => {
+              const siblings = parentDropdown.querySelectorAll(
+                ".dropdown__item--has-submenu"
+              );
+              siblings.forEach((sibling) => {
                 if (sibling !== item) {
-                  sibling.classList.remove('is-open');
+                  sibling.classList.remove("is-open");
                 }
               });
             }
-            
+
             // Close nested submenus when closing parent
             if (!isOpen) {
-              const nestedSubmenus = item.querySelectorAll('.dropdown__item--has-submenu');
-              nestedSubmenus.forEach(nested => {
-                nested.classList.remove('is-open');
+              const nestedSubmenus = item.querySelectorAll(
+                ".dropdown__item--has-submenu"
+              );
+              nestedSubmenus.forEach((nested) => {
+                nested.classList.remove("is-open");
               });
             }
           }
         });
       }
     });
-    
+
     // Handle nested submenu functionality (submenus of submenus)
-    const nestedSubmenuItems = $$('.dropdown__submenu .dropdown__item--has-submenu');
-    nestedSubmenuItems.forEach(item => {
-      const submenu = $('.dropdown__submenu', item);
-      const link = $('.dropdown__link', item);
-      
+    const nestedSubmenuItems = $$(
+      ".dropdown__submenu .dropdown__item--has-submenu"
+    );
+    nestedSubmenuItems.forEach((item) => {
+      const submenu = $(".dropdown__submenu", item);
+      const link = $(".dropdown__link", item);
+
       if (submenu && link) {
         // Prevent nested submenu from closing when clicking inside
-        submenu.addEventListener('click', (e) => {
+        submenu.addEventListener("click", (e) => {
           e.stopPropagation();
         });
-        
+
         // Handle mobile nested submenu toggle
-        link.addEventListener('click', (e) => {
+        link.addEventListener("click", (e) => {
           if (window.innerWidth <= 720) {
             e.preventDefault();
-            const isOpen = item.classList.toggle('is-open');
-            
+            const isOpen = item.classList.toggle("is-open");
+
             // Close other nested submenus at the same level
-            const parentSubmenu = item.closest('.dropdown__submenu');
+            const parentSubmenu = item.closest(".dropdown__submenu");
             if (parentSubmenu) {
-              const siblings = parentSubmenu.querySelectorAll('.dropdown__item--has-submenu');
-              siblings.forEach(sibling => {
+              const siblings = parentSubmenu.querySelectorAll(
+                ".dropdown__item--has-submenu"
+              );
+              siblings.forEach((sibling) => {
                 if (sibling !== item) {
-                  sibling.classList.remove('is-open');
+                  sibling.classList.remove("is-open");
                 }
               });
             }
@@ -168,32 +178,36 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
     });
-    
+
     // Add click handlers for all dropdown links
-    $$('.dropdown__link').forEach(link => {
-      link.addEventListener('click', (e) => {
+    $$(".dropdown__link").forEach((link) => {
+      link.addEventListener("click", (e) => {
         if (window.innerWidth <= 720) {
-          const parentItem = link.closest('.dropdown__item--has-submenu');
+          const parentItem = link.closest(".dropdown__item--has-submenu");
           if (parentItem) {
             e.preventDefault();
-            const isOpen = parentItem.classList.toggle('is-open');
-            
+            const isOpen = parentItem.classList.toggle("is-open");
+
             // Close other submenus at the same level
-            const parentDropdown = parentItem.closest('.dropdown');
+            const parentDropdown = parentItem.closest(".dropdown");
             if (parentDropdown) {
-              const siblings = parentDropdown.querySelectorAll('.dropdown__item--has-submenu');
-              siblings.forEach(sibling => {
+              const siblings = parentDropdown.querySelectorAll(
+                ".dropdown__item--has-submenu"
+              );
+              siblings.forEach((sibling) => {
                 if (sibling !== parentItem) {
-                  sibling.classList.remove('is-open');
+                  sibling.classList.remove("is-open");
                 }
               });
             }
-            
+
             // Close nested submenus when closing parent
             if (!isOpen) {
-              const nestedSubmenus = parentItem.querySelectorAll('.dropdown__item--has-submenu');
-              nestedSubmenus.forEach(nested => {
-                nested.classList.remove('is-open');
+              const nestedSubmenus = parentItem.querySelectorAll(
+                ".dropdown__item--has-submenu"
+              );
+              nestedSubmenus.forEach((nested) => {
+                nested.classList.remove("is-open");
               });
             }
           }
@@ -203,35 +217,38 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Smooth scroll
-  $$('.nav__links a[href^="#"]').forEach(link => {
-    link.addEventListener('click', (e) => {
-      const href = link.getAttribute('href');
+  $$('.nav__links a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const href = link.getAttribute("href");
       if (!href) return;
       const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        history.replaceState(null, '', href);
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        history.replaceState(null, "", href);
       }
     });
   });
 
   // Reveal on scroll
-  const revealEls = $$('.reveal');
-  const io = new IntersectionObserver((entries) => {
-    for (const entry of entries) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        io.unobserve(entry.target);
+  const revealEls = $$(".reveal");
+  const io = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          io.unobserve(entry.target);
+        }
       }
-    }
-  }, { threshold: 0.18 });
-  revealEls.forEach(el => io.observe(el));
+    },
+    { threshold: 0.18 }
+  );
+  revealEls.forEach((el) => io.observe(el));
 
   // Stats counter
-  const statEls = $$('.stat__num');
+  const statEls = $$(".stat__num");
   const animateCounter = (el) => {
-    const target = Number(el.getAttribute('data-count') || '0');
+    const target = Number(el.getAttribute("data-count") || "0");
     const duration = 1200;
     const start = performance.now();
     const step = (t) => {
@@ -242,210 +259,311 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     requestAnimationFrame(step);
   };
-  const ioStats = new IntersectionObserver((entries) => {
-    for (const entry of entries) {
-      if (entry.isIntersecting) {
-        animateCounter(entry.target);
-        ioStats.unobserve(entry.target);
+  const ioStats = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          ioStats.unobserve(entry.target);
+        }
       }
-    }
-  }, { threshold: 0.6 });
-  statEls.forEach(el => ioStats.observe(el));
+    },
+    { threshold: 0.6 }
+  );
+  statEls.forEach((el) => ioStats.observe(el));
 
   // Carousel
-  const track = $('.carousel__track');
-  const btnPrev = $('.carousel__btn.prev');
-  const btnNext = $('.carousel__btn.next');
+  const track = $(".carousel__track");
+  const btnPrev = $(".carousel__btn.prev");
+  const btnNext = $(".carousel__btn.next");
   if (track && btnPrev && btnNext) {
     let index = 0;
-    const total = $$('.testimonial', track).length;
+    const total = $$(".testimonial", track).length;
     const update = () => {
       track.style.transform = `translateX(-${index * 100}%)`;
     };
-    const next = () => { index = (index + 1) % total; update(); };
-    const prev = () => { index = (index - 1 + total) % total; update(); };
-    btnNext.addEventListener('click', next);
-    btnPrev.addEventListener('click', prev);
+    const next = () => {
+      index = (index + 1) % total;
+      update();
+    };
+    const prev = () => {
+      index = (index - 1 + total) % total;
+      update();
+    };
+    btnNext.addEventListener("click", next);
+    btnPrev.addEventListener("click", prev);
     let timer = setInterval(next, 5000);
-    track.addEventListener('pointerenter', () => clearInterval(timer));
-    track.addEventListener('pointerleave', () => timer = setInterval(next, 5000));
+    track.addEventListener("pointerenter", () => clearInterval(timer));
+    track.addEventListener(
+      "pointerleave",
+      () => (timer = setInterval(next, 5000))
+    );
   }
 
   // Modal booking
-  const modal = $('#citas');
-  const openBtns = $$('[data-open-modal]');
-  const closeBtns = $$('[data-close-modal]');
+  const modal = $("#citas");
+  const openBtns = $$("[data-open-modal]");
+  const closeBtns = $$("[data-close-modal]");
   const openModal = () => {
     if (!modal) return;
-    modal.setAttribute('aria-hidden', 'false');
-    modal.setAttribute('aria-modal', 'true');
-    document.body.style.overflow = 'hidden';
-    const firstInput = $('#nombre');
+    modal.setAttribute("aria-hidden", "false");
+    modal.setAttribute("aria-modal", "true");
+    document.body.style.overflow = "hidden";
+    const firstInput = $("#nombre");
     if (firstInput) firstInput.focus();
   };
   const closeModal = () => {
     if (!modal) return;
-    modal.setAttribute('aria-hidden', 'true');
-    modal.setAttribute('aria-modal', 'false');
-    document.body.style.overflow = '';
+    modal.setAttribute("aria-hidden", "true");
+    modal.setAttribute("aria-modal", "false");
+    document.body.style.overflow = "";
   };
-  openBtns.forEach(btn => btn.addEventListener('click', (e) => { e.preventDefault(); openModal(); }));
-  closeBtns.forEach(btn => btn.addEventListener('click', closeModal));
-  modal?.addEventListener('click', (e) => {
-    if ((e.target)?.closest('.modal__dialog')) return;
+  openBtns.forEach((btn) =>
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      openModal();
+    })
+  );
+  closeBtns.forEach((btn) => btn.addEventListener("click", closeModal));
+  modal?.addEventListener("click", (e) => {
+    if (e.target?.closest(".modal__dialog")) return;
     closeModal();
   });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
   });
 
   // Booking form
-  const form = $('#booking-form');
-  form?.addEventListener('submit', (e) => {
+  const form = $("#booking-form");
+  form?.addEventListener("submit", (e) => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(form));
     const missing = Object.entries(data).filter(([k, v]) => !String(v).trim());
     if (missing.length) {
-      toast('Por favor completa todos los campos', 'error');
+      toast("Por favor completa todos los campos", "error");
       return;
     }
     // Simulate sending; here you can integrate with backend or WhatsApp
-    const msg = `Nueva reserva%0A%0ANombre: ${encodeURIComponent(data.nombre)}%0ATeléfono: ${encodeURIComponent(data.telefono)}%0AServicio: ${encodeURIComponent(data.servicio)}%0AFecha: ${encodeURIComponent(data.fecha)}`;
+    const msg = `Nueva reserva%0A%0ANombre: ${encodeURIComponent(
+      data.nombre
+    )}%0ATeléfono: ${encodeURIComponent(
+      data.telefono
+    )}%0AServicio: ${encodeURIComponent(
+      data.servicio
+    )}%0AFecha: ${encodeURIComponent(data.fecha)}`;
     const wa = `https://wa.me/51999999999?text=${msg}`;
-    window.open(wa, '_blank');
+    window.open(wa, "_blank");
     closeModal();
     form.reset();
-    toast('Solicitud enviada por WhatsApp');
+    toast("Solicitud enviada por WhatsApp");
   });
 
   // To top button
-  const toTop = $('#to-top');
+  const toTop = $("#to-top");
   const onScroll = () => {
     const show = window.scrollY > 600;
-    toTop?.classList.toggle('is-visible', show);
+    toTop?.classList.toggle("is-visible", show);
   };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  toTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  window.addEventListener("scroll", onScroll, { passive: true });
+  toTop?.addEventListener("click", () =>
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  );
   onScroll();
 
   // Theme toggle functionality
-  const themeToggle = $('#theme-toggle');
-  const themeIcon = $('#theme-icon');
+  const themeToggle = $("#theme-toggle");
+  const themeIcon = $("#theme-icon");
   const html = document.documentElement;
-  
+
   // Get saved theme or default to dark
-  const savedTheme = localStorage.getItem('theme') || 'dark';
-  html.setAttribute('data-theme', savedTheme);
-  
+  const savedTheme = localStorage.getItem("theme") || "dark";
+  html.setAttribute("data-theme", savedTheme);
+
   if (themeToggle && themeIcon) {
     // Update icon based on current theme
     const updateIcon = () => {
-      const currentTheme = html.getAttribute('data-theme');
-      if (currentTheme === 'light') {
-        themeIcon.className = 'fa-solid fa-moon';
+      const currentTheme = html.getAttribute("data-theme");
+      if (currentTheme === "light") {
+        themeIcon.className = "fa-solid fa-moon";
       } else {
-        themeIcon.className = 'fa-solid fa-sun';
+        themeIcon.className = "fa-solid fa-sun";
       }
     };
-    
+
     updateIcon();
-    
-    themeToggle.addEventListener('click', () => {
-      const currentTheme = html.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      
-      html.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
+
+    themeToggle.addEventListener("click", () => {
+      const currentTheme = html.getAttribute("data-theme");
+      const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+      html.setAttribute("data-theme", newTheme);
+      localStorage.setItem("theme", newTheme);
       updateIcon();
     });
   }
 
   // Header scroll effect
-  const header = $('.header');
-  const headerInner = $('.header__inner');
+  const header = $(".header");
+  const headerInner = $(".header__inner");
   let lastScrollY = window.scrollY;
-  
-  window.addEventListener('scroll', () => {
+
+  window.addEventListener("scroll", () => {
     const currentScrollY = window.scrollY;
-    
+
     if (currentScrollY > 100) {
-      header?.classList.add('header--scrolled');
+      header?.classList.add("header--scrolled");
       if (headerInner) {
-        headerInner.style.padding = '0.4rem 0';
+        headerInner.style.padding = "0.4rem 0";
       }
     } else {
-      header?.classList.remove('header--scrolled');
+      header?.classList.remove("header--scrolled");
       if (headerInner) {
-        headerInner.style.padding = '0.8rem 0';
+        headerInner.style.padding = "0.8rem 0";
       }
     }
-    
+
     lastScrollY = currentScrollY;
   });
 
-  // Smart social media links
-  const socialLinks = $$('.social-link');
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  
-  // Define messages for different pages
-  const whatsappMessages = {
-    'index.html': 'Hola, me interesa conocer más sobre los servicios de OZONO VIDA',
-    'tratamiento-dolor.html': 'Hola, me interesa información sobre tratamientos de dolor en OZONO VIDA',
-    'tratamiento-enfermedades.html': 'Hola, me interesa información sobre tratamientos de enfermedades en OZONO VIDA',
-    'estetica.html': 'Hola, me interesa información sobre tratamientos estéticos en OZONO VIDA',
-    'infecciones.html': 'Hola, me interesa información sobre tratamientos de infecciones en OZONO VIDA',
-    'ginecologia.html': 'Hola, me interesa información sobre servicios ginecológicos en OZONO VIDA',
-    'diabetes.html': 'Hola, me interesa información sobre tratamiento de diabetes en OZONO VIDA',
-    'hernias-discales.html': 'Hola, me interesa información sobre tratamiento de hernias discales en OZONO VIDA',
-    'rejuvenecimiento-facial.html': 'Hola, me interesa información sobre rejuvenecimiento facial en OZONO VIDA',
-    'lumbalgia.html': 'Hola, me interesa información sobre tratamiento de lumbalgia en OZONO VIDA',
-    'artrosis.html': 'Hola, me interesa información sobre tratamiento de artrosis en OZONO VIDA',
-    'artritis.html': 'Hola, me interesa información sobre tratamiento de artritis en OZONO VIDA',
-    'tendinitis.html': 'Hola, me interesa información sobre tratamiento de tendinitis en OZONO VIDA',
-    'fibromialgia.html': 'Hola, me interesa información sobre tratamiento de fibromialgia en OZONO VIDA'
-  };
-  
+  // Smart social media links - usando SOCIAL_CONFIG
+  const socialLinks = $$(".social-link");
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+
+  // Usar SOCIAL_CONFIG si está disponible, sino usar fallback
+  let whatsappMessages = {};
+  if (typeof SOCIAL_CONFIG !== "undefined" && SOCIAL_CONFIG.whatsappMessages) {
+    whatsappMessages = SOCIAL_CONFIG.whatsappMessages;
+  } else {
+    // Fallback si SOCIAL_CONFIG no está disponible
+    whatsappMessages = {
+      "index.html":
+        "Hola, me interesa conocer más sobre los servicios de OZONO VIDA",
+      "tratamiento-dolor.html":
+        "Hola, me interesa información sobre tratamientos de dolor en OZONO VIDA",
+      "tratamiento-enfermedades.html":
+        "Hola, me interesa información sobre tratamientos de enfermedades en OZONO VIDA",
+      "estetica.html":
+        "Hola, me interesa información sobre tratamientos estéticos en OZONO VIDA",
+      "infecciones.html":
+        "Hola, me interesa información sobre tratamientos de infecciones en OZONO VIDA",
+      "ginecologia.html":
+        "Hola, me interesa información sobre servicios ginecológicos en OZONO VIDA",
+      "diabetes.html":
+        "Hola, me interesa información sobre tratamiento de diabetes en OZONO VIDA",
+      "hernias-discales.html":
+        "Hola, me interesa información sobre tratamiento de hernias discales en OZONO VIDA",
+      "rejuvenecimiento-facial.html":
+        "Hola, me interesa información sobre rejuvenecimiento facial en OZONO VIDA",
+      "lumbalgia.html":
+        "Hola, me interesa información sobre tratamiento de lumbalgia en OZONO VIDA",
+      "artrosis.html":
+        "Hola, me interesa información sobre tratamiento de artrosis en OZONO VIDA",
+      "artritis.html":
+        "Hola, me interesa información sobre tratamiento de artritis en OZONO VIDA",
+      "tendinitis.html":
+        "Hola, me interesa información sobre tratamiento de tendinitis en OZONO VIDA",
+      "fibromialgia.html":
+        "Hola, me interesa información sobre tratamiento de fibromialgia en OZONO VIDA",
+    };
+  }
+
   // Update WhatsApp link with smart message
   const whatsappLink = $('.social-link[data-social="whatsapp"]');
   if (whatsappLink) {
-    const message = whatsappMessages[currentPage] || whatsappMessages['index.html'];
+    const message =
+      whatsappMessages[currentPage] || whatsappMessages["index.html"];
     const encodedMessage = encodeURIComponent(message);
-    whatsappLink.href = `https://wa.me/51999999999?text=${encodedMessage}`;
+    const whatsappNumber =
+      typeof SOCIAL_CONFIG !== "undefined" && SOCIAL_CONFIG.whatsappNumber
+        ? SOCIAL_CONFIG.whatsappNumber
+        : "51999999999"; // Fallback
+    whatsappLink.href = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
   }
-  
+
   // Add click tracking for analytics (optional)
-  socialLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      const platform = link.getAttribute('data-social');
+  socialLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      const platform = link.getAttribute("data-social");
       console.log(`Social media click: ${platform} from ${currentPage}`);
       // Here you can add analytics tracking if needed
     });
   });
 
+  // Cargar redes sociales dinámicamente en el footer
+  const loadSocialLinks = () => {
+    const socialContainer = $("#social-links-container");
+    if (socialContainer && typeof generateSocialHTML === "function") {
+      socialContainer.innerHTML = generateSocialHTML();
+      console.log("Social links loaded dynamically");
+
+      // Re-aplicar event listeners a los nuevos enlaces
+      const newSocialLinks = $$(".social-link");
+      newSocialLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          const platform = link.getAttribute("data-social");
+          console.log(`Social media click: ${platform} from ${currentPage}`);
+          // Here you can add analytics tracking if needed
+        });
+      });
+    }
+  };
+
+  // Cargar redes sociales cuando esté disponible
+  if (typeof generateSocialHTML === "function") {
+    loadSocialLinks();
+  } else {
+    // Si no está disponible, esperar un poco y reintentar
+    setTimeout(() => {
+      if (typeof generateSocialHTML === "function") {
+        loadSocialLinks();
+      }
+    }, 100);
+  }
+
+  // Reemplazar TODOS los enlaces hardcodeados usando el sistema centralizado
+  if (typeof replaceAllSocialLinks === "function") {
+    // Ejecutar inmediatamente
+    replaceAllSocialLinks();
+
+    // También ejecutar después de que se carguen los componentes
+    setTimeout(() => {
+      replaceAllSocialLinks();
+    }, 500);
+  }
+
+  // Actualizar formulario de reserva con sistema centralizado
+  if (typeof updateBookingForm === "function") {
+    updateBookingForm();
+  }
+
   // Tiny toast
   let toastTimeout;
-  const toast = (text, type = 'success') => {
+  const toast = (text, type = "success") => {
     clearTimeout(toastTimeout);
-    let el = $('#toast');
+    let el = $("#toast");
     if (!el) {
-      el = document.createElement('div');
-      el.id = 'toast';
-      el.style.position = 'fixed';
-      el.style.right = '1rem';
-      el.style.bottom = '1rem';
-      el.style.padding = '.7rem 1rem';
-      el.style.borderRadius = '.6rem';
-      el.style.border = '1px solid var(--border)';
-      el.style.background = 'rgba(11,18,32,.92)';
-      el.style.color = 'var(--text)';
-      el.style.boxShadow = 'var(--shadow)';
-      el.style.zIndex = '100';
+      el = document.createElement("div");
+      el.id = "toast";
+      el.style.position = "fixed";
+      el.style.right = "1rem";
+      el.style.bottom = "1rem";
+      el.style.padding = ".7rem 1rem";
+      el.style.borderRadius = ".6rem";
+      el.style.border = "1px solid var(--border)";
+      el.style.background = "rgba(11,18,32,.92)";
+      el.style.color = "var(--text)";
+      el.style.boxShadow = "var(--shadow)";
+      el.style.zIndex = "100";
       document.body.appendChild(el);
     }
     el.textContent = text;
-    el.style.background = type === 'error' ? 'rgba(239, 68, 68, .2)' : 'rgba(11,18,32,.92)';
-    el.style.borderColor = type === 'error' ? 'rgba(239, 68, 68, .5)' : 'var(--border)';
-    el.style.opacity = '1';
-    toastTimeout = setTimeout(() => { el.style.opacity = '0'; }, 2400);
+    el.style.background =
+      type === "error" ? "rgba(239, 68, 68, .2)" : "rgba(11,18,32,.92)";
+    el.style.borderColor =
+      type === "error" ? "rgba(239, 68, 68, .5)" : "var(--border)";
+    el.style.opacity = "1";
+    toastTimeout = setTimeout(() => {
+      el.style.opacity = "0";
+    }, 2400);
   };
 });
