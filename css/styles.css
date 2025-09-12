@@ -130,9 +130,62 @@ body {
   color: var(--corporate-blue);
 }
 
+/* Iconos de submenús con colores del logo */
+.submenu-icon {
+  display: inline-block !important;
+  font-size: 0.7rem;
+  margin-left: 0.5rem;
+  transition: all 0.2s ease;
+  color: var(--corporate-blue-light);
+}
+
+/* Estados hover para elementos individuales (como "Columnas" en la imagen) */
+.dropdown__menu a:hover,
+.dropdown__submenu a:hover {
+  background: rgba(100, 178, 231, 0.1);
+  color: var(--corporate-blue);
+}
+
+/* Estados hover para tema claro */
+[data-theme="light"] .dropdown__menu a:hover,
+[data-theme="light"] .dropdown__submenu a:hover {
+  background: rgba(100, 178, 231, 0.1);
+  color: var(--corporate-blue);
+}
+
+/* Estados activos para elementos padre - solo cuando el submenú está visible */
+.dropdown__item--has-submenu:hover .dropdown__submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+/* Clase para activar elemento padre cuando el submenú está visible */
+.dropdown__item--has-submenu.active .dropdown__link {
+  background: var(--corporate-blue);
+  color: var(--corporate-white);
+}
+
+.dropdown__item--has-submenu.active .submenu-icon {
+  color: var(--corporate-white);
+  transform: scale(1.1);
+}
+
+/* Estados activos para tema claro */
+[data-theme="light"] .dropdown__item--has-submenu.active .dropdown__link {
+  background: var(--corporate-blue);
+  color: var(--corporate-white);
+}
+
+[data-theme="light"] .dropdown__item--has-submenu.active .submenu-icon {
+  color: var(--corporate-white);
+}
+
 /* Quitar iconos también en tema claro */
-[data-theme="light"] .dropdown__link i,
-[data-theme="light"] .dropdown__submenu a i {
+
+/* Quitar iconos también en tema claro excepto submenu-icon */
+[data-theme="light"] .dropdown__link i:not(.submenu-icon),
+[data-theme="light"] .dropdown__submenu a i:not(.submenu-icon) {
   display: none !important;
 }
 
@@ -617,9 +670,9 @@ a {
   color: var(--primary);
 }
 
-/* Quitar todos los iconos de los items del menú */
-.dropdown__link i,
-.dropdown__submenu a i {
+/* Quitar todos los iconos de los items del menú excepto submenu-icon */
+.dropdown__link i:not(.submenu-icon),
+.dropdown__submenu a i:not(.submenu-icon) {
   display: none !important;
 }
 
@@ -915,7 +968,9 @@ a {
 }
 
 .cards {
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(380px, 3fr));
+  /* max-width: 800px; */
+  margin: 0 auto;
 }
 
 .card {
@@ -928,7 +983,8 @@ a {
   cursor: pointer;
   text-decoration: none;
   color: inherit;
-  display: block;
+  display: flex;
+  flex-direction: column;
   height: 100%;
 }
 
@@ -952,6 +1008,44 @@ a {
 
 .card:hover .card__icon {
   transform: scale(1.1);
+}
+
+/* Estilos para imágenes en cards de servicios */
+.card__image {
+  width: 100%;
+  height: 250px;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card__image img {
+  transform: scale(1.05);
+}
+
+.card__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* text-align: center; */
+  min-height: 80px;
+}
+
+.card__content h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
 }
 
 .card__cta {
@@ -1405,9 +1499,9 @@ a {
     background: rgba(255, 255, 255, 0.03);
   }
 
-  /* Ocultar iconos de chevron en móvil */
+  /* Ocultar iconos de chevron en móvil excepto submenu-icon */
   .dropdown__trigger i,
-  .dropdown__link i {
+  .dropdown__link i:not(.submenu-icon) {
     display: none;
   }
 
@@ -2035,6 +2129,7 @@ a {
 
   .cards {
     grid-template-columns: repeat(2, 1fr);
+    /* max-width: 600px; */
   }
 
   .tiktok-grid {
@@ -2064,9 +2159,9 @@ a {
 
 @media (max-width: 720px) {
 
-  /* Quitar iconos en móvil también */
-  .dropdown__link i,
-  .dropdown__submenu a i {
+  /* Quitar iconos en móvil también excepto submenu-icon */
+  .dropdown__link i:not(.submenu-icon),
+  .dropdown__submenu a i:not(.submenu-icon) {
     display: none !important;
   }
 

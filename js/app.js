@@ -142,6 +142,98 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
+    // Funciones globales para manejar estados activos
+    const activateParentChain = (targetItem) => {
+      console.log("🔵 Activando elemento:", targetItem);
+      // Activar el elemento actual
+      targetItem.classList.add("active");
+
+      // Activar todos los elementos padre en la cadena
+      let parent = targetItem.closest(".dropdown__item--has-submenu");
+      while (parent && parent !== targetItem) {
+        console.log("🔵 Activando padre:", parent);
+        parent.classList.add("active");
+        parent = parent.closest(".dropdown__item--has-submenu");
+      }
+    };
+
+    const deactivateParentChain = (targetItem) => {
+      console.log("🔴 Desactivando elemento:", targetItem);
+      // Solo desactivar si no hay submenús visibles en la cadena
+      const hasVisibleSubmenus = targetItem.querySelector(
+        ".dropdown__submenu[style*='opacity: 1'][style*='visibility: visible']"
+      );
+      if (!hasVisibleSubmenus) {
+        targetItem.classList.remove("active");
+
+        // Desactivar elementos padre solo si no tienen submenús visibles
+        let parent = targetItem.closest(".dropdown__item--has-submenu");
+        while (parent && parent !== targetItem) {
+          const parentHasVisibleSubmenus = parent.querySelector(
+            ".dropdown__submenu[style*='opacity: 1'][style*='visibility: visible']"
+          );
+          if (!parentHasVisibleSubmenus) {
+            parent.classList.remove("active");
+          }
+          parent = parent.closest(".dropdown__item--has-submenu");
+        }
+      }
+    };
+
+    // Manejar estados activos para elementos padre cuando el submenú está visible
+    submenuItems.forEach((item) => {
+      const submenu = $(".dropdown__submenu", item);
+
+      if (submenu) {
+        // Agregar clase 'active' cuando el submenú está visible
+        const observer = new MutationObserver((mutations) => {
+          mutations.forEach((mutation) => {
+            if (
+              mutation.type === "attributes" &&
+              mutation.attributeName === "style"
+            ) {
+              const isVisible =
+                submenu.style.opacity === "1" &&
+                submenu.style.visibility === "visible";
+              if (isVisible) {
+                activateParentChain(item);
+              } else {
+                deactivateParentChain(item);
+              }
+            }
+          });
+        });
+
+        observer.observe(submenu, {
+          attributes: true,
+          attributeFilter: ["style"],
+        });
+
+        // También manejar con eventos de mouse para mayor compatibilidad
+        item.addEventListener("mouseenter", () => {
+          setTimeout(() => {
+            const isVisible =
+              submenu.style.opacity === "1" &&
+              submenu.style.visibility === "visible";
+            if (isVisible) {
+              activateParentChain(item);
+            }
+          }, 50);
+        });
+
+        item.addEventListener("mouseleave", () => {
+          setTimeout(() => {
+            const isVisible =
+              submenu.style.opacity === "1" &&
+              submenu.style.visibility === "visible";
+            if (!isVisible) {
+              deactivateParentChain(item);
+            }
+          }, 50);
+        });
+      }
+    });
+
     // Handle nested submenu functionality (submenus of submenus)
     const nestedSubmenuItems = $$(
       ".dropdown__submenu .dropdown__item--has-submenu"
@@ -175,6 +267,60 @@ document.addEventListener("DOMContentLoaded", () => {
               });
             }
           }
+        });
+      }
+    });
+
+    // Manejar estados activos para submenús anidados cuando están visibles
+    nestedSubmenuItems.forEach((item) => {
+      const submenu = $(".dropdown__submenu", item);
+
+      if (submenu) {
+        // Agregar clase 'active' cuando el submenú anidado está visible
+        const observer = new MutationObserver((mutations) => {
+          mutations.forEach((mutation) => {
+            if (
+              mutation.type === "attributes" &&
+              mutation.attributeName === "style"
+            ) {
+              const isVisible =
+                submenu.style.opacity === "1" &&
+                submenu.style.visibility === "visible";
+              if (isVisible) {
+                activateParentChain(item);
+              } else {
+                deactivateParentChain(item);
+              }
+            }
+          });
+        });
+
+        observer.observe(submenu, {
+          attributes: true,
+          attributeFilter: ["style"],
+        });
+
+        // También manejar con eventos de mouse para mayor compatibilidad
+        item.addEventListener("mouseenter", () => {
+          setTimeout(() => {
+            const isVisible =
+              submenu.style.opacity === "1" &&
+              submenu.style.visibility === "visible";
+            if (isVisible) {
+              activateParentChain(item);
+            }
+          }, 50);
+        });
+
+        item.addEventListener("mouseleave", () => {
+          setTimeout(() => {
+            const isVisible =
+              submenu.style.opacity === "1" &&
+              submenu.style.visibility === "visible";
+            if (!isVisible) {
+              deactivateParentChain(item);
+            }
+          }, 50);
         });
       }
     });
