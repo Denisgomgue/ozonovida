@@ -7,62 +7,128 @@ document.addEventListener("DOMContentLoaded", () => {
   const yearEl = $("#year");
   if (yearEl) yearEl.textContent = String(year);
 
-  // Mobile nav toggle
-  const toggle = $(".nav__toggle");
-  const menu = $("#menu");
-  if (toggle && menu) {
-    toggle.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const isOpen = menu.classList.toggle("is-open");
-      toggle.setAttribute("aria-expanded", String(isOpen));
+  // Función para inicializar el menú móvil
+  function initMobileMenu() {
+    const toggle = $(".nav__toggle");
+    const menu = $("#menu");
 
-      // Prevent body scroll when menu is open
-      if (isOpen) {
-        document.body.style.overflow = "hidden";
-        // Close all dropdowns when opening mobile menu
-        $$(".dropdown").forEach((dropdown) => {
-          dropdown.classList.remove("is-open");
-        });
-        $$(".dropdown__item--has-submenu").forEach((item) => {
-          item.classList.remove("is-open");
-        });
-        // Close all nested submenus
-        $$(".dropdown__submenu .dropdown__item--has-submenu").forEach(
-          (nestedItem) => {
-            nestedItem.classList.remove("is-open");
-          }
-        );
-      } else {
-        document.body.style.overflow = "";
-      }
-    });
+    if (toggle && menu) {
+      toggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isOpen = menu.classList.toggle("is-open");
+        toggle.setAttribute("aria-expanded", String(isOpen));
 
-    // Close menu when clicking on links
-    $$("#menu a").forEach((link) => {
-      link.addEventListener("click", () => {
-        menu.classList.remove("is-open");
-        toggle.setAttribute("aria-expanded", "false");
-        document.body.style.overflow = "";
+        // Prevent body scroll when menu is open
+        if (isOpen) {
+          document.body.style.overflow = "hidden";
+          // Close all dropdowns when opening mobile menu
+          $$(".dropdown").forEach((dropdown) => {
+            dropdown.classList.remove("is-open");
+          });
+          $$(".dropdown__item--has-submenu").forEach((item) => {
+            item.classList.remove("is-open");
+          });
+          // Close all nested submenus
+          $$(".dropdown__submenu .dropdown__item--has-submenu").forEach(
+            (nestedItem) => {
+              nestedItem.classList.remove("is-open");
+            }
+          );
+        } else {
+          document.body.style.overflow = "";
+        }
       });
-    });
 
-    // Close menu when clicking outside or pressing escape
-    document.addEventListener("click", (e) => {
-      if (!menu.contains(e.target) && !toggle.contains(e.target)) {
-        menu.classList.remove("is-open");
-        toggle.setAttribute("aria-expanded", "false");
-        document.body.style.overflow = "";
-      }
-    });
+      // Inicializar funcionalidad de submenús móviles
+      initMobileSubmenus();
 
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && menu.classList.contains("is-open")) {
-        menu.classList.remove("is-open");
-        toggle.setAttribute("aria-expanded", "false");
-        document.body.style.overflow = "";
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  // Función para inicializar submenús móviles
+  function initMobileSubmenus() {
+    const submenuItems = $$(".dropdown__item--has-submenu");
+
+    submenuItems.forEach((item, index) => {
+      const link = $(".dropdown__link", item);
+
+      if (link) {
+        // Remover event listeners anteriores si existen
+        link.removeEventListener("click", handleSubmenuClick);
+
+        // Agregar nuevo event listener
+        link.addEventListener("click", handleSubmenuClick);
       }
     });
   }
+
+  // Función para manejar clicks en submenús
+  function handleSubmenuClick(e) {
+    if (window.innerWidth <= 1024) {
+      e.preventDefault();
+      const item = e.currentTarget.closest(".dropdown__item--has-submenu");
+      if (item) {
+        const isOpen = item.classList.toggle("is-open");
+
+        // Close other submenus at the same level
+        const parentDropdown = item.closest(".dropdown__menu");
+        if (parentDropdown) {
+          $$(".dropdown__item--has-submenu", parentDropdown).forEach(
+            (otherItem) => {
+              if (otherItem !== item) {
+                otherItem.classList.remove("is-open");
+              }
+            }
+          );
+        }
+      }
+    }
+  }
+
+  // Intentar inicializar el menú móvil
+  let attempts = 0;
+  const maxAttempts = 50; // 5 segundos máximo
+
+  function tryInitMobileMenu() {
+    if (initMobileMenu()) {
+      // Menú móvil inicializado exitosamente
+    } else if (attempts < maxAttempts) {
+      attempts++;
+      setTimeout(tryInitMobileMenu, 100);
+    }
+  }
+
+  // Iniciar intentos
+  tryInitMobileMenu();
+
+  // Close menu when clicking on links
+  $$("#menu a").forEach((link) => {
+    link.addEventListener("click", () => {
+      menu.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+    });
+  });
+
+  // Close menu when clicking outside or pressing escape
+  document.addEventListener("click", (e) => {
+    if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+      menu.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && menu.classList.contains("is-open")) {
+      menu.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+    }
+  });
 
   // Dropdown menu functionality
   const dropdown = $(".dropdown");
