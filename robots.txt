@@ -1,0 +1,31 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://ozonovida.netlify.app/sitemap.xml
+
+# Crawl-delay para evitar sobrecarga
+Crawl-delay: 1
+
+# Permitir acceso a recursos importantes
+Allow: /css/
+Allow: /js/
+Allow: /assets/
+Allow: /components/
+
+# Bloquear archivos innecesarios
+Disallow: /scripts/
+Disallow: /docs/
+Disallow: *.md
+Disallow: *.txt
+Disallow: /run-script.js
+
+# Específico para Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Específico para Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1

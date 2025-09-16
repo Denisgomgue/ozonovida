@@ -269,6 +269,7 @@ class ComponentLoader {
     return template
       .replace(/\{\{PAGE_TITLE\}\}/g, this.metadata.title)
       .replace(/\{\{PAGE_DESCRIPTION\}\}/g, this.metadata.description)
+      .replace(/\{\{PAGE_KEYWORDS\}\}/g, this.metadata.keywords || "")
       .replace(/\{\{PAGE_URL\}\}/g, this.metadata.url)
       .replace(/\{\{PAGE_IMAGE\}\}/g, this.metadata.image)
       .replace(/\{\{BASE_PATH\}\}/g, this.basePath);

@@ -5,6 +5,8 @@ const PAGE_METADATA = {
     title: "OZONO VIDA",
     description:
       "OZONO VIDA: Ozonoterapia, medicina regenerativa y tratamiento integral del dolor (columna, hernias, rodillas y más). Atención en Av. Villón, frente a la Dirección Víctor Ramos Guardia.",
+    keywords:
+      "ozonoterapia, medicina regenerativa, tratamiento dolor, hernias discales, plasma PRP, dolor columna, dolor rodilla, Huaraz, Ancash, Perú, centro médico, terapia alternativa, dolor crónico, regeneración celular",
     url: "https://ozonovida.netlify.app",
     image:
       "https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=1200&q=80",
@@ -15,6 +17,8 @@ const PAGE_METADATA = {
     title: "Tratamiento del Dolor",
     description:
       "Tratamiento especializado del dolor de columna, hernias discales, rodillas, hombros y más con ozonoterapia y medicina regenerativa.",
+    keywords:
+      "tratamiento dolor, dolor columna, hernias discales, dolor rodilla, dolor hombro, ozonoterapia dolor, medicina regenerativa dolor, dolor crónico, terapia dolor, Huaraz",
     url: "https://ozonovida.netlify.app/tratamientos/dolor",
     image:
       "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
@@ -24,6 +28,8 @@ const PAGE_METADATA = {
     title: "Tratamiento de Enfermedades",
     description:
       "Tratamiento de diabetes, hepatitis, colitis, enfermedades autoinmunes y más con ozonoterapia y medicina regenerativa.",
+    keywords:
+      "tratamiento diabetes, hepatitis tratamiento, colitis tratamiento, enfermedades autoinmunes, ozonoterapia enfermedades, medicina regenerativa, terapia alternativa, Huaraz",
     url: "https://ozonovida.netlify.app/tratamientos/enfermedades",
     image:
       "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1200&q=80",
@@ -33,6 +39,8 @@ const PAGE_METADATA = {
     title: "Tratamientos Estéticos",
     description:
       "Rejuvenecimiento facial, tratamiento de celulitis, úlceras crónicas y acné con ozonoterapia.",
+    keywords:
+      "tratamientos estéticos, rejuvenecimiento facial, celulitis tratamiento, úlceras crónicas, acné tratamiento, ozonoterapia estética, medicina estética, Huaraz",
     url: "https://ozonovida.netlify.app/tratamientos/estetica",
     image:
       "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1200&q=80",

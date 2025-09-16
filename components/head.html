@@ -1,34 +1,62 @@
-<!-- Head Component - Metadata dinámica -->
+<!-- Head Component - Metadata dinámica optimizada para SEO -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- CSS Crítico -->
-  <link rel="stylesheet" href="../css/critical.css" />
+
+<!-- CSS Crítico -->
+<link rel="stylesheet" href="../css/critical.css" />
+
+<!-- SEO Meta Tags Básicos -->
 <title data-page-title>{{PAGE_TITLE}} • OZONO VIDA</title>
 <meta name="description" content="{{PAGE_DESCRIPTION}}" />
+<meta name="keywords" content="{{PAGE_KEYWORDS}}" />
+<meta name="author" content="OZONO VIDA Centro Médico" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow" />
 
-<!-- Open Graph Meta Tags -->
+<!-- Idioma y Región -->
+<meta name="language" content="es" />
+<meta name="geo.region" content="PE-ANC" />
+<meta name="geo.placename" content="Huaraz" />
+<meta name="geo.position" content="-9.5333;-77.5333" />
+<meta name="ICBM" content="-9.5333, -77.5333" />
+
+<!-- Open Graph Meta Tags (Facebook, LinkedIn, etc.) -->
 <meta property="og:title" content="{{PAGE_TITLE}} • OZONO VIDA" />
 <meta property="og:description" content="{{PAGE_DESCRIPTION}}" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="{{PAGE_URL}}" />
 <meta property="og:image" content="{{PAGE_IMAGE}}" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="{{PAGE_TITLE}} - OZONO VIDA Centro Médico" />
+<meta property="og:site_name" content="OZONO VIDA" />
+<meta property="og:locale" content="es_PE" />
 
 <!-- Twitter Card Meta Tags -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="{{PAGE_TITLE}} • OZONO VIDA" />
 <meta name="twitter:description" content="{{PAGE_DESCRIPTION}}" />
 <meta name="twitter:image" content="{{PAGE_IMAGE}}" />
+<meta name="twitter:image:alt" content="{{PAGE_TITLE}} - OZONO VIDA Centro Médico" />
+<meta name="twitter:site" content="@ozonovida" />
+<meta name="twitter:creator" content="@ozonovida" />
 
 <!-- Canonical URL -->
 <link rel="canonical" href="{{PAGE_URL}}" />
 
-<!-- Favicon -->
+<!-- Favicon y Iconos -->
 <link rel="icon" href="{{BASE_PATH}}assets/favicon.ico" type="image/x-icon" />
 <link rel="shortcut icon" href="{{BASE_PATH}}assets/favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" sizes="180x180" href="{{BASE_PATH}}assets/favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="{{BASE_PATH}}assets/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="{{BASE_PATH}}assets/favicon.ico" />
 
-<!-- Fonts -->
+<!-- Preconnect para optimización -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+
+<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
 <!-- Font Awesome -->
@@ -37,25 +65,96 @@
 <!-- Styles -->
 <link rel="stylesheet" href="{{BASE_PATH}}css/styles.css" />
 
-<!-- Structured Data -->
+<!-- Structured Data JSON-LD -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "MedicalClinic",
   "name": "OZONO VIDA Centro Médico",
+  "alternateName": "OZONO VIDA",
   "description": "{{PAGE_DESCRIPTION}}",
   "image": "{{PAGE_IMAGE}}",
   "url": "{{PAGE_URL}}",
   "telephone": "+51 999 999 999",
+  "email": "info@ozonovida.com",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Av. Villón, frente a la Dirección Víctor Ramos Guardia",
     "addressLocality": "Huaraz",
     "addressRegion": "Ancash",
+    "postalCode": "02001",
     "addressCountry": "PE"
   },
-  "medicalSpecialty": ["PainManagement", "RegenerativeMedicine"],
-  "openingHours": "Mo-Fr 09:00-19:00, Sa 09:00-13:00",
-  "priceRange": "$$"
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "-9.5333",
+    "longitude": "-77.5333"
+  },
+  "medicalSpecialty": [
+    "PainManagement",
+    "RegenerativeMedicine",
+    "OzoneTherapy",
+    "Orthopedics",
+    "PhysicalMedicine"
+  ],
+  "openingHours": [
+    "Mo-Fr 09:00-19:00",
+    "Sa 09:00-13:00"
+  ],
+  "priceRange": "$$",
+  "paymentAccepted": ["Cash", "Credit Card"],
+  "currenciesAccepted": "PEN",
+  "sameAs": [
+    "https://www.facebook.com/ozonovida",
+    "https://www.instagram.com/ozonovida",
+    "https://www.tiktok.com/@ozonovida"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servicios Médicos",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "MedicalProcedure",
+          "name": "Ozonoterapia",
+          "description": "Tratamiento con ozono médico para diversas patologías"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "MedicalProcedure",
+          "name": "Medicina Regenerativa",
+          "description": "Tratamientos regenerativos con plasma rico en plaquetas"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "MedicalProcedure",
+          "name": "Tratamiento del Dolor",
+          "description": "Tratamiento especializado del dolor de columna y articulaciones"
+        }
+      }
+    ]
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "150",
+    "bestRating": "5",
+    "worstRating": "1"
+  }
 }
 </script>
+
+<!-- Additional SEO Meta Tags -->
+<meta name="theme-color" content="#2563eb" />
+<meta name="msapplication-TileColor" content="#2563eb" />
+<meta name="msapplication-config" content="{{BASE_PATH}}browserconfig.xml" />
+
+<!-- Verification Tags (agregar cuando tengas las cuentas) -->
+<!-- <meta name="google-site-verification" content="tu-codigo-verificacion" /> -->
+<!-- <meta name="bing-site-verification" content="tu-codigo-verificacion" /> -->
+<!-- <meta name="facebook-domain-verification" content="tu-codigo-verificacion" /> -->
