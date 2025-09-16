@@ -748,6 +748,458 @@ document.addEventListener("DOMContentLoaded", () => {
     updateBookingForm();
   }
 
+  // Simple Image Rotation
+  function initImageRotation() {
+    const mainImageContainer = $("#main-image-container");
+    const mainImage = mainImageContainer?.querySelector("img");
+    const mainOverlay = mainImageContainer?.querySelector(
+      ".main-image-overlay span"
+    );
+
+    if (!mainImageContainer || !mainImage || !mainOverlay) return;
+
+    let currentIndex = 0;
+    let rotationInterval;
+
+    // Array de imágenes disponibles para rotación (10 imágenes)
+    const imagePool = [
+      {
+        url: "./assets/images/image1.png",
+        title: "Ozonoterapia",
+      },
+      {
+        url: "./assets/images/image2.png",
+        title: "Plasma PRP",
+      },
+      {
+        url: "./assets/images/image3.png",
+        title: "Medicina Regenerativa",
+      },
+      {
+        url: "./assets/images/image4.png",
+        title: "Dolor de Columna",
+      },
+      {
+        url: "./assets/images/image5.png",
+        title: "Tratamiento de Rodilla",
+      },
+      {
+        url: "./assets/images/image6.png",
+        title: "Inyección Terapéutica",
+      },
+      {
+        url: "./assets/images/image7.png",
+        title: "Tratamiento de Espalda",
+      },
+      {
+        url: "./assets/images/image8.png",
+        title: "Aplicación de Gel",
+      },
+      {
+        url: "./assets/images/image9.png",
+        title: "Laboratorio Médico",
+      },
+      {
+        url: "./assets/images/image10.png",
+        title: "Tratamiento de Pie",
+      },
+    ];
+
+    // Función para cambiar la imagen principal con desvanecimiento
+    function changeMainImage(imageUrl, title) {
+      if (!mainImage || !mainOverlay) return;
+
+      // Crear efecto de transición más suave
+      mainImageContainer.classList.add("transitioning");
+
+      setTimeout(() => {
+        mainImage.src = imageUrl;
+        mainOverlay.textContent = title;
+        mainImageContainer.classList.remove("transitioning");
+        mainImageContainer.classList.add("active");
+
+        // Remover la clase active después de un tiempo
+        setTimeout(() => {
+          mainImageContainer.classList.remove("active");
+        }, 2000);
+      }, 400);
+    }
+
+    // Función para obtener la siguiente imagen en la rotación
+    function getNextImage() {
+      currentMainImageIndex = (currentMainImageIndex + 1) % imagePool.length;
+      return imagePool[currentMainImageIndex];
+    }
+
+    // Función para activar una ventana específica
+    function activateWindow(index) {
+      popupWindows.forEach((window, i) => {
+        window.classList.toggle("active", i === index);
+
+        // Si esta ventana se activa, cambiar la imagen principal
+        if (i === index) {
+          const imageUrl = window.dataset.image;
+          const title = window.dataset.title;
+          if (imageUrl && title) {
+            changeMainImage(imageUrl, title);
+          }
+        }
+      });
+    }
+
+    // Función para iniciar la animación continua con rotación circular
+    function startContinuousAnimation() {
+      if (isAnimating) return;
+      isAnimating = true;
+
+      // Activar todas las ventanas inmediatamente
+      popupWindows.forEach((window) => {
+        window.classList.add("active");
+      });
+
+      // Array para rastrear qué imagen está en cada popup
+      const popupImages = [0, 1, 2, 3]; // Índices de las imágenes en cada popup
+      let currentMainImage = 4; // Empezar con la imagen 4 para la principal
+
+      // Función para actualizar las imágenes de los popups
+      function updatePopupImages() {
+        popupWindows.forEach((window, index) => {
+          const imageIndex = popupImages[index];
+          const imageData = imagePool[imageIndex];
+          const img = window.querySelector("img");
+          if (img && imageData) {
+            img.src = imageData.url;
+            img.alt = imageData.title;
+          }
+        });
+      }
+
+      // Función para rotar las imágenes en los popups (ascendente: Popup4 → Principal)
+      function rotateImages() {
+        if (!isAnimating) return;
+
+        // Destacar el popup que va a pasar a la imagen principal (Popup4)
+        const lastPopup = popupWindows[3]; // Popup4 (índice 3)
+        lastPopup.style.opacity = "1";
+        lastPopup.style.transform = "scale(1.05)";
+
+        setTimeout(() => {
+          // Mover la imagen del último popup a la imagen principal
+          const imageToMain = popupImages[3]; // Imagen del Popup4
+          const imageData = imagePool[imageToMain];
+
+          // Cambiar imagen principal
+          changeMainImage(imageData.url, imageData.title);
+
+          // Rotar las imágenes en los popups (desplazar hacia la derecha)
+          for (let i = popupImages.length - 1; i > 0; i--) {
+            popupImages[i] = popupImages[i - 1];
+          }
+
+          // La primera posición recibe la siguiente imagen del pool
+          currentMainImage = (currentMainImage + 1) % imagePool.length;
+          popupImages[0] = currentMainImage;
+
+          // Actualizar las imágenes visuales
+          updatePopupImages();
+
+          // Restaurar el estilo del último popup
+          lastPopup.style.opacity = "0.7";
+          lastPopup.style.transform = "scale(1)";
+
+          // Programar la siguiente rotación
+          setTimeout(() => {
+            rotateImages();
+          }, 2000); // Cada 2 segundos
+        }, 500);
+      }
+
+      // Inicializar las imágenes en los popups
+      updatePopupImages();
+
+      // Iniciar la rotación
+      setTimeout(() => {
+        rotateImages();
+      }, 1000);
+    }
+
+    // Función para animación aleatoria
+    function startRandomAnimation() {
+      if (isAnimating) return;
+      isAnimating = true;
+
+      const randomIndex = Math.floor(Math.random() * popupWindows.length);
+      const window = popupWindows[randomIndex];
+
+      window.classList.add("active");
+
+      // Cambiar imagen principal
+      const imageUrl = window.dataset.image;
+      const title = window.dataset.title;
+      if (imageUrl && title) {
+        changeMainImage(imageUrl, title);
+      }
+
+      setTimeout(() => {
+        window.classList.remove("active");
+        isAnimating = false;
+
+        // Continuar con la siguiente animación aleatoria
+        setTimeout(() => {
+          startRandomAnimation();
+        }, Math.random() * 2000 + 1000); // Entre 1-3 segundos
+      }, 2000);
+    }
+
+    // Función para animación en cascada
+    function startCascadeAnimation() {
+      if (isAnimating) return;
+      isAnimating = true;
+
+      // Activar ventanas en grupos de 2-3
+      const groups = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7],
+        [8, 9],
+      ];
+
+      let groupIndex = 0;
+
+      function activateGroup() {
+        if (groupIndex >= groups.length) {
+          isAnimating = false;
+          setTimeout(() => {
+            startCascadeAnimation();
+          }, 3000);
+          return;
+        }
+
+        const currentGroup = groups[groupIndex];
+        currentGroup.forEach((index) => {
+          if (popupWindows[index]) {
+            popupWindows[index].classList.add("active");
+
+            // Cambiar imagen principal con la primera ventana del grupo
+            if (index === currentGroup[0]) {
+              const imageUrl = popupWindows[index].dataset.image;
+              const title = popupWindows[index].dataset.title;
+              if (imageUrl && title) {
+                changeMainImage(imageUrl, title);
+              }
+            }
+          }
+        });
+
+        setTimeout(() => {
+          currentGroup.forEach((index) => {
+            if (popupWindows[index]) {
+              popupWindows[index].classList.remove("active");
+            }
+          });
+          groupIndex++;
+          setTimeout(activateGroup, 500);
+        }, 2000);
+      }
+
+      activateGroup();
+    }
+
+    // Detectar cuando el elemento está visible en el viewport
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Iniciar animación continua cuando sea visible
+            setTimeout(() => {
+              startContinuousAnimation();
+            }, 1000);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    const container = $(".popup-windows-container");
+    if (container) {
+      observer.observe(container);
+    }
+
+    // Pausar animación cuando no está visible
+    const pauseObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            // Pausar animaciones
+            popupWindows.forEach((window) => {
+              window.classList.remove("active");
+            });
+            isAnimating = false;
+          }
+        });
+      },
+      { threshold: 0 }
+    );
+
+    if (container) {
+      pauseObserver.observe(container);
+    }
+
+    // Agregar interactividad con hover
+    popupWindows.forEach((window) => {
+      window.addEventListener("mouseenter", () => {
+        if (!window.classList.contains("active")) {
+          window.classList.add("active");
+
+          // Cambiar imagen principal al hacer hover
+          const imageUrl = window.dataset.image;
+          const title = window.dataset.title;
+          if (imageUrl && title) {
+            changeMainImage(imageUrl, title);
+          }
+        }
+      });
+
+      window.addEventListener("mouseleave", () => {
+        // Solo remover si no está en el ciclo de animación
+        setTimeout(() => {
+          if (!isAnimating) {
+            window.classList.remove("active");
+          }
+        }, 100);
+      });
+    });
+
+    return true;
+  }
+
+  // Simple Image Rotation - Sin indicador de carga
+  function initImageRotationNew() {
+    const mainImageContainer = $("#main-image-container");
+    const mainImage = mainImageContainer?.querySelector("img");
+    const mainOverlay = mainImageContainer?.querySelector(
+      ".main-image-overlay span"
+    );
+
+    if (!mainImageContainer || !mainImage || !mainOverlay) return;
+
+    let currentIndex = 0;
+    let rotationInterval;
+    const ROTATION_TIME = 2000; // 2 segundos exactos
+
+    // Array de imágenes disponibles para rotación (10 imágenes)
+    const imagePool = [
+      {
+        url: "./assets/images/image1.png",
+        title: "Ozonoterapia",
+      },
+      {
+        url: "./assets/images/image2.png",
+        title: "Plasma PRP",
+      },
+      {
+        url: "./assets/images/image3.png",
+        title: "Medicina Regenerativa",
+      },
+      {
+        url: "./assets/images/image4.png",
+        title: "Dolor de Columna",
+      },
+      {
+        url: "./assets/images/image5.png",
+        title: "Tratamiento de Rodilla",
+      },
+      {
+        url: "./assets/images/image6.png",
+        title: "Inyección Terapéutica",
+      },
+      {
+        url: "./assets/images/image7.png",
+        title: "Tratamiento de Espalda",
+      },
+      {
+        url: "./assets/images/image8.png",
+        title: "Aplicación de Gel",
+      },
+      {
+        url: "./assets/images/image9.png",
+        title: "Laboratorio Médico",
+      },
+      {
+        url: "./assets/images/image10.png",
+        title: "Tratamiento de Pie",
+      },
+    ];
+
+    // Función para cambiar la imagen con transición suave y efecto blur
+    function changeImage(imageUrl, title) {
+      if (!mainImage || !mainOverlay) return;
+
+      // Crear efecto de transición con blur
+      mainImageContainer.classList.add("transitioning");
+      mainImage.style.filter = "blur(3px)";
+      mainImage.style.opacity = "0.7";
+
+      setTimeout(() => {
+        mainImage.src = imageUrl;
+        mainOverlay.textContent = title;
+
+        // Remover blur y restaurar opacidad
+        setTimeout(() => {
+          mainImage.style.filter = "blur(0px)";
+          mainImage.style.opacity = "1";
+          mainImageContainer.classList.remove("transitioning");
+        }, 100);
+      }, 300);
+    }
+
+    // Función para iniciar la rotación automática
+    function startRotation() {
+      // Limpiar cualquier intervalo anterior
+      if (rotationInterval) {
+        clearInterval(rotationInterval);
+      }
+
+      rotationInterval = setInterval(() => {
+        currentIndex = (currentIndex + 1) % imagePool.length;
+        const currentImage = imagePool[currentIndex];
+        changeImage(currentImage.url, currentImage.title);
+      }, ROTATION_TIME);
+    }
+
+    // Función para detener la rotación
+    function stopRotation() {
+      if (rotationInterval) {
+        clearInterval(rotationInterval);
+        rotationInterval = null;
+      }
+    }
+
+    // Iniciar la rotación automática
+    startRotation();
+
+    // Pausar rotación cuando la imagen no está visible
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            startRotation();
+          } else {
+            stopRotation();
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(mainImageContainer);
+
+    return true;
+  }
+
+  // Inicializar rotación de imagen
+  initImageRotationNew();
+
   // Tiny toast
   let toastTimeout;
   const toast = (text, type = "success") => {

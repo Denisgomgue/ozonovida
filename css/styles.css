@@ -925,6 +925,259 @@ a {
   border: 1px solid var(--border);
 }
 
+/* Main Image Container Styles */
+.main-image-container {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: transparent;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+
+.main-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.main-image-container.transitioning img {
+  opacity: 0.7;
+  filter: blur(3px);
+}
+
+
+
+.main-image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  padding: 1.5rem 1rem 1rem;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.main-image-overlay span {
+  display: block;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Responsive para imagen principal */
+
+/* Responsive para imagen principal */
+@media (max-width: 768px) {
+  .main-image-container {
+    height: 300px;
+  }
+
+  .main-image-overlay {
+    padding: 1rem 0.75rem 0.75rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-image-container {
+    height: 250px;
+  }
+
+  .main-image-overlay {
+    padding: 0.75rem 0.5rem 0.5rem;
+    font-size: 0.75rem;
+  }
+}
+
+.popup-window {
+  pointer-events: auto;
+  width: 120px;
+  height: 90px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.popup-window.active {
+  opacity: 1;
+}
+
+.popup-window img {
+  transition: all 0.6s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Disposición en arco solo en la parte superior (4 ventanas) */
+.popup-window.popup-window--1 {
+  top: 5%;
+  left: 10%;
+  transform: rotate(-15deg);
+  z-index: 20;
+}
+
+.popup-window.popup-window--1.active {
+  transform: rotate(-15deg);
+}
+
+.popup-window.popup-window--2 {
+  top: 2%;
+  left: 30%;
+  transform: rotate(-5deg);
+  z-index: 21;
+}
+
+.popup-window.popup-window--2.active {
+  transform: rotate(-5deg);
+}
+
+.popup-window.popup-window--3 {
+  top: 2%;
+  right: 30%;
+  transform: rotate(5deg);
+  z-index: 22;
+}
+
+.popup-window.popup-window--3.active {
+  transform: rotate(5deg);
+}
+
+.popup-window.popup-window--4 {
+  top: 5%;
+  right: 10%;
+  transform: rotate(15deg);
+  z-index: 23;
+}
+
+.popup-window.popup-window--4.active {
+  transform: rotate(15deg);
+}
+
+.popup-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.popup-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.popup-window.active .popup-content img {
+  transform: scale(1.05);
+}
+
+.popup-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  padding: 1rem 0.75rem 0.75rem;
+  color: white;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.popup-window.active .popup-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.popup-overlay span {
+  display: block;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Efectos de brillo y animación */
+.popup-window.active .popup-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shine 1.5s ease-in-out;
+  z-index: 1;
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+/* Responsive para popup windows */
+@media (max-width: 768px) {
+  .popup-windows-container {
+    height: 400px;
+  }
+
+  .popup-window {
+    width: 100px !important;
+    height: 75px !important;
+  }
+
+  .main-image-overlay {
+    padding: 1rem 0.75rem 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .popup-overlay {
+    padding: 0.5rem 0.5rem 0.5rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .popup-windows-container {
+    height: 300px;
+  }
+
+  .popup-window {
+    width: 80px !important;
+    height: 60px !important;
+  }
+
+  .main-image-overlay {
+    padding: 0.75rem 0.5rem 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .popup-overlay {
+    padding: 0.25rem 0.25rem 0.25rem;
+    font-size: 0.7rem;
+  }
+}
+
 .location-card {
   position: absolute;
   bottom: -12px;
@@ -937,6 +1190,7 @@ a {
   display: inline-flex;
   align-items: center;
   gap: .5rem;
+  z-index: 30;
 }
 
 /* En tema claro el .location-card con gradiente */
