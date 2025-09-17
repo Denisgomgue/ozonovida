@@ -1,0 +1,63 @@
+/* ===== OZONO VIDA - CSS PRINCIPAL ===== */
+
+/* ===== IMPORTACIONES BASE ===== */
+@import url('./base/variables.css');
+
+/* ===== IMPORTACIONES DE COMPONENTES ===== */
+@import url('./components/buttons.css');
+
+/* ===== IMPORTACIONES DE PÁGINAS ===== */
+@import url('./pages/services-base.css');
+
+/* ===== IMPORTACIONES CONDICIONALES (Se cargan según la página) ===== */
+/* Estas se cargan dinámicamente según la página actual */
+
+/* 
+EJEMPLO DE USO EN HTML:
+
+Para la página de ozonoterapia:
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/pages/ozonoterapia.css">
+
+Para la página de plasma:
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/pages/plasma.css">
+*/
+
+/* ===== NOTAS DE ARQUITECTURA ===== */
+
+/*
+ESTRUCTURA RECOMENDADA:
+
+1. BASE (variables.css)
+   - Variables CSS globales
+   - Colores, tipografía, espaciado
+   - Breakpoints y z-index
+
+2. COMPONENTS (buttons.css, cards.css, etc.)
+   - Componentes reutilizables
+   - Independientes de la página
+   - Pueden usarse en cualquier lugar
+
+3. LAYOUT (grid.css, containers.css)
+   - Sistemas de layout
+   - Contenedores y grids
+   - Estructuras de página
+
+4. PAGES (services-base.css, ozonoterapia.css)
+   - Estilos específicos por página
+   - Heredan de base y componentes
+   - Personalizaciones únicas
+
+5. THEMES (light.css, dark.css)
+   - Variaciones de tema
+   - Override de variables
+   - Modos claro/oscuro
+
+VENTAJAS:
+- Mantenibilidad mejorada
+- Reutilización de código
+- Carga condicional (mejor performance)
+- Organización clara
+- Escalabilidad
+*/

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <!-- Head Base - Elementos que nunca cambian -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- CSS Crítico (siempre primero) -->
+  <link rel="stylesheet" href="../css/critical.css" />
+  
+  <!-- CSS de Protección de Videos -->
+  <link rel="stylesheet" href="../css/security/video-protection.css" />
+  
+  <!-- Preconnect para optimización -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  
+  <!-- Preload del CSS principal -->
+  <link rel="preload" href="../css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="../css/styles.css" /></noscript>
+  
+  <!-- Preload de Font Awesome -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /></noscript>
+  
+  <!-- Preload de Google Fonts -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" /></noscript>
+
+  <!-- Favicon y Iconos -->
+  <link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon.ico" />
+
+  <!-- Meta Tags Básicos -->
+  <meta name="author" content="OZONO VIDA Centro Médico" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+
+  <!-- Idioma y Región -->
+  <meta name="language" content="es" />
+  <meta name="geo.region" content="PE-ANC" />
+  <meta name="geo.placename" content="Huaraz" />
+  <meta name="geo.position" content="-9.5333;-77.5333" />
+  <meta name="ICBM" content="-9.5333, -77.5333" />
+
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#215096" />
+  <meta name="msapplication-TileColor" content="#215096" />
+
+  <!-- ===== PERSONALIZAR ESTOS ELEMENTOS PARA CADA SERVICIO ===== -->
+  <title>{{SERVICIO_NOMBRE}} - {{SERVICIO_DESCRIPCION_CORTA}} • OZONO VIDA</title>
+  <meta name="description" content="{{SERVICIO_DESCRIPCION_COMPLETA}}" />
+  <meta name="keywords" content="{{SERVICIO_KEYWORDS}}" />
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="{{SERVICIO_NOMBRE}} - {{SERVICIO_DESCRIPCION_CORTA}} • OZONO VIDA" />
+  <meta property="og:description" content="{{SERVICIO_DESCRIPCION_COMPLETA}}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ozonovida.netlify.app/servicios/{{SERVICIO_URL}}.html" />
+  <meta property="og:image" content="{{SERVICIO_IMAGEN}}" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="{{SERVICIO_NOMBRE}} - OZONO VIDA Centro Médico" />
+  <meta property="og:site_name" content="OZONO VIDA" />
+  <meta property="og:locale" content="es_PE" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{SERVICIO_NOMBRE}} - {{SERVICIO_DESCRIPCION_CORTA}} • OZONO VIDA" />
+  <meta name="twitter:description" content="{{SERVICIO_DESCRIPCION_COMPLETA}}" />
+  <meta name="twitter:image" content="{{SERVICIO_IMAGEN}}" />
+  <meta name="twitter:image:alt" content="{{SERVICIO_NOMBRE}} - OZONO VIDA Centro Médico" />
+  <meta name="twitter:site" content="@ozonovida" />
+  <meta name="twitter:creator" content="@ozonovida" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://ozonovida.netlify.app/servicios/{{SERVICIO_URL}}.html" />
+
+  <!-- Structured Data Específico -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalProcedure",
+    "name": "{{SERVICIO_NOMBRE}}",
+    "description": "{{SERVICIO_DESCRIPCION_TECNICA}}",
+    "provider": {
+      "@type": "MedicalClinic",
+      "name": "OZONO VIDA Centro Médico",
+      "alternateName": "OZONO VIDA",
+      "telephone": "+51 988 126 804",
+      "email": "contacto@ozonovida.pe",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Villón, frente a la Dirección Víctor Ramos Guardia",
+        "addressLocality": "Huaraz",
+        "addressRegion": "Ancash",
+        "postalCode": "02001",
+        "addressCountry": "PE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-9.5333",
+        "longitude": "-77.5333"
+      }
+    },
+    "medicalSpecialty": ["PainManagement", "RegenerativeMedicine", "{{SERVICIO_ESPECIALIDAD}}"],
+    "bodyLocation": {{SERVICIO_UBICACIONES_CUERPO}}
+  }
+  </script>
+</head>
+<body>
+  <a href="#inicio" class="skip-link">Saltar al contenido</a>
+
+  <!-- Header Component -->
+  <div id="header-placeholder"></div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero hero--service" aria-label="{{SERVICIO_NOMBRE}}">
+      <div class="container hero__grid">
+        <div class="hero__content reveal">
+          <!-- Breadcrumb -->
+          <nav class="breadcrumb" aria-label="Ruta de navegación">
+            <a href="../index.html">Inicio</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <a href="../index.html#servicios">Servicios</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>{{SERVICIO_NOMBRE}}</span>
+          </nav>
+          
+          <h1>{{SERVICIO_NOMBRE}}</h1>
+          <p class="hero__subtitle">{{SERVICIO_DESCRIPCION_HERO}}</p>
+          
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="#citas" data-open-modal>
+              <i class="fa-solid fa-calendar-check"></i> Reservar Consulta
+            </a>
+            <a class="btn btn--ghost" href="#que-es">
+              <i class="fa-solid fa-circle-play"></i> Conocer Más
+            </a>
+          </div>
+        </div>
+        <div class="hero__media reveal">
+          <div class="main-image-container">
+            <img src="../assets/images/services/{{SERVICIO_IMAGEN_LOCAL}}" alt="{{SERVICIO_NOMBRE}} - Tratamiento médico especializado" loading="lazy" />
+            <div class="service-highlight">
+              <i class="{{SERVICIO_ICONO}}"></i>
+              <span>{{SERVICIO_BADGE}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Introducción - DISEÑO ESTÁNDAR PARA TODOS LOS SERVICIOS -->
+    <section id="que-es" class="section">
+      <div class="container">
+        <h2 class="section__title">¿Qué es {{SERVICIO_NOMBRE_ARTICULO}}?</h2>
+        <div class="intro-grid">
+          <div class="intro-content">
+            <h3>{{SERVICIO_SUBTITULO}}</h3>
+            <p class="intro__text">{{SERVICIO_DESCRIPCION_1}}</p>
+            <p class="intro__text">{{SERVICIO_DESCRIPCION_2}}</p>
+            
+            <div class="benefits-list">
+              <!-- REPETIR ESTE PATRÓN PARA CADA BENEFICIO -->
+              <div class="benefit-item">
+                <i class="fa-solid fa-check"></i>
+                <span>{{BENEFICIO_1}}</span>
+              </div>
+              <div class="benefit-item">
+                <i class="fa-solid fa-check"></i>
+                <span>{{BENEFICIO_2}}</span>
+              </div>
+              <div class="benefit-item">
+                <i class="fa-solid fa-check"></i>
+                <span>{{BENEFICIO_3}}</span>
+              </div>
+              <div class="benefit-item">
+                <i class="fa-solid fa-check"></i>
+                <span>{{BENEFICIO_4}}</span>
+              </div>
+              <div class="benefit-item">
+                <i class="fa-solid fa-check"></i>
+                <span>{{BENEFICIO_5}}</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="video-section">
+            <!-- OPCIÓN A: Video real (si existe) -->
+            <div class="video-real-container" style="display: {{VIDEO_EXISTS}};">
+              <video 
+                class="service-video" 
+                controls 
+                preload="metadata"
+                poster="../assets/images/services/{{SERVICIO_IMAGEN_LOCAL}}"
+                aria-label="Video explicativo sobre {{SERVICIO_NOMBRE_LOWERCASE}}">
+                <source src="../assets/movies/{{SERVICIO_VIDEO_FILE}}" type="video/mp4">
+                <p>Tu navegador no soporta videos HTML5. 
+                   <a href="../assets/movies/{{SERVICIO_VIDEO_FILE}}" download="{{SERVICIO_NOMBRE_LOWERCASE}}_explicativo.mp4">
+                     Descargar video
+                   </a>
+                </p>
+              </video>
+              <div class="video-info">
+                <h4>Video Explicativo - {{SERVICIO_NOMBRE}}</h4>
+                <p>Descubre cómo funciona {{SERVICIO_NOMBRE_LOWERCASE}} y sus beneficios para tu salud</p>
+              </div>
+            </div>
+            
+            <!-- OPCIÓN B: Placeholder (si no hay video) -->
+            <div class="video-placeholder" style="display: {{VIDEO_PLACEHOLDER}};">
+              <div class="video-play-button">
+                <i class="fa-solid fa-play"></i>
+              </div>
+              <div class="video-content">
+                <h4>Video Explicativo</h4>
+                <p>Descubre cómo funciona {{SERVICIO_NOMBRE_LOWERCASE}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Métodos de Aplicación - DISEÑO ESTÁNDAR PARA TODOS LOS SERVICIOS -->
+    <section class="section section--alt">
+      <div class="container">
+        <h2 class="section__title">{{SECCION_METODOS_TITULO}}</h2>
+        <p class="section__subtitle">{{SECCION_METODOS_SUBTITULO}}</p>
+        <div class="service-methods-grid">
+          <!-- REPETIR ESTE PATRÓN PARA CADA MÉTODO -->
+          <article class="service-method-card reveal">
+            <div class="service-method-icon">
+              <i class="{{METODO_1_ICONO}}"></i>
+            </div>
+            <h3>{{METODO_1_TITULO}}</h3>
+            <p>{{METODO_1_DESCRIPCION}}</p>
+          </article>
+          
+          <article class="service-method-card reveal">
+            <div class="service-method-icon">
+              <i class="{{METODO_2_ICONO}}"></i>
+            </div>
+            <h3>{{METODO_2_TITULO}}</h3>
+            <p>{{METODO_2_DESCRIPCION}}</p>
+          </article>
+          
+          <article class="service-method-card reveal">
+            <div class="service-method-icon">
+              <i class="{{METODO_3_ICONO}}"></i>
+            </div>
+            <h3>{{METODO_3_TITULO}}</h3>
+            <p>{{METODO_3_DESCRIPCION}}</p>
+          </article>
+          
+          <!-- Agregar más métodos según el servicio -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Resto del contenido específico del servicio -->
+    <!-- ... -->
+
+  </main>
+
+  <!-- UI Components -->
+  <div id="ui-components-placeholder"></div>
+
+  <!-- Footer Component -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Scripts -->
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      document.body.classList.remove('loading');
+      document.body.classList.add('loaded');
+    });
+  </script>
+  
+  <!-- Scripts de Seguridad (cargar primero) -->
+  <script src="../js/video-security.js"></script>
+  
+  <script src="../js/metadata-pages.js" defer></script>
+  <script src="../js/social-config.js" defer></script>
+  <script src="../js/optimized-component-loader.js" defer></script>
+  <script src="../js/app.js" defer></script>
+</body>
+</html>

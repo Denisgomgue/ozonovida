@@ -1,0 +1,147 @@
+<!-- Hero Section con Imagen de Fondo - Template para Servicios -->
+<!-- Usar cuando quieras que la imagen del servicio sea el fondo del hero -->
+
+<section class="hero hero--service hero--{{SERVICIO_CLASS}}" aria-label="{{SERVICIO_NOMBRE}}">
+  <div class="container hero__grid">
+    <div class="hero__content reveal">
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb" aria-label="Ruta de navegación">
+        <a href="../index.html">Inicio</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <a href="../index.html#servicios">Servicios</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <span>{{SERVICIO_NOMBRE}}</span>
+      </nav>
+      
+      <h1>{{SERVICIO_NOMBRE}}</h1>
+      <p class="hero__subtitle">{{SERVICIO_DESCRIPCION_HERO}}</p>
+      
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="#citas" data-open-modal>
+          <i class="fa-solid fa-calendar-check"></i> Reservar Consulta
+        </a>
+        <a class="btn btn--ghost" href="#que-es">
+          <i class="fa-solid fa-circle-play"></i> Conocer Más
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CSS específico para este servicio -->
+<style>
+.hero--service.hero--{{SERVICIO_CLASS}} {
+  background: 
+    linear-gradient(135deg, rgba(33, 80, 150, 0.85) 0%, rgba(100, 178, 231, 0.75) 100%),
+    url('../assets/images/services/{{SERVICIO_IMAGEN_LOCAL}}') center/cover no-repeat;
+  color: white;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero--service.hero--{{SERVICIO_CLASS}}::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(33, 80, 150, 0.7) 0%, rgba(100, 178, 231, 0.6) 100%);
+  z-index: 1;
+}
+
+.hero--service.hero--{{SERVICIO_CLASS}} .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero--service.hero--{{SERVICIO_CLASS}} .hero__content h1 {
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  background: none;
+  -webkit-text-fill-color: white;
+}
+
+.hero--service.hero--{{SERVICIO_CLASS}} .hero__subtitle {
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.hero--service.hero--{{SERVICIO_CLASS}} .breadcrumb {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: inline-flex;
+}
+
+.hero--service.hero--{{SERVICIO_CLASS}} .btn--primary {
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--corporate-blue);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  font-weight: 700;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.hero--service.hero--{{SERVICIO_CLASS}} .btn--primary:hover {
+  background: white;
+  color: var(--corporate-blue);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.hero--service.hero--{{SERVICIO_CLASS}} .btn--ghost {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.hero--service.hero--{{SERVICIO_CLASS}} .btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: white;
+  color: white;
+}
+
+.hero--service.hero--{{SERVICIO_CLASS}} .hero__media {
+  display: none;
+}
+
+.hero--service.hero--{{SERVICIO_CLASS}} .hero__grid {
+  grid-template-columns: 1fr;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero--service.hero--{{SERVICIO_CLASS}} .hero__content {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 3rem 2rem;
+  border-radius: 1.5rem;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero--service.hero--{{SERVICIO_CLASS}} {
+    min-height: 60vh;
+    padding: 4rem 0;
+  }
+  
+  .hero--service.hero--{{SERVICIO_CLASS}} .hero__content {
+    padding: 2rem 1.5rem;
+    margin: 0 1rem;
+  }
+  
+  .hero--service.hero--{{SERVICIO_CLASS}} .hero__cta {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+}
+</style>

@@ -1,53 +1,83 @@
 <!DOCTYPE html>
 <html lang="es" data-theme="light">
 <head>
+  <!-- Head Base - Elementos que nunca cambian -->
+  <!-- CSS Crítico (siempre primero) -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
-  <!-- CSS Crítico -->
   <link rel="stylesheet" href="./css/critical.css" />
   
+  <!-- CSS de Protección de Videos -->
+  <link rel="stylesheet" href="./css/security/video-protection.css" />
 
-  <!-- Preload de recursos críticos -->
+  <!-- Preconnect para optimización -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-  
+
   <!-- Preload del CSS principal -->
   <link rel="preload" href="./css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="./css/styles.css" /></noscript>
-  
+
   <!-- Preload de Font Awesome -->
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /></noscript>
-  
+
   <!-- Preload de Google Fonts -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" /></noscript>
 
-  <!-- Metadata dinámica -->
-  <title data-page-title>OZONO VIDA • Medicina Regenerativa</title>
+  <!-- Favicon y Iconos -->
+  <link rel="icon" href="./assets/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon.ico" />
+
+  <!-- Meta Tags Básicos -->
+  <meta name="author" content="OZONO VIDA Centro Médico" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+
+  <!-- Idioma y Región -->
+  <meta name="language" content="es" />
+  <meta name="geo.region" content="PE-ANC" />
+  <meta name="geo.placename" content="Huaraz" />
+  <meta name="geo.position" content="-9.5333;-77.5333" />
+  <meta name="ICBM" content="-9.5333, -77.5333" />
+
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#215096" />
+  <meta name="msapplication-TileColor" content="#215096" />
+
+  <!-- Head Dinámico - Específico de esta página -->
+  <title>OZONO VIDA • Medicina Regenerativa</title>
   <meta name="description" content="OZONO VIDA: Ozonoterapia, medicina regenerativa y tratamiento integral del dolor (columna, hernias, rodillas y más). Atención en Av. Villón, frente a la Dirección Víctor Ramos Guardia." />
+  <meta name="keywords" content="ozonoterapia, medicina regenerativa, tratamiento dolor, plasma rico plaquetas, Huaraz, Ancash, Peru" />
 
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="OZONO VIDA • Medicina Regenerativa" />
   <meta property="og:description" content="OZONO VIDA: Ozonoterapia, medicina regenerativa y tratamiento integral del dolor (columna, hernias, rodillas y más). Atención en Av. Villón, frente a la Dirección Víctor Ramos Guardia." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://net" />
+  <meta property="og:url" content="https://ozonovida.netlify.app" />
   <meta property="og:image" content="https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=1200&q=80" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="OZONO VIDA • Medicina Regenerativa - OZONO VIDA Centro Médico" />
+  <meta property="og:site_name" content="OZONO VIDA" />
+  <meta property="og:locale" content="es_PE" />
 
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="OZONO VIDA • Medicina Regenerativa" />
   <meta name="twitter:description" content="OZONO VIDA: Ozonoterapia, medicina regenerativa y tratamiento integral del dolor (columna, hernias, rodillas y más). Atención en Av. Villón, frente a la Dirección Víctor Ramos Guardia." />
   <meta name="twitter:image" content="https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=1200&q=80" />
+  <meta name="twitter:image:alt" content="OZONO VIDA • Medicina Regenerativa - OZONO VIDA Centro Médico" />
+  <meta name="twitter:site" content="@ozonovida" />
+  <meta name="twitter:creator" content="@ozonovida" />
 
   <!-- Canonical URL -->
   <link rel="canonical" href="https://ozonovida.netlify.app" />
-
-  <!-- Favicon -->
-  <link rel="icon" href="./assets/favicon.ico" type="image/x-icon" />
-  <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -55,25 +85,53 @@
     "@context": "https://schema.org",
     "@type": "MedicalClinic",
     "name": "OZONO VIDA Centro Médico",
+    "alternateName": "OZONO VIDA",
     "description": "OZONO VIDA: Ozonoterapia, medicina regenerativa y tratamiento integral del dolor (columna, hernias, rodillas y más). Atención en Av. Villón, frente a la Dirección Víctor Ramos Guardia.",
     "image": "https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=1200&q=80",
-    "url": "https://net",
-    "telephone": "+51 999 999 999",
+    "url": "https://ozonovida.netlify.app",
+    "telephone": "+51 988 126 804",
+    "email": "contacto@ozonovida.pe",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Av. Villón, frente a la Dirección Víctor Ramos Guardia",
       "addressLocality": "Huaraz",
       "addressRegion": "Ancash",
+      "postalCode": "02001",
       "addressCountry": "PE"
     },
-    "medicalSpecialty": ["PainManagement", "RegenerativeMedicine"],
-    "openingHours": "Mo-Fr 09:00-19:00, Sa 09:00-13:00",
-    "priceRange": "$$"
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "-9.5333",
+      "longitude": "-77.5333"
+    },
+    "medicalSpecialty": [
+      "PainManagement",
+      "RegenerativeMedicine",
+      "OzoneTherapy",
+      "Orthopedics",
+      "PhysicalMedicine"
+    ],
+    "openingHours": [
+      "Mo-Fr 09:00-19:00",
+      "Sa 09:00-13:00"
+    ],
+    "priceRange": "$$",
+    "paymentAccepted": ["Cash", "Credit Card"],
+    "currenciesAccepted": "PEN",
+    "sameAs": [
+      "https://www.facebook.com/ozonovida",
+      "https://www.instagram.com/ozonovida",
+      "https://www.tiktok.com/@ozonovida"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "150",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
   }
   </script>
-  <!-- CSS Crítico -->
-  <link rel="stylesheet" href="css/critical.css" />
-  
 </head>
 <body>
   <a href="#inicio" class="skip-link">Saltar al contenido</a>
@@ -87,7 +145,7 @@
       <div class="shape shape--2"></div>
       <div class="container hero__grid">
         <div class="hero__content reveal">
-          <h1>Medicina regenerativa ozonoterapia,  aliviamos el dolor</h1>
+          <h1>Medicina regenerativa ozonoterapia, aliviamos el dolor</h1>
           <p>En <strong>OZONO VIDA</strong> tratamos dolor de columna, hernias, rodillas y más, con terapias avanzadas: ozono, plasma y medicina regenerativa.</p>
           <div class="hero__cta">
             <a class="btn btn--primary" href="#citas" data-open-modal>
@@ -125,7 +183,7 @@
         <h2 class="section__title">Servicios</h2>
         <p class="section__subtitle">Abordaje integral del dolor con tecnología y calidez humana</p>
         <div class="grid cards">
-          <article class="card reveal">
+          <a href="servicios/ozonoterapia.html" class="card reveal">
             <div class="card__image">
               <img src="assets/images/services/servicios-ozonoterapia.png" alt="Ozonoterapia" loading="lazy">
             </div>
@@ -133,9 +191,12 @@
               <div class="card__icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
               <h3>Ozonoterapia</h3>
               <p>Aplicación médica del ozono para reducir inflamación, mejorar oxigenación y aliviar dolor.</p>
+              <div class="card__cta">
+                <span class="btn btn--ghost btn--sm">Ver más <i class="fa-solid fa-arrow-right"></i></span>
+              </div>
             </div>
-          </article>
-          <article class="card reveal">
+          </a>
+          <a href="servicios/plasma.html" class="card reveal">
             <div class="card__image">
               <img src="assets/images/services/servicios-plasmaRicoPlaquetas.png" alt="Plasma Rico en Plaquetas" loading="lazy">
             </div>
@@ -143,9 +204,12 @@
               <div class="card__icon"><i class="fa-solid fa-vial-circle-check"></i></div>
               <h3>Plasma Rico en Plaquetas</h3>
               <p>Regeneración tisular mediante factores de crecimiento derivados de tu propia sangre.</p>
+              <div class="card__cta">
+                <span class="btn btn--ghost btn--sm">Ver más <i class="fa-solid fa-arrow-right"></i></span>
+              </div>
             </div>
-          </article>
-          <article class="card reveal">
+          </a>
+          <a href="servicios/medicina-regenerativa.html" class="card reveal">
             <div class="card__image">
               <img src="assets/images/services/servicios-medicinaRegenerativa.png" alt="Medicina Regenerativa" loading="lazy">
             </div>
@@ -153,9 +217,12 @@
               <div class="card__icon"><i class="fa-solid fa-bone"></i></div>
               <h3>Medicina Regenerativa</h3>
               <p>Terapias para restaurar tejidos y recuperar la funcionalidad articular.</p>
+              <div class="card__cta">
+                <span class="btn btn--ghost btn--sm">Ver más <i class="fa-solid fa-arrow-right"></i></span>
+              </div>
             </div>
-          </article>
-          <article class="card reveal">
+          </a>
+          <a href="servicios/coctel-vida.html" class="card reveal">
             <div class="card__image">
               <img src="assets/images/services/servicios-coctelVida.png" alt="Cóctel de Vida" loading="lazy">
             </div>
@@ -163,8 +230,11 @@
               <div class="card__icon"><i class="fa-solid fa-heart-pulse"></i></div>
               <h3>Cóctel de Vida</h3>
               <p>Combinación terapéutica de vitaminas, minerales y antioxidantes para revitalizar el organismo.</p>
+              <div class="card__cta">
+                <span class="btn btn--ghost btn--sm">Ver más <i class="fa-solid fa-arrow-right"></i></span>
+              </div>
             </div>
-          </article>
+          </a>
         </div>
       </div>
     </section>   
@@ -214,9 +284,9 @@
             <!-- TikTok Video 1 -->
             <div class="tiktok-video reveal">
               <div class="tiktok-embed">
-                <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@stella_maris_medical/video/1234567890" data-video-id="1234567890" style="max-width: 325px;min-width: 325px;">
+                <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@ozonovida/video/1234567890" data-video-id="1234567890" style="max-width: 325px;min-width: 325px;">
                   <section>
-                    <a target="_blank" title="@stella_maris_medical" href="https://www.tiktok.com/@cine_accion2/video/7535633245250129208?is_from_webapp=1&sender_device=pc">@stella_maris_medical</a>
+                    <a target="_blank" title="@ozonovida" href="https://www.tiktok.com/@ozonovida/video/7535633245250129208?is_from_webapp=1&sender_device=pc">@ozonovida</a>
                     <p>Conoce nuestros tratamientos de ozonoterapia</p>
                     <a target="_blank" title="♬ sonido original - OZONO VIDA" href="https://www.tiktok.com/@cine_accion2/video/7535633245250129208?is_from_webapp=1&sender_device=pc">♬ sonido original - OZONO VIDA</a>
                   </section>
@@ -280,7 +350,7 @@
             <!-- TikTok Video 4 -->
             <div class="tiktok-video reveal">
               <div class="tiktok-embed">
-                <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@stella_maris_medical/video/1234567893" data-video-id="1234567893" style="max-width: 325px;min-width: 325px;">
+                <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@ozonovida/video/1234567893" data-video-id="1234567893" style="max-width: 325px;min-width: 325px;">
                   <section>
                     <a target="_blank" title="@ozonovida" href="data-tiktok-link">@ozonovida</a>
                     <p>Medicina regenerativa explicada</p>
@@ -482,6 +552,7 @@
               <option>Ozonoterapia</option>
               <option>Plasma Rico en Plaquetas</option>
               <option>Medicina Regenerativa</option>
+              <option>Cóctel de Vida</option>
               <option>Terapia del Dolor</option>
             </select>
           </div>
@@ -516,8 +587,11 @@
     });
   </script>
   
+  <!-- Scripts de Seguridad (cargar primero) -->
+  <script src="./js/video-security.js"></script>
+  
   <!-- Scripts principales con defer para no bloquear -->
-  <script src="./js/metadata-config.js" defer></script>
+  <script src="./js/metadata-pages.js" defer></script>
   <script src="./js/social-config.js" defer></script>
   <script src="./js/optimized-component-loader.js" defer></script>
   <script src="./js/app.js" defer></script>

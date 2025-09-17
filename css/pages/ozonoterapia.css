@@ -1,0 +1,267 @@
+/* ===== ESTILOS ESPECÍFICOS - OZONOTERAPIA ===== */
+
+/* ===== VARIABLES ESPECÍFICAS ===== */
+:root {
+    --ozono-gradient: linear-gradient(135deg, var(--ozono-primary), var(--ozono-secondary));
+    --ozono-shadow: 0 10px 30px rgba(33, 80, 150, 0.15);
+    --ozono-accent-shadow: 0 8px 25px rgba(74, 222, 128, 0.3);
+}
+
+/* ===== HERO ESPECÍFICO OZONOTERAPIA ===== */
+.hero--service.hero--ozonoterapia {
+    background:
+        radial-gradient(circle at 20% 80%, rgba(74, 222, 128, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(33, 80, 150, 0.1) 0%, transparent 50%),
+        linear-gradient(135deg, rgba(33, 80, 150, 0.05) 0%, rgba(100, 178, 231, 0.02) 100%);
+}
+
+/* ===== EFECTOS ESPECÍFICOS PARA OZONOTERAPIA ===== */
+.hero--ozonoterapia .service-highlight {
+    background: var(--ozono-gradient);
+    box-shadow: var(--ozono-accent-shadow);
+}
+
+.hero--ozonoterapia .service-highlight i {
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+
+    0%,
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+
+    50% {
+        transform: scale(1.1) rotate(180deg);
+    }
+}
+
+/* ===== BENEFICIOS ESPECÍFICOS ===== */
+.hero--ozonoterapia .benefit-item {
+    border-left-color: var(--ozono-accent);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero--ozonoterapia .benefit-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--ozono-accent), transparent);
+    animation: flow 3s ease-in-out infinite;
+}
+
+@keyframes flow {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.hero--ozonoterapia .benefit-item i {
+    color: var(--ozono-accent);
+    text-shadow: 0 0 10px rgba(74, 222, 128, 0.3);
+}
+
+/* ===== CARDS DE MÉTODOS ===== */
+.hero--ozonoterapia .card:hover {
+    border-color: var(--ozono-accent);
+    box-shadow:
+        var(--ozono-shadow),
+        0 0 20px rgba(74, 222, 128, 0.2);
+}
+
+.hero--ozonoterapia .card__icon {
+    background: var(--ozono-gradient);
+    position: relative;
+}
+
+.hero--ozonoterapia .card__icon::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(circle, rgba(74, 222, 128, 0.3) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.hero--ozonoterapia .card:hover .card__icon::after {
+    opacity: 1;
+}
+
+/* ===== TIMELINE ESPECÍFICO ===== */
+.hero--ozonoterapia .timeline-number {
+    background: var(--ozono-gradient);
+    box-shadow:
+        0 4px 20px rgba(33, 80, 150, 0.3),
+        0 0 0 4px rgba(74, 222, 128, 0.1);
+    position: relative;
+}
+
+.hero--ozonoterapia .timeline-number::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, var(--ozono-accent), transparent, var(--ozono-accent));
+    animation: rotate 4s linear infinite;
+    z-index: -1;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.hero--ozonoterapia .timeline-item:not(:last-child)::after {
+    background: linear-gradient(to bottom,
+            var(--ozono-primary),
+            var(--ozono-accent),
+            var(--ozono-secondary));
+    animation: pulse-line 2s ease-in-out infinite;
+}
+
+@keyframes pulse-line {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+/* ===== TESTIMONIOS ESPECÍFICOS ===== */
+.hero--ozonoterapia .testimonial-card:hover {
+    border-color: var(--ozono-accent);
+    box-shadow: var(--ozono-accent-shadow);
+}
+
+.hero--ozonoterapia .testimonial__rating i {
+    color: var(--ozono-accent);
+    text-shadow: 0 0 5px rgba(74, 222, 128, 0.5);
+}
+
+/* ===== FAQ ESPECÍFICO ===== */
+.hero--ozonoterapia .faq-question i {
+    color: var(--ozono-primary);
+}
+
+.hero--ozonoterapia .faq-item.active {
+    border-color: var(--ozono-accent);
+    box-shadow: 0 0 15px rgba(74, 222, 128, 0.2);
+}
+
+.hero--ozonoterapia .faq-item.active .faq-question {
+    background: linear-gradient(135deg, rgba(74, 222, 128, 0.05), rgba(33, 80, 150, 0.05));
+}
+
+/* ===== CTA ESPECÍFICO ===== */
+.hero--ozonoterapia .section--cta {
+    background:
+        radial-gradient(circle at 30% 70%, rgba(74, 222, 128, 0.2) 0%, transparent 50%),
+        var(--ozono-gradient);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero--ozonoterapia .section--cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(74, 222, 128, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(74, 222, 128, 0.1) 0%, transparent 40%);
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* ===== CONDICIONES ESPECÍFICAS ===== */
+.hero--ozonoterapia .condition-category:hover {
+    border-color: var(--ozono-accent);
+    box-shadow: var(--ozono-accent-shadow);
+}
+
+.hero--ozonoterapia .condition-list li::before {
+    color: var(--ozono-accent);
+    text-shadow: 0 0 5px rgba(74, 222, 128, 0.5);
+}
+
+/* ===== EFECTOS DE PARTÍCULAS (OPCIONAL) ===== */
+.hero--ozonoterapia::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(circle at 25% 25%, rgba(74, 222, 128, 0.1) 1px, transparent 1px),
+        radial-gradient(circle at 75% 75%, rgba(33, 80, 150, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px, 80px 80px;
+    animation: particles 20s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes particles {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(-50px, -80px);
+    }
+}
+
+/* ===== RESPONSIVE ESPECÍFICO ===== */
+@media (max-width: 768px) {
+    .hero--ozonoterapia .timeline-number::before {
+        animation-duration: 6s;
+    }
+
+    .hero--ozonoterapia .benefit-item::before {
+        animation-duration: 4s;
+    }
+
+    .hero--ozonoterapia::after {
+        animation-duration: 30s;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero--ozonoterapia * {
+        animation: none !important;
+    }
+}

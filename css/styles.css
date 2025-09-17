@@ -1251,9 +1251,9 @@ a {
   gap: 1.25rem;
 }
 
+/* Cards base - diseño general */
 .cards {
   grid-template-columns: repeat(auto-fit, minmax(380px, 3fr));
-  /* max-width: 800px; */
   margin: 0 auto;
 }
 
@@ -1292,6 +1292,107 @@ a {
 
 .card:hover .card__icon {
   transform: scale(1.1);
+}
+
+/* Cards específicas para páginas de servicios - Diseño como la imagen */
+.service-methods-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.service-method-card {
+  background: white;
+  border: 1px solid var(--corporate-gray-medium);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 2px 15px rgba(33, 80, 150, 0.08);
+  transition: all 0.3s ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-method-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(33, 80, 150, 0.15);
+  border-color: var(--corporate-blue-light);
+}
+
+.service-method-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--corporate-blue), var(--corporate-blue-light));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.service-method-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-method-icon {
+  width: 80px;
+  height: 80px;
+  background: var(--corporate-blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: white;
+  font-size: 1.8rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(33, 80, 150, 0.2);
+}
+
+.service-method-card:hover .service-method-icon {
+  transform: scale(1.1);
+  background: var(--corporate-blue-light);
+  box-shadow: 0 6px 25px rgba(33, 80, 150, 0.3);
+}
+
+.service-method-card h3 {
+  color: var(--corporate-blue);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.service-method-card p {
+  color: var(--corporate-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+/* Mantener el diseño original para otras cards */
+[data-theme="light"] .card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+[data-theme="light"] .card:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: var(--corporate-blue-light);
+  box-shadow: var(--shadow);
+}
+
+[data-theme="light"] .service-method-card {
+  background: white;
+  border: 1px solid var(--corporate-gray-medium);
+}
+
+[data-theme="light"] .service-method-card:hover {
+  border-color: var(--corporate-blue-light);
+  box-shadow: 0 8px 30px rgba(33, 80, 150, 0.15);
 }
 
 /* Estilos para imágenes en cards de servicios */
@@ -1333,7 +1434,34 @@ a {
 }
 
 .card__cta {
-  display: none;
+  margin-top: auto;
+  padding-top: 1rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.card:hover .card__cta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card__cta .btn {
+  width: 100%;
+  justify-content: center;
+  font-size: 0.9rem;
+  padding: 0.6rem 1rem;
+}
+
+/* Estilos específicos para cards como enlaces */
+a.card {
+  text-decoration: none;
+  color: inherit;
+}
+
+a.card:hover {
+  text-decoration: none;
+  color: inherit;
 }
 
 .card__info {
@@ -2091,19 +2219,111 @@ a {
 }
 
 .form__row input,
-.form__row select {
+.form__row select,
+.form__row textarea {
   background: #0f1a31;
   border: 1px solid var(--border);
   border-radius: .6rem;
   padding: .75rem .9rem;
   color: var(--text);
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
 }
 
 .form__row input:focus,
-.form__row select:focus {
+.form__row select:focus,
+.form__row textarea:focus {
   outline: none;
   border-color: var(--accent);
   box-shadow: 0 0 0 3px rgba(96, 165, 250, .18);
+}
+
+/* Formulario en modo claro */
+[data-theme="light"] .form__row input,
+[data-theme="light"] .form__row select,
+[data-theme="light"] .form__row textarea {
+  background: white;
+  border: 1px solid var(--corporate-gray-medium);
+  color: var(--corporate-text-dark);
+}
+
+[data-theme="light"] .form__row input:focus,
+[data-theme="light"] .form__row select:focus,
+[data-theme="light"] .form__row textarea:focus {
+  border-color: var(--corporate-blue);
+  box-shadow: 0 0 0 3px rgba(33, 80, 150, 0.15);
+}
+
+[data-theme="light"] .form__row label {
+  color: var(--corporate-text-dark);
+  font-weight: 600;
+}
+
+[data-theme="light"] .modal__dialog h3 {
+  color: var(--corporate-blue);
+}
+
+[data-theme="light"] .form__note {
+  color: var(--corporate-text-muted);
+}
+
+/* Modal específico para páginas de servicios */
+.hero--service~main .modal {
+  z-index: 10001;
+  /* Aún más alto para páginas de servicios */
+}
+
+.hero--service~main .modal__dialog {
+  animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Mejorar título del modal */
+.modal__dialog h3 {
+  color: var(--text);
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+[data-theme="light"] .modal__dialog h3 {
+  color: var(--corporate-blue);
+}
+
+/* Mejorar labels del formulario */
+.form__row label {
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+/* Mejorar placeholders */
+.form__row input::placeholder,
+.form__row select::placeholder,
+.form__row textarea::placeholder {
+  color: var(--muted);
+  opacity: 0.7;
+}
+
+[data-theme="light"] .form__row input::placeholder,
+[data-theme="light"] .form__row select::placeholder,
+[data-theme="light"] .form__row textarea::placeholder {
+  color: var(--corporate-text-muted);
+  opacity: 0.8;
 }
 
 .form__actions {
@@ -2124,6 +2344,8 @@ a {
   visibility: hidden;
   opacity: 0;
   transition: opacity .25s ease, visibility .25s ease;
+  z-index: 10000;
+  /* Z-index muy alto para estar sobre todo */
 }
 
 .modal[aria-hidden="false"] {
@@ -2134,19 +2356,34 @@ a {
 .modal__backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, .6);
-  backdrop-filter: blur(2px);
+  background: rgba(0, 0, 0, .8);
+  backdrop-filter: blur(5px);
+  z-index: 1;
 }
 
 .modal__dialog {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   width: min(560px, 92vw);
   background: #0f1a31;
   border: 1px solid var(--border);
   border-radius: 1rem;
-  padding: 1.2rem;
-  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Modal en modo claro */
+[data-theme="light"] .modal__dialog {
+  background: white;
+  border: 1px solid var(--corporate-gray-medium);
+  box-shadow: 0 20px 60px rgba(33, 80, 150, 0.3);
+}
+
+[data-theme="light"] .modal__backdrop {
+  background: rgba(33, 80, 150, 0.4);
+  backdrop-filter: blur(8px);
 }
 
 .modal__close {
@@ -2162,6 +2399,25 @@ a {
   display: grid;
   place-items: center;
   cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 3;
+}
+
+.modal__close:hover {
+  background: var(--glass);
+  transform: scale(1.1);
+}
+
+/* Botón cerrar en modo claro */
+[data-theme="light"] .modal__close {
+  border: 1px solid var(--corporate-gray-medium);
+  color: var(--corporate-text-dark);
+}
+
+[data-theme="light"] .modal__close:hover {
+  background: var(--corporate-gray-light);
+  border-color: var(--corporate-blue);
+  color: var(--corporate-blue);
 }
 
 .to-top {
@@ -2889,5 +3145,957 @@ a {
 
   .stats {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ===== ESTILOS ESPECÍFICOS PARA PÁGINAS DE SERVICIOS ===== */
+
+/* Estilos específicos para la página de Ozonoterapia */
+
+/* Hero específico del servicio */
+.hero--service {
+  background: linear-gradient(135deg, rgba(33, 80, 150, 0.1) 0%, rgba(100, 178, 231, 0.05) 100%);
+  padding: 6rem 0 5rem;
+  position: relative;
+}
+
+/* Hero específico para ozonoterapia con imagen de fondo */
+.hero--service.hero--ozonoterapia {
+  background:
+    linear-gradient(135deg, rgba(33, 80, 150, 0.4) 0%, rgba(100, 178, 231, 0.3) 100%),
+    url('../assets/images/services/servicios-ozonoterapia.png');
+  background-position: center 85%;
+  /* Muestra más de la parte inferior para destacar el O3 */
+  /* Otras opciones de posicionamiento:
+     center 85% - Enfoca el O3 (actual)
+     center bottom - Parte inferior completa
+     center 90% - Aún más cerca del fondo
+     center 80% - Ligeramente más arriba
+     50% 85% - Posición personalizada horizontal
+  */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  /* Mejor rendimiento en móviles */
+  color: white;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero--service.hero--ozonoterapia::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(33, 80, 150, 0.3) 0%, rgba(100, 178, 231, 0.2) 100%);
+  z-index: 1;
+}
+
+.hero--service.hero--ozonoterapia .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero--service.hero--ozonoterapia .hero__content h1 {
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 0, 0, 0.5);
+  background: none;
+  -webkit-text-fill-color: white;
+  font-weight: 800;
+}
+
+.hero--service.hero--ozonoterapia .hero__subtitle {
+  color: white;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7), 0 0 10px rgba(0, 0, 0, 0.5);
+  font-weight: 500;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+}
+
+.hero--service.hero--ozonoterapia .breadcrumb {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: inline-flex;
+  margin-bottom: 2rem;
+}
+
+.hero--service.hero--ozonoterapia .breadcrumb a {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero--service.hero--ozonoterapia .breadcrumb a:hover {
+  color: white;
+}
+
+.hero--service.hero--ozonoterapia .breadcrumb span {
+  color: white;
+  font-weight: 600;
+}
+
+.hero--service.hero--ozonoterapia .breadcrumb i {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.hero--service.hero--ozonoterapia .btn--primary {
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--corporate-blue);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(15px);
+  font-weight: 700;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.hero--service.hero--ozonoterapia .btn--primary:hover {
+  background: white;
+  color: var(--corporate-blue);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+.hero--service.hero--ozonoterapia .btn--ghost {
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(15px);
+}
+
+.hero--service.hero--ozonoterapia .btn--ghost:hover {
+  background: rgba(0, 0, 0, 0.5);
+  border-color: white;
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* Ocultar la imagen del hero media en ozonoterapia ya que está de fondo */
+.hero--service.hero--ozonoterapia .hero__media {
+  display: none;
+}
+
+/* Ajustar grid para que el contenido ocupe todo el ancho */
+.hero--service.hero--ozonoterapia .hero__grid {
+  grid-template-columns: 1fr;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero--service.hero--ozonoterapia .hero__content {
+  /* Sin card central - solo contenido centrado limpio */
+  padding: 2rem 1rem;
+  /* Sin fondos adicionales para mostrar mejor la imagen */
+}
+
+.hero--service.hero--ozonoterapia .hero__cta {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Configuración adicional del fondo */
+.hero--service.hero--ozonoterapia {
+  background-attachment: scroll;
+  /* Ya definido arriba, pero scroll es mejor para móviles */
+}
+
+.hero--service .hero__content h1 {
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  background: linear-gradient(135deg, var(--corporate-blue), var(--corporate-blue-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1.5rem;
+}
+
+.hero__subtitle {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--corporate-text-muted);
+  margin-bottom: 2rem;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--corporate-text-muted);
+}
+
+.breadcrumb a {
+  color: var(--corporate-blue);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+  color: var(--corporate-blue-light);
+}
+
+.breadcrumb i {
+  font-size: 0.7rem;
+  opacity: 0.6;
+}
+
+.service-highlight {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background: linear-gradient(135deg, var(--corporate-blue), var(--corporate-blue-light));
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(33, 80, 150, 0.3);
+}
+
+/* Introducción - Diseño específico para servicios */
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+}
+
+.intro-content {
+  padding-right: 2rem;
+}
+
+.intro-content h3 {
+  color: var(--corporate-blue);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.intro__text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--corporate-text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.benefits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: rgba(33, 80, 150, 0.05);
+  border-radius: 0.5rem;
+  border: 1px solid rgba(33, 80, 150, 0.1);
+  transition: all 0.3s ease;
+}
+
+.benefit-item:hover {
+  background: rgba(33, 80, 150, 0.08);
+  transform: translateX(5px);
+}
+
+.benefit-item i {
+  width: 24px;
+  height: 24px;
+  background: var(--corporate-blue);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.benefit-item span {
+  color: var(--corporate-text-dark);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* Video section - Diseño específico para servicios */
+.video-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-placeholder {
+  width: 100%;
+  max-width: 500px;
+  height: 300px;
+  background: linear-gradient(135deg, var(--corporate-blue), var(--corporate-blue-light));
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(33, 80, 150, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.video-placeholder:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(33, 80, 150, 0.4);
+}
+
+.video-placeholder::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.video-placeholder:hover::before {
+  opacity: 1;
+}
+
+.video-play-button {
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 3px solid white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.video-play-button i {
+  font-size: 2rem;
+  margin-left: 3px;
+  /* Centrar visualmente el ícono play */
+}
+
+.video-placeholder:hover .video-play-button {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.video-content {
+  text-align: center;
+  z-index: 1;
+}
+
+.video-content h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.video-content p {
+  font-size: 1rem;
+  opacity: 0.9;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== VIDEO REAL PARA SERVICIOS ===== */
+.video-real-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+  width: 100%;
+}
+
+.service-video {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(33, 80, 150, 0.3);
+  transition: all 0.3s ease;
+  background: #000;
+}
+
+.service-video:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(33, 80, 150, 0.4);
+}
+
+.service-video:focus {
+  outline: 3px solid var(--corporate-blue-light);
+  outline-offset: 3px;
+}
+
+.video-info {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 0.75rem;
+  border: 1px solid var(--corporate-gray-medium);
+  box-shadow: 0 2px 10px rgba(33, 80, 150, 0.1);
+}
+
+.video-info h4 {
+  color: var(--corporate-blue);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.video-info p {
+  color: var(--corporate-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Personalizar controles del video */
+.service-video::-webkit-media-controls-panel {
+  background: linear-gradient(135deg, var(--corporate-blue), var(--corporate-blue-light));
+}
+
+.service-video::-webkit-media-controls-play-button {
+  background-color: var(--corporate-blue);
+  border-radius: 50%;
+}
+
+.service-video::-webkit-media-controls-volume-slider {
+  background-color: var(--corporate-blue-light);
+}
+
+/* Responsive para video real */
+@media (max-width: 768px) {
+  .video-real-container {
+    max-width: 100%;
+  }
+
+  .service-video {
+    border-radius: 0.75rem;
+  }
+
+  .video-info {
+    padding: 0.75rem;
+  }
+
+  .video-info h4 {
+    font-size: 1rem;
+  }
+
+  .video-info p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-info {
+    padding: 0.5rem;
+  }
+
+  .video-info h4 {
+    font-size: 0.95rem;
+  }
+
+  .video-info p {
+    font-size: 0.8rem;
+  }
+}
+
+/* Cards específicas */
+.card__list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.card__list li {
+  padding: 0.5rem 0;
+  color: var(--corporate-text-muted);
+  font-size: 0.9rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.card__list li::before {
+  content: "•";
+  color: var(--corporate-blue);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+/* Condiciones tratadas */
+.conditions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.condition-category {
+  background: var(--corporate-white);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(33, 80, 150, 0.1);
+  border: 1px solid var(--corporate-gray-medium);
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.category-header i {
+  font-size: 1.5rem;
+  color: var(--corporate-blue);
+}
+
+.category-header h3 {
+  font-size: 1.3rem;
+  color: var(--corporate-text-dark);
+  margin: 0;
+}
+
+.condition-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.condition-list li {
+  padding: 0.75rem 0;
+  color: var(--corporate-text-muted);
+  border-bottom: 1px solid var(--corporate-gray-medium);
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.condition-list li:last-child {
+  border-bottom: none;
+}
+
+.condition-list li::before {
+  content: "✓";
+  color: var(--corporate-blue);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+/* Timeline del proceso */
+.process-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  position: relative;
+}
+
+.timeline-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 2rem;
+  top: 4rem;
+  width: 2px;
+  height: calc(100% + 2rem);
+  background: linear-gradient(to bottom, var(--corporate-blue), var(--corporate-blue-light));
+  opacity: 0.3;
+}
+
+.timeline-number {
+  width: 4rem;
+  height: 4rem;
+  background: linear-gradient(135deg, var(--corporate-blue), var(--corporate-blue-light));
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  flex-shrink: 0;
+  box-shadow: 0 4px 20px rgba(33, 80, 150, 0.3);
+}
+
+.timeline-content h3 {
+  font-size: 1.3rem;
+  color: var(--corporate-text-dark);
+  margin-bottom: 0.75rem;
+}
+
+.timeline-content p {
+  color: var(--corporate-text-muted);
+  line-height: 1.6;
+}
+
+/* Testimonios específicos */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.testimonial-card {
+  background: var(--corporate-white);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(33, 80, 150, 0.1);
+  border: 1px solid var(--corporate-gray-medium);
+}
+
+.testimonial__avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.testimonial__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.testimonial__meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.testimonial__info strong {
+  color: var(--corporate-text-dark);
+  font-size: 1.1rem;
+}
+
+.testimonial__info span {
+  color: var(--corporate-text-muted);
+  font-size: 0.9rem;
+  display: block;
+  margin: 0.25rem 0;
+}
+
+.testimonial__rating {
+  color: #fbbf24;
+  font-size: 0.9rem;
+}
+
+/* FAQ */
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border: 1px solid var(--corporate-gray-medium);
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.faq-question {
+  width: 100%;
+  padding: 1.5rem;
+  background: var(--corporate-white);
+  border: none;
+  text-align: left;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--corporate-text-dark);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+  background: var(--corporate-gray-light);
+}
+
+.faq-question i {
+  color: var(--corporate-blue);
+  transition: transform 0.3s ease;
+}
+
+.faq-question[aria-expanded="true"] i {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  padding: 0 1.5rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+  padding: 0 1.5rem 1.5rem;
+  max-height: 200px;
+}
+
+.faq-answer p {
+  color: var(--corporate-text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* CTA Section */
+.section--cta {
+  background: linear-gradient(135deg, var(--corporate-blue) 0%, var(--corporate-blue-light) 100%);
+  color: white;
+}
+
+.cta-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.cta-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  opacity: 0.9;
+}
+
+.cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.btn--large {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+}
+
+.btn--sm {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+  gap: 0.35rem;
+}
+
+.btn--sm i {
+  font-size: 0.75rem;
+}
+
+.btn--whatsapp {
+  background: #25d366;
+  color: white;
+  border: 1px solid #25d366;
+}
+
+.btn--whatsapp:hover {
+  background: #128c7e;
+  border-color: #128c7e;
+}
+
+.cta-info {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.info-item i {
+  color: white;
+}
+
+/* Responsive para páginas de servicios */
+@media (max-width: 768px) {
+
+  .intro-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .intro-content {
+    padding-right: 0;
+  }
+
+  .video-placeholder {
+    max-width: 100%;
+    height: 250px;
+  }
+
+  .video-play-button {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+  }
+
+  .video-play-button i {
+    font-size: 1.5rem;
+  }
+
+  .video-content h4 {
+    font-size: 1.1rem;
+  }
+
+  .video-content p {
+    font-size: 0.9rem;
+  }
+
+  .hero--service .hero__content h1 {
+    font-size: 2rem;
+  }
+
+  .timeline-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .timeline-item::after {
+    display: none;
+  }
+
+  .cta-content h2 {
+    font-size: 2rem;
+  }
+
+  .cta-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-info {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .conditions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-methods-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .service-method-card {
+    padding: 1.5rem;
+  }
+
+  .service-method-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .service-method-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .service-method-card p {
+    font-size: 0.9rem;
+  }
+
+  /* Responsive para hero de ozonoterapia */
+  .hero--service.hero--ozonoterapia {
+    min-height: 60vh;
+    padding: 4rem 0;
+    background-position: center 80%;
+    /* Ajuste para tablet - enfoca mejor el O3 */
+  }
+
+  .hero--service.hero--ozonoterapia .hero__content h1 {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+
+  .hero--service.hero--ozonoterapia .hero__subtitle {
+    font-size: 1rem;
+  }
+
+  .hero--service.hero--ozonoterapia .breadcrumb {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .hero--service.hero--ozonoterapia .hero__content {
+    padding: 2rem 1rem;
+    /* Sin márgenes adicionales para mostrar mejor la imagen */
+  }
+
+  .hero--service.hero--ozonoterapia .hero__cta {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .hero--service.hero--ozonoterapia .hero__cta .btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero--service.hero--ozonoterapia {
+    min-height: 50vh;
+    padding: 3rem 0;
+    background-position: center 75%;
+    /* Ajuste para móvil - mantiene visible el O3 */
+  }
+
+  .hero--service.hero--ozonoterapia .hero__content {
+    padding: 1.5rem 0.5rem;
+    /* Sin márgenes para aprovechar mejor el espacio */
+  }
+
+  .hero--service.hero--ozonoterapia .hero__content h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero--service.hero--ozonoterapia .hero__subtitle {
+    font-size: 0.9rem;
   }
 }

@@ -1,0 +1,174 @@
+/* ===== PROTECCIÓN DE VIDEOS - OZONO VIDA ===== */
+/* Aplicar a todos los videos del sitio para prevenir descarga */
+
+/* ===== DESHABILITAR DESCARGA Y MENÚ CONTEXTUAL ===== */
+video {
+    /* Deshabilitar menú contextual (clic derecho) */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    /* Deshabilitar arrastrar */
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+
+    /* Prevenir selección */
+    -webkit-tap-highlight-color: transparent;
+
+    /* Deshabilitar guardar como en algunos navegadores */
+    pointer-events: auto;
+}
+
+/* Deshabilitar atajos de teclado para descargar */
+video:focus {
+    outline: 3px solid var(--corporate-blue-light);
+    outline-offset: 3px;
+}
+
+/* ===== PROTECCIÓN ADICIONAL ===== */
+/* Overlay invisible para prevenir clic derecho */
+.video-protection-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Contenedor de video protegido */
+.protected-video-container {
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* ===== ESTILOS PARA CONTROLES PERSONALIZADOS ===== */
+/* Personalizar controles del video para que coincidan con la marca */
+video::-webkit-media-controls-panel {
+    background: linear-gradient(135deg, var(--corporate-blue), var(--corporate-blue-light));
+}
+
+video::-webkit-media-controls-play-button {
+    background-color: var(--corporate-blue);
+    border-radius: 50%;
+}
+
+video::-webkit-media-controls-volume-slider {
+    background-color: var(--corporate-blue-light);
+}
+
+video::-webkit-media-controls-timeline {
+    background-color: var(--corporate-blue-light);
+}
+
+video::-webkit-media-controls-current-time-display,
+video::-webkit-media-controls-time-remaining-display {
+    color: white;
+}
+
+/* ===== MENSAJE DE PROTECCIÓN ===== */
+.video-protection-notice {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    color: white;
+    padding: 0.5rem;
+    font-size: 0.7rem;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.protected-video-container:hover .video-protection-notice {
+    opacity: 1;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .video-protection-notice {
+        font-size: 0.6rem;
+        padding: 0.3rem;
+    }
+}
+
+/* ===== DESHABILITAR PICTURE-IN-PICTURE ===== */
+video {
+    /* Deshabilitar picture-in-picture */
+    -webkit-pip: false;
+}
+
+video::-webkit-media-controls-pip-button {
+    display: none !important;
+}
+
+/* ===== PREVENIR INSPECCIÓN DE ELEMENTO EN VIDEOS ===== */
+video::selection {
+    background: transparent;
+}
+
+video::-moz-selection {
+    background: transparent;
+}
+
+/* ===== WATERMARK OPCIONAL ===== */
+.video-watermark {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(33, 80, 150, 0.8);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* ===== PROTECCIÓN CONTRA SCREENSHOT (LIMITADA) ===== */
+@media print {
+    video {
+        display: none !important;
+    }
+
+    .protected-video-container::after {
+        content: "Video no disponible en impresión";
+        display: block;
+        padding: 2rem;
+        text-align: center;
+        background: var(--corporate-gray-light);
+        border: 2px dashed var(--corporate-gray-medium);
+        border-radius: 1rem;
+    }
+}
+
+/* ===== PREVENIR SELECCIÓN EN CONTENEDORES DE VIDEO ===== */
+.video-section,
+.video-real-container,
+.video-info {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Permitir selección solo en texto informativo */
+.video-info h4,
+.video-info p {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}

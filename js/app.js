@@ -1200,6 +1200,36 @@ document.addEventListener("DOMContentLoaded", () => {
   // Inicializar rotación de imagen
   initImageRotationNew();
 
+  // FAQ functionality
+  function initFAQ() {
+    const faqQuestions = $$(".faq-question");
+
+    faqQuestions.forEach((button) => {
+      button.addEventListener("click", () => {
+        const faqItem = button.parentElement;
+        const isActive = faqItem.classList.contains("active");
+
+        // Close all FAQ items
+        $$(".faq-item").forEach((item) => {
+          item.classList.remove("active");
+          const question = item.querySelector(".faq-question");
+          if (question) {
+            question.setAttribute("aria-expanded", "false");
+          }
+        });
+
+        // Open clicked item if it wasn't active
+        if (!isActive) {
+          faqItem.classList.add("active");
+          button.setAttribute("aria-expanded", "true");
+        }
+      });
+    });
+  }
+
+  // Initialize FAQ if present
+  initFAQ();
+
   // Tiny toast
   let toastTimeout;
   const toast = (text, type = "success") => {
