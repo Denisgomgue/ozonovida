@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <!-- Head Base - Elementos que nunca cambian -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- CSS Crítico (siempre primero) -->
+  <link rel="stylesheet" href="../css/critical.css" />
+  
+  <!-- CSS de Protección de Videos -->
+  <link rel="stylesheet" href="../css/security/video-protection.css" />
+  
+  <!-- Preconnect para optimización -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  
+  <!-- Preload del CSS principal -->
+  <link rel="preload" href="../css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="../css/styles.css" /></noscript>
+  
+  <!-- Preload de Font Awesome -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /></noscript>
+  
+  <!-- Preload de Google Fonts -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" /></noscript>
+
+  <!-- Favicon y Iconos -->
+  <link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon.ico" />
+
+  <!-- Meta Tags Básicos -->
+  <meta name="author" content="OZONO VIDA Centro Médico" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+
+  <!-- Idioma y Región -->
+  <meta name="language" content="es" />
+  <meta name="geo.region" content="PE-ANC" />
+  <meta name="geo.placename" content="Huaraz" />
+  <meta name="geo.position" content="-9.5333;-77.5333" />
+  <meta name="ICBM" content="-9.5333, -77.5333" />
+
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#215096" />
+  <meta name="msapplication-TileColor" content="#215096" />
+
+  <!-- Head Dinámico - Específico de Ozonoterapia -->
+  <title>Ozonoterapia - Medicina Regenerativa Natural • OZONO VIDA</title>
+  <meta name="description" content="Descubre los beneficios de la ozonoterapia en OZONO VIDA. Tratamiento natural y efectivo para dolor, inflamación y regeneración celular. Especialistas en Huaraz." />
+  <meta name="keywords" content="ozonoterapia, ozono medicinal, tratamiento natural, dolor crónico, medicina regenerativa, Huaraz" />
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Ozonoterapia - Medicina Regenerativa Natural • OZONO VIDA" />
+  <meta property="og:description" content="Descubre los beneficios de la ozonoterapia en OZONO VIDA. Tratamiento natural y efectivo para dolor, inflamación y regeneración celular. Especialistas en Huaraz." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ozonovida.netlify.app/servicios/ozonoterapia.html" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1200&q=80" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Ozonoterapia - Medicina Regenerativa Natural - OZONO VIDA Centro Médico" />
+  <meta property="og:site_name" content="OZONO VIDA" />
+  <meta property="og:locale" content="es_PE" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ozonoterapia - Medicina Regenerativa Natural • OZONO VIDA" />
+  <meta name="twitter:description" content="Descubre los beneficios de la ozonoterapia en OZONO VIDA. Tratamiento natural y efectivo para dolor, inflamación y regeneración celular. Especialistas en Huaraz." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1200&q=80" />
+  <meta name="twitter:image:alt" content="Ozonoterapia - Medicina Regenerativa Natural - OZONO VIDA Centro Médico" />
+  <meta name="twitter:site" content="@ozonovida" />
+  <meta name="twitter:creator" content="@ozonovida" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://ozonovida.netlify.app/servicios/ozonoterapia.html" />
+
+  <!-- Structured Data Específico -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalProcedure",
+    "name": "Ozonoterapia",
+    "description": "Tratamiento médico que utiliza ozono medicinal para estimular el sistema inmunológico, mejorar la oxigenación celular y promover la regeneración de tejidos.",
+    "provider": {
+      "@type": "MedicalClinic",
+      "name": "OZONO VIDA Centro Médico",
+      "alternateName": "OZONO VIDA",
+      "telephone": "+51 988 126 804",
+      "email": "contacto@ozonovida.pe",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Villón, frente a la Dirección Víctor Ramos Guardia",
+        "addressLocality": "Huaraz",
+        "addressRegion": "Ancash",
+        "postalCode": "02001",
+        "addressCountry": "PE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-9.5333",
+        "longitude": "-77.5333"
+      }
+    },
+    "medicalSpecialty": ["PainManagement", "RegenerativeMedicine", "OzoneTherapy"],
+    "bodyLocation": ["Músculo", "Articulación", "Sistema circulatorio"]
+  }
+  </script>
+</head>
+<body>
+  <a href="#inicio" class="skip-link">Saltar al contenido</a>
+
+  <!-- Header Component -->
+  <div id="header-placeholder"></div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero hero--service hero--ozonoterapia" aria-label="Ozonoterapia">
+      <div class="container hero__grid">
+        <div class="hero__content reveal">
+          <!-- Breadcrumb -->
+          <nav class="breadcrumb" aria-label="Ruta de navegación">
+            <a href="../index.html">Inicio</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <a href="../index.html#servicios">Servicios</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>Ozonoterapia</span>
+          </nav>
+          
+          <h1>Ozonoterapia</h1>
+          <p class="hero__subtitle">Medicina regenerativa natural para una vida sin dolor y con mayor vitalidad. Tratamiento avanzado que utiliza ozono medicinal para estimular la sanación natural del cuerpo.</p>
+          
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="#citas" data-open-modal>
+              <i class="fa-solid fa-calendar-check"></i> Reservar Consulta
+            </a>
+            <a class="btn btn--ghost" href="#que-es">
+              <i class="fa-solid fa-circle-play"></i> Conocer Más
+            </a>
+          </div>
+        </div>
+        <div class="hero__media reveal">
+          <div class="main-image-container">
+            <img src="../assets/images/services/servicios-ozonoterapia.png" alt="Ozonoterapia - Tratamiento médico especializado" loading="lazy" />
+            <div class="service-highlight">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+              <span>Tratamiento Natural</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Introducción -->
+    <section id="que-es" class="section">
+      <div class="container">
+        <h2 class="section__title">¿Qué es la Ozonoterapia?</h2>
+        <div class="intro-grid">
+          <div class="intro-content">
+            <h3>Medicina Natural Avanzada</h3>
+            <p class="intro__text">La ozonoterapia es un tratamiento médico que utiliza ozono medicinal para estimular el sistema inmunológico, mejorar la oxigenación celular y promover la regeneración de tejidos.</p>
+            <p class="intro__text">Este gas natural actúa como un potente agente terapéutico que ayuda al cuerpo a recuperar su equilibrio y capacidad de sanación natural.</p>
+            
+            <div class="benefits-list">
+              <div class="benefit-item">
+                <i class="fa-solid fa-check"></i>
+                <span>Mejora la oxigenación celular</span>
+              </div>
+              <div class="benefit-item">
+                <i class="fa-solid fa-check"></i>
+                <span>Fortalece el sistema inmunológico</span>
+              </div>
+              <div class="benefit-item">
+                <i class="fa-solid fa-check"></i>
+                <span>Reduce la inflamación</span>
+              </div>
+              <div class="benefit-item">
+                <i class="fa-solid fa-check"></i>
+                <span>Acelera la cicatrización</span>
+              </div>
+              <div class="benefit-item">
+                <i class="fa-solid fa-check"></i>
+                <span>Elimina bacterias y virus</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="video-section">
+            <div class="video-real-container">
+              <video 
+                class="service-video" 
+                controls 
+                preload="metadata"
+                poster="../assets/images/services/servicios-ozonoterapia.png"
+                aria-label="Video explicativo sobre ozonoterapia">
+                <source src="../assets/movies/ozonoterapia_movie_service.mp4" type="video/mp4">
+                <p>Tu navegador no soporta videos HTML5. 
+                   <a href="../assets/movies/ozonoterapia_movie_service.mp4" download="ozonoterapia_explicativo.mp4">
+                     Descargar video
+                   </a>
+                </p>
+              </video>
+              <div class="video-info">
+                <h4>Video Explicativo - Ozonoterapia</h4>
+                <p>Descubre cómo funciona la ozonoterapia y sus beneficios para tu salud</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Métodos de Aplicación -->
+    <section class="section section--alt">
+      <div class="container">
+        <h2 class="section__title">Métodos de Aplicación</h2>
+        <p class="section__subtitle">Diferentes formas de administración según tu condición específica</p>
+        <div class="service-methods-grid">
+          <article class="service-method-card reveal">
+            <div class="service-method-icon">
+              <i class="fa-solid fa-syringe"></i>
+            </div>
+            <h3>Aplicación Intramuscular</h3>
+            <p>Inyección directa en el músculo para tratamientos localizados y sistémicos. Ideal para dolores musculares y articulares.</p>
+          </article>
+          
+          <article class="service-method-card reveal">
+            <div class="service-method-icon">
+              <i class="fa-solid fa-tint"></i>
+            </div>
+            <h3>Auto-hemoterapia</h3>
+            <p>Extracción de sangre del paciente, ozonización y reinfusión. Potente estimulante del sistema inmunológico.</p>
+          </article>
+          
+          <article class="service-method-card reveal">
+            <div class="service-method-icon">
+              <i class="fa-solid fa-lungs"></i>
+            </div>
+            <h3>Insuflación Rectal</h3>
+            <p>Aplicación de ozono por vía rectal para tratamientos sistémicos. Método seguro y efectivo.</p>
+          </article>
+          
+          <article class="service-method-card reveal">
+            <div class="service-method-icon">
+              <i class="fa-solid fa-hand-holding-water"></i>
+            </div>
+            <h3>Bolsa Ozonizada</h3>
+            <p>Tratamiento tópico en extremidades para úlceras, heridas y problemas circulatorios.</p>
+          </article>
+          
+          <article class="service-method-card reveal">
+            <div class="service-method-icon">
+              <i class="fa-solid fa-flask"></i>
+            </div>
+            <h3>Sueros Ozonizados</h3>
+            <p>Suero fisiológico ozonizado para aplicación intravenosa. Excelente para desintoxicación.</p>
+          </article>
+          
+          <article class="service-method-card reveal">
+            <div class="service-method-icon">
+              <i class="fa-solid fa-bone"></i>
+            </div>
+            <h3>Intraarticular</h3>
+            <p>Aplicación directa en articulaciones para tratar artrosis, artritis y lesiones articulares.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Condiciones Tratadas -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title">Condiciones que Tratamos</h2>
+        <p class="section__subtitle">Amplia gama de patologías que responden efectivamente a la ozonoterapia</p>
+        <div class="conditions-grid">
+          <div class="condition-category">
+            <div class="category-header">
+              <i class="fa-solid fa-bone"></i>
+              <h3>Dolor y Articulaciones</h3>
+            </div>
+            <ul class="condition-list">
+              <li>Artrosis y artritis</li>
+              <li>Hernias discales</li>
+              <li>Lumbalgia y cervicalgia</li>
+              <li>Fibromialgia</li>
+              <li>Tendinitis</li>
+              <li>Ciática</li>
+              <li>Dolor crónico</li>
+            </ul>
+          </div>
+          
+          <div class="condition-category">
+            <div class="category-header">
+              <i class="fa-solid fa-heartbeat"></i>
+              <h3>Enfermedades Crónicas</h3>
+            </div>
+            <ul class="condition-list">
+              <li>Diabetes mellitus</li>
+              <li>Insuficiencia vascular</li>
+              <li>Hepatitis crónica</li>
+              <li>Colitis ulcerosa</li>
+              <li>Enfermedad de Crohn</li>
+              <li>Varices</li>
+              <li>Hipertensión</li>
+            </ul>
+          </div>
+          
+          <div class="condition-category">
+            <div class="category-header">
+              <i class="fa-solid fa-shield-virus"></i>
+              <h3>Infecciones</h3>
+            </div>
+            <ul class="condition-list">
+              <li>Heridas infectadas</li>
+              <li>Pie diabético</li>
+              <li>Úlceras varicosas</li>
+              <li>Infecciones recurrentes</li>
+              <li>Candidiasis</li>
+              <li>Vaginitis</li>
+              <li>Sinusitis crónica</li>
+            </ul>
+          </div>
+          
+          <div class="condition-category">
+            <div class="category-header">
+              <i class="fa-solid fa-spa"></i>
+              <h3>Estética y Bienestar</h3>
+            </div>
+            <ul class="condition-list">
+              <li>Rejuvenecimiento facial</li>
+              <li>Celulitis</li>
+              <li>Acné</li>
+              <li>Cicatrización</li>
+              <li>Revitalización</li>
+              <li>Anti-aging</li>
+              <li>Estrés oxidativo</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proceso de Tratamiento -->
+    <section class="section section--alt">
+      <div class="container">
+        <h2 class="section__title">Proceso de Tratamiento</h2>
+        <p class="section__subtitle">Un enfoque sistemático para obtener los mejores resultados</p>
+        <div class="process-timeline">
+          <div class="timeline-item reveal">
+            <div class="timeline-number">1</div>
+            <div class="timeline-content">
+              <h3>Evaluación Médica Inicial</h3>
+              <p>Realizamos una evaluación completa de tu estado de salud, historial médico y síntomas para determinar el mejor protocolo de tratamiento personalizado.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item reveal">
+            <div class="timeline-number">2</div>
+            <div class="timeline-content">
+              <h3>Diseño del Plan Personalizado</h3>
+              <p>Creamos un plan de tratamiento específico para tu condición, incluyendo el método de aplicación más adecuado y la frecuencia de sesiones.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item reveal">
+            <div class="timeline-number">3</div>
+            <div class="timeline-content">
+              <h3>Aplicación del Tratamiento</h3>
+              <p>Realizamos las sesiones de ozonoterapia en un ambiente seguro y controlado, monitoreando tu respuesta al tratamiento en cada sesión.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item reveal">
+            <div class="timeline-number">4</div>
+            <div class="timeline-content">
+              <h3>Seguimiento y Evaluación</h3>
+              <p>Monitoreamos tu progreso y ajustamos el tratamiento según sea necesario para obtener los mejores resultados a largo plazo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title">Testimonios de Pacientes</h2>
+        <p class="section__subtitle">Historias reales de recuperación y bienestar</p>
+        <div class="testimonials-grid">
+          <article class="testimonial-card reveal">
+            <div class="testimonial__quote">
+              <i class="fa-solid fa-quote-left"></i>
+              <p>Después de años sufriendo de artritis, la ozonoterapia me devolvió la movilidad. Ahora puedo caminar sin dolor y he recuperado mi calidad de vida completamente.</p>
+            </div>
+            <div class="testimonial__meta">
+              <div class="testimonial__avatar">
+                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b0e9?auto=format&fit=crop&w=150&q=80" alt="María González" loading="lazy" />
+              </div>
+              <div class="testimonial__info">
+                <strong>María González</strong>
+                <span>Tratamiento: Ozonoterapia intraarticular</span>
+                <div class="testimonial__rating">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </article>
+          
+          <article class="testimonial-card reveal">
+            <div class="testimonial__quote">
+              <i class="fa-solid fa-quote-left"></i>
+              <p>Mi diabetes estaba descontrolada y tenía úlceras que no sanaban. Con la ozonoterapia, mis niveles mejoraron y las heridas cicatrizaron completamente.</p>
+            </div>
+            <div class="testimonial__meta">
+              <div class="testimonial__avatar">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80" alt="Carlos Mendoza" loading="lazy" />
+              </div>
+              <div class="testimonial__info">
+                <strong>Carlos Mendoza</strong>
+                <span>Tratamiento: Auto-hemoterapia y bolsa ozonizada</span>
+                <div class="testimonial__rating">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </article>
+          
+          <article class="testimonial-card reveal">
+            <div class="testimonial__quote">
+              <i class="fa-solid fa-quote-left"></i>
+              <p>La fibromialgia me tenía postrada. Gracias a este tratamiento natural, he reducido significativamente el dolor y recuperé mi energía para vivir plenamente.</p>
+            </div>
+            <div class="testimonial__meta">
+              <div class="testimonial__avatar">
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150&q=80" alt="Ana Rodríguez" loading="lazy" />
+              </div>
+              <div class="testimonial__info">
+                <strong>Ana Rodríguez</strong>
+                <span>Tratamiento: Ozonoterapia sistémica</span>
+                <div class="testimonial__rating">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section--alt">
+      <div class="container">
+        <h2 class="section__title">Preguntas Frecuentes</h2>
+        <p class="section__subtitle">Resolvemos tus dudas sobre la ozonoterapia</p>
+        <div class="faq-container">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              ¿Es segura la ozonoterapia?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Sí, la ozonoterapia es completamente segura cuando es aplicada por profesionales médicos capacitados. Utilizamos equipos certificados y protocolos médicos estrictos para garantizar la seguridad del paciente en cada sesión.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              ¿Cuántas sesiones necesito?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>El número de sesiones varía según la condición a tratar. Generalmente, se requieren entre 10-20 sesiones para obtener resultados óptimos. Durante la evaluación inicial, determinaremos el plan más adecuado para tu caso específico.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              ¿Tiene efectos secundarios?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>La ozonoterapia tiene mínimos efectos secundarios. Algunos pacientes pueden experimentar ligera fatiga después de las primeras sesiones, lo cual es normal y indica que el tratamiento está funcionando correctamente.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              ¿Cuánto tiempo dura cada sesión?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>La duración varía según el método de aplicación. Las sesiones pueden durar entre 15 minutos (aplicaciones locales) hasta 45 minutos (auto-hemoterapia mayor). Te informaremos la duración exacta según tu tratamiento.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              ¿Cuándo veré los resultados?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Los resultados varían según cada paciente y condición. Algunos experimentan mejoras desde las primeras sesiones, mientras que otros requieren varias semanas. La mayoría nota cambios significativos entre la 5ta y 10ma sesión.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="section section--cta">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Listo para Comenzar tu Tratamiento?</h2>
+          <p>Agenda tu consulta de evaluación y descubre cómo la ozonoterapia puede mejorar tu calidad de vida de forma natural y efectiva.</p>
+          
+          <div class="cta-actions">
+            <a href="#citas" class="btn btn--large btn--primary" data-open-modal>
+              <i class="fa-solid fa-calendar-check"></i> Reservar Consulta
+            </a>
+            <a href="https://wa.me/+51988126804?text=Hola, me interesa conocer más sobre la ozonoterapia" target="_blank" rel="noopener" class="btn btn--large btn--whatsapp">
+              <i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp
+            </a>
+          </div>
+          
+          <div class="cta-info">
+            <div class="info-item">
+              <i class="fa-solid fa-clock"></i>
+              <span>L-V 9:00-19:00 · Sáb 9:00-13:00</span>
+            </div>
+            <div class="info-item">
+              <i class="fa-solid fa-phone"></i>
+              <span>+51 988 126 804</span>
+            </div>
+            <div class="info-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Av. Villón, Huaraz</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal de Citas -->
+    <section id="citas" class="modal" aria-hidden="true" role="dialog" aria-modal="false">
+      <div class="modal__backdrop" data-close-modal></div>
+      <div class="modal__dialog" role="document">
+        <button class="modal__close" aria-label="Cerrar" data-close-modal><i class="fa-solid fa-xmark"></i></button>
+        <h3>Reserva tu Consulta de Ozonoterapia</h3>
+        <form class="form" id="booking-form" novalidate>
+          <div class="form__row">
+            <label for="nombre">Nombre completo</label>
+            <input id="nombre" name="nombre" type="text" placeholder="Ej. Juan Pérez" required />
+          </div>
+          <div class="form__row">
+            <label for="telefono">Teléfono</label>
+            <input id="telefono" name="telefono" type="tel" placeholder="Ej. +51 999 999 999" required />
+          </div>
+          <div class="form__row">
+            <label for="condicion">Condición a tratar</label>
+            <select id="condicion" name="condicion" required>
+              <option value="">Selecciona una opción</option>
+              <option>Dolor articular/muscular</option>
+              <option>Diabetes</option>
+              <option>Problemas circulatorios</option>
+              <option>Heridas que no cicatrizan</option>
+              <option>Fibromialgia</option>
+              <option>Infecciones recurrentes</option>
+              <option>Rejuvenecimiento</option>
+              <option>Otro (especificar en comentarios)</option>
+            </select>
+          </div>
+          <div class="form__row">
+            <label for="fecha">Fecha preferida</label>
+            <input id="fecha" name="fecha" type="date" required />
+          </div>
+          <div class="form__row">
+            <label for="comentarios">Comentarios adicionales</label>
+            <textarea id="comentarios" name="comentarios" rows="3" placeholder="Describe brevemente tu condición o síntomas"></textarea>
+          </div>
+          <div class="form__actions">
+            <button type="submit" class="btn btn--primary">
+              <i class="fa-solid fa-paper-plane"></i> Enviar solicitud
+            </button>
+          </div>
+          <p class="form__note">Nos comunicaremos para confirmar tu cita y resolver cualquier duda.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- UI Components (botones de acción) -->
+  <div id="ui-components-placeholder"></div>
+
+  <!-- Footer Component -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Scripts del sistema de componentes -->
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      document.body.classList.remove('loading');
+      document.body.classList.add('loaded');
+    });
+  </script>
+  
+  <!-- Scripts de Seguridad (cargar primero) -->
+  <script src="../js/video-security.js"></script>
+  
+  <script src="../js/metadata-pages.js" defer></script>
+  <script src="../js/social-config.js" defer></script>
+  <script src="../js/optimized-component-loader.js" defer></script>
+  <script src="../js/app.js" defer></script>
+  
+  <!-- Script específico para video de ozonoterapia -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const video = document.querySelector('.service-video');
+      
+      if (video) {
+        // Analytics básicos del video
+        let videoStarted = false;
+        let videoCompleted = false;
+        
+        video.addEventListener('play', function() {
+          if (!videoStarted) {
+            console.log('📹 Video de ozonoterapia iniciado');
+            videoStarted = true;
+            
+            // Aquí puedes agregar tracking de analytics
+            // gtag('event', 'video_start', { video_title: 'Ozonoterapia Explicativo' });
+          }
+        });
+        
+        video.addEventListener('ended', function() {
+          if (!videoCompleted) {
+            console.log('✅ Video de ozonoterapia completado');
+            videoCompleted = true;
+            
+            // Mostrar CTA adicional cuando termine el video
+            showVideoCompleteCTA();
+            
+            // Aquí puedes agregar tracking de analytics
+            // gtag('event', 'video_complete', { video_title: 'Ozonoterapia Explicativo' });
+          }
+        });
+        
+        // Optimización de carga
+        video.addEventListener('loadstart', function() {
+          console.log('🔄 Cargando video de ozonoterapia...');
+        });
+        
+        video.addEventListener('canplay', function() {
+          console.log('✅ Video de ozonoterapia listo para reproducir');
+        });
+        
+        // Función para mostrar CTA como overlay sobre el video
+        function showVideoCompleteCTA() {
+          const videoContainer = video.closest('.video-real-container');
+          if (videoContainer && !videoContainer.querySelector('.video-complete-overlay')) {
+            const overlay = document.createElement('div');
+            overlay.className = 'video-complete-overlay';
+            overlay.innerHTML = `
+              <div class="video-overlay-content">
+                <button class="video-overlay-close" onclick="hideVideoOverlay(this)">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+                <div class="video-overlay-cta">
+                  <h5>¿Te interesa la ozonoterapia?</h5>
+                  <p>Agenda tu consulta y descubre cómo puede ayudarte</p>
+                  <div class="video-overlay-buttons">
+                    <a href="#citas" class="btn btn--primary btn--sm" data-open-modal>
+                      <i class="fa-solid fa-calendar-check"></i> Reservar Consulta
+                    </a>
+                    <button class="btn btn--ghost btn--sm" onclick="replayVideo()">
+                      <i class="fa-solid fa-play"></i> Ver de nuevo
+                    </button>
+                  </div>
+                </div>
+              </div>
+            `;
+            videoContainer.appendChild(overlay);
+            
+            // Animar entrada
+            setTimeout(() => overlay.classList.add('show'), 100);
+          }
+        }
+        
+        // Función global para ocultar overlay
+        window.hideVideoOverlay = function(button) {
+          const overlay = button.closest('.video-complete-overlay');
+          if (overlay) {
+            overlay.classList.remove('show');
+            setTimeout(() => overlay.remove(), 300);
+          }
+        };
+        
+        // Función global para replay
+        window.replayVideo = function() {
+          video.currentTime = 0;
+          video.play();
+          const overlay = document.querySelector('.video-complete-overlay');
+          if (overlay) {
+            overlay.classList.remove('show');
+            setTimeout(() => overlay.remove(), 300);
+          }
+        };
+      }
+    });
+  </script>
+  
+  <style>
+    /* ===== OVERLAY DE VIDEO COMPLETADO ===== */
+    .video-complete-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 1rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 100;
+    }
+    
+    .video-complete-overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .video-overlay-content {
+      background: linear-gradient(135deg, var(--corporate-blue), var(--corporate-blue-light));
+      color: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      text-align: center;
+      position: relative;
+      max-width: 90%;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      animation: slideInScale 0.5s ease;
+    }
+    
+    .video-overlay-close {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: white;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+    }
+    
+    .video-overlay-close:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.1);
+    }
+    
+    .video-overlay-cta h5 {
+      margin: 0 0 0.5rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    
+    .video-overlay-cta p {
+      margin: 0 0 1.5rem;
+      opacity: 0.9;
+      font-size: 0.95rem;
+    }
+    
+    .video-overlay-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .video-overlay-buttons .btn--primary {
+      background: white;
+      color: var(--corporate-blue);
+      border: none;
+    }
+    
+    .video-overlay-buttons .btn--primary:hover {
+      background: rgba(255, 255, 255, 0.9);
+      transform: translateY(-2px);
+    }
+    
+    .video-overlay-buttons .btn--ghost {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+    
+    .video-overlay-buttons .btn--ghost:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Posicionamiento relativo para el contenedor */
+    .video-real-container {
+      position: relative;
+    }
+    
+    @keyframes slideInScale {
+      from {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+    
+    /* ===== SEGURIDAD: DESHABILITAR DESCARGA DE VIDEOS ===== */
+    .service-video {
+      /* Deshabilitar menú contextual */
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      /* Deshabilitar arrastrar */
+      -webkit-user-drag: none;
+      -khtml-user-drag: none;
+      -moz-user-drag: none;
+      -o-user-drag: none;
+      /* Deshabilitar guardar como */
+      pointer-events: auto;
+    }
+    
+    /* Responsive para overlay */
+    @media (max-width: 768px) {
+      .video-overlay-content {
+        padding: 1.5rem;
+        margin: 1rem;
+      }
+      
+      .video-overlay-cta h5 {
+        font-size: 1.1rem;
+      }
+      
+      .video-overlay-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      
+      .video-overlay-buttons .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</body>
+</html>
