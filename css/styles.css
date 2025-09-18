@@ -877,6 +877,8 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  overflow: hidden;
 }
 
 .hero__grid {
@@ -887,7 +889,7 @@ a {
 }
 
 .hero__content h1 {
-  font-size: clamp(1.8rem, 2.4vw + 1rem, 3rem);
+  /* font-size: clamp(1.8rem, 2.4vw + 1rem, 3rem); */
   margin: 0 0 1rem;
   line-height: 1.15;
 }
@@ -1525,12 +1527,19 @@ a.card:hover {
   grid-template-columns: .95fr 1.05fr;
   gap: 2rem;
   align-items: center;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .about__media img {
   border-radius: 1rem;
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
 }
 
 .list {
@@ -1551,6 +1560,9 @@ a.card:hover {
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   margin-top: 1rem;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .stat {
@@ -1907,69 +1919,112 @@ a.card:hover {
     opacity: 1 !important;
     visibility: visible !important;
     transform: none !important;
-    max-height: none !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
     margin: 0 !important;
     padding: 0 !important;
-    display: none !important;
+    display: block !important;
+    transition: max-height 0.3s ease, padding 0.3s ease !important;
   }
 
+  .dropdown.is-open .dropdown__menu,
   .dropdown__item--has-submenu.is-open .dropdown__menu {
-    display: block !important;
-    margin-top: 0.5rem !important;
-    padding-left: 1rem !important;
-    border-left: 3px solid var(--corporate-blue) !important;
+    max-height: 1000px !important;
+    margin-top: 0 !important;
+    padding: 0 !important;
+    background: #f9fafb !important;
+    border-radius: 0 !important;
+    border: none !important;
+    border-top: 1px solid #e5e7eb !important;
   }
 
   .dropdown__menu a {
-    padding: 0.8rem 1rem;
-    font-size: 1rem;
-    color: var(--muted);
-    border-radius: 6px;
-    margin: 0.3rem 0;
+    padding: 0.8rem 2.5rem;
+    font-size: 0.9rem;
+    color: #6b7280;
+    border-radius: 0;
+    margin: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid #e5e7eb;
   }
 
   .dropdown__menu a:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--text);
+    background: #e5e7eb;
+    color: #374151;
   }
 
   /* Mobile submenu styles */
   .dropdown__submenu {
     position: static !important;
-    background: transparent !important;
+    background: rgba(11, 18, 32, 0.3) !important;
+    border-radius: 6px !important;
     box-shadow: none !important;
     border: none !important;
     opacity: 1 !important;
     visibility: visible !important;
     transform: none !important;
-    max-height: none !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
     margin: 0 !important;
     padding: 0 !important;
-    display: none !important;
+    display: block !important;
+    transition: max-height 0.3s ease, padding 0.3s ease, margin 0.3s ease !important;
   }
 
+  .dropdown__item--has-submenu.is-open .dropdown__submenu {
+    max-height: 800px !important;
+    margin-top: 0.2rem !important;
+    margin-left: 1rem !important;
+    padding: 0.3rem 0 !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-radius: 6px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+
+  /* Submenus anidados (nivel 3) */
   .dropdown__submenu .dropdown__item--has-submenu.is-open .dropdown__submenu {
-    display: block !important;
-    margin-top: 0.3rem !important;
-    padding-left: 1rem !important;
-    border-left: 3px solid var(--corporate-blue-light) !important;
+    max-height: 600px !important;
+    margin-top: 0.2rem !important;
+    margin-left: 1.5rem !important;
+    padding: 0.2rem 0 !important;
+    background: rgba(255, 255, 255, 0.07) !important;
+    border-radius: 4px !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  }
+
+  /* Enlaces del nivel 3 */
+  .dropdown__submenu .dropdown__submenu a {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.65);
+    margin: 0.05rem 0.2rem;
+  }
+
+  .dropdown__submenu .dropdown__submenu a:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.9);
+    transform: translateX(2px);
   }
 
   .dropdown__submenu a {
-    padding: 0.6rem 1rem;
-    font-size: 0.9rem;
-    color: var(--muted);
+    padding: 0.7rem 1rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
     border-radius: 4px;
-    margin: 0.2rem 0;
-    display: block;
+    margin: 0.1rem 0.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.2s ease;
   }
 
   .dropdown__submenu a:hover {
-    background: rgba(255, 255, 255, 0.08);
-    color: var(--text);
+    background: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.95);
+    transform: translateX(3px);
   }
 
   /* Mobile submenu icon styles */
@@ -2109,7 +2164,7 @@ a.card:hover {
   }
 
   .hero__content h1 {
-    font-size: 1.8rem;
+    /* font-size: 1.8rem; */
     line-height: 1.2;
   }
 
@@ -2139,7 +2194,7 @@ a.card:hover {
   }
 
   .hero__content h1 {
-    font-size: 2.2rem;
+    /* font-size: 2.2rem; */
     line-height: 1.3;
   }
 
@@ -2178,6 +2233,105 @@ a.card:hover {
 
   .stat__number {
     font-size: 2rem;
+  }
+
+  /* Sección Nosotros - ajustes para tablet */
+  .about {
+    gap: 1.5rem;
+  }
+
+  .about__content {
+    padding: 0 1rem;
+  }
+
+  .stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+  }
+
+  .stat {
+    padding: 0.8rem;
+  }
+
+  .stat__num {
+    font-size: 1.4rem;
+  }
+
+  .stat__label {
+    font-size: 0.85rem;
+  }
+
+  /* Footer responsive para tablet */
+  .footer {
+    padding: 2.5rem 0 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: center;
+  }
+
+  .footer__grid--compact {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    justify-content: center;
+    text-align: left;
+  }
+
+  .footer__brand {
+    max-width: none;
+    margin: 0 auto 2rem;
+  }
+
+  .brand--footer {
+    justify-content: center;
+  }
+
+  .brand--footer .brand__logo img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .brand--footer .brand__ozono-vida {
+    font-size: 1.1rem;
+  }
+
+  .brand--footer .brand__huaraz {
+    font-size: 0.85rem;
+  }
+
+  .footer__links-section,
+  .footer__social-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+  }
+
+  .footer__links-section h4::after,
+  .footer__social-section h4::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .footer__links a::before {
+    display: none;
+  }
+
+  .footer__links a:hover {
+    transform: none;
+  }
+
+  .socials {
+    justify-content: center;
+  }
+
+  .footer__copy {
+    margin-top: 2rem;
+    font-size: 0.9rem;
   }
 }
 
@@ -2454,49 +2608,202 @@ a.card:hover {
 
 .footer {
   margin-top: 3rem;
-  padding: 2rem 0;
+  padding: 3rem 0 2rem;
   border-top: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.02);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.01) 100%);
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .footer__grid {
   display: grid;
-  grid-template-columns: 1.2fr .8fr .8fr;
-  gap: 1.25rem;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 3rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  align-items: start;
+  justify-items: start;
+}
+
+/* Sección del brand/logo */
+.footer__brand {
+  max-width: 350px;
+}
+
+.brand--footer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.brand--footer:hover {
+  transform: translateY(-2px);
+}
+
+.brand--footer .brand__logo {
+  flex-shrink: 0;
+}
+
+.brand--footer .brand__logo img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.brand--footer .brand__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.brand--footer .brand__ozono-vida {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--corporate-blue);
+  line-height: 1;
+  letter-spacing: 0.5px;
+}
+
+.brand--footer .brand__huaraz {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--corporate-blue-light);
+  line-height: 1;
+  letter-spacing: 0.3px;
+}
+
+.footer__brand p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 280px;
+}
+
+/* Secciones de enlaces y redes sociales */
+.footer__links-section,
+.footer__social-section {
+  min-width: fit-content;
+  padding: 0 0.5rem;
+}
+
+.footer__links-section h4,
+.footer__social-section h4 {
+  margin-bottom: 1.5rem;
+  color: var(--text);
+  font-size: 1.1rem;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer__links-section h4::after,
+.footer__social-section h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--corporate-blue), var(--corporate-blue-light));
+  border-radius: 1px;
+}
+
+/* Footer compacto (solo 2 secciones) */
+.footer__grid--compact {
+  grid-template-columns: auto auto;
+  justify-content: center;
+  gap: 4rem;
+}
+
+.footer__grid--compact .footer__brand {
+  display: none;
 }
 
 .footer__links {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: grid;
-  gap: .5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.footer__links li {
+  margin: 0;
+}
+
+.footer__links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 400;
+  transition: all 0.2s ease;
+  padding: 0.3rem 0;
+  display: inline-block;
+  position: relative;
+}
+
+.footer__links a:hover {
+  color: var(--corporate-blue-light);
+  transform: translateX(4px);
+}
+
+.footer__links a::before {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 4px;
+  background: var(--corporate-blue);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.footer__links a:hover::before {
+  opacity: 1;
 }
 
 .socials {
   display: flex;
-  gap: .6rem;
+  gap: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .socials a {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   display: grid;
   place-items: center;
-  background: var(--glass);
-  border: 1px solid var(--border);
-  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
   color: var(--muted);
-  transition: all .3s ease;
-  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+  text-decoration: none;
 }
 
 .socials a:hover {
-  background: var(--glass-hover);
-  border-color: var(--accent);
-  color: var(--accent);
-  transform: translateY(-3px) scale(1.1);
-  box-shadow: var(--shadow);
+  background: var(--corporate-blue);
+  border-color: var(--corporate-blue);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
 }
 
 /* Social media specific colors */
@@ -2525,9 +2832,16 @@ a.card:hover {
 }
 
 .footer__copy {
-  margin-top: 1rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   color: var(--muted);
   text-align: center;
+}
+
+.footer__copy small {
+  font-size: 0.9rem;
+  opacity: 0.8;
 }
 
 /* TikTok Gallery Styles */
@@ -2692,8 +3006,8 @@ a.card:hover {
   }
 
   .hero__content h1 {
-    font-size: clamp(3rem, 4vw, 4.5rem);
-    margin-bottom: 1.5rem;
+    font-size: clamp(3rem, 4vw, 3rem);
+    margin-bottom: 1rem;
   }
 
   .hero__content p {
@@ -2821,6 +3135,180 @@ a.card:hover {
 
 /* Móviles muy pequeños */
 @media (max-width: 480px) {
+
+  /* Sección Nosotros - ajustes para móvil */
+  .about {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 0.5rem;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .about__content {
+    padding: 0 0.5rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  .about__content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .about__content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .list {
+    margin: 1rem 0;
+  }
+
+  .list li {
+    padding: 0.4rem 0;
+    font-size: 0.9rem;
+  }
+
+  /* Stats responsive para móvil */
+  .stats {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+    padding: 0 0.5rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .stat {
+    padding: 1rem 0.8rem;
+    border-radius: 0.75rem;
+  }
+
+  .stat__num {
+    font-size: 1.4rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .stat__label {
+    font-size: 0.8rem;
+    line-height: 1.3;
+  }
+
+  /* Footer responsive para móvil */
+  .footer {
+    padding: 2rem 0 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .footer__grid--compact {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    justify-content: center;
+  }
+
+  .footer__brand {
+    max-width: none;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .footer__brand p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 1rem 0 0;
+    color: var(--muted);
+  }
+
+  .brand--footer {
+    justify-content: center;
+    margin-bottom: 1rem;
+    gap: 0.8rem;
+  }
+
+  .brand--footer .brand__logo img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .brand--footer .brand__ozono-vida {
+    font-size: 1rem;
+  }
+
+  .brand--footer .brand__huaraz {
+    font-size: 0.8rem;
+  }
+
+  .footer__links-section,
+  .footer__social-section {
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer__links-section h4,
+  .footer__social-section h4 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .footer__links-section h4::after,
+  .footer__social-section h4::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .footer__links {
+    gap: 0.6rem;
+    align-items: center;
+  }
+
+  .footer__links a {
+    font-size: 0.9rem;
+    padding: 0.4rem 0;
+  }
+
+  .footer__links a::before {
+    display: none;
+  }
+
+  .footer__links a:hover {
+    transform: none;
+  }
+
+  .socials {
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .socials a {
+    width: 42px;
+    height: 42px;
+    font-size: 1.1rem;
+  }
+
+  .footer__copy {
+    margin-top: 2rem;
+    font-size: 0.85rem;
+    padding: 0 1rem;
+  }
+
+  /* TikTok Grid */
   .tiktok-grid {
     grid-template-columns: 1fr;
     gap: 0.8rem;
@@ -2874,68 +3362,98 @@ a.card:hover {
   .nav__links {
     position: fixed;
     top: 0;
+    left: 0;
     right: 0;
+    bottom: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(11, 18, 32, .98);
-    backdrop-filter: blur(20px);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 0;
     transform: translateX(100%);
     opacity: 0;
     pointer-events: none;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1000;
     padding: 2rem;
+    overflow-y: auto;
   }
 
   .nav__links.is-open {
     opacity: 1;
     pointer-events: auto;
     transform: translateX(0);
+    width: 90%;
+    max-width: 400px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    padding: 2rem 0;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
   }
 
   .nav__links li {
     margin: 0;
     width: 100%;
-    max-width: 300px;
+    max-width: none;
+  }
+
+  .nav__links>li {
+    margin: 0;
   }
 
   .nav__links a {
     display: block;
-    padding: 1rem 1.5rem;
-    border-radius: 12px;
-    transition: all 0.3s ease;
-    font-size: 1.1rem;
+    padding: 1rem 2rem;
+    border-radius: 0;
+    transition: all 0.2s ease;
+    font-size: 1rem;
     font-weight: 500;
-    text-align: center;
-    width: 100%;
+    text-align: left;
+    color: #374151;
+    border-bottom: 1px solid #f3f4f6;
     position: relative;
+    width: 100%;
     overflow: hidden;
   }
 
-  .nav__links a::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    transition: left 0.5s ease;
-  }
-
-  .nav__links a:hover::before {
-    left: 100%;
-  }
-
   .nav__links a:hover {
-    background: var(--glass);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    background: #f8fafc;
+    color: #2563eb;
+  }
+
+  .nav__links a:last-child {
+    border-bottom: none;
+  }
+
+  /* Restaurar menú desktop */
+  @media (min-width: 1025px) {
+    .nav__links {
+      background: none;
+      backdrop-filter: none;
+      position: static;
+      width: auto;
+      height: auto;
+      transform: none;
+      opacity: 1;
+      pointer-events: auto;
+      padding: 0;
+      overflow: visible;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 2rem;
+      box-shadow: none;
+      border-radius: 0;
+      max-height: none;
+    }
   }
 
   /* Mobile dropdown styles */
@@ -3303,6 +3821,405 @@ a.card:hover {
 .hero--service.hero--ozonoterapia {
   background-attachment: scroll;
   /* Ya definido arriba, pero scroll es mejor para móviles */
+}
+
+/* ===== HERO PLASMA RICO EN PLAQUETAS ===== */
+/* Hero específico para plasma con imagen de fondo */
+.hero--service.hero--plasma {
+  background:
+    linear-gradient(135deg, rgba(220, 38, 127, 0.4) 0%, rgba(239, 68, 68, 0.3) 100%),
+    url('../assets/images/services/servicios-plasmaRicoPlaquetas.png');
+  background-position: center 60%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  padding: 6rem 0;
+}
+
+.hero--service.hero--plasma::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.hero--service.hero--plasma .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero--service.hero--plasma .hero__content h1 {
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 0, 0, 0.5);
+  background: none;
+  -webkit-text-fill-color: white;
+  font-weight: 800;
+}
+
+.hero--service.hero--plasma .hero__subtitle {
+  color: white;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7), 0 0 10px rgba(0, 0, 0, 0.5);
+  font-weight: 500;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+}
+
+.hero--service.hero--plasma .breadcrumb {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin-bottom: 1.5rem;
+  display: inline-block;
+}
+
+.hero--service.hero--plasma .breadcrumb a {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero--service.hero--plasma .breadcrumb a:hover {
+  color: white;
+}
+
+.hero--service.hero--plasma .breadcrumb span {
+  color: white;
+  font-weight: 600;
+}
+
+.hero--service.hero--plasma .breadcrumb i {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.hero--service.hero--plasma .btn--primary {
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--corporate-red);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(15px);
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero--service.hero--plasma .btn--primary:hover {
+  background: white;
+  color: var(--corporate-red);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+.hero--service.hero--plasma .btn--ghost {
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(15px);
+}
+
+.hero--service.hero--plasma .btn--ghost:hover {
+  background: rgba(0, 0, 0, 0.5);
+  border-color: white;
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* Ocultar la imagen del hero media en plasma ya que está de fondo */
+.hero--service.hero--plasma .hero__media {
+  display: none;
+}
+
+/* Ajustar grid para que el contenido ocupe todo el ancho */
+.hero--service.hero--plasma .hero__grid {
+  grid-template-columns: 1fr;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero--service.hero--plasma .hero__content {
+  /* Sin card central - solo contenido centrado limpio */
+  padding: 2rem 1rem;
+  /* Sin fondos adicionales para mostrar mejor la imagen */
+}
+
+.hero--service.hero--plasma .hero__cta {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ===== HERO MEDICINA REGENERATIVA ===== */
+/* Hero específico para medicina regenerativa con imagen de fondo */
+.hero--service.hero--medicina-regenerativa {
+  background:
+    linear-gradient(135deg, rgba(16, 185, 129, 0.4) 0%, rgba(34, 197, 94, 0.3) 100%),
+    url('../assets/images/services/servicios-medicinaRegenerativa.png');
+  background-position: center 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  padding: 6rem 0;
+}
+
+.hero--service.hero--medicina-regenerativa::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+}
+
+.hero--service.hero--medicina-regenerativa .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero--service.hero--medicina-regenerativa .hero__content h1 {
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 0, 0, 0.5);
+  background: none;
+  -webkit-text-fill-color: white;
+  font-weight: 800;
+}
+
+.hero--service.hero--medicina-regenerativa .hero__subtitle {
+  color: white;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7), 0 0 10px rgba(0, 0, 0, 0.5);
+  font-weight: 500;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+}
+
+.hero--service.hero--medicina-regenerativa .breadcrumb {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin-bottom: 1.5rem;
+  display: inline-block;
+}
+
+.hero--service.hero--medicina-regenerativa .breadcrumb a {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero--service.hero--medicina-regenerativa .breadcrumb a:hover {
+  color: white;
+}
+
+.hero--service.hero--medicina-regenerativa .breadcrumb span {
+  color: white;
+  font-weight: 600;
+}
+
+.hero--service.hero--medicina-regenerativa .breadcrumb i {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.hero--service.hero--medicina-regenerativa .btn--primary {
+  background: rgba(255, 255, 255, 0.95);
+  color: #10b981;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(15px);
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero--service.hero--medicina-regenerativa .btn--primary:hover {
+  background: white;
+  color: #10b981;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+.hero--service.hero--medicina-regenerativa .btn--ghost {
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(15px);
+}
+
+.hero--service.hero--medicina-regenerativa .btn--ghost:hover {
+  background: rgba(0, 0, 0, 0.5);
+  border-color: white;
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* Ocultar la imagen del hero media en medicina regenerativa ya que está de fondo */
+.hero--service.hero--medicina-regenerativa .hero__media {
+  display: none;
+}
+
+/* Ajustar grid para que el contenido ocupe todo el ancho */
+.hero--service.hero--medicina-regenerativa .hero__grid {
+  grid-template-columns: 1fr;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero--service.hero--medicina-regenerativa .hero__content {
+  /* Sin card central - solo contenido centrado limpio */
+  padding: 2rem 1rem;
+  /* Sin fondos adicionales para mostrar mejor la imagen */
+}
+
+.hero--service.hero--medicina-regenerativa .hero__cta {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ===== HERO CÓCTEL DE VIDA ===== */
+/* Hero específico para cóctel de vida con imagen de fondo */
+.hero--service.hero--coctel-vida {
+  background:
+    linear-gradient(135deg, rgba(251, 191, 36, 0.4) 0%, rgba(245, 158, 11, 0.3) 100%),
+    url('../assets/images/services/servicios-coctelVida.png');
+  background-position: center 40%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  padding: 6rem 0;
+}
+
+.hero--service.hero--coctel-vida::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.hero--service.hero--coctel-vida .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero--service.hero--coctel-vida .hero__content h1 {
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 0, 0, 0.5);
+  background: none;
+  -webkit-text-fill-color: white;
+  font-weight: 800;
+}
+
+.hero--service.hero--coctel-vida .hero__subtitle {
+  color: white;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7), 0 0 10px rgba(0, 0, 0, 0.5);
+  font-weight: 500;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+}
+
+.hero--service.hero--coctel-vida .breadcrumb {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin-bottom: 1.5rem;
+  display: inline-block;
+}
+
+.hero--service.hero--coctel-vida .breadcrumb a {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero--service.hero--coctel-vida .breadcrumb a:hover {
+  color: white;
+}
+
+.hero--service.hero--coctel-vida .breadcrumb span {
+  color: white;
+  font-weight: 600;
+}
+
+.hero--service.hero--coctel-vida .breadcrumb i {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.hero--service.hero--coctel-vida .btn--primary {
+  background: rgba(255, 255, 255, 0.95);
+  color: #f59e0b;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(15px);
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero--service.hero--coctel-vida .btn--primary:hover {
+  background: white;
+  color: #f59e0b;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+.hero--service.hero--coctel-vida .btn--ghost {
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(15px);
+}
+
+.hero--service.hero--coctel-vida .btn--ghost:hover {
+  background: rgba(0, 0, 0, 0.5);
+  border-color: white;
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* Ocultar la imagen del hero media en cóctel de vida ya que está de fondo */
+.hero--service.hero--coctel-vida .hero__media {
+  display: none;
+}
+
+/* Ajustar grid para que el contenido ocupe todo el ancho */
+.hero--service.hero--coctel-vida .hero__grid {
+  grid-template-columns: 1fr;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero--service.hero--coctel-vida .hero__content {
+  /* Sin card central - solo contenido centrado limpio */
+  padding: 2rem 1rem;
+  /* Sin fondos adicionales para mostrar mejor la imagen */
+}
+
+.hero--service.hero--coctel-vida .hero__cta {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .hero--service .hero__content h1 {
@@ -4076,6 +4993,114 @@ a.card:hover {
     max-width: 280px;
     justify-content: center;
   }
+
+  /* Responsive para hero de plasma */
+  .hero--service.hero--plasma {
+    min-height: 60vh;
+    padding: 4rem 0;
+    background-position: center 70%;
+  }
+
+  .hero--service.hero--plasma .hero__content h1 {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+
+  .hero--service.hero--plasma .hero__subtitle {
+    font-size: 1rem;
+  }
+
+  .hero--service.hero--plasma .breadcrumb {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .hero--service.hero--plasma .hero__content {
+    padding: 2rem 1rem;
+  }
+
+  .hero--service.hero--plasma .hero__cta {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .hero--service.hero--plasma .hero__cta .btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+
+  /* Responsive para hero de medicina regenerativa */
+  .hero--service.hero--medicina-regenerativa {
+    min-height: 60vh;
+    padding: 4rem 0;
+    background-position: center 60%;
+  }
+
+  .hero--service.hero--medicina-regenerativa .hero__content h1 {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+
+  .hero--service.hero--medicina-regenerativa .hero__subtitle {
+    font-size: 1rem;
+  }
+
+  .hero--service.hero--medicina-regenerativa .breadcrumb {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .hero--service.hero--medicina-regenerativa .hero__content {
+    padding: 2rem 1rem;
+  }
+
+  .hero--service.hero--medicina-regenerativa .hero__cta {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .hero--service.hero--medicina-regenerativa .hero__cta .btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+
+  /* Responsive para hero de cóctel de vida */
+  .hero--service.hero--coctel-vida {
+    min-height: 60vh;
+    padding: 4rem 0;
+    background-position: center 50%;
+  }
+
+  .hero--service.hero--coctel-vida .hero__content h1 {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+
+  .hero--service.hero--coctel-vida .hero__subtitle {
+    font-size: 1rem;
+  }
+
+  .hero--service.hero--coctel-vida .breadcrumb {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .hero--service.hero--coctel-vida .hero__content {
+    padding: 2rem 1rem;
+  }
+
+  .hero--service.hero--coctel-vida .hero__cta {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .hero--service.hero--coctel-vida .hero__cta .btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 480px) {
@@ -4096,6 +5121,63 @@ a.card:hover {
   }
 
   .hero--service.hero--ozonoterapia .hero__subtitle {
+    font-size: 0.9rem;
+  }
+
+  /* Responsive móvil para hero de plasma */
+  .hero--service.hero--plasma {
+    min-height: 50vh;
+    padding: 3rem 0;
+    background-position: center 80%;
+  }
+
+  .hero--service.hero--plasma .hero__content {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .hero--service.hero--plasma .hero__content h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero--service.hero--plasma .hero__subtitle {
+    font-size: 0.9rem;
+  }
+
+  /* Responsive móvil para hero de medicina regenerativa */
+  .hero--service.hero--medicina-regenerativa {
+    min-height: 50vh;
+    padding: 3rem 0;
+    background-position: center 70%;
+  }
+
+  .hero--service.hero--medicina-regenerativa .hero__content {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .hero--service.hero--medicina-regenerativa .hero__content h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero--service.hero--medicina-regenerativa .hero__subtitle {
+    font-size: 0.9rem;
+  }
+
+  /* Responsive móvil para hero de cóctel de vida */
+  .hero--service.hero--coctel-vida {
+    min-height: 50vh;
+    padding: 3rem 0;
+    background-position: center 60%;
+  }
+
+  .hero--service.hero--coctel-vida .hero__content {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .hero--service.hero--coctel-vida .hero__content h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero--service.hero--coctel-vida .hero__subtitle {
     font-size: 0.9rem;
   }
 }

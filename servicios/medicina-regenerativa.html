@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <!-- Head Base - Elementos que nunca cambian -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- CSS Crítico (siempre primero) -->
+  <link rel="stylesheet" href="../css/critical.css" />
+  
+  <!-- CSS de Protección de Videos -->
+  <link rel="stylesheet" href="../css/security/video-protection.css" />
+  
+  <!-- Preconnect para optimización -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  
+  <!-- Preload del CSS principal -->
+  <link rel="preload" href="../css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="../css/styles.css" /></noscript>
+  
+  <!-- Preload de Font Awesome -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /></noscript>
+  
+  <!-- Preload de Google Fonts -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" /></noscript>
+
+  <!-- Favicon y Iconos -->
+  <link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon.ico" />
+
+  <!-- Meta Tags Básicos -->
+  <meta name="author" content="OZONO VIDA Centro Médico" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+
+  <!-- Idioma y Región -->
+  <meta name="language" content="es" />
+  <meta name="geo.region" content="PE-ANC" />
+  <meta name="geo.placename" content="Huaraz" />
+  <meta name="geo.position" content="-9.5333;-77.5333" />
+  <meta name="ICBM" content="-9.5333, -77.5333" />
+
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#215096" />
+  <meta name="msapplication-TileColor" content="#215096" />
+
+  <!-- Head Dinámico - Específico de Medicina Regenerativa -->
+  <title>Medicina Regenerativa - Tratamientos Avanzados de Sanación • OZONO VIDA</title>
+  <meta name="description" content="Medicina Regenerativa en OZONO VIDA. Tratamientos avanzados que estimulan la capacidad natural del cuerpo para sanar y regenerar tejidos dañados. Especialistas en Huaraz." />
+  <meta name="keywords" content="medicina regenerativa, terapias regenerativas, sanación natural, regeneración celular, tratamientos avanzados, Huaraz" />
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Medicina Regenerativa - Tratamientos Avanzados de Sanación • OZONO VIDA" />
+  <meta property="og:description" content="Medicina Regenerativa en OZONO VIDA. Tratamientos avanzados que estimulan la capacidad natural del cuerpo para sanar y regenerar tejidos dañados. Especialistas en Huaraz." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ozonovida.netlify.app/servicios/medicina-regenerativa.html" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=1200&q=80" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Medicina Regenerativa - Tratamientos Avanzados - OZONO VIDA Centro Médico" />
+  <meta property="og:site_name" content="OZONO VIDA" />
+  <meta property="og:locale" content="es_PE" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Medicina Regenerativa - Tratamientos Avanzados de Sanación • OZONO VIDA" />
+  <meta name="twitter:description" content="Medicina Regenerativa en OZONO VIDA. Tratamientos avanzados que estimulan la capacidad natural del cuerpo para sanar y regenerar tejidos dañados. Especialistas en Huaraz." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=1200&q=80" />
+  <meta name="twitter:image:alt" content="Medicina Regenerativa - Tratamientos Avanzados - OZONO VIDA Centro Médico" />
+  <meta name="twitter:site" content="@ozonovida" />
+  <meta name="twitter:creator" content="@ozonovida" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://ozonovida.netlify.app/servicios/medicina-regenerativa.html" />
+
+  <!-- Structured Data Específico -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalProcedure",
+    "name": "Medicina Regenerativa",
+    "description": "Conjunto de tratamientos médicos avanzados que utilizan las capacidades naturales del cuerpo para reparar, reemplazar y regenerar células, tejidos y órganos dañados.",
+    "provider": {
+      "@type": "MedicalClinic",
+      "name": "OZONO VIDA Centro Médico",
+      "alternateName": "OZONO VIDA",
+      "telephone": "+51 988 126 804",
+      "email": "contacto@ozonovida.pe",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Villón, frente a la Dirección Víctor Ramos Guardia",
+        "addressLocality": "Huaraz",
+        "addressRegion": "Ancash",
+        "postalCode": "02001",
+        "addressCountry": "PE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-9.5333",
+        "longitude": "-77.5333"
+      }
+    },
+    "medicalSpecialty": ["RegenerativeMedicine", "CellTherapy", "TissueEngineering"],
+    "bodyLocation": ["Células", "Tejidos", "Órganos", "Sistema inmunológico"]
+  }
+  </script>
+</head>
+<body>
+  <a href="#inicio" class="skip-link">Saltar al contenido</a>
+
+  <!-- Header Component -->
+  <div id="header-placeholder"></div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero hero--service hero--medicina-regenerativa" aria-label="Medicina Regenerativa">
+      <div class="container hero__grid">
+        <div class="hero__content reveal">
+          <!-- Breadcrumb -->
+          <nav class="breadcrumb" aria-label="Ruta de navegación">
+            <a href="../index.html">Inicio</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <a href="../index.html#servicios">Servicios</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>Medicina Regenerativa</span>
+          </nav>
+          
+          <h1>Medicina Regenerativa</h1>
+          <p class="hero__subtitle">Tratamientos médicos de vanguardia que aprovechan el poder natural del cuerpo para sanar, reparar y regenerar tejidos dañados, devolviendo salud y vitalidad de forma integral.</p>
+          
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="#citas" data-open-modal>
+              <i class="fa-solid fa-calendar-check"></i> Reservar Consulta
+            </a>
+            <a class="btn btn--ghost" href="#que-es">
+              <i class="fa-solid fa-circle-play"></i> Conocer Más
+            </a>
+          </div>
+        </div>
+        <div class="hero__media reveal">
+          <div class="main-image-container">
+            <img src="../assets/images/services/servicios-medicinaRegenerativa.png" alt="Medicina Regenerativa - Tratamientos avanzados de sanación" loading="lazy" />
+            <div class="service-highlight">
+              <i class="fa-solid fa-leaf"></i>
+              <span>Sanación Avanzada</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Introducción -->
+    <section id="que-es" class="section">
+      <div class="container">
+        <h2 class="section__title">¿Qué es la Medicina Regenerativa?</h2>
+        <div class="intro-grid">
+          <div class="intro-content">
+            <h3>El Futuro de la Medicina</h3>
+            <p class="intro__text">La medicina regenerativa es una rama innovadora que combina múltiples terapias avanzadas para estimular los mecanismos naturales de reparación del cuerpo, promoviendo la regeneración de células, tejidos y órganos dañados.</p>
+            <p class="intro__text">Utilizamos tecnologías de vanguardia y tratamientos biocompatibles que trabajan en armonía con tu organismo para restaurar la función normal y mejorar tu calidad de vida.</p>
+            
+            <div class="benefits-list">
+              <div class="benefit-item">
+                <i class="fa-solid fa-check"></i>
+                <span>Estimula la regeneración celular natural</span>
+              </div>
+              <div class="benefit-item">
+                <i class="fa-solid fa-check"></i>
+                <span>Reduce la inflamación crónica</span>
+              </div>
+              <div class="benefit-item">
+                <i class="fa-solid fa-check"></i>
+                <span>Mejora la función de órganos y tejidos</span>
+              </div>
+              <div class="benefit-item">
+                <i class="fa-solid fa-check"></i>
+                <span>Tratamientos mínimamente invasivos</span>
+              </div>
+              <div class="benefit-item">
+                <i class="fa-solid fa-check"></i>
+                <span>Resultados duraderos y naturales</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="video-section">
+            <div class="video-placeholder">
+              <div class="video-play-button">
+                <i class="fa-solid fa-play"></i>
+              </div>
+              <div class="video-content">
+                <h4>Video Explicativo - Medicina Regenerativa</h4>
+                <p>Conoce cómo funcionan los tratamientos regenerativos más avanzados</p>
+                <span class="video-note">Próximamente disponible</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Métodos de Aplicación -->
+    <section class="section section--alt">
+      <div class="container">
+        <h2 class="section__title">Tratamientos Regenerativos</h2>
+        <p class="section__subtitle">Terapias avanzadas integradas para una sanación completa</p>
+        <div class="service-methods-grid">
+          <article class="service-method-card reveal">
+            <div class="service-method-icon">
+              <i class="fa-solid fa-microscope"></i>
+            </div>
+            <h3>Terapia Celular</h3>
+            <p>Utilización de células madre y factores de crecimiento para regenerar tejidos dañados y restaurar funciones orgánicas.</p>
+          </article>
+          
+          <article class="service-method-card reveal">
+            <div class="service-method-icon">
+              <i class="fa-solid fa-dna"></i>
+            </div>
+            <h3>Medicina Molecular</h3>
+            <p>Tratamientos a nivel molecular que optimizan los procesos celulares y mejoran la comunicación entre células.</p>
+          </article>
+          
+          <article class="service-method-card reveal">
+            <div class="service-method-icon">
+              <i class="fa-solid fa-heartbeat"></i>
+            </div>
+            <h3>Bioestimulación</h3>
+            <p>Técnicas que activan los mecanismos naturales de reparación del cuerpo mediante estímulos específicos y controlados.</p>
+          </article>
+          
+          <article class="service-method-card reveal">
+            <div class="service-method-icon">
+              <i class="fa-solid fa-shield-virus"></i>
+            </div>
+            <h3>Inmunomodulación</h3>
+            <p>Regulación del sistema inmunológico para optimizar las respuestas de sanación y reducir la inflamación crónica.</p>
+          </article>
+          
+          <article class="service-method-card reveal">
+            <div class="service-method-icon">
+              <i class="fa-solid fa-atom"></i>
+            </div>
+            <h3>Nanoterapia</h3>
+            <p>Aplicación de nanotecnología médica para la entrega dirigida de principios activos a nivel celular.</p>
+          </article>
+          
+          <article class="service-method-card reveal">
+            <div class="service-method-icon">
+              <i class="fa-solid fa-brain"></i>
+            </div>
+            <h3>Neurorregeneración</h3>
+            <p>Tratamientos especializados para la regeneración del sistema nervioso y mejora de funciones neurológicas.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Condiciones Tratadas -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title">Condiciones que Tratamos</h2>
+        <p class="section__subtitle">Amplio espectro de patologías que responden a medicina regenerativa</p>
+        <div class="conditions-grid">
+          <div class="condition-category">
+            <div class="category-header">
+              <i class="fa-solid fa-brain"></i>
+              <h3>Enfermedades Neurológicas</h3>
+            </div>
+            <ul class="condition-list">
+              <li>Parkinson</li>
+              <li>Alzheimer temprano</li>
+              <li>Esclerosis múltiple</li>
+              <li>Neuropatías periféricas</li>
+              <li>Accidentes cerebrovasculares</li>
+              <li>Migrañas crónicas</li>
+              <li>Lesiones medulares</li>
+            </ul>
+          </div>
+          
+          <div class="condition-category">
+            <div class="category-header">
+              <i class="fa-solid fa-heart"></i>
+              <h3>Enfermedades Cardiovasculares</h3>
+            </div>
+            <ul class="condition-list">
+              <li>Insuficiencia cardíaca</li>
+              <li>Enfermedad coronaria</li>
+              <li>Cardiomiopatías</li>
+              <li>Hipertensión arterial</li>
+              <li>Arritmias</li>
+              <li>Insuficiencia vascular</li>
+              <li>Claudicación intermitente</li>
+            </ul>
+          </div>
+          
+          <div class="condition-category">
+            <div class="category-header">
+              <i class="fa-solid fa-lungs"></i>
+              <h3>Enfermedades Respiratorias</h3>
+            </div>
+            <ul class="condition-list">
+              <li>EPOC</li>
+              <li>Fibrosis pulmonar</li>
+              <li>Asma bronquial</li>
+              <li>Bronquitis crónica</li>
+              <li>Secuelas de COVID-19</li>
+              <li>Enfisema pulmonar</li>
+              <li>Alergias respiratorias</li>
+            </ul>
+          </div>
+          
+          <div class="condition-category">
+            <div class="category-header">
+              <i class="fa-solid fa-user-injured"></i>
+              <h3>Enfermedades Crónicas</h3>
+            </div>
+            <ul class="condition-list">
+              <li>Diabetes mellitus</li>
+              <li>Enfermedades autoinmunes</li>
+              <li>Artritis reumatoide</li>
+              <li>Lupus eritematoso</li>
+              <li>Síndrome de fatiga crónica</li>
+              <li>Fibromialgia</li>
+              <li>Envejecimiento prematuro</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proceso de Tratamiento -->
+    <section class="section section--alt">
+      <div class="container">
+        <h2 class="section__title">Proceso de Tratamiento</h2>
+        <p class="section__subtitle">Protocolo integral personalizado para cada paciente</p>
+        <div class="process-timeline">
+          <div class="timeline-item reveal">
+            <div class="timeline-number">1</div>
+            <div class="timeline-content">
+              <h3>Evaluación Médica Integral</h3>
+              <p>Realizamos un diagnóstico completo que incluye análisis clínicos, estudios de imagen y evaluación del estado general para diseñar el tratamiento más adecuado.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item reveal">
+            <div class="timeline-number">2</div>
+            <div class="timeline-content">
+              <h3>Diseño del Protocolo Personalizado</h3>
+              <p>Creamos un plan de tratamiento específico que combina las terapias regenerativas más efectivas para tu condición particular.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item reveal">
+            <div class="timeline-number">3</div>
+            <div class="timeline-content">
+              <h3>Aplicación de Tratamientos</h3>
+              <p>Implementamos las terapias regenerativas en sesiones controladas, monitoreando tu respuesta y ajustando el protocolo según sea necesario.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item reveal">
+            <div class="timeline-number">4</div>
+            <div class="timeline-content">
+              <h3>Seguimiento y Optimización</h3>
+              <p>Realizamos controles periódicos para evaluar el progreso y optimizar el tratamiento, asegurando resultados duraderos.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title">Testimonios de Pacientes</h2>
+        <p class="section__subtitle">Historias reales de transformación y recuperación</p>
+        <div class="testimonials-grid">
+          <article class="testimonial-card reveal">
+            <div class="testimonial__quote">
+              <i class="fa-solid fa-quote-left"></i>
+              <p>Después de años con diabetes descontrolada, los tratamientos regenerativos me han devuelto la esperanza. Mis niveles se estabilizaron y me siento con más energía que nunca.</p>
+            </div>
+            <div class="testimonial__meta">
+              <div class="testimonial__avatar">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80" alt="Jorge Ramírez" loading="lazy" />
+              </div>
+              <div class="testimonial__info">
+                <strong>Jorge Ramírez</strong>
+                <span>Tratamiento: Medicina regenerativa para diabetes</span>
+                <div class="testimonial__rating">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </article>
+          
+          <article class="testimonial-card reveal">
+            <div class="testimonial__quote">
+              <i class="fa-solid fa-quote-left"></i>
+              <p>Mi artritis reumatoide limitaba completamente mi vida. Con la medicina regenerativa he recuperado movilidad y el dolor ha disminuido significativamente. Es un milagro.</p>
+            </div>
+            <div class="testimonial__meta">
+              <div class="testimonial__avatar">
+                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b0e9?auto=format&fit=crop&w=150&q=80" alt="Elena Vásquez" loading="lazy" />
+              </div>
+              <div class="testimonial__info">
+                <strong>Elena Vásquez</strong>
+                <span>Tratamiento: Terapia regenerativa para artritis</span>
+                <div class="testimonial__rating">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </article>
+          
+          <article class="testimonial-card reveal">
+            <div class="testimonial__quote">
+              <i class="fa-solid fa-quote-left"></i>
+              <p>Las secuelas del COVID me tenían muy débil y con problemas respiratorios. Los tratamientos regenerativos me ayudaron a recuperar mi capacidad pulmonar completamente.</p>
+            </div>
+            <div class="testimonial__meta">
+              <div class="testimonial__avatar">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Miguel Torres" loading="lazy" />
+              </div>
+              <div class="testimonial__info">
+                <strong>Miguel Torres</strong>
+                <span>Tratamiento: Regeneración pulmonar post-COVID</span>
+                <div class="testimonial__rating">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section--alt">
+      <div class="container">
+        <h2 class="section__title">Preguntas Frecuentes</h2>
+        <p class="section__subtitle">Resolvemos tus dudas sobre medicina regenerativa</p>
+        <div class="faq-container">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              ¿Qué tan segura es la medicina regenerativa?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>La medicina regenerativa es muy segura cuando se aplica por profesionales especializados. Utilizamos tratamientos biocompatibles que trabajan con los procesos naturales del cuerpo, minimizando efectos secundarios.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              ¿Cuánto tiempo duran los tratamientos?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>La duración varía según la condición y el tipo de tratamiento. Generalmente requieren entre 4-12 sesiones durante varios meses, con sesiones de mantenimiento según sea necesario.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              ¿Hay efectos secundarios?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Los efectos secundarios son mínimos. Algunos pacientes pueden experimentar ligera fatiga o molestias leves después de las sesiones, lo cual es normal y temporal.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              ¿Para qué edades está indicada?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>La medicina regenerativa puede aplicarse desde la adolescencia hasta la edad avanzada. Evaluamos cada caso individualmente para determinar el mejor protocolo según la edad y condición del paciente.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              ¿Cuándo se ven los primeros resultados?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Los resultados varían según la condición tratada. Algunos pacientes notan mejoras en 2-4 semanas, mientras que otros requieren 2-3 meses para ver cambios significativos. Los beneficios continúan desarrollándose con el tiempo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="section section--cta">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Listo para Regenerar tu Salud?</h2>
+          <p>Agenda tu consulta de evaluación y descubre cómo la medicina regenerativa puede transformar tu calidad de vida de manera integral y duradera.</p>
+          
+          <div class="cta-actions">
+            <a href="#citas" class="btn btn--large btn--primary" data-open-modal>
+              <i class="fa-solid fa-calendar-check"></i> Reservar Consulta
+            </a>
+            <a href="https://wa.me/+51988126804?text=Hola, me interesa conocer más sobre los tratamientos de medicina regenerativa" target="_blank" rel="noopener" class="btn btn--large btn--whatsapp">
+              <i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp
+            </a>
+          </div>
+          
+          <div class="cta-info">
+            <div class="info-item">
+              <i class="fa-solid fa-clock"></i>
+              <span>L-V 9:00-19:00 · Sáb 9:00-13:00</span>
+            </div>
+            <div class="info-item">
+              <i class="fa-solid fa-phone"></i>
+              <span>+51 988 126 804</span>
+            </div>
+            <div class="info-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Av. Villón, Huaraz</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal de Citas -->
+    <section id="citas" class="modal" aria-hidden="true" role="dialog" aria-modal="false">
+      <div class="modal__backdrop" data-close-modal></div>
+      <div class="modal__dialog" role="document">
+        <button class="modal__close" aria-label="Cerrar" data-close-modal><i class="fa-solid fa-xmark"></i></button>
+        <h3>Reserva tu Consulta de Medicina Regenerativa</h3>
+        <form class="form" id="booking-form" novalidate>
+          <div class="form__row">
+            <label for="nombre">Nombre completo</label>
+            <input id="nombre" name="nombre" type="text" placeholder="Ej. Juan Pérez" required />
+          </div>
+          <div class="form__row">
+            <label for="telefono">Teléfono</label>
+            <input id="telefono" name="telefono" type="tel" placeholder="Ej. +51 999 999 999" required />
+          </div>
+          <div class="form__row">
+            <label for="condicion">Condición a tratar</label>
+            <select id="condicion" name="condicion" required>
+              <option value="">Selecciona una opción</option>
+              <option>Enfermedad neurológica</option>
+              <option>Problema cardiovascular</option>
+              <option>Enfermedad respiratoria</option>
+              <option>Diabetes</option>
+              <option>Enfermedad autoinmune</option>
+              <option>Envejecimiento prematuro</option>
+              <option>Fatiga crónica</option>
+              <option>Otro (especificar en comentarios)</option>
+            </select>
+          </div>
+          <div class="form__row">
+            <label for="fecha">Fecha preferida</label>
+            <input id="fecha" name="fecha" type="date" required />
+          </div>
+          <div class="form__row">
+            <label for="comentarios">Comentarios adicionales</label>
+            <textarea id="comentarios" name="comentarios" rows="3" placeholder="Describe brevemente tu condición o síntomas"></textarea>
+          </div>
+          <div class="form__actions">
+            <button type="submit" class="btn btn--primary">
+              <i class="fa-solid fa-paper-plane"></i> Enviar solicitud
+            </button>
+          </div>
+          <p class="form__note">Nos comunicaremos para confirmar tu cita y resolver cualquier duda.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- UI Components (botones de acción) -->
+  <div id="ui-components-placeholder"></div>
+
+  <!-- Footer Component -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Scripts del sistema de componentes -->
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      document.body.classList.remove('loading');
+      document.body.classList.add('loaded');
+    });
+  </script>
+  
+  <!-- Scripts de Seguridad (cargar primero) -->
+  <script src="../js/video-security.js"></script>
+  
+  <script src="../js/metadata-pages.js" defer></script>
+  <script src="../js/social-config.js" defer></script>
+  <script src="../js/optimized-component-loader.js" defer></script>
+  <script src="../js/app.js" defer></script>
+  
+  <!-- Fix específico para submenús móviles -->
+  <script src="../js/mobile-menu-fix.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <!-- Head Base - Elementos que nunca cambian -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- CSS Crítico (siempre primero) -->
+  <link rel="stylesheet" href="../css/critical.css" />
+  
+  <!-- CSS de Protección de Videos -->
+  <link rel="stylesheet" href="../css/security/video-protection.css" />
+  
+  <!-- Preconnect para optimización -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  
+  <!-- Preload del CSS principal -->
+  <link rel="preload" href="../css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="../css/styles.css" /></noscript>
+  
+  <!-- Preload de Font Awesome -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /></noscript>
+  
+  <!-- Preload de Google Fonts -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" /></noscript>
+
+  <!-- Favicon y Iconos -->
+  <link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon.ico" />
+
+  <!-- Meta Tags Básicos -->
+  <meta name="author" content="OZONO VIDA Centro Médico" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+
+  <!-- Idioma y Región -->
+  <meta name="language" content="es" />
+  <meta name="geo.region" content="PE-ANC" />
+  <meta name="geo.placename" content="Huaraz" />
+  <meta name="geo.position" content="-9.5333;-77.5333" />
+  <meta name="ICBM" content="-9.5333, -77.5333" />
+
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#215096" />
+  <meta name="msapplication-TileColor" content="#215096" />
+
+  <!-- Head Dinámico - Específico de Plasma Rico en Plaquetas -->
+  <title>Plasma Rico en Plaquetas (PRP) - Medicina Regenerativa • OZONO VIDA</title>
+  <meta name="description" content="Tratamiento con Plasma Rico en Plaquetas (PRP) en OZONO VIDA. Regeneración tisular natural usando factores de crecimiento de tu propia sangre. Especialistas en Huaraz." />
+  <meta name="keywords" content="plasma rico en plaquetas, PRP, medicina regenerativa, factores de crecimiento, regeneración tisular, Huaraz" />
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Plasma Rico en Plaquetas (PRP) - Medicina Regenerativa • OZONO VIDA" />
+  <meta property="og:description" content="Tratamiento con Plasma Rico en Plaquetas (PRP) en OZONO VIDA. Regeneración tisular natural usando factores de crecimiento de tu propia sangre. Especialistas en Huaraz." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ozonovida.netlify.app/servicios/plasma.html" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Plasma Rico en Plaquetas (PRP) - Medicina Regenerativa - OZONO VIDA Centro Médico" />
+  <meta property="og:site_name" content="OZONO VIDA" />
+  <meta property="og:locale" content="es_PE" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Plasma Rico en Plaquetas (PRP) - Medicina Regenerativa • OZONO VIDA" />
+  <meta name="twitter:description" content="Tratamiento con Plasma Rico en Plaquetas (PRP) en OZONO VIDA. Regeneración tisular natural usando factores de crecimiento de tu propia sangre. Especialistas en Huaraz." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80" />
+  <meta name="twitter:image:alt" content="Plasma Rico en Plaquetas (PRP) - Medicina Regenerativa - OZONO VIDA Centro Médico" />
+  <meta name="twitter:site" content="@ozonovida" />
+  <meta name="twitter:creator" content="@ozonovida" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://ozonovida.netlify.app/servicios/plasma.html" />
+
+  <!-- Structured Data Específico -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalProcedure",
+    "name": "Plasma Rico en Plaquetas (PRP)",
+    "description": "Tratamiento de medicina regenerativa que utiliza factores de crecimiento concentrados del propio paciente para estimular la regeneración y reparación de tejidos dañados.",
+    "provider": {
+      "@type": "MedicalClinic",
+      "name": "OZONO VIDA Centro Médico",
+      "alternateName": "OZONO VIDA",
+      "telephone": "+51 988 126 804",
+      "email": "contacto@ozonovida.pe",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Villón, frente a la Dirección Víctor Ramos Guardia",
+        "addressLocality": "Huaraz",
+        "addressRegion": "Ancash",
+        "postalCode": "02001",
+        "addressCountry": "PE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-9.5333",
+        "longitude": "-77.5333"
+      }
+    },
+    "medicalSpecialty": ["RegenerativeMedicine", "Orthopedics", "SportsMedicine"],
+    "bodyLocation": ["Articulación", "Tendón", "Ligamento", "Músculo", "Piel"]
+  }
+  </script>
+</head>
+<body>
+  <a href="#inicio" class="skip-link">Saltar al contenido</a>
+
+  <!-- Header Component -->
+  <div id="header-placeholder"></div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero hero--service hero--plasma" aria-label="Plasma Rico en Plaquetas">
+      <div class="container hero__grid">
+        <div class="hero__content reveal">
+          <!-- Breadcrumb -->
+          <nav class="breadcrumb" aria-label="Ruta de navegación">
+            <a href="../index.html">Inicio</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <a href="../index.html#servicios">Servicios</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>Plasma Rico en Plaquetas</span>
+          </nav>
+          
+          <h1>Plasma Rico en Plaquetas</h1>
+          <p class="hero__subtitle">Medicina regenerativa avanzada que utiliza los factores de crecimiento de tu propia sangre para acelerar la sanación y regeneración de tejidos dañados de forma natural.</p>
+          
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="#citas" data-open-modal>
+              <i class="fa-solid fa-calendar-check"></i> Reservar Consulta
+            </a>
+            <a class="btn btn--ghost" href="#que-es">
+              <i class="fa-solid fa-circle-play"></i> Conocer Más
+            </a>
+          </div>
+        </div>
+        <div class="hero__media reveal">
+          <div class="main-image-container">
+            <img src="../assets/images/services/servicios-plasmaRicoPlaquetas.png" alt="Plasma Rico en Plaquetas - Tratamiento regenerativo especializado" loading="lazy" />
+            <div class="service-highlight">
+              <i class="fa-solid fa-dna"></i>
+              <span>Regeneración Natural</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Introducción -->
+    <section id="que-es" class="section">
+      <div class="container">
+        <h2 class="section__title">¿Qué es el Plasma Rico en Plaquetas?</h2>
+        <div class="intro-grid">
+          <div class="intro-content">
+            <h3>Tu Propia Medicina Regenerativa</h3>
+            <p class="intro__text">El Plasma Rico en Plaquetas (PRP) es un tratamiento que utiliza los factores de crecimiento concentrados de tu propia sangre para estimular la regeneración y reparación de tejidos dañados.</p>
+            <p class="intro__text">Mediante un proceso de centrifugado, separamos y concentramos las plaquetas que contienen proteínas bioactivas esenciales para la sanación natural del cuerpo.</p>
+            
+            <div class="benefits-list">
+              <div class="benefit-item">
+                <i class="fa-solid fa-check"></i>
+                <span>Acelera la regeneración tisular</span>
+              </div>
+              <div class="benefit-item">
+                <i class="fa-solid fa-check"></i>
+                <span>Estimula la producción de colágeno</span>
+              </div>
+              <div class="benefit-item">
+                <i class="fa-solid fa-check"></i>
+                <span>Reduce el tiempo de recuperación</span>
+              </div>
+              <div class="benefit-item">
+                <i class="fa-solid fa-check"></i>
+                <span>100% autólogo (de tu propia sangre)</span>
+              </div>
+              <div class="benefit-item">
+                <i class="fa-solid fa-check"></i>
+                <span>Mínimo riesgo de reacciones adversas</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="video-section">
+            <div class="video-placeholder">
+              <div class="video-play-button">
+                <i class="fa-solid fa-play"></i>
+              </div>
+              <div class="video-content">
+                <h4>Video Explicativo - PRP</h4>
+                <p>Descubre el proceso de extracción y aplicación del Plasma Rico en Plaquetas</p>
+                <span class="video-note">Próximamente disponible</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Métodos de Aplicación -->
+    <section class="section section--alt">
+      <div class="container">
+        <h2 class="section__title">Métodos de Aplicación</h2>
+        <p class="section__subtitle">Técnicas especializadas según el área y tipo de lesión a tratar</p>
+        <div class="service-methods-grid">
+          <article class="service-method-card reveal">
+            <div class="service-method-icon">
+              <i class="fa-solid fa-bone"></i>
+            </div>
+            <h3>Infiltración Articular</h3>
+            <p>Aplicación directa en articulaciones para tratar artrosis, artritis y lesiones deportivas. Ideal para rodillas, hombros y caderas.</p>
+          </article>
+          
+          <article class="service-method-card reveal">
+            <div class="service-method-icon">
+              <i class="fa-solid fa-running"></i>
+            </div>
+            <h3>Tendones y Ligamentos</h3>
+            <p>Tratamiento específico para tendinitis, esguinces y lesiones deportivas. Acelera la reparación del tejido conectivo.</p>
+          </article>
+          
+          <article class="service-method-card reveal">
+            <div class="service-method-icon">
+              <i class="fa-solid fa-user-injured"></i>
+            </div>
+            <h3>Lesiones Musculares</h3>
+            <p>Aplicación intramuscular para desgarros, contracturas y lesiones deportivas. Reduce significativamente el tiempo de recuperación.</p>
+          </article>
+          
+          <article class="service-method-card reveal">
+            <div class="service-method-icon">
+              <i class="fa-solid fa-face-smile"></i>
+            </div>
+            <h3>Rejuvenecimiento Facial</h3>
+            <p>Tratamiento estético para mejorar la textura de la piel, reducir arrugas y estimular la producción natural de colágeno.</p>
+          </article>
+          
+          <article class="service-method-card reveal">
+            <div class="service-method-icon">
+              <i class="fa-solid fa-seedling"></i>
+            </div>
+            <h3>Medicina Capilar</h3>
+            <p>Estimula el crecimiento capilar y fortalece los folículos pilosos. Tratamiento efectivo para la alopecia androgenética.</p>
+          </article>
+          
+          <article class="service-method-card reveal">
+            <div class="service-method-icon">
+              <i class="fa-solid fa-hand-holding-medical"></i>
+            </div>
+            <h3>Cicatrización de Heridas</h3>
+            <p>Acelera la sanación de heridas crónicas, úlceras y cicatrices. Especialmente efectivo en pacientes diabéticos.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Condiciones Tratadas -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title">Condiciones que Tratamos</h2>
+        <p class="section__subtitle">Amplia gama de patologías que responden efectivamente al PRP</p>
+        <div class="conditions-grid">
+          <div class="condition-category">
+            <div class="category-header">
+              <i class="fa-solid fa-bone"></i>
+              <h3>Lesiones Ortopédicas</h3>
+            </div>
+            <ul class="condition-list">
+              <li>Artrosis de rodilla y cadera</li>
+              <li>Tendinitis aquílea</li>
+              <li>Epicondilitis (codo de tenista)</li>
+              <li>Fascitis plantar</li>
+              <li>Lesiones del manguito rotador</li>
+              <li>Condromalacia rotuliana</li>
+              <li>Bursitis</li>
+            </ul>
+          </div>
+          
+          <div class="condition-category">
+            <div class="category-header">
+              <i class="fa-solid fa-running"></i>
+              <h3>Medicina Deportiva</h3>
+            </div>
+            <ul class="condition-list">
+              <li>Lesiones musculares</li>
+              <li>Esguinces de ligamentos</li>
+              <li>Desgarros fibrilares</li>
+              <li>Lesiones meniscales</li>
+              <li>Pubalgias</li>
+              <li>Síndrome del túnel carpiano</li>
+              <li>Recuperación post-quirúrgica</li>
+            </ul>
+          </div>
+          
+          <div class="condition-category">
+            <div class="category-header">
+              <i class="fa-solid fa-spa"></i>
+              <h3>Medicina Estética</h3>
+            </div>
+            <ul class="condition-list">
+              <li>Rejuvenecimiento facial</li>
+              <li>Alopecia androgenética</li>
+              <li>Cicatrices de acné</li>
+              <li>Estrías</li>
+              <li>Melasma</li>
+              <li>Flacidez cutánea</li>
+              <li>Ojeras y bolsas</li>
+            </ul>
+          </div>
+          
+          <div class="condition-category">
+            <div class="category-header">
+              <i class="fa-solid fa-heart-pulse"></i>
+              <h3>Otras Condiciones</h3>
+            </div>
+            <ul class="condition-list">
+              <li>Úlceras diabéticas</li>
+              <li>Heridas crónicas</li>
+              <li>Queloides</li>
+              <li>Neuropatía periférica</li>
+              <li>Síndrome del ojo seco</li>
+              <li>Disfunción sexual</li>
+              <li>Incontinencia urinaria</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proceso de Tratamiento -->
+    <section class="section section--alt">
+      <div class="container">
+        <h2 class="section__title">Proceso de Tratamiento</h2>
+        <p class="section__subtitle">Protocolo seguro y estandarizado para obtener los mejores resultados</p>
+        <div class="process-timeline">
+          <div class="timeline-item reveal">
+            <div class="timeline-number">1</div>
+            <div class="timeline-content">
+              <h3>Evaluación y Diagnóstico</h3>
+              <p>Realizamos una evaluación médica completa para determinar si eres candidato ideal para el tratamiento con PRP y diseñamos el protocolo más adecuado.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item reveal">
+            <div class="timeline-number">2</div>
+            <div class="timeline-content">
+              <h3>Extracción de Sangre</h3>
+              <p>Extraemos una pequeña cantidad de tu sangre (similar a un análisis rutinario) en un ambiente completamente estéril y seguro.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item reveal">
+            <div class="timeline-number">3</div>
+            <div class="timeline-content">
+              <h3>Procesamiento y Concentración</h3>
+              <p>Centrifugamos la sangre para separar y concentrar las plaquetas, obteniendo un plasma rico en factores de crecimiento.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item reveal">
+            <div class="timeline-number">4</div>
+            <div class="timeline-content">
+              <h3>Aplicación del PRP</h3>
+              <p>Infiltramos el PRP en el área afectada mediante técnicas precisas, monitoreando tu comodidad durante todo el procedimiento.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title">Testimonios de Pacientes</h2>
+        <p class="section__subtitle">Experiencias reales de recuperación con PRP</p>
+        <div class="testimonials-grid">
+          <article class="testimonial-card reveal">
+            <div class="testimonial__quote">
+              <i class="fa-solid fa-quote-left"></i>
+              <p>Mi tendinitis aquílea me impedía correr. Después de 3 sesiones de PRP, volví a entrenar sin dolor. Es increíble cómo mi propio cuerpo se sanó a sí mismo.</p>
+            </div>
+            <div class="testimonial__meta">
+              <div class="testimonial__avatar">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Roberto Silva" loading="lazy" />
+              </div>
+              <div class="testimonial__info">
+                <strong>Roberto Silva</strong>
+                <span>Tratamiento: PRP en tendón de Aquiles</span>
+                <div class="testimonial__rating">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </article>
+          
+          <article class="testimonial-card reveal">
+            <div class="testimonial__quote">
+              <i class="fa-solid fa-quote-left"></i>
+              <p>La artrosis en mi rodilla me limitaba mucho. Con el PRP he recuperado movilidad y puedo caminar largas distancias sin molestias. Recomiendo totalmente este tratamiento.</p>
+            </div>
+            <div class="testimonial__meta">
+              <div class="testimonial__avatar">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" alt="Carmen López" loading="lazy" />
+              </div>
+              <div class="testimonial__info">
+                <strong>Carmen López</strong>
+                <span>Tratamiento: PRP intraarticular en rodilla</span>
+                <div class="testimonial__rating">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </article>
+          
+          <article class="testimonial-card reveal">
+            <div class="testimonial__quote">
+              <i class="fa-solid fa-quote-left"></i>
+              <p>Probé el PRP facial y los resultados son sorprendentes. Mi piel se ve más joven, luminosa y las arrugas han disminuido notablemente. Es mi tratamiento favorito.</p>
+            </div>
+            <div class="testimonial__meta">
+              <div class="testimonial__avatar">
+                <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=150&q=80" alt="Lucía Herrera" loading="lazy" />
+              </div>
+              <div class="testimonial__info">
+                <strong>Lucía Herrera</strong>
+                <span>Tratamiento: PRP facial rejuvenecedor</span>
+                <div class="testimonial__rating">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section--alt">
+      <div class="container">
+        <h2 class="section__title">Preguntas Frecuentes</h2>
+        <p class="section__subtitle">Resolvemos tus dudas sobre el Plasma Rico en Plaquetas</p>
+        <div class="faq-container">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              ¿Es seguro el tratamiento con PRP?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Sí, el PRP es completamente seguro porque utiliza tu propia sangre. Al ser autólogo, no existe riesgo de rechazo o reacciones alérgicas. Utilizamos equipos estériles y protocolos médicos estrictos.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              ¿Cuántas sesiones necesito de PRP?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Generalmente se requieren entre 2-4 sesiones espaciadas cada 2-4 semanas, dependiendo de la condición a tratar. En algunos casos, como medicina estética, puede requerirse mantenimiento cada 6-12 meses.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              ¿El procedimiento es doloroso?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>La molestia es mínima. La extracción de sangre es similar a un análisis rutinario. Para la infiltración, utilizamos anestesia local cuando es necesario. La mayoría de pacientes tolera muy bien el procedimiento.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              ¿Cuánto tiempo dura el procedimiento?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>El proceso completo toma aproximadamente 45-60 minutos: 10 minutos para la extracción, 15 minutos para el centrifugado y procesamiento, y 15-20 minutos para la aplicación del PRP.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              ¿Cuándo veré los resultados del PRP?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Los resultados son graduales. Algunos pacientes notan mejoras en 2-3 semanas, pero los efectos completos se observan entre 6-12 semanas después del tratamiento, cuando se completa el proceso de regeneración tisular.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="section section--cta">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Listo para Regenerar tus Tejidos?</h2>
+          <p>Agenda tu consulta de evaluación y descubre cómo el Plasma Rico en Plaquetas puede acelerar tu recuperación de forma natural y efectiva.</p>
+          
+          <div class="cta-actions">
+            <a href="#citas" class="btn btn--large btn--primary" data-open-modal>
+              <i class="fa-solid fa-calendar-check"></i> Reservar Consulta
+            </a>
+            <a href="https://wa.me/+51988126804?text=Hola, me interesa conocer más sobre el Plasma Rico en Plaquetas (PRP)" target="_blank" rel="noopener" class="btn btn--large btn--whatsapp">
+              <i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp
+            </a>
+          </div>
+          
+          <div class="cta-info">
+            <div class="info-item">
+              <i class="fa-solid fa-clock"></i>
+              <span>L-V 9:00-19:00 · Sáb 9:00-13:00</span>
+            </div>
+            <div class="info-item">
+              <i class="fa-solid fa-phone"></i>
+              <span>+51 988 126 804</span>
+            </div>
+            <div class="info-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Av. Villón, Huaraz</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal de Citas -->
+    <section id="citas" class="modal" aria-hidden="true" role="dialog" aria-modal="false">
+      <div class="modal__backdrop" data-close-modal></div>
+      <div class="modal__dialog" role="document">
+        <button class="modal__close" aria-label="Cerrar" data-close-modal><i class="fa-solid fa-xmark"></i></button>
+        <h3>Reserva tu Consulta de PRP</h3>
+        <form class="form" id="booking-form" novalidate>
+          <div class="form__row">
+            <label for="nombre">Nombre completo</label>
+            <input id="nombre" name="nombre" type="text" placeholder="Ej. Juan Pérez" required />
+          </div>
+          <div class="form__row">
+            <label for="telefono">Teléfono</label>
+            <input id="telefono" name="telefono" type="tel" placeholder="Ej. +51 999 999 999" required />
+          </div>
+          <div class="form__row">
+            <label for="condicion">Condición a tratar</label>
+            <select id="condicion" name="condicion" required>
+              <option value="">Selecciona una opción</option>
+              <option>Lesión deportiva</option>
+              <option>Artrosis/Artritis</option>
+              <option>Tendinitis</option>
+              <option>Rejuvenecimiento facial</option>
+              <option>Alopecia</option>
+              <option>Herida crónica</option>
+              <option>Cicatrices</option>
+              <option>Otro (especificar en comentarios)</option>
+            </select>
+          </div>
+          <div class="form__row">
+            <label for="fecha">Fecha preferida</label>
+            <input id="fecha" name="fecha" type="date" required />
+          </div>
+          <div class="form__row">
+            <label for="comentarios">Comentarios adicionales</label>
+            <textarea id="comentarios" name="comentarios" rows="3" placeholder="Describe brevemente tu condición o área de interés"></textarea>
+          </div>
+          <div class="form__actions">
+            <button type="submit" class="btn btn--primary">
+              <i class="fa-solid fa-paper-plane"></i> Enviar solicitud
+            </button>
+          </div>
+          <p class="form__note">Nos comunicaremos para confirmar tu cita y resolver cualquier duda.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- UI Components (botones de acción) -->
+  <div id="ui-components-placeholder"></div>
+
+  <!-- Footer Component -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Scripts del sistema de componentes -->
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      document.body.classList.remove('loading');
+      document.body.classList.add('loaded');
+    });
+  </script>
+  
+  <!-- Scripts de Seguridad (cargar primero) -->
+  <script src="../js/video-security.js"></script>
+  
+  <script src="../js/metadata-pages.js" defer></script>
+  <script src="../js/social-config.js" defer></script>
+  <script src="../js/optimized-component-loader.js" defer></script>
+  <script src="../js/app.js" defer></script>
+  
+  <!-- Fix específico para submenús móviles -->
+  <script src="../js/mobile-menu-fix.js" defer></script>
+</body>
+</html>
+

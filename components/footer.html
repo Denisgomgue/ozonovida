@@ -1,11 +1,18 @@
 <footer class="footer">
   <div class="container footer__grid">
-    <div>
-      <a class="brand brand--footer" href="{{BASE_PATH}}index.html#inicio"><span class="brand__logo">✦</span><span class="brand__text">OZONO
-          VIDA</span></a>
+    <div class="footer__brand">
+      <a class="brand brand--footer" href="{{BASE_PATH}}index.html#inicio" aria-label="OZONO VIDA HUARAZ inicio">
+        <div class="brand__logo">
+          <img src="{{BASE_PATH}}assets/logo-space.png" alt="OZONO VIDA HUARAZ Logo" width="50" height="50">
+        </div>
+        <div class="brand__text">
+          <span class="brand__ozono-vida">OZONO VIDA</span>
+          <span class="brand__huaraz">HUARAZ</span>
+        </div>
+      </a>
       <p>Ozonoterapia y medicina regenerativa para una vida sin dolor.</p>
     </div>
-    <div>
+    <div class="footer__links-section">
       <h4>Enlaces</h4>
       <ul class="footer__links">
         <li><a href="{{BASE_PATH}}index.html#servicios">Servicios</a></li>
@@ -14,7 +21,7 @@
         <li><a href="{{BASE_PATH}}index.html#contacto">Contacto</a></li>
       </ul>
     </div>
-    <div>
+    <div class="footer__social-section">
       <h4>Redes Sociales</h4>
       <div id="social-links-container">
         <!-- Las redes sociales se cargarán dinámicamente aquí -->

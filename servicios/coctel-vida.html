@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <!-- Head Base - Elementos que nunca cambian -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- CSS Crítico (siempre primero) -->
+  <link rel="stylesheet" href="../css/critical.css" />
+  
+  <!-- CSS de Protección de Videos -->
+  <link rel="stylesheet" href="../css/security/video-protection.css" />
+  
+  <!-- Preconnect para optimización -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  
+  <!-- Preload del CSS principal -->
+  <link rel="preload" href="../css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="../css/styles.css" /></noscript>
+  
+  <!-- Preload de Font Awesome -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /></noscript>
+  
+  <!-- Preload de Google Fonts -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" /></noscript>
+
+  <!-- Favicon y Iconos -->
+  <link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon.ico" />
+
+  <!-- Meta Tags Básicos -->
+  <meta name="author" content="OZONO VIDA Centro Médico" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+
+  <!-- Idioma y Región -->
+  <meta name="language" content="es" />
+  <meta name="geo.region" content="PE-ANC" />
+  <meta name="geo.placename" content="Huaraz" />
+  <meta name="geo.position" content="-9.5333;-77.5333" />
+  <meta name="ICBM" content="-9.5333, -77.5333" />
+
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#215096" />
+  <meta name="msapplication-TileColor" content="#215096" />
+
+  <!-- Head Dinámico - Específico de Cóctel de Vida -->
+  <title>Cóctel de Vida - Suero Revitalizante y Antienvejecimiento • OZONO VIDA</title>
+  <meta name="description" content="Cóctel de Vida en OZONO VIDA. Suero revitalizante con vitaminas, minerales y antioxidantes para renovar energía, mejorar inmunidad y combatir el envejecimiento. Huaraz." />
+  <meta name="keywords" content="cóctel de vida, suero revitalizante, vitaminas intravenosas, antienvejecimiento, revitalización, Huaraz" />
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Cóctel de Vida - Suero Revitalizante y Antienvejecimiento • OZONO VIDA" />
+  <meta property="og:description" content="Cóctel de Vida en OZONO VIDA. Suero revitalizante con vitaminas, minerales y antioxidantes para renovar energía, mejorar inmunidad y combatir el envejecimiento. Huaraz." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ozonovida.netlify.app/servicios/coctel-vida.html" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1200&q=80" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Cóctel de Vida - Suero Revitalizante - OZONO VIDA Centro Médico" />
+  <meta property="og:site_name" content="OZONO VIDA" />
+  <meta property="og:locale" content="es_PE" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cóctel de Vida - Suero Revitalizante y Antienvejecimiento • OZONO VIDA" />
+  <meta name="twitter:description" content="Cóctel de Vida en OZONO VIDA. Suero revitalizante con vitaminas, minerales y antioxidantes para renovar energía, mejorar inmunidad y combatir el envejecimiento. Huaraz." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1200&q=80" />
+  <meta property="twitter:image:alt" content="Cóctel de Vida - Suero Revitalizante - OZONO VIDA Centro Médico" />
+  <meta name="twitter:site" content="@ozonovida" />
+  <meta name="twitter:creator" content="@ozonovida" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://ozonovida.netlify.app/servicios/coctel-vida.html" />
+
+  <!-- Structured Data Específico -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalProcedure",
+    "name": "Cóctel de Vida",
+    "description": "Tratamiento revitalizante intravenoso que combina vitaminas, minerales, aminoácidos y antioxidantes para mejorar la energía, inmunidad y combatir el envejecimiento celular.",
+    "provider": {
+      "@type": "MedicalClinic",
+      "name": "OZONO VIDA Centro Médico",
+      "alternateName": "OZONO VIDA",
+      "telephone": "+51 988 126 804",
+      "email": "contacto@ozonovida.pe",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Villón, frente a la Dirección Víctor Ramos Guardia",
+        "addressLocality": "Huaraz",
+        "addressRegion": "Ancash",
+        "postalCode": "02001",
+        "addressCountry": "PE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-9.5333",
+        "longitude": "-77.5333"
+      }
+    },
+    "medicalSpecialty": ["PreventiveMedicine", "AntiAging", "NutritionalMedicine"],
+    "bodyLocation": ["Sistema circulatorio", "Sistema inmunológico", "Células"]
+  }
+  </script>
+</head>
+<body>
+  <a href="#inicio" class="skip-link">Saltar al contenido</a>
+
+  <!-- Header Component -->
+  <div id="header-placeholder"></div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero hero--service hero--coctel-vida" aria-label="Cóctel de Vida">
+      <div class="container hero__grid">
+        <div class="hero__content reveal">
+          <!-- Breadcrumb -->
+          <nav class="breadcrumb" aria-label="Ruta de navegación">
+            <a href="../index.html">Inicio</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <a href="../index.html#servicios">Servicios</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>Cóctel de Vida</span>
+          </nav>
+          
+          <h1>Cóctel de Vida</h1>
+          <p class="hero__subtitle">Suero revitalizante premium que combina vitaminas, minerales, aminoácidos y antioxidantes para renovar tu energía, fortalecer tu inmunidad y combatir el envejecimiento desde adentro.</p>
+          
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="#citas" data-open-modal>
+              <i class="fa-solid fa-calendar-check"></i> Reservar Consulta
+            </a>
+            <a class="btn btn--ghost" href="#que-es">
+              <i class="fa-solid fa-circle-play"></i> Conocer Más
+            </a>
+          </div>
+        </div>
+        <div class="hero__media reveal">
+          <div class="main-image-container">
+            <img src="../assets/images/services/servicios-coctelVida.png" alt="Cóctel de Vida - Suero revitalizante premium" loading="lazy" />
+            <div class="service-highlight">
+              <i class="fa-solid fa-bolt"></i>
+              <span>Energía Renovada</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Introducción -->
+    <section id="que-es" class="section">
+      <div class="container">
+        <h2 class="section__title">¿Qué es el Cóctel de Vida?</h2>
+        <div class="intro-grid">
+          <div class="intro-content">
+            <h3>Tu Fuente de Vitalidad</h3>
+            <p class="intro__text">El Cóctel de Vida es un tratamiento revitalizante intravenoso que combina una mezcla personalizada de vitaminas, minerales, aminoácidos y antioxidantes de alta calidad, diseñado para restaurar tu energía y vitalidad desde nivel celular.</p>
+            <p class="intro__text">Esta terapia nutricional avanzada bypasa el sistema digestivo, permitiendo una absorción del 100% de los nutrientes directamente en el torrente sanguíneo para resultados inmediatos y duraderos.</p>
+            
+            <div class="benefits-list">
+              <div class="benefit-item">
+                <i class="fa-solid fa-check"></i>
+                <span>Aumenta la energía y vitalidad</span>
+              </div>
+              <div class="benefit-item">
+                <i class="fa-solid fa-check"></i>
+                <span>Fortalece el sistema inmunológico</span>
+              </div>
+              <div class="benefit-item">
+                <i class="fa-solid fa-check"></i>
+                <span>Combate el envejecimiento celular</span>
+              </div>
+              <div class="benefit-item">
+                <i class="fa-solid fa-check"></i>
+                <span>Mejora la concentración mental</span>
+              </div>
+              <div class="benefit-item">
+                <i class="fa-solid fa-check"></i>
+                <span>Acelera la recuperación física</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="video-section">
+            <div class="video-placeholder">
+              <div class="video-play-button">
+                <i class="fa-solid fa-play"></i>
+              </div>
+              <div class="video-content">
+                <h4>Video Explicativo - Cóctel de Vida</h4>
+                <p>Descubre los beneficios del suero revitalizante más completo</p>
+                <span class="video-note">Próximamente disponible</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Métodos de Aplicación -->
+    <section class="section section--alt">
+      <div class="container">
+        <h2 class="section__title">Tipos de Cóctel</h2>
+        <p class="section__subtitle">Fórmulas personalizadas según tus necesidades específicas</p>
+        <div class="service-methods-grid">
+          <article class="service-method-card reveal">
+            <div class="service-method-icon">
+              <i class="fa-solid fa-battery-full"></i>
+            </div>
+            <h3>Cóctel Energizante</h3>
+            <p>Complejo B, Vitamina C, Magnesio y Aminoácidos para combatir la fatiga crónica y aumentar los niveles de energía naturalmente.</p>
+          </article>
+          
+          <article class="service-method-card reveal">
+            <div class="service-method-icon">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h3>Cóctel Inmunológico</h3>
+            <p>Alto contenido de Vitamina C, Zinc, Selenio y Glutatión para fortalecer las defensas y prevenir enfermedades.</p>
+          </article>
+          
+          <article class="service-method-card reveal">
+            <div class="service-method-icon">
+              <i class="fa-solid fa-sparkles"></i>
+            </div>
+            <h3>Cóctel Antienvejecimiento</h3>
+            <p>Antioxidantes potentes, NAD+, Vitamina E y Coenzima Q10 para combatir el estrés oxidativo y mantener la juventud celular.</p>
+          </article>
+          
+          <article class="service-method-card reveal">
+            <div class="service-method-icon">
+              <i class="fa-solid fa-brain"></i>
+            </div>
+            <h3>Cóctel Cognitivo</h3>
+            <p>Vitaminas del complejo B, Ácido fólico y nutrientes neurológicos para mejorar la concentración, memoria y función cerebral.</p>
+          </article>
+          
+          <article class="service-method-card reveal">
+            <div class="service-method-icon">
+              <i class="fa-solid fa-running"></i>
+            </div>
+            <h3>Cóctel Deportivo</h3>
+            <p>Aminoácidos, electrolitos, Vitaminas y minerales para optimizar el rendimiento atlético y acelerar la recuperación muscular.</p>
+          </article>
+          
+          <article class="service-method-card reveal">
+            <div class="service-method-icon">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <h3>Cóctel Detox</h3>
+            <p>Glutatión, Vitamina C, Ácido alfa-lipoico y antioxidantes para desintoxicar el organismo y eliminar radicales libres.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Condiciones Tratadas -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title">Condiciones que Tratamos</h2>
+        <p class="section__subtitle">Situaciones donde el Cóctel de Vida puede marcar la diferencia</p>
+        <div class="conditions-grid">
+          <div class="condition-category">
+            <div class="category-header">
+              <i class="fa-solid fa-battery-quarter"></i>
+              <h3>Fatiga y Energía</h3>
+            </div>
+            <ul class="condition-list">
+              <li>Fatiga crónica</li>
+              <li>Síndrome de burnout</li>
+              <li>Cansancio extremo</li>
+              <li>Falta de motivación</li>
+              <li>Agotamiento físico</li>
+              <li>Baja energía matutina</li>
+              <li>Somnolencia diurna</li>
+            </ul>
+          </div>
+          
+          <div class="condition-category">
+            <div class="category-header">
+              <i class="fa-solid fa-shield-virus"></i>
+              <h3>Sistema Inmunológico</h3>
+            </div>
+            <ul class="condition-list">
+              <li>Defensas bajas</li>
+              <li>Infecciones recurrentes</li>
+              <li>Gripes frecuentes</li>
+              <li>Recuperación lenta</li>
+              <li>Alergias estacionales</li>
+              <li>Herpes labial recurrente</li>
+              <li>Inmunidad comprometida</li>
+            </ul>
+          </div>
+          
+          <div class="condition-category">
+            <div class="category-header">
+              <i class="fa-solid fa-user-clock"></i>
+              <h3>Envejecimiento</h3>
+            </div>
+            <ul class="condition-list">
+              <li>Envejecimiento prematuro</li>
+              <li>Arrugas y flacidez</li>
+              <li>Pérdida de luminosidad</li>
+              <li>Cabello débil</li>
+              <li>Uñas quebradizas</li>
+              <li>Manchas de la edad</li>
+              <li>Pérdida de elasticidad</li>
+            </ul>
+          </div>
+          
+          <div class="condition-category">
+            <div class="category-header">
+              <i class="fa-solid fa-brain"></i>
+              <h3>Rendimiento Mental</h3>
+            </div>
+            <ul class="condition-list">
+              <li>Falta de concentración</li>
+              <li>Problemas de memoria</li>
+              <li>Niebla mental</li>
+              <li>Estrés crónico</li>
+              <li>Ansiedad leve</li>
+              <li>Depresión estacional</li>
+              <li>Bajo rendimiento cognitivo</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proceso de Tratamiento -->
+    <section class="section section--alt">
+      <div class="container">
+        <h2 class="section__title">Proceso de Tratamiento</h2>
+        <p class="section__subtitle">Experiencia personalizada para obtener los mejores resultados</p>
+        <div class="process-timeline">
+          <div class="timeline-item reveal">
+            <div class="timeline-number">1</div>
+            <div class="timeline-content">
+              <h3>Evaluación Personalizada</h3>
+              <p>Realizamos una evaluación completa de tu estado nutricional, niveles de energía y objetivos específicos para diseñar tu cóctel ideal.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item reveal">
+            <div class="timeline-number">2</div>
+            <div class="timeline-content">
+              <h3>Preparación del Cóctel</h3>
+              <p>Preparamos tu fórmula personalizada con los nutrientes específicos que tu organismo necesita, utilizando ingredientes de la más alta calidad.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item reveal">
+            <div class="timeline-number">3</div>
+            <div class="timeline-content">
+              <h3>Aplicación Intravenosa</h3>
+              <p>Administramos el tratamiento de forma segura y cómoda en nuestras instalaciones, con monitoreo constante durante toda la sesión.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item reveal">
+            <div class="timeline-number">4</div>
+            <div class="timeline-content">
+              <h3>Seguimiento y Ajustes</h3>
+              <p>Monitoreamos tu respuesta al tratamiento y ajustamos la fórmula según sea necesario para optimizar los resultados.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title">Testimonios de Pacientes</h2>
+        <p class="section__subtitle">Experiencias reales de revitalización y bienestar</p>
+        <div class="testimonials-grid">
+          <article class="testimonial-card reveal">
+            <div class="testimonial__quote">
+              <i class="fa-solid fa-quote-left"></i>
+              <p>Estaba agotada por el trabajo y el estrés. Después de mi primera sesión de Cóctel de Vida, sentí una energía increíble que duró semanas. Ahora es parte de mi rutina de bienestar.</p>
+            </div>
+            <div class="testimonial__meta">
+              <div class="testimonial__avatar">
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150&q=80" alt="Patricia Morales" loading="lazy" />
+              </div>
+              <div class="testimonial__info">
+                <strong>Patricia Morales</strong>
+                <span>Tratamiento: Cóctel Energizante</span>
+                <div class="testimonial__rating">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </article>
+          
+          <article class="testimonial-card reveal">
+            <div class="testimonial__quote">
+              <i class="fa-solid fa-quote-left"></i>
+              <p>Como deportista, el Cóctel Deportivo me ha ayudado enormemente en mi recuperación. Mis entrenamientos son más intensos y mi rendimiento ha mejorado notablemente.</p>
+            </div>
+            <div class="testimonial__meta">
+              <div class="testimonial__avatar">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Carlos Ruiz" loading="lazy" />
+              </div>
+              <div class="testimonial__info">
+                <strong>Carlos Ruiz</strong>
+                <span>Tratamiento: Cóctel Deportivo</span>
+                <div class="testimonial__rating">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </article>
+          
+          <article class="testimonial-card reveal">
+            <div class="testimonial__quote">
+              <i class="fa-solid fa-quote-left"></i>
+              <p>A mis 55 años, el Cóctel Antienvejecimiento me ha devuelto vitalidad. Mi piel se ve más luminosa, tengo más energía y me siento 10 años más joven. ¡Es increíble!</p>
+            </div>
+            <div class="testimonial__meta">
+              <div class="testimonial__avatar">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" alt="Rosa Delgado" loading="lazy" />
+              </div>
+              <div class="testimonial__info">
+                <strong>Rosa Delgado</strong>
+                <span>Tratamiento: Cóctel Antienvejecimiento</span>
+                <div class="testimonial__rating">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section--alt">
+      <div class="container">
+        <h2 class="section__title">Preguntas Frecuentes</h2>
+        <p class="section__subtitle">Resolvemos tus dudas sobre el Cóctel de Vida</p>
+        <div class="faq-container">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              ¿Es seguro el Cóctel de Vida?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Completamente seguro. Utilizamos vitaminas y minerales de grado farmacéutico, en dosis terapéuticas apropiadas. Nuestro personal médico supervisa cada aplicación y evaluamos cualquier contraindicación antes del tratamiento.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              ¿Con qué frecuencia puedo recibir el tratamiento?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>La frecuencia depende de tus necesidades específicas. Generalmente recomendamos 1-2 sesiones por mes para mantenimiento, o sesiones semanales durante 4-6 semanas para resultados más intensivos.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              ¿Cuánto tiempo dura cada sesión?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Cada sesión dura aproximadamente 30-45 minutos. Incluye la evaluación inicial, preparación del cóctel personalizado y la infusión intravenosa. Es un proceso relajante y cómodo.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              ¿Cuándo sentiré los efectos?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Muchos pacientes sienten los efectos inmediatamente después del tratamiento. La energía y vitalidad se incrementan notablemente en las primeras 24-48 horas, con efectos que pueden durar 2-4 semanas.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              ¿Hay efectos secundarios?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Los efectos secundarios son mínimos. Algunos pacientes pueden experimentar una sensación de calor durante la infusión o ligera molestia en el sitio de aplicación. Estos efectos son temporales y normales.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="section section--cta">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Listo para Revitalizar tu Vida?</h2>
+          <p>Agenda tu consulta de evaluación y descubre cómo el Cóctel de Vida puede transformar tu energía, vitalidad y bienestar general de forma inmediata.</p>
+          
+          <div class="cta-actions">
+            <a href="#citas" class="btn btn--large btn--primary" data-open-modal>
+              <i class="fa-solid fa-calendar-check"></i> Reservar Consulta
+            </a>
+            <a href="https://wa.me/+51988126804?text=Hola, me interesa conocer más sobre el Cóctel de Vida" target="_blank" rel="noopener" class="btn btn--large btn--whatsapp">
+              <i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp
+            </a>
+          </div>
+          
+          <div class="cta-info">
+            <div class="info-item">
+              <i class="fa-solid fa-clock"></i>
+              <span>L-V 9:00-19:00 · Sáb 9:00-13:00</span>
+            </div>
+            <div class="info-item">
+              <i class="fa-solid fa-phone"></i>
+              <span>+51 988 126 804</span>
+            </div>
+            <div class="info-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Av. Villón, Huaraz</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal de Citas -->
+    <section id="citas" class="modal" aria-hidden="true" role="dialog" aria-modal="false">
+      <div class="modal__backdrop" data-close-modal></div>
+      <div class="modal__dialog" role="document">
+        <button class="modal__close" aria-label="Cerrar" data-close-modal><i class="fa-solid fa-xmark"></i></button>
+        <h3>Reserva tu Consulta de Cóctel de Vida</h3>
+        <form class="form" id="booking-form" novalidate>
+          <div class="form__row">
+            <label for="nombre">Nombre completo</label>
+            <input id="nombre" name="nombre" type="text" placeholder="Ej. Juan Pérez" required />
+          </div>
+          <div class="form__row">
+            <label for="telefono">Teléfono</label>
+            <input id="telefono" name="telefono" type="tel" placeholder="Ej. +51 999 999 999" required />
+          </div>
+          <div class="form__row">
+            <label for="condicion">Tipo de cóctel de interés</label>
+            <select id="condicion" name="condicion" required>
+              <option value="">Selecciona una opción</option>
+              <option>Cóctel Energizante</option>
+              <option>Cóctel Inmunológico</option>
+              <option>Cóctel Antienvejecimiento</option>
+              <option>Cóctel Cognitivo</option>
+              <option>Cóctel Deportivo</option>
+              <option>Cóctel Detox</option>
+              <option>Evaluación personalizada</option>
+            </select>
+          </div>
+          <div class="form__row">
+            <label for="fecha">Fecha preferida</label>
+            <input id="fecha" name="fecha" type="date" required />
+          </div>
+          <div class="form__row">
+            <label for="comentarios">Comentarios adicionales</label>
+            <textarea id="comentarios" name="comentarios" rows="3" placeholder="Cuéntanos sobre tu estilo de vida y objetivos"></textarea>
+          </div>
+          <div class="form__actions">
+            <button type="submit" class="btn btn--primary">
+              <i class="fa-solid fa-paper-plane"></i> Enviar solicitud
+            </button>
+          </div>
+          <p class="form__note">Nos comunicaremos para confirmar tu cita y resolver cualquier duda.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- UI Components (botones de acción) -->
+  <div id="ui-components-placeholder"></div>
+
+  <!-- Footer Component -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Scripts del sistema de componentes -->
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      document.body.classList.remove('loading');
+      document.body.classList.add('loaded');
+    });
+  </script>
+  
+  <!-- Scripts de Seguridad (cargar primero) -->
+  <script src="../js/video-security.js"></script>
+  
+  <script src="../js/metadata-pages.js" defer></script>
+  <script src="../js/social-config.js" defer></script>
+  <script src="../js/optimized-component-loader.js" defer></script>
+  <script src="../js/app.js" defer></script>
+  
+  <!-- Fix específico para submenús móviles -->
+  <script src="../js/mobile-menu-fix.js" defer></script>
+</body>
+</html>

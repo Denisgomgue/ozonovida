@@ -104,12 +104,22 @@ document.addEventListener("DOMContentLoaded", () => {
   // Iniciar intentos
   tryInitMobileMenu();
 
-  // Close menu when clicking on links
+  // Close menu when clicking on links (but not submenu toggles)
   $$("#menu a").forEach((link) => {
-    link.addEventListener("click", () => {
-      menu.classList.remove("is-open");
-      toggle.setAttribute("aria-expanded", "false");
-      document.body.style.overflow = "";
+    link.addEventListener("click", (e) => {
+      // No cerrar si es un link de submenu que tiene hijos
+      const hasSubmenu = link.closest(".dropdown__item--has-submenu");
+      if (hasSubmenu && window.innerWidth <= 1024) {
+        return; // Dejar que handleSubmenuClick maneje esto
+      }
+
+      const menu = $("#menu");
+      const toggle = $(".nav__toggle");
+      if (menu && toggle) {
+        menu.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = "";
+      }
     });
   });
 
