@@ -548,53 +548,7 @@
       </div>
     </section>
 
-    <!-- Modal de Citas -->
-    <section id="citas" class="modal" aria-hidden="true" role="dialog" aria-modal="false">
-      <div class="modal__backdrop" data-close-modal></div>
-      <div class="modal__dialog" role="document">
-        <button class="modal__close" aria-label="Cerrar" data-close-modal><i class="fa-solid fa-xmark"></i></button>
-        <h3>Reserva tu Consulta de PRP</h3>
-        <form class="form" id="booking-form" novalidate>
-          <div class="form__row">
-            <label for="nombre">Nombre completo</label>
-            <input id="nombre" name="nombre" type="text" placeholder="Ej. Juan Pérez" required />
-          </div>
-          <div class="form__row">
-            <label for="telefono">Teléfono</label>
-            <input id="telefono" name="telefono" type="tel" placeholder="Ej. +51 999 999 999" required />
-          </div>
-          <div class="form__row">
-            <label for="condicion">Condición a tratar</label>
-            <select id="condicion" name="condicion" required>
-              <option value="">Selecciona una opción</option>
-              <option>Lesión deportiva</option>
-              <option>Artrosis/Artritis</option>
-              <option>Tendinitis</option>
-              <option>Rejuvenecimiento facial</option>
-              <option>Alopecia</option>
-              <option>Herida crónica</option>
-              <option>Cicatrices</option>
-              <option>Otro (especificar en comentarios)</option>
-            </select>
-          </div>
-          <div class="form__row">
-            <label for="fecha">Fecha preferida</label>
-            <input id="fecha" name="fecha" type="date" required />
-          </div>
-          <div class="form__row">
-            <label for="comentarios">Comentarios adicionales</label>
-            <textarea id="comentarios" name="comentarios" rows="3" placeholder="Describe brevemente tu condición o área de interés"></textarea>
-          </div>
-          <div class="form__actions">
-            <button type="submit" class="btn btn--primary">
-              <i class="fa-solid fa-paper-plane"></i> Enviar solicitud
-            </button>
-          </div>
-          <p class="form__note">Nos comunicaremos para confirmar tu cita y resolver cualquier duda.</p>
-        </form>
-      </div>
-    </section>
-  </main>
+    </main>
 
   <!-- UI Components (botones de acción) -->
   <div id="ui-components-placeholder"></div>
@@ -616,6 +570,7 @@
   <script src="../js/metadata-pages.js" defer></script>
   <script src="../js/social-config.js" defer></script>
   <script src="../js/optimized-component-loader.js" defer></script>
+  <script src="../js/modal-fallback.js" defer></script>
   <script src="../js/app.js" defer></script>
   
   <!-- Fix específico para submenús móviles -->

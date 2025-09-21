@@ -1,0 +1,247 @@
+<!-- Estilos específicos para el modal -->
+<style>
+/* Estilos específicos para el modal de reservas */
+.modal .form__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.modal .form__row--full {
+  grid-column: 1 / -1;
+}
+
+/* Responsive: en móviles, una sola columna */
+@media (max-width: 768px) {
+  .modal .form__grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}
+
+/* Mejorar espaciado del modal */
+.modal .modal__dialog {
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal .form__actions {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.modal .form__note {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary, #666);
+  text-align: center;
+}
+
+/* Asegurar que el botón de cierre funcione */
+.modal .modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.modal .modal__close:hover {
+  background: rgba(255, 255, 255, 1);
+  border-color: #999;
+  transform: scale(1.1);
+}
+
+.modal .modal__close i {
+  font-size: 1rem;
+  color: #666;
+}
+</style>
+
+<!-- Modal de Reservas Unificado - Componente Reutilizable -->
+<section id="citas" class="modal" aria-hidden="true" role="dialog" aria-modal="false">
+  <div class="modal__backdrop" data-close-modal></div>
+  <div class="modal__dialog" role="document">
+    <button class="modal__close" aria-label="Cerrar" data-close-modal><i class="fa-solid fa-xmark"></i></button>
+    
+    <!-- Título dinámico -->
+    <h3 id="modal-title">Reserva tu cita</h3>
+    
+    <form class="form" id="booking-form-unified" novalidate>
+      <div class="form__grid">
+        <div class="form__row">
+          <label for="nombre">Nombre completo *</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
+        </div>
+        
+        <div class="form__row">
+          <label for="telefono">Teléfono *</label>
+          <input type="tel" id="telefono" name="telefono" placeholder="Ej. +51 999 999 999" required>
+        </div>
+        
+        <div class="form__row">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Ej. juan@email.com">
+        </div>
+        
+        <div class="form__row">
+          <label for="servicio">Servicio de interés *</label>
+          <select id="servicio" name="servicio" required>
+            <option value="">Selecciona un servicio</option>
+            <!-- Las opciones se cargarán dinámicamente según la página -->
+          </select>
+        </div>
+        
+        <div class="form__row">
+          <label for="fecha">Fecha preferida *</label>
+          <input type="date" id="fecha" name="fecha" required>
+        </div>
+        
+        <div class="form__row form__row--full">
+          <label for="mensaje">Mensaje adicional</label>
+          <textarea id="mensaje" name="mensaje" rows="3" placeholder="Cuéntanos más sobre tu consulta..."></textarea>
+        </div>
+      </div>
+      
+      <div class="form__actions">
+        <button type="submit" class="btn btn--primary">
+          <i class="fa-solid fa-paper-plane"></i> Enviar solicitud
+        </button>
+      </div>
+      
+      <p class="form__note">Nos comunicaremos para confirmar tu cita y resolver cualquier duda.</p>
+    </form>
+  </div>
+</section>
+
+<!-- Configuración de servicios por página -->
+<script>
+// Configuración de opciones por página
+function configureModalForPage() {
+  console.log('🔧 Configuring modal for current page...');
+  
+  const modalTitle = document.getElementById('modal-title');
+  const servicioSelect = document.getElementById('servicio');
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+  console.log('Current page:', currentPage);
+
+const MODAL_CONFIG = {
+  // Página principal
+  'index.html': {
+    title: 'Reserva tu cita',
+    options: [
+      { value: 'ozonoterapia', text: 'Ozonoterapia' },
+      { value: 'plasma-rico-plaquetas', text: 'Plasma Rico en Plaquetas (PRP)' },
+      { value: 'medicina-regenerativa', text: 'Medicina Regenerativa' },
+      { value: 'coctel-vida', text: 'Cóctel de Vida' },
+      { value: 'tratamiento-dolor', text: 'Tratamiento del Dolor' },
+      { value: 'tratamiento-enfermedades', text: 'Tratamiento de Enfermedades' },
+      { value: 'estetica', text: 'Tratamientos Estéticos' },
+      { value: 'ginecologia', text: 'Tratamientos Ginecológicos' },
+      { value: 'infecciones', text: 'Tratamiento de Infecciones' },
+      { value: 'consulta-general', text: 'Consulta General' }
+    ]
+  },
+  
+  // Páginas de servicios específicos
+  'coctel-vida.html': {
+    title: 'Reserva tu Consulta de Cóctel de Vida',
+    options: [
+      { value: 'coctel-energizante', text: 'Cóctel Energizante' },
+      { value: 'coctel-inmunologico', text: 'Cóctel Inmunológico' },
+      { value: 'coctel-antienvejecimiento', text: 'Cóctel Antienvejecimiento' },
+      { value: 'coctel-cognitivo', text: 'Cóctel Cognitivo' },
+      { value: 'coctel-deportivo', text: 'Cóctel Deportivo' },
+      { value: 'coctel-detox', text: 'Cóctel Detox' },
+      { value: 'evaluacion-personalizada', text: 'Evaluación personalizada' }
+    ]
+  },
+  
+  'ozonoterapia.html': {
+    title: 'Reserva tu Consulta de Ozonoterapia',
+    options: [
+      { value: 'dolor-articular-muscular', text: 'Dolor articular/muscular' },
+      { value: 'diabetes', text: 'Diabetes' },
+      { value: 'problemas-circulatorios', text: 'Problemas circulatorios' },
+      { value: 'heridas-no-cicatrizan', text: 'Heridas que no cicatrizan' },
+      { value: 'fibromialgia', text: 'Fibromialgia' },
+      { value: 'infecciones-recurrentes', text: 'Infecciones recurrentes' },
+      { value: 'rejuvenecimiento', text: 'Rejuvenecimiento' },
+      { value: 'otro', text: 'Otro (especificar en comentarios)' }
+    ]
+  },
+  
+  'plasma.html': {
+    title: 'Reserva tu Consulta de PRP',
+    options: [
+      { value: 'lesion-deportiva', text: 'Lesión deportiva' },
+      { value: 'artrosis-artritis', text: 'Artrosis/Artritis' },
+      { value: 'tendinitis', text: 'Tendinitis' },
+      { value: 'rejuvenecimiento-facial', text: 'Rejuvenecimiento facial' },
+      { value: 'alopecia', text: 'Alopecia' },
+      { value: 'herida-cronica', text: 'Herida crónica' },
+      { value: 'cicatrices', text: 'Cicatrices' },
+      { value: 'otro', text: 'Otro (especificar en comentarios)' }
+    ]
+  },
+  
+  'medicina-regenerativa.html': {
+    title: 'Reserva tu Consulta de Medicina Regenerativa',
+    options: [
+      { value: 'enfermedad-neurologica', text: 'Enfermedad neurológica' },
+      { value: 'problema-cardiovascular', text: 'Problema cardiovascular' },
+      { value: 'enfermedad-respiratoria', text: 'Enfermedad respiratoria' },
+      { value: 'diabetes', text: 'Diabetes' },
+      { value: 'enfermedad-autoinmune', text: 'Enfermedad autoinmune' },
+      { value: 'envejecimiento-prematuro', text: 'Envejecimiento prematuro' },
+      { value: 'fatiga-cronica', text: 'Fatiga crónica' },
+      { value: 'otro', text: 'Otro (especificar en comentarios)' }
+    ]
+  }
+};
+
+  const config = MODAL_CONFIG[currentPage] || MODAL_CONFIG['index.html'];
+  console.log('Using config:', config);
+
+  if (modalTitle && config) {
+    modalTitle.textContent = config.title;
+    console.log('✅ Modal title set to:', config.title);
+  }
+
+  if (servicioSelect && config) {
+    // Limpiar opciones existentes (excepto la primera)
+    servicioSelect.innerHTML = '<option value="">Selecciona un servicio</option>';
+    
+    // Agregar nuevas opciones
+    config.options.forEach(option => {
+      const optionElement = document.createElement('option');
+      optionElement.value = option.value;
+      optionElement.textContent = option.text;
+      servicioSelect.appendChild(optionElement);
+    });
+    
+    console.log(`✅ Added ${config.options.length} service options`);
+  } else {
+    console.log('❌ Service select not found');
+  }
+}
+
+// Configurar el modal cuando se cargue el componente
+document.addEventListener('DOMContentLoaded', configureModalForPage);
+
+// También exportar la función para uso global
+window.configureModalForPage = configureModalForPage;
+</script>

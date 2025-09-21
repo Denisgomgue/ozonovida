@@ -125,7 +125,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Close menu when clicking outside or pressing escape
   document.addEventListener("click", (e) => {
-    if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+    const menu = $("#menu");
+    const toggle = $(".nav__toggle");
+    if (
+      menu &&
+      toggle &&
+      !menu.contains(e.target) &&
+      !toggle.contains(e.target)
+    ) {
       menu.classList.remove("is-open");
       toggle.setAttribute("aria-expanded", "false");
       document.body.style.overflow = "";
@@ -133,7 +140,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && menu.classList.contains("is-open")) {
+    const menu = $("#menu");
+    const toggle = $(".nav__toggle");
+    if (
+      e.key === "Escape" &&
+      menu &&
+      toggle &&
+      menu.classList.contains("is-open")
+    ) {
       menu.classList.remove("is-open");
       toggle.setAttribute("aria-expanded", "false");
       document.body.style.overflow = "";
@@ -527,12 +541,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const openBtns = $$("[data-open-modal]");
   const closeBtns = $$("[data-close-modal]");
   const openModal = () => {
-    if (!modal) return;
+    console.log("Opening modal...", modal);
+    if (!modal) {
+      console.log("Modal not found!");
+      return;
+    }
     modal.setAttribute("aria-hidden", "false");
     modal.setAttribute("aria-modal", "true");
     document.body.style.overflow = "hidden";
     const firstInput = $("#nombre");
     if (firstInput) firstInput.focus();
+    console.log("Modal opened successfully!");
   };
   const closeModal = () => {
     if (!modal) return;
@@ -540,13 +559,114 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.setAttribute("aria-modal", "false");
     document.body.style.overflow = "";
   };
-  openBtns.forEach((btn) =>
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
+
+  // Función para inicializar los botones del modal
+  function initModalButtons() {
+    const newOpenBtns = $$("[data-open-modal]");
+    const newCloseBtns = $$("[data-close-modal]");
+
+    console.log(`Found ${newOpenBtns.length} modal open buttons:`, newOpenBtns);
+    console.log(
+      `Found ${newCloseBtns.length} modal close buttons:`,
+      newCloseBtns
+    );
+
+    newOpenBtns.forEach((btn) => {
+      // Remover listeners anteriores si existen
+      btn.removeEventListener("click", handleModalOpen);
+      // Agregar nuevo listener
+      btn.addEventListener("click", handleModalOpen);
+    });
+
+    newCloseBtns.forEach((btn) => {
+      // Remover listeners anteriores si existen
+      btn.removeEventListener("click", closeModal);
+      // Agregar nuevo listener
+      btn.addEventListener("click", closeModal);
+    });
+  }
+
+  // Hacer la función disponible globalmente
+  window.initModalButtons = initModalButtons;
+
+  // Función para manejar la apertura del modal
+  function handleModalOpen(e) {
+    console.log("Modal button clicked!", e.target);
+    e.preventDefault();
+
+    const modal = document.getElementById("citas");
+
+    if (modal) {
+      // Si el modal existe, abrirlo directamente
+      console.log("Opening modal");
       openModal();
-    })
-  );
-  closeBtns.forEach((btn) => btn.addEventListener("click", closeModal));
+    } else {
+      console.log("Modal not found, waiting for component loader...");
+      // Esperar a que el componente se cargue
+      setTimeout(() => {
+        const modalRetry = document.getElementById("citas");
+        if (modalRetry) {
+          console.log("Modal found after retry, opening...");
+          openModal();
+        } else {
+          console.log("Modal still not found, redirecting to index.html");
+          window.location.href = "index.html#citas";
+        }
+      }, 1000);
+    }
+  }
+
+  // Inicializar botones del modal inmediatamente
+  initModalButtons();
+
+  // Verificar si se debe abrir el modal automáticamente (por hash #citas)
+  function checkAndOpenModal() {
+    if (window.location.hash === "#citas") {
+      const modal = document.getElementById("citas");
+      if (modal) {
+        // Esperar un poco para que la página se cargue completamente
+        setTimeout(() => {
+          console.log("Auto-opening modal from URL hash");
+          openModal();
+          // Limpiar el hash de la URL
+          history.replaceState(null, "", window.location.pathname);
+        }, 500);
+      }
+    }
+  }
+
+  // Verificar al cargar la página
+  checkAndOpenModal();
+
+  // También verificar cuando cambie el hash
+  window.addEventListener("hashchange", checkAndOpenModal);
+
+  // También inicializar cuando se carguen componentes dinámicamente
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.type === "childList") {
+        mutation.addedNodes.forEach((node) => {
+          if (node.nodeType === Node.ELEMENT_NODE) {
+            // Si se agregó un elemento con data-open-modal, reinicializar
+            if (node.hasAttribute && node.hasAttribute("data-open-modal")) {
+              initModalButtons();
+            }
+            // Si se agregó un contenedor que puede tener botones de modal
+            if (node.querySelector && node.querySelector("[data-open-modal]")) {
+              initModalButtons();
+            }
+          }
+        });
+      }
+    });
+  });
+
+  // Observar cambios en el DOM
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+  });
+
   modal?.addEventListener("click", (e) => {
     if (e.target?.closest(".modal__dialog")) return;
     closeModal();
@@ -555,30 +675,88 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.key === "Escape") closeModal();
   });
 
-  // Booking form
-  const form = $("#booking-form");
-  form?.addEventListener("submit", (e) => {
+  // Booking form - buscar formularios de reserva
+  const form =
+    $("#booking-form") ||
+    $("#booking-form-unified") ||
+    document.querySelector('form[id*="booking"]');
+  form?.addEventListener("submit", async (e) => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(form));
-    const missing = Object.entries(data).filter(([k, v]) => !String(v).trim());
+
+    // Validar campos obligatorios
+    const missing = Object.entries(data).filter(([k, v]) => {
+      // Solo validar campos obligatorios (no email ni mensaje)
+      const requiredFields = ["nombre", "telefono", "servicio", "fecha"];
+      return requiredFields.includes(k) && !String(v).trim();
+    });
+
     if (missing.length) {
-      toast("Por favor completa todos los campos", "error");
+      toast("Por favor completa todos los campos obligatorios", "error");
       return;
     }
-    // Simulate sending; here you can integrate with backend or WhatsApp
-    const msg = `Nueva reserva%0A%0ANombre: ${encodeURIComponent(
-      data.nombre
-    )}%0ATeléfono: ${encodeURIComponent(
-      data.telefono
-    )}%0AServicio: ${encodeURIComponent(
-      data.servicio
-    )}%0AFecha: ${encodeURIComponent(data.fecha)}`;
-    const wa = `https://wa.me/51999999999?text=${msg}`;
-    window.open(wa, "_blank");
-    closeModal();
-    form.reset();
-    toast("Solicitud enviada por WhatsApp");
+
+    // Mostrar indicador de carga
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML =
+      '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
+    submitBtn.disabled = true;
+
+    try {
+      // Enviar por EmailJS (método principal)
+      await sendEmailJS(data);
+
+      // También enviar por WhatsApp como backup
+      sendWhatsAppBackup(data);
+
+      // Cerrar modal y limpiar formulario
+      closeModal();
+      form.reset();
+      toast("¡Solicitud enviada exitosamente! Te contactaremos pronto.");
+    } catch (error) {
+      console.error("Error sending email:", error);
+
+      // Fallback: solo WhatsApp
+      sendWhatsAppBackup(data);
+      closeModal();
+      form.reset();
+      toast("Solicitud enviada por WhatsApp");
+    } finally {
+      // Restaurar botón
+      submitBtn.innerHTML = originalText;
+      submitBtn.disabled = false;
+    }
   });
+
+  // Función para enviar email por EmailJS
+  async function sendEmailJS(data) {
+    // Usar la función global de envío de email
+    if (typeof window.sendReservationEmail === "function") {
+      await window.sendReservationEmail(data);
+    } else {
+      throw new Error("EmailJS not configured");
+    }
+  }
+
+  // Función de backup para enviar por WhatsApp
+  function sendWhatsAppBackup(data) {
+    const msg = `Nueva reserva de cita%0A%0A👤 Nombre: ${encodeURIComponent(
+      data.nombre
+    )}%0A📞 Teléfono: ${encodeURIComponent(
+      data.telefono
+    )}%0A📧 Email: ${encodeURIComponent(
+      data.email || "No proporcionado"
+    )}%0A🏥 Servicio: ${encodeURIComponent(
+      data.servicio
+    )}%0A📅 Fecha preferida: ${encodeURIComponent(
+      data.fecha
+    )}%0A💬 Mensaje: ${encodeURIComponent(
+      data.mensaje || "Sin mensaje adicional"
+    )}`;
+    const wa = `https://wa.me/51988126804?text=${msg}`;
+    window.open(wa, "_blank");
+  }
 
   // To top button
   const toTop = $("#to-top");

@@ -1,0 +1,246 @@
+/**
+ * 🖼️ ESTILOS DE OPTIMIZACIÓN DE IMÁGENES - OZONO VIDA
+ * Mejora la experiencia visual durante la carga de imágenes
+ */
+
+/* ===== OPTIMIZACIÓN SIMPLE DE IMÁGENES ===== */
+
+/* Todas las imágenes */
+img {
+  /* Mejora el renderizado */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  
+  /* Evita layout shift */
+  height: auto;
+  max-width: 100%;
+  
+  /* Mejora la carga */
+  decoding: async;
+  
+  /* Transición suave */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Estado de carga */
+img:not(.img-optimized) {
+  opacity: 0.9;
+}
+
+/* Imagen optimizada */
+img.img-optimized {
+  opacity: 1;
+}
+
+/* Animación shimmer para placeholder */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* ===== RESPONSIVE IMAGES ===== */
+
+/* Contenedor de imagen responsive */
+.responsive-img-container {
+    position: relative;
+    overflow: hidden;
+    background: var(--glass);
+    border-radius: 1rem;
+}
+
+.responsive-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Efecto hover en imágenes */
+.responsive-img-container:hover img {
+    transform: scale(1.05);
+}
+
+/* ===== ASPECT RATIOS ===== */
+
+/* Contenedores con aspect ratio fijo */
+.img-16-9 {
+    aspect-ratio: 16 / 9;
+}
+
+.img-4-3 {
+    aspect-ratio: 4 / 3;
+}
+
+.img-1-1 {
+    aspect-ratio: 1 / 1;
+}
+
+.img-3-2 {
+    aspect-ratio: 3 / 2;
+}
+
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+
+/* Optimizaciones de renderizado */
+img {
+    /* Mejora el renderizado */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+
+    /* Evita layout shift */
+    height: auto;
+    max-width: 100%;
+
+    /* Mejora la carga */
+    decoding: async;
+}
+
+/* Imágenes críticas (above the fold) */
+.critical-img {
+    /* No lazy loading para imágenes críticas */
+    loading: eager !important;
+}
+
+/* ===== FALLBACK PARA WEBP ===== */
+
+/* Fallback cuando WebP no es soportado */
+.no-webp img[data-src*=".webp"] {
+    content: url(attr(data-fallback));
+}
+
+/* ===== LOADING STATES ESPECÍFICOS ===== */
+
+/* Hero images */
+.hero img[data-src] {
+    background: linear-gradient(135deg,
+            rgba(33, 80, 150, 0.1),
+            rgba(100, 178, 231, 0.1));
+}
+
+/* Service cards */
+.card img[data-src] {
+    background: var(--glass);
+    border-radius: 0.5rem;
+}
+
+/* Testimonial avatars */
+.testimonial__avatar img[data-src] {
+    background: var(--glass);
+    border-radius: 50%;
+}
+
+/* ===== PROGRESSIVE ENHANCEMENT ===== */
+
+/* Soporte para navegadores sin Intersection Observer */
+.no-intersection-observer img[data-src] {
+    /* Cargar inmediatamente si no hay soporte */
+    filter: none;
+    background: none;
+}
+
+/* ===== ERROR STATES ===== */
+
+/* Imagen que falló al cargar */
+img.error {
+    background: var(--danger);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+img.error::after {
+    content: "⚠️ Error al cargar imagen";
+}
+
+/* ===== DARK/LIGHT MODE ===== */
+
+[data-theme="light"] img[data-src] {
+    background: linear-gradient(90deg,
+            rgba(248, 250, 252, 0.8) 0%,
+            rgba(226, 232, 240, 0.8) 50%,
+            rgba(248, 250, 252, 0.8) 100%);
+}
+
+[data-theme="light"] .responsive-img-container {
+    background: rgba(248, 250, 252, 0.5);
+}
+
+/* ===== MEDIA QUERIES ===== */
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+
+    /* Reducir efectos en móvil para mejor performance */
+    .responsive-img-container:hover img {
+        transform: none;
+    }
+
+    /* Shimmer más sutil en móvil */
+    img[data-src] {
+        animation-duration: 2s;
+    }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+
+    /* Ajustes específicos para pantallas de alta densidad */
+    img {
+        image-rendering: -webkit-optimize-contrast;
+    }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    img[data-src] {
+        animation: none;
+    }
+
+    img {
+        transition: none;
+    }
+
+    .responsive-img-container img {
+        transition: none;
+    }
+}
+
+/* ===== PRINT STYLES ===== */
+
+@media print {
+    img[data-src] {
+        background: none;
+        filter: none;
+        animation: none;
+    }
+}
+
+/* ===== UTILITY CLASSES ===== */
+
+/* Forzar carga inmediata */
+.force-load img[data-src] {
+    filter: none;
+    background: none;
+    animation: none;
+}
+
+/* Deshabilitar lazy loading */
+.no-lazy img {
+    loading: eager !important;
+}
+
+/* Imagen en modo presentación */
+.presentation-mode img {
+    image-rendering: crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+}

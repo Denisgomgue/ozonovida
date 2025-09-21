@@ -7,8 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="./css/critical.css" />
   
+  <!-- CSS Principal Optimizado -->
+  <link rel="stylesheet" href="./css/main-optimized.css" />
+  
   <!-- CSS de Protección de Videos -->
   <link rel="stylesheet" href="./css/security/video-protection.css" />
+  
+  <!-- CSS de Optimización de Imágenes -->
+  <link rel="stylesheet" href="./css/image-optimization.css" />
 
   <!-- Preconnect para optimización -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -164,7 +170,13 @@
         <div class="hero__media reveal">
           <!-- Contenedor principal de imagen con rotación automática -->
           <div class="main-image-container" id="main-image-container">
-            <img src="./assets/images/imagen_principal.png" alt="OZONO VIDA Centro Médico - Tratamiento médico especializado" loading="lazy" />
+            <img src="./assets/images/imagen_principal.png" 
+                 alt="OZONO VIDA Centro Médico - Tratamiento médico especializado" 
+                 loading="eager" 
+                 decoding="async"
+                 class="critical-img"
+                 width="600" 
+                 height="400" />
             <div class="main-image-overlay">
               <span>OZONO VIDA</span>
             </div>
@@ -185,7 +197,12 @@
         <div class="grid cards">
           <a href="servicios/ozonoterapia.html" class="card reveal">
             <div class="card__image">
-              <img src="assets/images/services/servicios-ozonoterapia.png" alt="Ozonoterapia" loading="lazy">
+              <img src="assets/images/services/servicios-ozonoterapia.png" 
+                   alt="Ozonoterapia - Medicina regenerativa natural" 
+                   loading="lazy"
+                   decoding="async"
+                   width="400" 
+                   height="300">
             </div>
             <div class="card__content">
               <div class="card__icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
@@ -198,7 +215,12 @@
           </a>
           <a href="servicios/plasma.html" class="card reveal">
             <div class="card__image">
-              <img src="assets/images/services/servicios-plasmaRicoPlaquetas.png" alt="Plasma Rico en Plaquetas" loading="lazy">
+              <img src="assets/images/services/servicios-plasmaRicoPlaquetas.png" 
+                   alt="Plasma Rico en Plaquetas - Regeneración tisular natural" 
+                   loading="lazy"
+                   decoding="async"
+                   width="400" 
+                   height="300">
             </div>
             <div class="card__content">
               <div class="card__icon"><i class="fa-solid fa-vial-circle-check"></i></div>
@@ -211,7 +233,12 @@
           </a>
           <a href="servicios/medicina-regenerativa.html" class="card reveal">
             <div class="card__image">
-              <img src="assets/images/services/servicios-medicinaRegenerativa.png" alt="Medicina Regenerativa" loading="lazy">
+              <img src="assets/images/services/servicios-medicinaRegenerativa.png" 
+                   alt="Medicina Regenerativa - Terapias avanzadas de sanación" 
+                   loading="lazy"
+                   decoding="async"
+                   width="400" 
+                   height="300">
             </div>
             <div class="card__content">
               <div class="card__icon"><i class="fa-solid fa-bone"></i></div>
@@ -224,7 +251,12 @@
           </a>
           <a href="servicios/coctel-vida.html" class="card reveal">
             <div class="card__image">
-              <img src="assets/images/services/servicios-coctelVida.png" alt="Cóctel de Vida" loading="lazy">
+              <img src="assets/images/services/servicios-coctelVida.png" 
+                   alt="Cóctel de Vida - Suero revitalizante premium" 
+                   loading="lazy"
+                   decoding="async"
+                   width="400" 
+                   height="300">
             </div>
             <div class="card__content">
               <div class="card__icon"><i class="fa-solid fa-heart-pulse"></i></div>
@@ -243,7 +275,12 @@
       <div class="container about">
         <div class="about__media reveal">
           <!-- Updated about image to nurses/team photo -->
-          <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1200&q=80" alt="Equipo de enfermería y médicos de OZONO VIDA" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1200&q=80" 
+               alt="Equipo de enfermería y médicos de OZONO VIDA - Profesionales especializados" 
+               loading="lazy"
+               decoding="async"
+               width="600" 
+               height="400" />
         </div>
         <div class="about__content reveal">
           <h2 class="section__title">Nosotros</h2>
@@ -531,41 +568,67 @@
       </div>
     </section>
 
+    <!-- Modal de Reservas Unificado -->
     <section id="citas" class="modal" aria-hidden="true" role="dialog" aria-modal="false">
       <div class="modal__backdrop" data-close-modal></div>
       <div class="modal__dialog" role="document">
         <button class="modal__close" aria-label="Cerrar" data-close-modal><i class="fa-solid fa-xmark"></i></button>
-        <h3>Reserva tu cita</h3>
-        <form class="form" id="booking-form" novalidate>
-          <div class="form__row">
-            <label for="nombre">Nombre completo</label>
-            <input id="nombre" name="nombre" type="text" placeholder="Ej. Juan Pérez" required />
+        
+        <!-- Título dinámico -->
+        <h3 id="modal-title">Reserva tu cita</h3>
+        
+        <form class="form" id="booking-form-unified" novalidate>
+          <div class="form__grid">
+            <div class="form__row">
+              <label for="nombre">Nombre completo *</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
+            </div>
+            
+            <div class="form__row">
+              <label for="telefono">Teléfono *</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="Ej. +51 999 999 999" required>
+            </div>
+            
+            <div class="form__row">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="Ej. juan@email.com">
+            </div>
+            
+            <div class="form__row">
+              <label for="servicio">Servicio de interés *</label>
+              <select id="servicio" name="servicio" required>
+                <option value="">Selecciona un servicio</option>
+                <option value="ozonoterapia">Ozonoterapia</option>
+                <option value="plasma-rico-plaquetas">Plasma Rico en Plaquetas (PRP)</option>
+                <option value="medicina-regenerativa">Medicina Regenerativa</option>
+                <option value="coctel-vida">Cóctel de Vida</option>
+                <option value="tratamiento-dolor">Tratamiento del Dolor</option>
+                <option value="tratamiento-enfermedades">Tratamiento de Enfermedades</option>
+                <option value="estetica">Tratamientos Estéticos</option>
+                <option value="ginecologia">Tratamientos Ginecológicos</option>
+                <option value="infecciones">Tratamiento de Infecciones</option>
+                <option value="consulta-general">Consulta General</option>
+              </select>
+            </div>
+            
+            <div class="form__row">
+              <label for="fecha">Fecha preferida *</label>
+              <input type="date" id="fecha" name="fecha" required>
+            </div>
+            
+            <div class="form__row form__row--full">
+              <label for="mensaje">Mensaje adicional</label>
+              <textarea id="mensaje" name="mensaje" rows="3" placeholder="Cuéntanos más sobre tu consulta..."></textarea>
+            </div>
           </div>
-          <div class="form__row">
-            <label for="telefono">Teléfono</label>
-            <input id="telefono" name="telefono" type="tel" placeholder="Ej. +51 999 999 999" required />
-          </div>
-          <div class="form__row">
-            <label for="servicio">Servicio</label>
-            <select id="servicio" name="servicio" required>
-              <option value="">Selecciona una opción</option>
-              <option>Ozonoterapia</option>
-              <option>Plasma Rico en Plaquetas</option>
-              <option>Medicina Regenerativa</option>
-              <option>Cóctel de Vida</option>
-              <option>Terapia del Dolor</option>
-            </select>
-          </div>
-          <div class="form__row">
-            <label for="fecha">Fecha preferida</label>
-            <input id="fecha" name="fecha" type="date" required />
-          </div>
+          
           <div class="form__actions">
             <button type="submit" class="btn btn--primary">
               <i class="fa-solid fa-paper-plane"></i> Enviar solicitud
             </button>
           </div>
-          <p class="form__note">Nos comunicaremos para confirmar tu cita.</p>
+          
+          <p class="form__note">Nos comunicaremos para confirmar tu cita y resolver cualquier duda.</p>
         </form>
       </div>
     </section>
@@ -577,6 +640,78 @@
   <!-- Footer Component -->
   <div id="footer-placeholder"></div>
 
+  <!-- Estilos específicos para el modal -->
+  <style>
+  /* Estilos específicos para el modal de reservas */
+  .modal .form__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .modal .form__row--full {
+    grid-column: 1 / -1;
+  }
+
+  /* Responsive: en móviles, una sola columna */
+  @media (max-width: 768px) {
+    .modal .form__grid {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+  }
+
+  /* Mejorar espaciado del modal */
+  .modal .modal__dialog {
+    max-width: 600px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .modal .form__actions {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+
+  .modal .form__note {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary, #666);
+    text-align: center;
+  }
+
+  /* Asegurar que el botón de cierre funcione */
+  .modal .modal__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+  }
+
+  .modal .modal__close:hover {
+    background: rgba(255, 255, 255, 1);
+    border-color: #999;
+    transform: scale(1.1);
+  }
+
+  .modal .modal__close i {
+    font-size: 1rem;
+    color: #666;
+  }
+  </style>
+
   <!-- Scripts del sistema de componentes - Carga optimizada -->
   <script>
     // Script crítico inline para evitar bloqueo
@@ -587,6 +722,10 @@
     });
   </script>
   
+  <!-- Scripts de Optimización de Performance -->
+  <script src="./js/performance-optimizer.js" defer></script>
+  <script src="./js/simple-image-optimizer.js" defer></script>
+  
   <!-- Scripts de Seguridad (cargar primero) -->
   <script src="./js/video-security.js"></script>
   
@@ -596,7 +735,7 @@
   <script src="./js/optimized-component-loader.js" defer></script>
   <script src="./js/app.js" defer></script>
   
-  <!-- Fix específico para submenús móviles -->
-  <script src="./js/mobile-menu-fix.js" defer></script>
+  <!-- Menú móvil simple -->
+  <script src="./js/simple-mobile-menu.js" defer></script>
 </body>
 </html> 

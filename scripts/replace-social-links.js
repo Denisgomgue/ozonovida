@@ -11,14 +11,11 @@ const path = require("path");
 // Configuración de reemplazos
 const REPLACEMENTS = {
   // WhatsApp - diferentes números encontrados
-  "https://wa.me/51999999999": "data-whatsapp-link",
-  "https://wa.me/51982070151": "data-whatsapp-link",
-  "https://wa.me/982070151": "data-whatsapp-link",
-  "https://wa.me/+51982070151": "data-whatsapp-link",
+  "https://wa.me/51988126804": "data-whatsapp-link",
 
   // TikTok
-  "https://tiktok.com/@stella_maris_medical": "data-tiktok-link",
-  "https://www.tiktok.com/@stella_maris_medical": "data-tiktok-link",
+  "https://tiktok.com/@ozono-vida": "data-tiktok-link",
+  "https://www.tiktok.com/@ozono-vida": "data-tiktok-link",
 
   // Enlaces vacíos que deben ser reemplazados
   'href="#"': "data-social-placeholder",
@@ -157,4 +154,3 @@ if (require.main === module) {
 }
 
 module.exports = { replaceInFile, findHtmlFiles };
-

@@ -22,6 +22,10 @@
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" /></noscript>
 
+<!-- EmailJS para formularios -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript" src="{{BASE_PATH}}js/emailjs-config.js"></script>
+
 <!-- Favicon y Iconos (siempre iguales) -->
 <link rel="icon" href="{{BASE_PATH}}assets/favicon.ico" type="image/x-icon" />
 <link rel="shortcut icon" href="{{BASE_PATH}}assets/favicon.ico" type="image/x-icon" />
@@ -44,6 +48,13 @@
 <!-- Theme Color (siempre igual) -->
 <meta name="theme-color" content="#215096" />
 <meta name="msapplication-TileColor" content="#215096" />
+
+<!-- Security Headers -->
+<meta http-equiv="X-Content-Type-Options" content="nosniff" />
+<meta http-equiv="X-Frame-Options" content="DENY" />
+<meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+<meta http-equiv="Permissions-Policy" content="geolocation=(self), microphone=(), camera=(), payment=(), usb=()" />
 
 <!-- Datos Estructurados Base (siempre iguales) -->
 <script type="application/ld+json">

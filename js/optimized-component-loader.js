@@ -35,6 +35,7 @@ class OptimizedComponentLoader {
         this.loadHeaderComponent(),
         this.loadFooterComponent(),
         this.loadUIComponents(),
+        this.loadModalComponent(),
       ];
 
       // Esperar a que todos los componentes se carguen
@@ -45,6 +46,12 @@ class OptimizedComponentLoader {
 
       // Ejecutar reemplazo de enlaces de redes sociales
       this.executeSocialLinksReplacement();
+
+      // Reinicializar botones del modal después de cargar componentes
+      this.reinitializeModalButtons();
+
+      // Asegurar que el modal esté disponible en todas las páginas
+      this.ensureModalAvailability();
 
       // Marcar como cargado
       document.body.classList.remove("loading");
@@ -191,6 +198,55 @@ class OptimizedComponentLoader {
       }
     } catch (error) {
       console.error("Error cargando componentes de UI:", error);
+    }
+  }
+
+  // Cargar modal de reservas
+  async loadModalComponent() {
+    if (this.loadedComponents.has("modal")) {
+      console.log("Modal already loaded, skipping");
+      return;
+    }
+
+    const existingModal = document.getElementById("citas");
+    if (!existingModal) {
+      console.log(
+        "🔧 LOADING MODAL FROM:",
+        `${this.basePath}components/modal-reservas-unified.html`
+      );
+
+      try {
+        const response = await fetch(
+          `${this.basePath}components/modal-reservas-unified.html`,
+          {
+            cache: "no-cache", // Cambiar a no-cache para asegurar que se carga
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const modalContent = await response.text();
+        const processedContent = this.processModalPaths(modalContent);
+
+        // Insertar el modal antes del cierre del body
+        document.body.insertAdjacentHTML("beforeend", processedContent);
+        this.loadedComponents.add("modal");
+
+        // Verificar que el modal se insertó correctamente
+        const insertedModal = document.getElementById("citas");
+        if (insertedModal) {
+          console.log("✅ MODAL COMPONENT LOADED AND INSERTED SUCCESSFULLY");
+        } else {
+          console.error("❌ MODAL WAS NOT INSERTED CORRECTLY");
+        }
+      } catch (error) {
+        console.error("Error loading modal component:", error);
+      }
+    } else {
+      console.log("Modal already exists, skipping load");
+      this.loadedComponents.add("modal");
     }
   }
 
@@ -405,6 +461,12 @@ class OptimizedComponentLoader {
     return this.processHeaderPaths(content);
   }
 
+  // Procesar rutas en el modal
+  processModalPaths(content) {
+    // El modal no necesita procesamiento especial de rutas ya que es contenido estático
+    return content;
+  }
+
   // Actualizar título de la página dinámicamente
   updatePageTitle() {
     const titleElement = document.querySelector("[data-page-title]");
@@ -415,11 +477,118 @@ class OptimizedComponentLoader {
       document.title = `${this.metadata.title} • OZONO VIDA`;
     }
   }
+
+  // Reinicializar botones del modal después de cargar componentes
+  reinitializeModalButtons() {
+    console.log("Reinitializing modal buttons after component load");
+
+    // Esperar un poco para que el modal se cargue completamente
+    setTimeout(() => {
+      // Si la función initModalButtons está disponible globalmente, llamarla
+      if (typeof initModalButtons === "function") {
+        console.log("Calling global initModalButtons function");
+        initModalButtons();
+      } else {
+        console.log("Global initModalButtons not available, using fallback");
+        // Fallback: buscar y agregar listeners manualmente
+        const modalButtons = document.querySelectorAll("[data-open-modal]");
+        console.log(`Found ${modalButtons.length} modal buttons to initialize`);
+
+        modalButtons.forEach((btn) => {
+          // Remover listeners anteriores
+          btn.removeEventListener("click", this.handleModalClick);
+          // Agregar nuevo listener
+          btn.addEventListener("click", this.handleModalClick);
+        });
+      }
+
+      // Verificar que el modal existe
+      const modal = document.getElementById("citas");
+      if (modal) {
+        console.log("Modal found and ready for use");
+      } else {
+        console.error(
+          "Modal not found after component loading - trying to load manually"
+        );
+        // Intentar cargar el modal manualmente si no existe
+        this.loadModalComponent();
+      }
+    }, 100);
+  }
+
+  // Asegurar que el modal esté disponible en todas las páginas
+  ensureModalAvailability() {
+    console.log("🔧 Ensuring modal availability...");
+
+    // Verificar si hay botones de modal en la página
+    const modalButtons = document.querySelectorAll("[data-open-modal]");
+
+    if (modalButtons.length > 0) {
+      console.log(
+        `Found ${modalButtons.length} modal buttons, ensuring modal is loaded...`
+      );
+
+      // Si no existe el modal, cargarlo
+      const existingModal = document.getElementById("citas");
+      if (!existingModal) {
+        console.log("Modal not found, loading automatically...");
+        this.loadModalComponent();
+      } else {
+        console.log("Modal already exists");
+      }
+    }
+  }
+
+  // Manejar clicks en botones de modal
+  handleModalClick(e) {
+    e.preventDefault();
+    console.log("Modal button clicked from component loader:", e.target);
+
+    const modal = document.getElementById("citas");
+    console.log("Modal found:", !!modal);
+
+    if (modal) {
+      // Si el modal existe, abrirlo directamente
+      console.log("Opening modal directly (from component loader)");
+      modal.setAttribute("aria-hidden", "false");
+      modal.setAttribute("aria-modal", "true");
+      document.body.style.overflow = "hidden";
+      const firstInput = modal.querySelector("#nombre");
+      if (firstInput) firstInput.focus();
+    } else {
+      console.log("Modal not found, trying to load it first...");
+      // Intentar cargar el modal primero
+      this.loadModalComponent();
+
+      // Esperar un poco y reintentar
+      setTimeout(() => {
+        const modalRetry = document.getElementById("citas");
+        if (modalRetry) {
+          console.log("Modal found after loading, opening...");
+          modalRetry.setAttribute("aria-hidden", "false");
+          modalRetry.setAttribute("aria-modal", "true");
+          document.body.style.overflow = "hidden";
+          const firstInput = modalRetry.querySelector("#nombre");
+          if (firstInput) firstInput.focus();
+        } else {
+          console.log(
+            "Modal still not found after loading, redirecting to index.html"
+          );
+          const targetUrl = e.target.getAttribute("href");
+          if (targetUrl) {
+            window.location.href = targetUrl;
+          } else {
+            window.location.href = "index.html#citas";
+          }
+        }
+      }, 1000);
+    }
+  }
 }
 
 // Función para inicializar cuando el DOM esté listo
 function initializeOptimizedComponents() {
-  console.log("Initializing optimized components...");
+  console.log("🚀 INITIALIZING OPTIMIZED COMPONENTS...");
 
   // Verificar que las funciones de metadata y social estén disponibles
   if (

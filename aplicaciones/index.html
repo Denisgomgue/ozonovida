@@ -1,141 +1,213 @@
 ﻿<!DOCTYPE html>
 <html lang="es" data-theme="light">
 <head>
-  <!-- Head Component será cargado dinámicamente -->
-  <div id="head-placeholder"></div>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- CSS Crítico -->
+  <link rel="stylesheet" href="../css/critical.css" />
+  
+  <!-- Preload de recursos críticos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  
+  <!-- Preload del CSS principal -->
+  <link rel="preload" href="../css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="../css/styles.css" /></noscript>
+  
+  <!-- Preload de Font Awesome -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /></noscript>
+  
+  <!-- Preload de Google Fonts -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" /></noscript>
+
+  <!-- Metadata dinámica -->
+  <title data-page-title>Métodos de Aplicación • OZONO VIDA</title>
+  <meta name="description" content="Métodos de aplicación de ozonoterapia: intramuscular, intraarticular, auto hemoterapia, sueros ozonizados, bolsa ozonisada, insuflación rectal, embolsados." />
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Métodos de Aplicación • OZONO VIDA" />
+  <meta property="og:description" content="Métodos de aplicación de ozonoterapia: intramuscular, intraarticular, auto hemoterapia, sueros ozonizados, bolsa ozonisada, insuflación rectal, embolsados." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ozonovida.netlify.app/aplicaciones" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1200&q=80" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Métodos de Aplicación • OZONO VIDA" />
+  <meta name="twitter:description" content="Métodos de aplicación de ozonoterapia: intramuscular, intraarticular, auto hemoterapia, sueros ozonizados, bolsa ozonisada, insuflación rectal, embolsados." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1200&q=80" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://ozonovida.netlify.app/aplicaciones" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "name": "OZONO VIDA Centro Médico",
+    "description": "Métodos especializados de aplicación de ozonoterapia y medicina regenerativa.",
+    "image": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1200&q=80",
+    "url": "https://ozonovida.netlify.app/aplicaciones",
+    "telephone": "+51 999 999 999",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Villón, frente a la Dirección Víctor Ramos Guardia",
+      "addressLocality": "Huaraz",
+      "addressRegion": "Ancash",
+      "addressCountry": "PE"
+    },
+    "medicalSpecialty": ["RegenerativeMedicine", "OzoneTherapy"],
+    "openingHours": "Mo-Fr 09:00-19:00, Sa 09:00-13:00",
+    "priceRange": "$$"
+  }
+  </script>
 </head>
 <body>
+  <!-- Indicador de carga -->
+  <div id="loading-indicator"></div>
+  
   <a href="#inicio" class="skip-link">Saltar al contenido</a>
 
   <!-- Header Component -->
   <div id="header-placeholder"></div>
 
   <main>
-    <section class="hero" aria-label="Aplicaciones de Ozonoterapia">
+    <section class="hero" aria-label="Métodos de Aplicación">
       <div class="shape shape--1"></div>
       <div class="shape shape--2"></div>
       <div class="container hero__grid">
         <div class="hero__content reveal">
-          <h1>Aplicaciones Especializadas de Ozonoterapia</h1>
-          <p>En <strong>OZONO VIDA</strong> utilizamos diferentes técnicas de aplicación de ozonoterapia para maximizar los beneficios terapéuticos. Cada método está diseñado específicamente para tratar diferentes condiciones médicas con la máxima eficacia y seguridad.</p>
+          <h1>Métodos de Aplicación de Ozono</h1>
+          <p>En <strong>OZONO VIDA</strong> utilizamos diversos métodos de aplicación de ozonoterapia según las necesidades específicas de cada paciente. Cada técnica está diseñada para maximizar los beneficios terapéuticos del ozono de manera segura y efectiva.</p>
           <div class="hero__cta">
-            <a class="btn btn--primary" href="../../index.html#citas" data-open-modal>
+            <a class="btn btn--primary" href="../index.html#citas" data-open-modal>
               <i class="fa-solid fa-calendar-check"></i> Agenda tu consulta
             </a>
-            <a class="btn btn--ghost" href="#servicios">
-              <i class="fa-solid fa-circle-play"></i> Ver aplicaciones
+            <a class="btn btn--ghost" href="#metodos">
+              <i class="fa-solid fa-circle-play"></i> Ver métodos
             </a>
           </div>
           <ul class="hero__badges">
-            <li><i class="fa-solid fa-user-doctor"></i> Técnicas especializadas</li>
-            <li><i class="fa-solid fa-syringe"></i> Aplicaciones seguras</li>
-            <li><i class="fa-solid fa-shield-heart"></i> Resultados comprobados</li>
+            <li><i class="fa-solid fa-syringe"></i> Técnicas especializadas</li>
+            <li><i class="fa-solid fa-shield-heart"></i> Aplicación segura</li>
+            <li><i class="fa-solid fa-user-doctor"></i> Personalizado</li>
           </ul>
         </div>
         <div class="hero__media reveal">
           <figure class="illustration">
-            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1400&q=80" alt="Aplicaciones de ozonoterapia en clínica médica" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1400&q=80" alt="Métodos de aplicación de ozono" loading="lazy" />
           </figure>
         </div>
       </div>
     </section>
 
-    <section id="servicios" class="section">
+    <!-- Sección de Métodos de Aplicación -->
+    <section id="metodos" class="section">
       <div class="container">
-        <h2 class="section__title">Nuestras Aplicaciones de Ozonoterapia</h2>
-        <p class="section__subtitle">Técnicas especializadas para diferentes condiciones médicas con máxima eficacia y seguridad</p>
+        <h2 class="section__title">Nuestros Métodos de Aplicación</h2>
+        <p class="section__subtitle">Técnicas especializadas para diferentes condiciones y necesidades terapéuticas</p>
         <div class="grid cards">
-          <a href="aplicaciones.html#intramuscular" class="card reveal">
+          <a href="#intramuscular" class="card reveal">
             <div class="card__icon"><i class="fa-solid fa-syringe"></i></div>
             <h3>Intramuscular</h3>
-            <p>Aplicación directa de ozono en el tejido muscular para el tratamiento de dolor muscular, inflamación y lesiones deportivas.</p>
+            <p>Aplicación directa de ozono en músculos para tratar dolor muscular, inflamación y promover regeneración tisular en lesiones deportivas.</p>
             <div class="card__info">
-              <span class="card__tag"><i class="fa-solid fa-clock"></i> 15-20 min</span>
-              <span class="card__tag"><i class="fa-solid fa-syringe"></i> Inyección directa</span>
+              <span class="card__tag"><i class="fa-solid fa-dumbbell"></i> Lesiones deportivas</span>
+              <span class="card__tag"><i class="fa-solid fa-heart"></i> Regeneración</span>
             </div>
           </a>
-          <a href="aplicaciones.html#intra-articular" class="card reveal">
-            <div class="card__icon"><i class="fa-solid fa-joint"></i></div>
-            <h3>Intra articular</h3>
-            <p>Inyección de ozono directamente en las articulaciones para tratar artritis, artrosis y lesiones articulares.</p>
+          <a href="#intra-articular" class="card reveal">
+            <div class="card__icon"><i class="fa-solid fa-bone"></i></div>
+            <h3>Intraarticular</h3>
+            <p>Inyección directa de ozono en articulaciones para tratar artrosis, artritis y problemas articulares con efectos antiinflamatorios y regenerativos.</p>
             <div class="card__info">
-              <span class="card__tag"><i class="fa-solid fa-clock"></i> 20-30 min</span>
-              <span class="card__tag"><i class="fa-solid fa-joint"></i> Articulación</span>
+              <span class="card__tag"><i class="fa-solid fa-shield"></i> Antiinflamatorio</span>
+              <span class="card__tag"><i class="fa-solid fa-heart"></i> Regeneración articular</span>
             </div>
           </a>
-          <a href="aplicaciones.html#auto-hemoterapia-menor" class="card reveal">
-            <div class="card__icon"><i class="fa-solid fa-droplet"></i></div>
-            <h3>Auto hemoterapia menor</h3>
-            <p>Extracción de pequeña cantidad de sangre, ozonización y reinyección intramuscular para estimular el sistema inmunológico.</p>
+          <a href="#auto-hemoterapia-menor" class="card reveal">
+            <div class="card__icon"><i class="fa-solid fa-tint"></i></div>
+            <h3>Auto Hemoterapia Menor</h3>
+            <p>Extracción de sangre del paciente, ozonización y reinyección intramuscular para estimular el sistema inmunológico y mejorar oxigenación.</p>
             <div class="card__info">
-              <span class="card__tag"><i class="fa-solid fa-clock"></i> 30-45 min</span>
-              <span class="card__tag"><i class="fa-solid fa-droplet"></i> Sangre ozonizada</span>
+              <span class="card__tag"><i class="fa-solid fa-shield"></i> Estimula inmunidad</span>
+              <span class="card__tag"><i class="fa-solid fa-heart"></i> Mejora oxigenación</span>
             </div>
           </a>
-          <a href="aplicaciones.html#auto-hemoterapia-mayor" class="card reveal">
-            <div class="card__icon"><i class="fa-solid fa-vial"></i></div>
-            <h3>Auto hemoterapia mayor</h3>
-            <p>Extracción de mayor cantidad de sangre, ozonización y reinyección intravenosa para efectos sistémicos potentes.</p>
+          <a href="#auto-hemoterapia-mayor" class="card reveal">
+            <div class="card__icon"><i class="fa-solid fa-heart-pulse"></i></div>
+            <h3>Auto Hemoterapia Mayor</h3>
+            <p>Proceso similar a la menor pero con mayor volumen de sangre para tratamientos sistémicos y enfermedades crónicas complejas.</p>
             <div class="card__info">
-              <span class="card__tag"><i class="fa-solid fa-clock"></i> 45-60 min</span>
-              <span class="card__tag"><i class="fa-solid fa-vial"></i> Intravenosa</span>
+              <span class="card__tag"><i class="fa-solid fa-heart"></i> Tratamiento sistémico</span>
+              <span class="card__tag"><i class="fa-solid fa-shield"></i> Enfermedades crónicas</span>
             </div>
           </a>
-          <a href="aplicaciones.html#suero-ozonizado" class="card reveal">
+          <a href="#suero-ozonizado" class="card reveal">
             <div class="card__icon"><i class="fa-solid fa-flask"></i></div>
-            <h3>Sueros ozonizados</h3>
-            <p>Administración de sueros fisiológicos ozonizados por vía intravenosa para hidratación y aporte de oxígeno.</p>
+            <h3>Sueros Ozonizados</h3>
+            <p>Administración de sueros intravenosos ozonizados para tratamientos sistémicos, desintoxicación y mejora general del organismo.</p>
             <div class="card__info">
-              <span class="card__tag"><i class="fa-solid fa-clock"></i> 30-40 min</span>
-              <span class="card__tag"><i class="fa-solid fa-flask"></i> Suero</span>
+              <span class="card__tag"><i class="fa-solid fa-heart"></i> Tratamiento sistémico</span>
+              <span class="card__tag"><i class="fa-solid fa-leaf"></i> Desintoxicación</span>
             </div>
           </a>
-          <a href="aplicaciones.html#bolsa-ozonisada" class="card reveal">
-            <div class="card__icon"><i class="fa-solid fa-bag-medical"></i></div>
-            <h3>Bolsa ozonisada</h3>
-            <p>Aplicación tópica de ozono mediante bolsa hermética para heridas, úlceras y problemas de piel.</p>
+          <a href="#bolsa-ozonisada" class="card reveal">
+            <div class="card__icon"><i class="fa-solid fa-hand-holding-medical"></i></div>
+            <h3>Bolsa Ozonizada</h3>
+            <p>Aplicación tópica de ozono mediante bolsa hermética para tratar heridas, úlceras, infecciones cutáneas y problemas circulatorios.</p>
             <div class="card__info">
-              <span class="card__tag"><i class="fa-solid fa-clock"></i> 20-30 min</span>
-              <span class="card__tag"><i class="fa-solid fa-bag-medical"></i> Tópica</span>
+              <span class="card__tag"><i class="fa-solid fa-shield"></i> Antibacteriano</span>
+              <span class="card__tag"><i class="fa-solid fa-heart"></i> Cicatrización</span>
             </div>
           </a>
-          <a href="aplicaciones.html#insuflacion-rectal" class="card reveal">
-            <div class="card__icon"><i class="fa-solid fa-wind"></i></div>
-            <h3>Insuflación rectal</h3>
-            <p>Administración de ozono por vía rectal para el tratamiento de condiciones intestinales y digestivas.</p>
+          <a href="#insuflacion-rectal" class="card reveal">
+            <div class="card__icon"><i class="fa-solid fa-stomach"></i></div>
+            <h3>Insuflación Rectal</h3>
+            <p>Aplicación de ozono por vía rectal para tratar problemas digestivos, colitis, enfermedad de Crohn y mejorar la salud intestinal.</p>
             <div class="card__info">
-              <span class="card__tag"><i class="fa-solid fa-clock"></i> 15-20 min</span>
-              <span class="card__tag"><i class="fa-solid fa-wind"></i> Rectal</span>
+              <span class="card__tag"><i class="fa-solid fa-shield"></i> Antiinflamatorio</span>
+              <span class="card__tag"><i class="fa-solid fa-heart"></i> Salud intestinal</span>
             </div>
           </a>
-          <a href="aplicaciones.html#embolsados" class="card reveal">
-            <div class="card__icon"><i class="fa-solid fa-wind"></i></div>
+          <a href="#embolsados" class="card reveal">
+            <div class="card__icon"><i class="fa-solid fa-hand-holding-water"></i></div>
             <h3>Embolsados</h3>
-            <p>Aplicación de ozono mediante embolsado para el tratamiento de extremidades y zonas específicas del cuerpo.</p>
+            <p>Tratamiento local de extremidades con ozono mediante bolsas especiales para mejorar circulación, tratar varices y problemas vasculares.</p>
             <div class="card__info">
-              <span class="card__tag"><i class="fa-solid fa-clock"></i> 20-30 min</span>
-              <span class="card__tag"><i class="fa-solid fa-wind"></i> Embolsado</span>
+              <span class="card__tag"><i class="fa-solid fa-tint"></i> Mejora circulación</span>
+              <span class="card__tag"><i class="fa-solid fa-heart"></i> Tratamiento vascular</span>
             </div>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- Secciones específicas para cada aplicación -->
+    <!-- Secciones específicas para cada método -->
     <section id="intramuscular" class="section section--alt">
       <div class="container">
         <div class="about">
           <div class="about__media reveal">
-            <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=1200&q=80" alt="Aplicación intramuscular de ozono" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1200&q=80" alt="Aplicación intramuscular de ozono" loading="lazy" />
           </div>
           <div class="about__content reveal">
             <h2 class="section__title">Aplicación Intramuscular</h2>
-            <p>La aplicación intramuscular de ozono es una técnica directa y efectiva para el tratamiento del dolor muscular y la inflamación. Se inyecta una mezcla de ozono y oxígeno directamente en el tejido muscular afectado.</p>
-            <p>Esta técnica es especialmente útil para <strong>dolores musculares crónicos</strong>, <strong>lesiones deportivas</strong> y <strong>contracturas</strong>. El ozono actúa como un potente antiinflamatorio y analgésico, reduciendo el dolor y mejorando la circulación sanguínea.</p>
+            <p>La aplicación intramuscular de ozono es una técnica directa y efectiva para tratar dolor muscular, inflamación y promover la regeneración tisular. Es especialmente útil en lesiones deportivas y problemas musculares crónicos.</p>
+            <p>Este método permite la aplicación directa del ozono en el tejido muscular afectado, proporcionando efectos antiinflamatorios, analgésicos y regenerativos inmediatos.</p>
             <ul class="list">
-              <li><i class="fa-solid fa-check"></i> Reducción inmediata del dolor</li>
-              <li><i class="fa-solid fa-check"></i> Mejora de la circulación</li>
-              <li><i class="fa-solid fa-check"></i> Aceleración de la curación</li>
+              <li><i class="fa-solid fa-check"></i> Efecto antiinflamatorio directo</li>
+              <li><i class="fa-solid fa-check"></i> Alivio del dolor muscular</li>
+              <li><i class="fa-solid fa-check"></i> Promueve regeneración tisular</li>
+              <li><i class="fa-solid fa-check"></i> Ideal para lesiones deportivas</li>
             </ul>
           </div>
         </div>
@@ -146,17 +218,18 @@
       <div class="container">
         <div class="about">
           <div class="about__content reveal">
-            <h2 class="section__title">Aplicación Intra articular</h2>
-            <p>La inyección intra articular de ozono es especialmente efectiva para el tratamiento de condiciones articulares como artritis, artrosis y lesiones deportivas. Se aplica directamente en la cavidad articular.</p>
-            <p>Utilizamos esta técnica para <strong>articulaciones como rodillas, hombros y caderas</strong>. El ozono actúa como un potente antiinflamatorio y regenerador del cartílago, mejorando la movilidad y reduciendo el dolor articular.</p>
+            <h2 class="section__title">Aplicación Intraarticular</h2>
+            <p>La inyección intraarticular de ozono es altamente efectiva para tratar artrosis, artritis y otros problemas articulares. El ozono se aplica directamente en la articulación afectada, proporcionando efectos antiinflamatorios y regenerativos.</p>
+            <p>Esta técnica es especialmente beneficiosa para articulaciones como rodilla, cadera, hombro y columna vertebral, mejorando la movilidad y reduciendo el dolor articular.</p>
             <ul class="list">
-              <li><i class="fa-solid fa-check"></i> Regeneración del cartílago</li>
-              <li><i class="fa-solid fa-check"></i> Mejora de la movilidad</li>
-              <li><i class="fa-solid fa-check"></i> Reducción de inflamación</li>
+              <li><i class="fa-solid fa-check"></i> Tratamiento directo de articulaciones</li>
+              <li><i class="fa-solid fa-check"></i> Reduce inflamación articular</li>
+              <li><i class="fa-solid fa-check"></i> Mejora movilidad</li>
+              <li><i class="fa-solid fa-check"></i> Promueve regeneración del cartílago</li>
             </ul>
           </div>
           <div class="about__media reveal">
-            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80" alt="Inyección intra articular de ozono" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80" alt="Aplicación intraarticular de ozono" loading="lazy" />
           </div>
         </div>
       </div>
@@ -166,16 +239,17 @@
       <div class="container">
         <div class="about">
           <div class="about__media reveal">
-            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1200&q=80" alt="Auto hemoterapia menor con ozono" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=1200&q=80" alt="Auto hemoterapia menor" loading="lazy" />
           </div>
           <div class="about__content reveal">
-            <h2 class="section__title">Auto hemoterapia Menor</h2>
-            <p>La auto hemoterapia menor es una técnica que consiste en extraer una pequeña cantidad de sangre del paciente, ozonizarla y reinyectarla por vía intramuscular. Es ideal para tratamientos de mantenimiento y prevención.</p>
-            <p>Se extrae entre <strong>5-10 ml de sangre venosa</strong>, se mezcla con ozono en una jeringa especial, y se reinyecta por vía intramuscular. Esta técnica estimula el sistema inmunológico y mejora la oxigenación de los tejidos.</p>
+            <h2 class="section__title">Auto Hemoterapia Menor</h2>
+            <p>La auto hemoterapia menor es una técnica que consiste en extraer una pequeña cantidad de sangre del paciente, ozonizarla y reinyectarla intramuscularmente. Este proceso estimula el sistema inmunológico y mejora la oxigenación tisular.</p>
+            <p>Este método es especialmente efectivo para estimular las defensas naturales del organismo, mejorar la circulación y tratar condiciones que requieren un estímulo inmunológico.</p>
             <ul class="list">
-              <li><i class="fa-solid fa-check"></i> Estimulación inmunológica</li>
-              <li><i class="fa-solid fa-check"></i> Mejora de oxigenación</li>
-              <li><i class="fa-solid fa-check"></i> Efecto antiinflamatorio</li>
+              <li><i class="fa-solid fa-check"></i> Estimula sistema inmunológico</li>
+              <li><i class="fa-solid fa-check"></i> Mejora oxigenación tisular</li>
+              <li><i class="fa-solid fa-check"></i> Fortalece defensas naturales</li>
+              <li><i class="fa-solid fa-check"></i> Tratamiento seguro y efectivo</li>
             </ul>
           </div>
         </div>
@@ -186,17 +260,18 @@
       <div class="container">
         <div class="about">
           <div class="about__content reveal">
-            <h2 class="section__title">Auto hemoterapia Mayor</h2>
-            <p>La auto hemoterapia mayor es una técnica más intensiva que utiliza una mayor cantidad de sangre (50-200 ml), la ozoniza y la reinyecta por vía intravenosa. Es ideal para condiciones más severas y tratamientos intensivos.</p>
-            <p>Se extrae una cantidad mayor de sangre, se ozoniza en un <strong>sistema cerrado y estéril</strong>, y se reinyecta por vía intravenosa. Esta técnica proporciona un efecto sistémico más potente y duradero para el tratamiento de enfermedades crónicas.</p>
+            <h2 class="section__title">Auto Hemoterapia Mayor</h2>
+            <p>La auto hemoterapia mayor utiliza un volumen mayor de sangre ozonizada que se reinyecta por vía intravenosa. Este método es ideal para tratamientos sistémicos y enfermedades crónicas complejas.</p>
+            <p>Esta técnica proporciona efectos sistémicos más potentes, mejorando la circulación general, estimulando el sistema inmunológico y proporcionando beneficios terapéuticos en todo el organismo.</p>
             <ul class="list">
-              <li><i class="fa-solid fa-check"></i> Efecto sistémico potente</li>
-              <li><i class="fa-solid fa-check"></i> Mejora de oxigenación</li>
-              <li><i class="fa-solid fa-check"></i> Estimulación intensiva</li>
+              <li><i class="fa-solid fa-check"></i> Efectos sistémicos potentes</li>
+              <li><i class="fa-solid fa-check"></i> Ideal para enfermedades crónicas</li>
+              <li><i class="fa-solid fa-check"></i> Mejora circulación general</li>
+              <li><i class="fa-solid fa-check"></i> Estimulación inmunológica sistémica</li>
             </ul>
           </div>
           <div class="about__media reveal">
-            <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=1200&q=80" alt="Auto hemoterapia mayor con ozono" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1200&q=80" alt="Auto hemoterapia mayor" loading="lazy" />
           </div>
         </div>
       </div>
@@ -206,16 +281,17 @@
       <div class="container">
         <div class="about">
           <div class="about__media reveal">
-            <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=1200&q=80" alt="Sueros ozonizados intravenosos" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80" alt="Sueros ozonizados" loading="lazy" />
           </div>
           <div class="about__content reveal">
             <h2 class="section__title">Sueros Ozonizados</h2>
-            <p>Los sueros ozonizados consisten en la administración de soluciones fisiológicas que han sido ozonizadas y se administran por vía intravenosa. Esta técnica es especialmente útil para la hidratación y el aporte de oxígeno.</p>
-            <p>Se prepara una <strong>solución fisiológica ozonizada</strong> que se administra por vía intravenosa. El ozono disuelto en la solución proporciona oxígeno adicional a los tejidos y mejora la hidratación celular, siendo ideal para pacientes con fatiga crónica.</p>
+            <p>Los sueros ozonizados son soluciones intravenosas que contienen ozono disuelto, proporcionando un tratamiento sistémico efectivo para diversas condiciones médicas.</p>
+            <p>Este método es especialmente útil para desintoxicación, mejora general del organismo, tratamiento de enfermedades crónicas y como complemento a otros tratamientos médicos.</p>
             <ul class="list">
-              <li><i class="fa-solid fa-check"></i> Hidratación mejorada</li>
-              <li><i class="fa-solid fa-check"></i> Aporte de oxígeno</li>
-              <li><i class="fa-solid fa-check"></i> Mejora del bienestar</li>
+              <li><i class="fa-solid fa-check"></i> Tratamiento sistémico efectivo</li>
+              <li><i class="fa-solid fa-check"></i> Desintoxicación del organismo</li>
+              <li><i class="fa-solid fa-check"></i> Mejora oxigenación celular</li>
+              <li><i class="fa-solid fa-check"></i> Complemento terapéutico</li>
             </ul>
           </div>
         </div>
@@ -227,16 +303,17 @@
         <div class="about">
           <div class="about__content reveal">
             <h2 class="section__title">Bolsa Ozonizada</h2>
-            <p>La aplicación mediante bolsa ozonisada es una técnica tópica que consiste en colocar la zona afectada dentro de una bolsa hermética llena de ozono. Es especialmente efectiva para heridas, úlceras y problemas de piel.</p>
-            <p>Se coloca la zona afectada (generalmente una extremidad) dentro de una <strong>bolsa hermética que se llena con ozono</strong>. El ozono actúa directamente sobre la piel y los tejidos subyacentes, promoviendo la cicatrización y reduciendo la inflamación.</p>
+            <p>La aplicación mediante bolsa ozonisada es una técnica tópica que permite tratar heridas, úlceras, infecciones cutáneas y problemas circulatorios de manera localizada y efectiva.</p>
+            <p>Esta metodología es especialmente útil para heridas que no cicatrizan, úlceras varicosas, pie diabético y otras condiciones que requieren tratamiento local con ozono.</p>
             <ul class="list">
-              <li><i class="fa-solid fa-check"></i> Cicatrización acelerada</li>
-              <li><i class="fa-solid fa-check"></i> Efecto antibacteriano</li>
-              <li><i class="fa-solid fa-check"></i> Regeneración de tejidos</li>
+              <li><i class="fa-solid fa-check"></i> Tratamiento local efectivo</li>
+              <li><i class="fa-solid fa-check"></i> Efecto antibacteriano potente</li>
+              <li><i class="fa-solid fa-check"></i> Promueve cicatrización</li>
+              <li><i class="fa-solid fa-check"></i> Ideal para heridas complejas</li>
             </ul>
           </div>
           <div class="about__media reveal">
-            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80" alt="Aplicación con bolsa ozonisada" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=1200&q=80" alt="Bolsa ozonisada" loading="lazy" />
           </div>
         </div>
       </div>
@@ -246,16 +323,17 @@
       <div class="container">
         <div class="about">
           <div class="about__media reveal">
-            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1200&q=80" alt="Insuflación rectal de ozono" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1200&q=80" alt="Insuflación rectal" loading="lazy" />
           </div>
           <div class="about__content reveal">
             <h2 class="section__title">Insuflación Rectal</h2>
-            <p>La insuflación rectal es una técnica que consiste en la administración de ozono por vía rectal. Es especialmente útil para el tratamiento de condiciones intestinales, colitis y problemas digestivos.</p>
-            <p>Se introduce una pequeña cantidad de ozono por vía rectal mediante un <strong>catéter especial</strong>. El ozono actúa directamente sobre la mucosa intestinal, mejorando la circulación y reduciendo la inflamación para tratar problemas digestivos.</p>
+            <p>La insuflación rectal es una técnica que permite aplicar ozono directamente en el tracto gastrointestinal, siendo especialmente efectiva para tratar problemas digestivos e intestinales.</p>
+            <p>Este método es ideal para tratar colitis, enfermedad de Crohn, problemas de flora intestinal y otras condiciones gastrointestinales que se benefician del efecto antiinflamatorio y antibacteriano del ozono.</p>
             <ul class="list">
-              <li><i class="fa-solid fa-check"></i> Mejora de función intestinal</li>
-              <li><i class="fa-solid fa-check"></i> Reducción de inflamación</li>
-              <li><i class="fa-solid fa-check"></i> Mejora de absorción</li>
+              <li><i class="fa-solid fa-check"></i> Tratamiento gastrointestinal directo</li>
+              <li><i class="fa-solid fa-check"></i> Efecto antiinflamatorio local</li>
+              <li><i class="fa-solid fa-check"></i> Mejora salud intestinal</li>
+              <li><i class="fa-solid fa-check"></i> Tratamiento de colitis y Crohn</li>
             </ul>
           </div>
         </div>
@@ -267,52 +345,31 @@
         <div class="about">
           <div class="about__content reveal">
             <h2 class="section__title">Embolsados</h2>
-            <p>La aplicación mediante embolsado es una técnica tópica que consiste en colocar la zona afectada dentro de una bolsa hermética llena de ozono. Es especialmente efectiva para extremidades y zonas específicas del cuerpo.</p>
-            <p>Esta técnica es ideal para el tratamiento de <strong>extremidades afectadas</strong>, <strong>problemas circulatorios</strong> y <strong>condiciones de la piel</strong>. El ozono actúa directamente sobre la zona tratada, mejorando la circulación y promoviendo la regeneración tisular.</p>
+            <p>Los embolsados son una técnica especializada que permite tratar extremidades completas con ozono mediante bolsas herméticas, siendo especialmente efectiva para problemas circulatorios y vasculares.</p>
+            <p>Este método es ideal para tratar varices, insuficiencia venosa, problemas circulatorios periféricos y otras condiciones que afectan las extremidades y requieren un tratamiento localizado con ozono.</p>
             <ul class="list">
-              <li><i class="fa-solid fa-check"></i> Mejora circulatoria</li>
-              <li><i class="fa-solid fa-check"></i> Regeneración tisular</li>
-              <li><i class="fa-solid fa-check"></i> Efecto localizado</li>
+              <li><i class="fa-solid fa-check"></i> Tratamiento de extremidades completas</li>
+              <li><i class="fa-solid fa-check"></i> Mejora circulación venosa</li>
+              <li><i class="fa-solid fa-check"></i> Tratamiento de varices</li>
+              <li><i class="fa-solid fa-check"></i> Efecto vasodilatador</li>
             </ul>
           </div>
           <div class="about__media reveal">
-            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80" alt="Aplicación mediante embolsado" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=1200&q=80" alt="Embolsados con ozono" loading="lazy" />
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Sección de contacto -->
     <section class="section section--alt">
-      <div class="container">
-        <h2 class="section__title">Nuestro Enfoque Terapéutico</h2>
-        <div class="timeline">
-          <div class="timeline__item reveal">
-            <div class="timeline__dot"></div>
-            <h3>Evaluación Especializada</h3>
-            <p>Realizamos una evaluación completa para determinar la aplicación más adecuada según la condición médica y las necesidades específicas del paciente.</p>
-          </div>
-          <div class="timeline__item reveal">
-            <div class="timeline__dot"></div>
-            <h3>Aplicación Personalizada</h3>
-            <p>Seleccionamos la técnica de aplicación más efectiva y la adaptamos a las necesidades específicas de cada paciente para maximizar los resultados.</p>
-          </div>
-          <div class="timeline__item reveal">
-            <div class="timeline__dot"></div>
-            <h3>Seguimiento Continuo</h3>
-            <p>Monitoreamos la evolución del tratamiento y ajustamos las aplicaciones según sea necesario para optimizar los resultados terapéuticos.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
       <div class="container contact">
         <div class="contact__info reveal">
-          <h2 class="section__title">¿Interesado en nuestras aplicaciones?</h2>
-          <p>Contáctanos para más información sobre nuestros tratamientos de ozonoterapia y la aplicación más adecuada para tu condición.</p>
+          <h2 class="section__title">¿Quieres conocer más sobre nuestros métodos?</h2>
+          <p>Cada paciente es único y requiere un enfoque personalizado. Consulta con nuestros especialistas para determinar el método de aplicación más adecuado para tu condición.</p>
           <div class="contact__cta">
-            <a class="btn btn--primary" href="../../index.html#citas" data-open-modal><i class="fa-solid fa-calendar-days"></i> Consulta especializada</a>
-            <a class="btn btn--whatsapp" target="_blank" rel="noopener" href="https://wa.me/51999999999?data-whatsapp-message">
+            <a class="btn btn--primary" href="../index.html#citas" data-open-modal><i class="fa-solid fa-calendar-days"></i> Reservar consulta</a>
+            <a class="btn btn--whatsapp" target="_blank" rel="noopener" href="https://wa.me/51988126804?data-whatsapp-message">
               <i class="fa-brands fa-whatsapp"></i> WhatsApp
             </a>
           </div>
@@ -327,7 +384,16 @@
   <!-- Footer Component -->
   <div id="footer-placeholder"></div>
 
-  <!-- Scripts del sistema de componentes -->
+  <!-- Scripts del sistema de componentes - Carga optimizada -->
+  <script>
+    // Script crítico inline para evitar bloqueo
+    window.addEventListener('DOMContentLoaded', function() {
+      // Marcar como cargado para evitar FOUC
+      document.body.classList.remove('loading');
+      document.body.classList.add('loaded');
+    });
+  </script>
+  
   <!-- Scripts principales con defer para no bloquear -->
   <script src="../js/metadata-config.js" defer></script>
   <script src="../js/social-config.js" defer></script>

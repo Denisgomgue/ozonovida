@@ -7,7 +7,6 @@
   <!-- CSS Crítico -->
   <link rel="stylesheet" href="../../../css/critical.css" />
   
-
   <!-- Preload de recursos críticos -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -27,23 +26,23 @@
 
   <!-- Metadata dinámica -->
   <title data-page-title>Tratamiento de Infecciones • OZONO VIDA</title>
-  <meta name="description" content="Tratamiento de infecciones resistentes con ozonoterapia y medicina regenerativa para heridas infectadas, pie diabético y úlceras varicosas." />
+  <meta name="description" content="Tratamiento de infecciones con ozonoterapia: heridas infectadas, pie diabético, úlceras varicosas. Efecto antibacteriano y cicatrizante." />
 
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="Tratamiento de Infecciones • OZONO VIDA" />
-  <meta property="og:description" content="Tratamiento de infecciones resistentes con ozonoterapia y medicina regenerativa para heridas infectadas, pie diabético y úlceras varicosas." />
+  <meta property="og:description" content="Tratamiento de infecciones con ozonoterapia: heridas infectadas, pie diabético, úlceras varicosas. Efecto antibacteriano y cicatrizante." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://stella-maris.example/tratamientos/infecciones" />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1200&q=80" />
+  <meta property="og:url" content="https://ozonovida.netlify.app/tratamientos/infecciones" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1200&q=80" />
 
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Tratamiento de Infecciones • OZONO VIDA" />
-  <meta name="twitter:description" content="Tratamiento de infecciones resistentes con ozonoterapia y medicina regenerativa para heridas infectadas, pie diabético y úlceras varicosas." />
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1200&q=80" />
+  <meta name="twitter:description" content="Tratamiento de infecciones con ozonoterapia: heridas infectadas, pie diabético, úlceras varicosas. Efecto antibacteriano y cicatrizante." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1200&q=80" />
 
   <!-- Canonical URL -->
-  <link rel="canonical" href="https://stella-maris.example/tratamientos/infecciones" />
+  <link rel="canonical" href="https://ozonovida.netlify.app/tratamientos/infecciones" />
 
   <!-- Favicon -->
   <link rel="icon" href="../../../assets/favicon.ico" type="image/x-icon" />
@@ -55,9 +54,9 @@
     "@context": "https://schema.org",
     "@type": "MedicalClinic",
     "name": "OZONO VIDA Centro Médico",
-    "description": "Tratamiento de infecciones resistentes con ozonoterapia y medicina regenerativa para heridas infectadas, pie diabético y úlceras varicosas.",
-    "image": "https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1200&q=80",
-    "url": "https://stella-maris.example/tratamientos/infecciones",
+    "description": "Tratamiento de infecciones con ozonoterapia y medicina regenerativa para heridas infectadas y úlceras.",
+    "image": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1200&q=80",
+    "url": "https://ozonovida.netlify.app/tratamientos/infecciones",
     "telephone": "+51 999 999 999",
     "address": {
       "@type": "PostalAddress",
@@ -66,16 +65,16 @@
       "addressRegion": "Ancash",
       "addressCountry": "PE"
     },
-    "medicalSpecialty": ["PainManagement", "RegenerativeMedicine"],
+    "medicalSpecialty": ["InfectiousDisease", "WoundCare"],
     "openingHours": "Mo-Fr 09:00-19:00, Sa 09:00-13:00",
     "priceRange": "$$"
   }
   </script>
-  <!-- CSS Crítico -->
-  <link rel="stylesheet" href="../../css/critical.css" />
-  
 </head>
 <body>
+  <!-- Indicador de carga -->
+  <div id="loading-indicator"></div>
+  
   <a href="#inicio" class="skip-link">Saltar al contenido</a>
 
   <!-- Header Component -->
@@ -88,66 +87,67 @@
       <div class="container hero__grid">
         <div class="hero__content reveal">
           <h1>Tratamiento de Infecciones</h1>
-          <p>En <strong>OZONO VIDA</strong> utilizamos ozonoterapia y medicina regenerativa para combatir infecciones bacterianas, virales y fúngicas de manera efectiva, fortaleciendo tu sistema inmunológico.</p>
+          <p>En <strong>OZONO VIDA</strong> tratamos infecciones complejas y heridas que no cicatrizan adecuadamente. La ozonoterapia es altamente efectiva contra bacterias, virus y hongos, proporcionando una alternativa natural y potente a los antibióticos convencionales.</p>
           <div class="hero__cta">
-            <a class="btn btn--primary" href="../../index.html#citas" data-open-modal>
-              <i class="fa-solid fa-calendar-check"></i> Consulta médica
+            <a class="btn btn--primary" href="../../../index.html#citas" data-open-modal>
+              <i class="fa-solid fa-calendar-check"></i> Agenda tu consulta
             </a>
-            <a class="btn btn--ghost" href="#servicios">
+            <a class="btn btn--ghost" href="#infecciones">
               <i class="fa-solid fa-circle-play"></i> Ver tratamientos
             </a>
           </div>
           <ul class="hero__badges">
-            <li><i class="fa-solid fa-user-doctor"></i> Especialistas en infectología</li>
-            <li><i class="fa-solid fa-syringe"></i> Terapias antimicrobianas</li>
-            <li><i class="fa-solid fa-shield-heart"></i> Fortalecimiento inmunológico</li>
+            <li><i class="fa-solid fa-shield"></i> Efecto antibacteriano</li>
+            <li><i class="fa-solid fa-heart-pulse"></i> Promueve cicatrización</li>
+            <li><i class="fa-solid fa-leaf"></i> Tratamiento natural</li>
           </ul>
         </div>
         <div class="hero__media reveal">
           <figure class="illustration">
-            <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1400&q=80" alt="Tratamiento médico de infecciones" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1400&q=80" alt="Tratamiento de infecciones con ozono" loading="lazy" />
           </figure>
         </div>
       </div>
     </section>
 
-    <section id="servicios" class="section">
+    <!-- Sección de Infecciones -->
+    <section id="infecciones" class="section">
       <div class="container">
-        <h2 class="section__title">Infecciones que Tratamos</h2>
-        <p class="section__subtitle">Abordaje integral de infecciones con ozonoterapia y medicina regenerativa</p>
+        <h2 class="section__title">Tipos de Infecciones que Tratamos</h2>
+        <p class="section__subtitle">Tratamiento especializado de infecciones complejas con ozonoterapia</p>
         <div class="grid cards">
-          <a href="infecciones.html#heridas-infectadas" class="card reveal">
-            <div class="card__icon"><i class="fa-solid fa-bandage"></i></div>
+          <a href="#heridas-infectadas" class="card reveal">
+            <div class="card__icon"><i class="fa-solid fa-hand-holding-medical"></i></div>
             <h3>Heridas Infectadas</h3>
-            <p>Tratamiento de heridas infectadas resistentes a antibióticos con ozonoterapia tópica y sistémica para acelerar la cicatrización.</p>
+            <p>Tratamiento de heridas infectadas con ozonoterapia local para eliminar bacterias, reducir inflamación y promover la cicatrización natural.</p>
             <div class="card__info">
-              <span class="card__tag"><i class="fa-solid fa-shield"></i> Antimicrobiano</span>
-              <span class="card__tag"><i class="fa-solid fa-tools"></i> Cicatrización</span>
+              <span class="card__tag"><i class="fa-solid fa-shield"></i> Antibacteriano</span>
+              <span class="card__tag"><i class="fa-solid fa-heart"></i> Cicatrización</span>
             </div>
           </a>
-          <a href="infecciones.html#pie-diabetico" class="card reveal">
-            <div class="card__icon"><i class="fa-solid fa-foot"></i></div>
+          <a href="#pie-diabetico" class="card reveal">
+            <div class="card__icon"><i class="fa-solid fa-shoe-prints"></i></div>
             <h3>Pie Diabético</h3>
-            <p>Manejo especializado del pie diabético infectado con ozonoterapia, medicina regenerativa y técnicas de curación avanzadas.</p>
+            <p>Manejo integral del pie diabético con ozonoterapia sistémica y local para prevenir infecciones, mejorar circulación y promover cicatrización.</p>
             <div class="card__info">
-              <span class="card__tag"><i class="fa-solid fa-shield"></i> Prevención</span>
-              <span class="card__tag"><i class="fa-solid fa-heart"></i> Especializado</span>
+              <span class="card__tag"><i class="fa-solid fa-tint"></i> Mejora circulación</span>
+              <span class="card__tag"><i class="fa-solid fa-shield"></i> Previene infecciones</span>
             </div>
           </a>
-          <a href="infecciones.html#ulceras-varicosas" class="card reveal">
-            <div class="card__icon"><i class="fa-solid fa-vein"></i></div>
+          <a href="#ulceras-varicosas" class="card reveal">
+            <div class="card__icon"><i class="fa-solid fa-heart-pulse"></i></div>
             <h3>Úlceras Varicosas</h3>
-            <p>Tratamiento de úlceras varicosas infectadas con ozonoterapia, medicina regenerativa y técnicas vasculares especializadas.</p>
+            <p>Tratamiento de úlceras varicosas infectadas con ozonoterapia para eliminar infecciones, mejorar circulación y acelerar la cicatrización.</p>
             <div class="card__info">
-              <span class="card__tag"><i class="fa-solid fa-tint"></i> Circulación</span>
-              <span class="card__tag"><i class="fa-solid fa-tools"></i> Regeneración</span>
+              <span class="card__tag"><i class="fa-solid fa-shield"></i> Elimina infecciones</span>
+              <span class="card__tag"><i class="fa-solid fa-heart"></i> Cicatrización rápida</span>
             </div>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- Secciones específicas para cada subitem -->
+    <!-- Secciones específicas para cada tipo de infección -->
     <section id="heridas-infectadas" class="section section--alt">
       <div class="container">
         <div class="about">
@@ -156,12 +156,13 @@
           </div>
           <div class="about__content reveal">
             <h2 class="section__title">Heridas Infectadas</h2>
-            <p>Las heridas infectadas son lesiones que han desarrollado infección bacteriana, causando dolor, inflamación, secreción y retraso en la cicatrización.</p>
-            <p>Utilizamos <strong>ozonoterapia tópica y sistémica</strong> para combatir la infección, <strong>medicina regenerativa</strong> para promover la cicatrización y técnicas especializadas para acelerar la curación.</p>
+            <p>Las heridas infectadas son una complicación común que puede retrasar significativamente el proceso de cicatrización. La infección puede causar inflamación, dolor, supuración y en casos severos, sepsis.</p>
+            <p>La <strong>ozonoterapia local</strong> es altamente efectiva para el tratamiento de heridas infectadas debido a su potente efecto antibacteriano, antiviral y antifúngico. Además, promueve la cicatrización y regeneración tisular.</p>
             <ul class="list">
-              <li><i class="fa-solid fa-check"></i> Combate de infección</li>
-              <li><i class="fa-solid fa-check"></i> Promoción de cicatrización</li>
-              <li><i class="fa-solid fa-check"></i> Aceleración de curación</li>
+              <li><i class="fa-solid fa-check"></i> Efecto antibacteriano potente</li>
+              <li><i class="fa-solid fa-check"></i> Elimina virus y hongos</li>
+              <li><i class="fa-solid fa-check"></i> Reduce inflamación</li>
+              <li><i class="fa-solid fa-check"></i> Promueve cicatrización</li>
             </ul>
           </div>
         </div>
@@ -173,16 +174,17 @@
         <div class="about">
           <div class="about__content reveal">
             <h2 class="section__title">Pie Diabético</h2>
-            <p>El pie diabético es una complicación grave de la diabetes que puede causar úlceras, infecciones y en casos severos, amputación.</p>
-            <p>Nuestro tratamiento especializado incluye <strong>ozonoterapia</strong>, <strong>medicina regenerativa</strong> y <strong>técnicas de curación avanzadas</strong> para prevenir complicaciones y promover la cicatrización.</p>
+            <p>El pie diabético es una complicación grave de la diabetes que puede llevar a úlceras, infecciones y en casos severos, amputación. Los pacientes diabéticos tienen mayor riesgo de desarrollar infecciones debido a la neuropatía y problemas circulatorios.</p>
+            <p>Nuestro tratamiento integral incluye <strong>ozonoterapia sistémica</strong> para mejorar el control glucémico y <strong>aplicaciones locales</strong> para tratar infecciones, mejorar la circulación y promover la cicatrización de úlceras.</p>
             <ul class="list">
-              <li><i class="fa-solid fa-check"></i> Prevención de complicaciones</li>
-              <li><i class="fa-solid fa-check"></i> Promoción de cicatrización</li>
-              <li><i class="fa-solid fa-check"></i> Manejo especializado</li>
+              <li><i class="fa-solid fa-check"></i> Mejora control glucémico</li>
+              <li><i class="fa-solid fa-check"></i> Previene infecciones</li>
+              <li><i class="fa-solid fa-check"></i> Mejora circulación</li>
+              <li><i class="fa-solid fa-check"></i> Promueve cicatrización</li>
             </ul>
           </div>
           <div class="about__media reveal">
-            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1200&q=80" alt="Tratamiento de pie diabético" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80" alt="Tratamiento de pie diabético" loading="lazy" />
           </div>
         </div>
       </div>
@@ -196,49 +198,57 @@
           </div>
           <div class="about__content reveal">
             <h2 class="section__title">Úlceras Varicosas</h2>
-            <p>Las úlceras varicosas son heridas crónicas que se desarrollan en personas con problemas circulatorios venosos, especialmente en las piernas.</p>
-            <p>Utilizamos <strong>ozonoterapia</strong>, <strong>medicina regenerativa</strong> y <strong>técnicas vasculares especializadas</strong> para mejorar la circulación, reducir la infección y promover la cicatrización.</p>
+            <p>Las úlceras varicosas son heridas crónicas que se desarrollan en pacientes con insuficiencia venosa crónica. Estas úlceras pueden infectarse fácilmente y son difíciles de tratar debido a la mala circulación venosa.</p>
+            <p>La <strong>ozonoterapia</strong> es especialmente efectiva para úlceras varicosas infectadas, ya que combina el efecto antibacteriano con la mejora de la circulación venosa y la promoción de la cicatrización tisular.</p>
             <ul class="list">
-              <li><i class="fa-solid fa-check"></i> Mejora circulatoria</li>
-              <li><i class="fa-solid fa-check"></i> Reducción de infección</li>
-              <li><i class="fa-solid fa-check"></i> Promoción de cicatrización</li>
+              <li><i class="fa-solid fa-check"></i> Elimina infecciones</li>
+              <li><i class="fa-solid fa-check"></i> Mejora circulación venosa</li>
+              <li><i class="fa-solid fa-check"></i> Reduce inflamación</li>
+              <li><i class="fa-solid fa-check"></i> Acelera cicatrización</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section section--alt">
+    <!-- Sección de beneficios de la ozonoterapia -->
+    <section class="section">
       <div class="container">
-        <h2 class="section__title">Nuestro Enfoque Antimicrobiano</h2>
+        <h2 class="section__title">¿Por qué Elegir Ozonoterapia para Infecciones?</h2>
         <div class="timeline">
           <div class="timeline__item reveal">
             <div class="timeline__dot"></div>
-            <h3>Diagnóstico Preciso</h3>
-            <p>Identificamos el tipo de infección y el agente causal mediante estudios especializados para un tratamiento dirigido.</p>
+            <h3>Efecto Antibacteriano Potente</h3>
+            <p>El ozono es altamente efectivo contra bacterias, incluyendo cepas resistentes a antibióticos convencionales, proporcionando una alternativa terapéutica valiosa.</p>
           </div>
           <div class="timeline__item reveal">
             <div class="timeline__dot"></div>
-            <h3>Terapia Combinada</h3>
-            <p>Utilizamos ozonoterapia junto con medicina regenerativa para potenciar la respuesta inmunológica.</p>
+            <h3>Actividad Antiviral y Antifúngica</h3>
+            <p>La ozonoterapia es efectiva contra virus y hongos, proporcionando un tratamiento integral para diferentes tipos de infecciones.</p>
           </div>
           <div class="timeline__item reveal">
             <div class="timeline__dot"></div>
-            <h3>Prevención</h3>
-            <p>Implementamos estrategias para fortalecer el sistema inmunológico y prevenir futuras infecciones.</p>
+            <h3>Promoción de Cicatrización</h3>
+            <p>Además de eliminar infecciones, la ozonoterapia promueve la cicatrización y regeneración tisular, acelerando la recuperación.</p>
+          </div>
+          <div class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <h3>Sin Resistencia Bacteriana</h3>
+            <p>A diferencia de los antibióticos, las bacterias no desarrollan resistencia al ozono, manteniendo su efectividad a largo plazo.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <!-- Sección de contacto -->
+    <section class="section section--alt">
       <div class="container contact">
         <div class="contact__info reveal">
-          <h2 class="section__title">¿Tienes una infección resistente?</h2>
-          <p>No te resignes a vivir con infecciones recurrentes. En OZONO VIDA tenemos terapias avanzadas que pueden ayudarte a combatir infecciones difíciles de tratar.</p>
+          <h2 class="section__title">¿Tienes una herida que no cicatriza?</h2>
+          <p>No esperes más. La ozonoterapia puede ayudarte a eliminar infecciones y promover la cicatrización de heridas complejas. Consulta con nuestros especialistas.</p>
           <div class="contact__cta">
-            <a class="btn btn--primary" href="../../index.html#citas" data-open-modal><i class="fa-solid fa-calendar-days"></i> Consulta médica</a>
-            <a class="btn btn--whatsapp" target="_blank" rel="noopener" href="https://wa.me/51999999999?data-whatsapp-message">
+            <a class="btn btn--primary" href="../../../index.html#citas" data-open-modal><i class="fa-solid fa-calendar-days"></i> Reservar consulta</a>
+            <a class="btn btn--whatsapp" target="_blank" rel="noopener" href="https://wa.me/51988126804?data-whatsapp-message">
               <i class="fa-brands fa-whatsapp"></i> WhatsApp
             </a>
           </div>
@@ -265,10 +275,8 @@
   
   <!-- Scripts principales con defer para no bloquear -->
   <script src="../../../js/metadata-config.js" defer></script>
-  <script src="../../js/social-config.js" defer></script>
+  <script src="../../../js/social-config.js" defer></script>
   <script src="../../../js/optimized-component-loader.js" defer></script>
   <script src="../../../js/app.js" defer></script>
 </body>
 </html>
-
-

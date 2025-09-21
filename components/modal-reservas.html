@@ -1,0 +1,48 @@
+<!-- Modal de Reservas - Componente Reutilizable -->
+<section id="citas" class="modal" aria-hidden="true" role="dialog" aria-modal="false">
+  <div class="modal__backdrop" data-close-modal></div>
+  <div class="modal__dialog" role="document">
+    <button class="modal__close" aria-label="Cerrar" data-close-modal><i class="fa-solid fa-xmark"></i></button>
+    <h3>Reserva tu cita</h3>
+    <form class="form" id="booking-form" novalidate>
+      <div class="form__group">
+        <label for="nombre" class="form__label">Nombre completo *</label>
+        <input type="text" id="nombre" name="nombre" class="form__input" required>
+      </div>
+      <div class="form__group">
+        <label for="telefono" class="form__label">Teléfono *</label>
+        <input type="tel" id="telefono" name="telefono" class="form__input" required>
+      </div>
+      <div class="form__group">
+        <label for="email" class="form__label">Email</label>
+        <input type="email" id="email" name="email" class="form__input">
+      </div>
+      <div class="form__group">
+        <label for="servicio" class="form__label">Servicio de interés *</label>
+        <select id="servicio" name="servicio" class="form__input" required>
+          <option value="">Selecciona un servicio</option>
+          <option value="ozonoterapia">Ozonoterapia</option>
+          <option value="plasma-rico-plaquetas">Plasma Rico en Plaquetas (PRP)</option>
+          <option value="medicina-regenerativa">Medicina Regenerativa</option>
+          <option value="tratamiento-dolor">Tratamiento del Dolor</option>
+          <option value="tratamiento-enfermedades">Tratamiento de Enfermedades</option>
+          <option value="estetica">Tratamientos Estéticos</option>
+          <option value="ginecologia">Tratamientos Ginecológicos</option>
+          <option value="infecciones">Tratamiento de Infecciones</option>
+          <option value="consulta-general">Consulta General</option>
+        </select>
+      </div>
+      <div class="form__group">
+        <label for="fecha" class="form__label">Fecha preferida *</label>
+        <input type="date" id="fecha" name="fecha" class="form__input" required>
+      </div>
+      <div class="form__group">
+        <label for="mensaje" class="form__label">Mensaje adicional</label>
+        <textarea id="mensaje" name="mensaje" class="form__input" rows="4" placeholder="Cuéntanos más sobre tu consulta..."></textarea>
+      </div>
+      <button type="submit" class="btn btn--primary btn--full">
+        <i class="fa-solid fa-paper-plane"></i> Enviar solicitud
+      </button>
+    </form>
+  </div>
+</section>
