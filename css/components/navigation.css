@@ -15,6 +15,26 @@
     border-bottom: 1px solid var(--border);
     transition: all var(--transition-base);
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+}
+
+/* Header en la parte superior (scroll = 0) */
+.header--at-top {
+    position: relative;
+    background: transparent;
+    backdrop-filter: none;
+    border-bottom: none;
+    box-shadow: none;
+}
+
+/* Header scrolleado */
+.header--scrolled {
+    position: fixed;
+    transform: translateY(0);
+    background: linear-gradient(180deg, rgba(11, 18, 32, 0.95) 0%, rgba(11, 18, 32, 0.85) 100%);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 }
 
 [data-theme="light"] .header {

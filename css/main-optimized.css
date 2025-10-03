@@ -20,11 +20,90 @@
 /* Hero Section */
 .hero {
   position: relative;
-  padding: 5rem 0 4rem;
+  padding: 15rem 0 4rem;
   min-height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+/* Hero específico para página principal */
+.hero--main-page {
+  padding-top: 8rem;
+  /* Más espacio para el slider de pantalla completa */
+  min-height: 100vh;
+  /* Pantalla completa para el slider */
+}
+
+/* Hero para páginas internas - ajustar padding para evitar que se oculte bajo el header */
+.hero:not(.hero--main-page) {
+  padding-top: 10rem !important;
+  /* Espacio suficiente para el header fijo */
+  margin-top: 0;
+}
+
+/* Overlay oscuro para el slider */
+.slider-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Asegurar que el contenido del texto esté por encima del overlay */
+.slider-main-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Espaciado adicional para páginas internas que no son la principal */
+body:not(.page-main) .hero:not(.hero--main-page) {
+  padding-top: 12rem !important;
+  margin-top: 0;
+}
+
+/* Ajuste específico para móviles */
+@media (max-width: 768px) {
+  .hero:not(.hero--main-page) {
+    padding-top: 8rem !important;
+  }
+
+  body:not(.page-main) .hero:not(.hero--main-page) {
+    padding-top: 10rem !important;
+  }
+}
+
+/* Asegurar que las páginas internas siempre tengan espacio suficiente */
+.hero:not(.hero--main-page) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Forzar espaciado en todas las páginas que no sean la principal */
+body:not(.page-main) main>section:first-child {
+  padding-top: 12rem !important;
+  margin-top: 0 !important;
+}
+
+/* Ajuste adicional para páginas de servicios */
+.hero:not(.hero--main-page) .container {
+  padding-top: 0;
+}
+
+/* Regla universal para cualquier sección hero en páginas internas */
+body:not(.page-main) .hero {
+  padding-top: 12rem !important;
+}
+
+/* Ajuste para móviles en páginas internas */
+@media (max-width: 768px) {
+  body:not(.page-main) .hero {
+    padding-top: 10rem !important;
+  }
 }
 
 .hero__grid {

@@ -132,8 +132,9 @@ body {
 /* Hero crítico */
 .hero {
     position: relative;
-    padding: 5rem 0 4rem;
-    min-height: 70vh;
+    padding: 15rem 0 4rem;
+    /* Espaciado para evitar que se oculte bajo el header */
+    min-height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;

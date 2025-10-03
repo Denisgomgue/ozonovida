@@ -139,57 +139,218 @@
   }
   </script>
 </head>
-<body>
+<body class="page-main">
   <a href="#inicio" class="skip-link">Saltar al contenido</a>
 
   <!-- Header Component -->
   <div id="header-placeholder"></div>
 
   <main>
-    <section class="hero" aria-label="Presentación">
+    <section class="hero hero--main-page" aria-label="Presentación">
       <div class="shape shape--1"></div>
       <div class="shape shape--2"></div>
-      <div class="container hero__grid">
-        <div class="hero__content reveal">
-          <h1>Medicina regenerativa ozonoterapia, aliviamos el dolor</h1>
-          <p>En <strong>OZONO VIDA</strong> tratamos dolor de columna, hernias, rodillas y más, con terapias avanzadas: ozono, plasma y medicina regenerativa.</p>
-          <div class="hero__cta">
-            <a class="btn btn--primary" href="#citas" data-open-modal>
-              <i class="fa-solid fa-calendar-check"></i> Agenda tu cita
-            </a>
-            <a class="btn btn--ghost" href="#servicios">
-              <i class="fa-solid fa-circle-play"></i> Ver servicios
-            </a>
-          </div>
-          <ul class="hero__badges">
-            <li><i class="fa-solid fa-user-doctor"></i> Especialistas en dolor</li>
-            <li><i class="fa-solid fa-syringe"></i> Plasma y ozono</li>
-            <li><i class="fa-solid fa-shield-heart"></i> Tratamientos seguros</li>
-          </ul>
-        </div>
-        <div class="hero__media reveal">
-          <!-- Contenedor principal de imagen con rotación automática -->
-          <div class="main-image-container" id="main-image-container">
-            <img src="./assets/images/imagen_principal.png" 
-                 alt="OZONO VIDA Centro Médico - Tratamiento médico especializado" 
-                 loading="eager" 
-                 decoding="async"
-                 class="critical-img"
-                 width="600" 
-                 height="400" />
-            <div class="main-image-overlay">
-              <span>OZONO VIDA</span>
+      
+      <!-- Slider de pantalla completa -->
+      <div class="fullscreen-slider" id="fullscreen-slider">
+        <div class="slider-container">
+          <div class="slider-track" id="slider-track">
+            <!-- Slide 1: Imagen principal -->
+            <div class="slide active" data-slide="0">
+              <img src="./assets/images/imagen_principal.jpeg" 
+                   alt="OZONO VIDA Centro Médico - Medicina regenerativa especializada" 
+                   loading="eager" 
+                   decoding="async"
+                   class="slide-image"
+                   width="1920" 
+                   height="1080" />
+            </div>
+
+            <!-- Slide 2: Nueva imagen slider -->
+            <div class="slide" data-slide="1">
+              <img src="./assets/images/imagen_slider.jpg" 
+                   alt="OZONO VIDA - Centro Médico Profesional con cobertura nacional" 
+                   loading="lazy" 
+                   decoding="async"
+                   class="slide-image"
+                   width="1920" 
+                   height="1080" />
+            </div>
+
+            <!-- Slide 3: Imagen 1 -->
+            <div class="slide" data-slide="2">
+              <img src="./assets/images/image1.png" 
+                   alt="OZONO VIDA - Servicios de ozonoterapia y tratamiento del dolor" 
+                   loading="lazy" 
+                   decoding="async"
+                   class="slide-image"
+                   width="1920" 
+                   height="1080" />
+            </div>
+
+            <!-- Slide 4: Imagen 2 -->
+            <div class="slide" data-slide="3">
+              <img src="./assets/images/image2.png" 
+                   alt="OZONO VIDA - Equipo médico especializado" 
+                   loading="lazy" 
+                   decoding="async"
+                   class="slide-image"
+                   width="1920" 
+                   height="1080" />
+            </div>
+
+            <!-- Slide 5: Imagen 3 -->
+            <div class="slide" data-slide="4">
+              <img src="./assets/images/image3.png" 
+                   alt="OZONO VIDA - Tratamientos médicos especializados" 
+                   loading="lazy" 
+                   decoding="async"
+                   class="slide-image"
+                   width="1920" 
+                   height="1080" />
+            </div>
+
+            <!-- Slide 6: Imagen 4 -->
+            <div class="slide" data-slide="5">
+              <img src="./assets/images/image4.png" 
+                   alt="OZONO VIDA - Medicina regenerativa avanzada" 
+                   loading="lazy" 
+                   decoding="async"
+                   class="slide-image"
+                   width="1920" 
+                   height="1080" />
+            </div>
+
+            <!-- Slide 7: Imagen 5 -->
+            <div class="slide" data-slide="6">
+              <img src="./assets/images/image5.png" 
+                   alt="OZONO VIDA - Terapias de ozonoterapia" 
+                   loading="lazy" 
+                   decoding="async"
+                   class="slide-image"
+                   width="1920" 
+                   height="1080" />
+            </div>
+
+            <!-- Slide 8: Imagen 6 -->
+            <div class="slide" data-slide="7">
+              <img src="./assets/images/image6.png" 
+                   alt="OZONO VIDA - Tratamientos de plasma rico en plaquetas" 
+                   loading="lazy" 
+                   decoding="async"
+                   class="slide-image"
+                   width="1920" 
+                   height="1080" />
+            </div>
+
+            <!-- Slide 9: Imagen 7 -->
+            <div class="slide" data-slide="8">
+              <img src="./assets/images/image7.png" 
+                   alt="OZONO VIDA - Procedimientos médicos especializados" 
+                   loading="lazy" 
+                   decoding="async"
+                   class="slide-image"
+                   width="1920" 
+                   height="1080" />
+            </div>
+
+            <!-- Slide 10: Imagen 8 -->
+            <div class="slide" data-slide="9">
+              <img src="./assets/images/image8.png" 
+                   alt="OZONO VIDA - Medicina regenerativa profesional" 
+                   loading="lazy" 
+                   decoding="async"
+                   class="slide-image"
+                   width="1920" 
+                   height="1080" />
+            </div>
+
+            <!-- Slide 11: Imagen 9 -->
+            <div class="slide" data-slide="10">
+              <img src="./assets/images/image9.png" 
+                   alt="OZONO VIDA - Tratamientos avanzados" 
+                   loading="lazy" 
+                   decoding="async"
+                   class="slide-image"
+                   width="1920" 
+                   height="1080" />
+            </div>
+
+            <!-- Slide 12: Imagen 10 -->
+            <div class="slide" data-slide="11">
+              <img src="./assets/images/image10.png" 
+                   alt="OZONO VIDA - Centro médico especializado" 
+                   loading="lazy" 
+                   decoding="async"
+                   class="slide-image"
+                   width="1920" 
+                   height="1080" />
             </div>
           </div>
-          
-          <div class="location-card">
-            <i class="fa-solid fa-location-dot"></i>
-            Av. Villón, frente a la Dirección Víctor Ramos Guardia
+
+          <!-- Controles de navegación -->
+          <button class="slider-btn slider-btn--prev" aria-label="Imagen anterior">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="slider-btn slider-btn--next" aria-label="Imagen siguiente">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+
+          <!-- Indicadores -->
+          <div class="slider-indicators">
+            <button class="indicator active" data-slide="0" aria-label="Ir a imagen 1"></button>
+            <button class="indicator" data-slide="1" aria-label="Ir a imagen 2"></button>
+            <button class="indicator" data-slide="2" aria-label="Ir a imagen 3"></button>
+            <button class="indicator" data-slide="3" aria-label="Ir a imagen 4"></button>
+            <button class="indicator" data-slide="4" aria-label="Ir a imagen 5"></button>
+            <button class="indicator" data-slide="5" aria-label="Ir a imagen 6"></button>
+            <button class="indicator" data-slide="6" aria-label="Ir a imagen 7"></button>
+            <button class="indicator" data-slide="7" aria-label="Ir a imagen 8"></button>
+            <button class="indicator" data-slide="8" aria-label="Ir a imagen 9"></button>
+            <button class="indicator" data-slide="9" aria-label="Ir a imagen 10"></button>
+            <button class="indicator" data-slide="10" aria-label="Ir a imagen 11"></button>
+            <button class="indicator" data-slide="11" aria-label="Ir a imagen 12"></button>
           </div>
+
+          <!--Overlay con información de la clínica -->
+          <!-- <div class="medical-overlay">
+            <div class="clinic-badge">
+              <i class="fa-solid fa-hospital"></i>
+              <span>Centro Médico Certificado</span>
+            </div>
+          </div>  -->
+
+          <!-- Overlay oscuro para mejorar contraste del texto -->
+          <div class="slider-overlay"></div>
+
+          <!-- Contenido principal del slider -->
+          <div class="slider-main-content">
+            <div class="hero-text-overlay">
+              <h1 class="slider-title">
+                <span>Medicina regenerativa ozonoterapia, aliviamos el dolor</span>
+              </h1>
+              <div class="hero-buttons">
+                <a class="btn btn--primary btn--reserve" href="#citas" data-open-modal>
+                  <i class="fa-solid fa-calendar-check"></i>
+                  <span>Reservar Hora</span>
+                </a>
+                <a class="btn btn--whatsapp" href="https://wa.me/51988126804" target="_blank">
+                  <i class="fa-brands fa-whatsapp"></i>
+                  <span>WhatsApp</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Información de ubicación flotante -->
+        <div class="location-card-floating">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>Av. Villón, frente a la Dirección Víctor Ramos Guardia</span>
         </div>
       </div>
     </section>
 
+    <!-- Seccion de servicios -->
     <section id="servicios" class="section">
       <div class="container">
         <h2 class="section__title">Servicios</h2>
@@ -275,8 +436,8 @@
       <div class="container about">
         <div class="about__media reveal">
           <!-- Updated about image to nurses/team photo -->
-          <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1200&q=80" 
-               alt="Equipo de enfermería y médicos de OZONO VIDA - Profesionales especializados" 
+          <img src="./assets/images/local_ozonovida.png" 
+               alt="OZONO VIDA Centro Médico - Fachada del centro médico especializado" 
                loading="lazy"
                decoding="async"
                width="600" 
@@ -560,9 +721,7 @@
           </div>
         </div>
         <div class="contact__map reveal" aria-label="Mapa de ubicación">
-          <iframe title="Mapa OZONO VIDA" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.000000000!2d-77.000000!3d-9.516667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sAv.%20Vill%C3%B3n!5e0!3m2!1ses-419!2spe!4v1710000000000">
-          </iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d292.44773591575677!2d-77.52897421838067!3d-9.535461413777883!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91a90d005dbf1c45%3A0xcdf496a6125a5895!2sOzono%20vida!5e0!3m2!1ses-419!2spe!4v1759530636064!5m2!1ses-419!2spe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           
         </div>
       </div>
@@ -710,6 +869,7 @@
     font-size: 1rem;
     color: #666;
   }
+
   </style>
 
   <!-- Scripts del sistema de componentes - Carga optimizada -->
@@ -737,5 +897,45 @@
   
   <!-- Menú móvil simple -->
   <script src="./js/simple-mobile-menu.js" defer></script>
+  
+  <!-- Slider de pantalla completa -->
+  <script src="./js/fullscreen-slider.js" defer></script>
+  
+  <!-- Script para comportamiento del header -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const header = document.querySelector('.header');
+      
+      if (header) {
+        // Solo aplicar el comportamiento en la página principal
+        if (document.body.classList.contains('page-main')) {
+          // Al cargar la página, el header está en la parte superior
+          header.classList.add('header--at-top');
+          
+          // Controlar el scroll
+          let lastScrollY = window.scrollY;
+          
+          window.addEventListener('scroll', function() {
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY > 100) {
+              // Scrolleado - mostrar header fijo
+              header.classList.remove('header--at-top');
+              header.classList.add('header--scrolled');
+            } else {
+              // En la parte superior - header transparente
+              header.classList.remove('header--scrolled');
+              header.classList.add('header--at-top');
+            }
+            
+            lastScrollY = currentScrollY;
+          });
+        } else {
+          // En páginas internas, mantener header fijo
+          header.classList.add('header--scrolled');
+        }
+      }
+    });
+  </script>
 </body>
 </html> 
