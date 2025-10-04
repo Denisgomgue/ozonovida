@@ -63,149 +63,42 @@ document.addEventListener("DOMContentLoaded", () => {
         link.addEventListener("click", handleSubmenuClick);
       }
     });
-
-    // También inicializar dropdown triggers que son botones
-    const dropdownTriggers = $$(".dropdown__trigger[type='button']");
-    dropdownTriggers.forEach((trigger) => {
-      trigger.removeEventListener("click", handleDropdownTriggerClick);
-      trigger.addEventListener("click", handleDropdownTriggerClick);
-    });
   }
 
-  // Función para manejar clicks en submenús - LÓGICA COMPLETAMENTE RECONSTRUIDA
+  // Función para manejar clicks en submenús
   function handleSubmenuClick(e) {
     e.preventDefault();
     e.stopPropagation();
 
-    const clickedItem = e.currentTarget.closest(".dropdown__item--has-submenu");
-    if (!clickedItem) return;
+    const item = e.currentTarget.closest(".dropdown__item--has-submenu");
+    if (item) {
+      const isOpen = item.classList.toggle("is-open");
 
-    // PASO 1: Cerrar TODOS los elementos del mismo nivel (hermanos)
-    const parentList = clickedItem.parentElement;
-    const siblings = parentList.querySelectorAll(
-      ".dropdown__item--has-submenu"
-    );
-
-    siblings.forEach((sibling) => {
-      if (sibling !== clickedItem) {
-        // Cerrar el hermano
-        sibling.classList.remove("is-open");
-        const siblingButton = sibling.querySelector(
-          ".dropdown__link[type='button']"
+      // Close other submenus at the same level
+      const parentDropdown = item.closest(".dropdown__menu");
+      if (parentDropdown) {
+        $$(".dropdown__item--has-submenu", parentDropdown).forEach(
+          (otherItem) => {
+            if (otherItem !== item) {
+              otherItem.classList.remove("is-open");
+              // Close nested submenus in other items
+              $$(".dropdown__item--has-submenu", otherItem).forEach(
+                (nestedItem) => {
+                  nestedItem.classList.remove("is-open");
+                }
+              );
+            }
+          }
         );
-        if (siblingButton) {
-          siblingButton.setAttribute("aria-expanded", "false");
-        }
+      }
 
-        // Cerrar TODOS los submenús anidados del hermano
-        const nestedItems = sibling.querySelectorAll(
-          ".dropdown__item--has-submenu"
-        );
-        nestedItems.forEach((nestedItem) => {
+      // Close nested submenus when closing this submenu
+      if (!isOpen) {
+        $$(".dropdown__item--has-submenu", item).forEach((nestedItem) => {
           nestedItem.classList.remove("is-open");
-          const nestedButton = nestedItem.querySelector(
-            ".dropdown__link[type='button']"
-          );
-          if (nestedButton) {
-            nestedButton.setAttribute("aria-expanded", "false");
-          }
         });
       }
-    });
-
-    // PASO 2: Cerrar TODOS los submenús anidados del elemento clickeado
-    const nestedItems = clickedItem.querySelectorAll(
-      ".dropdown__item--has-submenu"
-    );
-    nestedItems.forEach((nestedItem) => {
-      nestedItem.classList.remove("is-open");
-      const nestedButton = nestedItem.querySelector(
-        ".dropdown__link[type='button']"
-      );
-      if (nestedButton) {
-        nestedButton.setAttribute("aria-expanded", "false");
-      }
-    });
-
-    // PASO 3: Toggle del elemento clickeado
-    const wasOpen = clickedItem.classList.contains("is-open");
-    clickedItem.classList.toggle("is-open");
-    const isNowOpen = clickedItem.classList.contains("is-open");
-
-    // PASO 4: Actualizar aria-expanded
-    const clickedButton = e.currentTarget;
-    if (clickedButton) {
-      clickedButton.setAttribute("aria-expanded", isNowOpen);
     }
-
-    console.log(
-      `Submenú ${clickedItem.textContent.trim()} ${
-        wasOpen ? "estaba abierto" : "estaba cerrado"
-      }, ahora está ${isNowOpen ? "abierto" : "cerrado"}`
-    );
-  }
-
-  // Función para manejar clicks en dropdown triggers que son botones - LÓGICA RECONSTRUIDA
-  function handleDropdownTriggerClick(e) {
-    e.preventDefault();
-    e.stopPropagation();
-
-    const clickedDropdown = e.currentTarget.closest(".dropdown");
-    if (!clickedDropdown) return;
-
-    // PASO 1: Cerrar TODOS los otros dropdowns del mismo nivel
-    const allDropdowns = document.querySelectorAll(".dropdown");
-    allDropdowns.forEach((dropdown) => {
-      if (dropdown !== clickedDropdown) {
-        dropdown.classList.remove("is-open");
-        const trigger = dropdown.querySelector(
-          ".dropdown__trigger[type='button']"
-        );
-        if (trigger) {
-          trigger.setAttribute("aria-expanded", "false");
-        }
-
-        // Cerrar TODOS los submenús de otros dropdowns
-        const allSubmenuItems = dropdown.querySelectorAll(
-          ".dropdown__item--has-submenu"
-        );
-        allSubmenuItems.forEach((item) => {
-          item.classList.remove("is-open");
-          const button = item.querySelector(".dropdown__link[type='button']");
-          if (button) {
-            button.setAttribute("aria-expanded", "false");
-          }
-        });
-      }
-    });
-
-    // PASO 2: Cerrar TODOS los submenús del dropdown clickeado
-    const submenuItems = clickedDropdown.querySelectorAll(
-      ".dropdown__item--has-submenu"
-    );
-    submenuItems.forEach((item) => {
-      item.classList.remove("is-open");
-      const button = item.querySelector(".dropdown__link[type='button']");
-      if (button) {
-        button.setAttribute("aria-expanded", "false");
-      }
-    });
-
-    // PASO 3: Toggle del dropdown clickeado
-    const wasOpen = clickedDropdown.classList.contains("is-open");
-    clickedDropdown.classList.toggle("is-open");
-    const isNowOpen = clickedDropdown.classList.contains("is-open");
-
-    // PASO 4: Actualizar aria-expanded
-    e.currentTarget.setAttribute("aria-expanded", isNowOpen);
-
-    console.log(
-      `Dropdown ${clickedDropdown
-        .querySelector(".dropdown__trigger")
-        .textContent.trim()} ${
-        wasOpen ? "estaba abierto" : "estaba cerrado"
-      }, ahora está ${isNowOpen ? "abierto" : "cerrado"}`
-    );
   }
 
   // Intentar inicializar el menú móvil
@@ -294,31 +187,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const isOpen = dropdown.classList.toggle("is-open");
 
-        // Actualizar aria-expanded para botones
-        if (dropdownTrigger.type === "button") {
-          dropdownTrigger.setAttribute("aria-expanded", isOpen);
-        }
-
         // Close other dropdowns at the same level
         $$(".dropdown").forEach((otherDropdown) => {
           if (otherDropdown !== dropdown) {
             otherDropdown.classList.remove("is-open");
-            // Reset aria-expanded for other dropdown triggers
-            const otherTrigger =
-              otherDropdown.querySelector(".dropdown__trigger");
-            if (otherTrigger && otherTrigger.type === "button") {
-              otherTrigger.setAttribute("aria-expanded", "false");
-            }
             // Close all nested submenus in other dropdowns
             $$(".dropdown__item--has-submenu", otherDropdown).forEach(
               (item) => {
                 item.classList.remove("is-open");
-                const itemButton = item.querySelector(
-                  ".dropdown__link[type='button']"
-                );
-                if (itemButton) {
-                  itemButton.setAttribute("aria-expanded", "false");
-                }
               }
             );
           }
@@ -328,12 +204,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!isOpen) {
           $$(".dropdown__item--has-submenu", dropdown).forEach((item) => {
             item.classList.remove("is-open");
-            const itemButton = item.querySelector(
-              ".dropdown__link[type='button']"
-            );
-            if (itemButton) {
-              itemButton.setAttribute("aria-expanded", "false");
-            }
           });
         }
       });
@@ -350,20 +220,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!e.target.closest(".dropdown")) {
       $$(".dropdown").forEach((dropdown) => {
         dropdown.classList.remove("is-open");
-        // Reset aria-expanded for dropdown triggers
-        const trigger = dropdown.querySelector(".dropdown__trigger");
-        if (trigger && trigger.type === "button") {
-          trigger.setAttribute("aria-expanded", "false");
-        }
         // Close all nested submenus
         $$(".dropdown__item--has-submenu", dropdown).forEach((item) => {
           item.classList.remove("is-open");
-          const itemButton = item.querySelector(
-            ".dropdown__link[type='button']"
-          );
-          if (itemButton) {
-            itemButton.setAttribute("aria-expanded", "false");
-          }
         });
       });
     }
@@ -562,49 +421,4 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 300);
     }, 4000);
   };
-
-  // FUNCIÓN DE DEPURACIÓN - Verificar que solo un elemento esté activo por nivel
-  function debugMenuState() {
-    console.log("=== ESTADO ACTUAL DEL MENÚ ===");
-
-    // Verificar dropdowns principales
-    const mainDropdowns = document.querySelectorAll(".dropdown");
-    mainDropdowns.forEach((dropdown, index) => {
-      const isOpen = dropdown.classList.contains("is-open");
-      const trigger = dropdown.querySelector(".dropdown__trigger");
-      const triggerText = trigger ? trigger.textContent.trim() : "Sin trigger";
-      console.log(
-        `Dropdown ${index + 1}: ${triggerText} - ${
-          isOpen ? "ABIERTO" : "cerrado"
-        }`
-      );
-
-      if (isOpen) {
-        // Verificar submenús dentro de este dropdown
-        const submenuItems = dropdown.querySelectorAll(
-          ".dropdown__item--has-submenu"
-        );
-        submenuItems.forEach((item, subIndex) => {
-          const itemIsOpen = item.classList.contains("is-open");
-          const button = item.querySelector(".dropdown__link");
-          const buttonText = button ? button.textContent.trim() : "Sin botón";
-          console.log(
-            `  Submenú ${subIndex + 1}: ${buttonText} - ${
-              itemIsOpen ? "ABIERTO" : "cerrado"
-            }`
-          );
-        });
-      }
-    });
-
-    console.log("================================");
-  }
-
-  // Ejecutar depuración cada 2 segundos (solo en desarrollo)
-  if (
-    window.location.hostname === "localhost" ||
-    window.location.hostname === "127.0.0.1"
-  ) {
-    setInterval(debugMenuState, 2000);
-  }
 });

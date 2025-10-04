@@ -103,7 +103,7 @@ const CRITICAL_CSS = `  <!-- CSS Crítico Inline para evitar FOUC -->
     }
 
     .header__inner { 
-      display: flex; 
+      // display: flex; 
       align-items: center; 
       justify-content: space-between; 
       padding: .8rem 0; 

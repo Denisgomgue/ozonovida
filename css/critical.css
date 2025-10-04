@@ -88,7 +88,7 @@ body {
 }
 
 .header__inner {
-    display: flex;
+    /* display: block; */
     align-items: center;
     justify-content: space-between;
     padding: .8rem 0;
@@ -132,7 +132,7 @@ body {
 /* Hero crítico */
 .hero {
     position: relative;
-    padding: 15rem 0 4rem;
+    /* padding: 15rem 0 4rem; */
     /* Espaciado para evitar que se oculte bajo el header */
     min-height: 80vh;
     display: flex;

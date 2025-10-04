@@ -12,15 +12,22 @@ class OptimizedComponentLoader {
     const currentPath = window.location.pathname;
     const depth = currentPath.split("/").filter((segment) => segment).length;
 
+    console.log("🔍 Current path:", currentPath);
+    console.log("📊 Path depth:", depth);
+
+    let basePath;
     if (depth === 0) {
-      return "./";
+      basePath = "./";
     } else if (depth === 1) {
-      return "../";
+      basePath = "../";
     } else if (depth === 2) {
-      return "../../";
+      basePath = "../../";
     } else {
-      return "../../../";
+      basePath = "../../../";
     }
+
+    console.log("📍 Base path:", basePath);
+    return basePath;
   }
 
   // Inicializar el sistema con carga paralela
@@ -98,31 +105,44 @@ class OptimizedComponentLoader {
   // Cargar componente header con caché
   async loadHeaderComponent() {
     if (this.loadedComponents.has("header")) {
+      console.log("Header already loaded, skipping...");
       return;
     }
+
+    console.log("🔄 Loading header component...");
+    console.log("📁 Header path:", `${this.basePath}components/header.html`);
 
     try {
       const response = await fetch(`${this.basePath}components/header.html`, {
         cache: "force-cache",
       });
 
+      console.log(
+        "📡 Header fetch response:",
+        response.status,
+        response.statusText
+      );
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
       const headerContent = await response.text();
+      console.log("📄 Header content length:", headerContent.length);
+
       const processedContent = this.processHeaderPaths(headerContent);
+      console.log("🔧 Header content processed");
 
       const headerPlaceholder = document.getElementById("header-placeholder");
       if (headerPlaceholder) {
         headerPlaceholder.innerHTML = processedContent;
         this.loadedComponents.add("header");
-        console.log("Header component loaded successfully");
+        console.log("✅ Header component loaded successfully");
       } else {
-        console.warn("Header placeholder not found");
+        console.error("❌ Header placeholder not found in DOM");
       }
     } catch (error) {
-      console.error("Error cargando componente header:", error);
+      console.error("❌ Error cargando componente header:", error);
     }
   }
 
@@ -589,6 +609,8 @@ class OptimizedComponentLoader {
 // Función para inicializar cuando el DOM esté listo
 function initializeOptimizedComponents() {
   console.log("🚀 INITIALIZING OPTIMIZED COMPONENTS...");
+  console.log("🌐 Current URL:", window.location.href);
+  console.log("📄 Current path:", window.location.pathname);
 
   // Verificar que las funciones de metadata y social estén disponibles
   if (
@@ -596,13 +618,15 @@ function initializeOptimizedComponents() {
     typeof SOCIAL_CONFIG !== "undefined"
   ) {
     console.log(
-      "Metadata and social functions available, creating OptimizedComponentLoader"
+      "✅ Metadata and social functions available, creating OptimizedComponentLoader"
     );
     new OptimizedComponentLoader();
   } else {
-    console.log("Functions not available, retrying in 100ms...");
-    console.log("getPageMetadata:", typeof getPageMetadata);
-    console.log("SOCIAL_CONFIG:", typeof SOCIAL_CONFIG);
+    console.log("⏳ Functions not available, retrying in 100ms...");
+    console.log("🔍 getPageMetadata:", typeof getPageMetadata);
+    console.log("🔍 SOCIAL_CONFIG:", typeof SOCIAL_CONFIG);
+    console.log("🔍 getPageMetadata function:", getPageMetadata);
+    console.log("🔍 SOCIAL_CONFIG object:", SOCIAL_CONFIG);
     // Si no está disponible, esperar un poco y reintentar
     setTimeout(initializeOptimizedComponents, 100);
   }

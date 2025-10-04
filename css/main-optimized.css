@@ -10,7 +10,6 @@
 /* ===== COMPONENTES ===== */
 @import './components/buttons.css';
 @import './components/navigation.css';
-@import './components/responsive-menu.css';
 
 /* ===== PÁGINAS ===== */
 @import './pages/services.css';
@@ -20,7 +19,7 @@
 /* Hero Section */
 .hero {
   position: relative;
-  padding: 15rem 0 4rem;
+  /* padding: 15rem 0 4rem; */
   min-height: 80vh;
   display: flex;
   flex-direction: column;
@@ -29,7 +28,7 @@
 
 /* Hero específico para página principal */
 .hero--main-page {
-  padding-top: 8rem;
+  /* padding-top: 8rem; */
   /* Más espacio para el slider de pantalla completa */
   min-height: 100vh;
   /* Pantalla completa para el slider */
@@ -179,6 +178,8 @@ body:not(.page-main) .hero {
   gap: var(--space-xl);
 }
 
+
+
 .card {
   background: var(--glass);
   border: 1px solid var(--border);
@@ -326,7 +327,7 @@ body:not(.page-main) .hero {
 
 /* ===== RESPONSIVE BASE ===== */
 
-/* Tablet */
+/* Móvil (≤1024px) - incluye tablet */
 @media (max-width: 1024px) {
   .hero__grid {
     grid-template-columns: 1fr;
@@ -334,7 +335,7 @@ body:not(.page-main) .hero {
   }
 
   .cards {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: 1fr;
   }
 
   #nosotros .container {
@@ -365,7 +366,7 @@ body:not(.page-main) .hero {
   }
 }
 
-/* Móvil */
+/* Móvil pequeño */
 @media (max-width: 768px) {
   .hero {
     padding: var(--space-2xl) 0;

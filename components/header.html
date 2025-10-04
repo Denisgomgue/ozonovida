@@ -21,21 +21,21 @@
         <li><a href="{{BASE_PATH}}index.html#servicios">Servicios</a></li>
         
         <li class="dropdown">
-          <a href="{{BASE_PATH}}tratamientos/index.html" class="dropdown__trigger">
+          <button class="dropdown__trigger" type="button" aria-expanded="false" aria-controls="submenu-tratamientos">
             Tratamientos <i class="fa-solid fa-chevron-down"></i>
-          </a>
-          <ul class="dropdown__menu">
+          </button>
+          <ul class="dropdown__menu" id="submenu-tratamientos">
             <li class="dropdown__item dropdown__item--has-submenu">
-              <a href="{{BASE_PATH}}tratamientos/tratamiento-de-dolor/index.html" class="dropdown__link">
+              <button class="dropdown__link" type="button" aria-expanded="false" aria-controls="submenu-dolor">
                 Tratamiento de Dolor <i class="fa-solid fa-plus submenu-icon"></i>
-              </a>
-              <ul class="dropdown__submenu">
+              </button>
+              <ul class="dropdown__submenu" id="submenu-dolor">
                 <!-- submenu de dolor -->
                 <li class="dropdown__item dropdown__item--has-submenu">
-                  <a href="{{BASE_PATH}}tratamientos/tratamiento-de-dolor/dolores/index.html" class="dropdown__link">
+                  <button class="dropdown__link" type="button" aria-expanded="false" aria-controls="submenu-dolores">
                     Dolores <i class="fa-solid fa-plus submenu-icon"></i>
-                  </a>
-                  <ul class="dropdown__submenu">
+                  </button>
+                  <ul class="dropdown__submenu" id="submenu-dolores">
                     <li><a href="{{BASE_PATH}}tratamientos/tratamiento-de-dolor/dolores/index.html#cabeza">Cabeza</a></li>
                     <li><a href="{{BASE_PATH}}tratamientos/tratamiento-de-dolor/dolores/index.html#cuello">Cuello</a></li>
                     <li><a href="{{BASE_PATH}}tratamientos/tratamiento-de-dolor/dolores/index.html#hombros">Hombros</a></li>
@@ -52,10 +52,10 @@
                   </ul>
                 </li>
                 <li class="dropdown__item dropdown__item--has-submenu">
-                  <a href="{{BASE_PATH}}tratamientos/tratamiento-de-dolor/artrosis/index.html" class="dropdown__link">
+                  <button class="dropdown__link" type="button" aria-expanded="false" aria-controls="submenu-artrosis">
                     Artrosis <i class="fa-solid fa-plus submenu-icon"></i>
-                  </a>
-                  <ul class="dropdown__submenu">
+                  </button>
+                  <ul class="dropdown__submenu" id="submenu-artrosis">
                     <li><a href="{{BASE_PATH}}tratamientos/tratamiento-de-dolor/artrosis/index.html#artrosis-hombro">Hombro</a></li>
                     <li><a href="{{BASE_PATH}}tratamientos/tratamiento-de-dolor/artrosis/index.html#artrosis-cadera">Cadera</a></li>
                     <li><a href="{{BASE_PATH}}tratamientos/tratamiento-de-dolor/artrosis/index.html#artrosis-rodilla">Rodilla</a></li>
@@ -75,10 +75,10 @@
               </ul>
             </li>
             <li class="dropdown__item dropdown__item--has-submenu">
-              <a href="{{BASE_PATH}}tratamientos/enfermedades/index.html" class="dropdown__link">
+              <button class="dropdown__link" type="button" aria-expanded="false" aria-controls="submenu-enfermedades">
                 Tratamiento de Enfermedades <i class="fa-solid fa-plus submenu-icon"></i>
-              </a>
-              <ul class="dropdown__submenu">
+              </button>
+              <ul class="dropdown__submenu" id="submenu-enfermedades">
                 <li><a href="{{BASE_PATH}}tratamientos/enfermedades/index.html#diabetes">Diabetes Mellitus</a></li>
                 <li><a href="{{BASE_PATH}}tratamientos/enfermedades/index.html#insuficiencia-vascular">Insuficiencia Vascular</a></li>
                 <li><a href="{{BASE_PATH}}tratamientos/enfermedades/index.html#hepatitis">Hepatitis Crónica</a></li>
@@ -93,10 +93,10 @@
               </ul>
             </li>
             <li class="dropdown__item dropdown__item--has-submenu">
-              <a href="{{BASE_PATH}}tratamientos/estetica/index.html" class="dropdown__link">
+              <button class="dropdown__link" type="button" aria-expanded="false" aria-controls="submenu-estetica">
                 Estética <i class="fa-solid fa-plus submenu-icon"></i>
-              </a>
-              <ul class="dropdown__submenu">
+              </button>
+              <ul class="dropdown__submenu" id="submenu-estetica">
                 <li><a href="{{BASE_PATH}}tratamientos/estetica/index.html#rejuvenecimiento-facial">Rejuvenecimiento Facial</a></li>
                 <li><a href="{{BASE_PATH}}tratamientos/estetica/index.html#celulitis">Celulitis</a></li>
                 <li><a href="{{BASE_PATH}}tratamientos/estetica/index.html#ulceras-cronicas">Úlceras Crónicas y Varicosas</a></li>
@@ -104,20 +104,20 @@
               </ul>
             </li>
             <li class="dropdown__item dropdown__item--has-submenu">
-              <a href="{{BASE_PATH}}tratamientos/infecciones/index.html" class="dropdown__link">
+              <button class="dropdown__link" type="button" aria-expanded="false" aria-controls="submenu-infecciones">
                 Infecciones <i class="fa-solid fa-plus submenu-icon"></i>
-              </a>
-              <ul class="dropdown__submenu">
+              </button>
+              <ul class="dropdown__submenu" id="submenu-infecciones">
                 <li><a href="{{BASE_PATH}}tratamientos/infecciones/index.html#heridas-infectadas">Heridas Infectadas</a></li>
                 <li><a href="{{BASE_PATH}}tratamientos/infecciones/index.html#pie-diabetico">Pie Diabético</a></li>
                 <li><a href="{{BASE_PATH}}tratamientos/infecciones/index.html#ulceras-varicosas">Úlceras Varicosas</a></li>
               </ul>
             </li>
             <li class="dropdown__item dropdown__item--has-submenu">
-              <a href="{{BASE_PATH}}tratamientos/ginecologia/index.html" class="dropdown__link">
+              <button class="dropdown__link" type="button" aria-expanded="false" aria-controls="submenu-ginecologia">
                 Ginecología <i class="fa-solid fa-plus submenu-icon"></i>
-              </a>
-              <ul class="dropdown__submenu">
+              </button>
+              <ul class="dropdown__submenu" id="submenu-ginecologia">
                 <li><a href="{{BASE_PATH}}tratamientos/ginecologia/index.html#candidiasis">Candidiasis</a></li>
                 <li><a href="{{BASE_PATH}}tratamientos/ginecologia/index.html#vaginitis">Vaginitis</a></li>
                 <li><a href="{{BASE_PATH}}tratamientos/ginecologia/index.html#vph">Virus de Papiloma Humano</a></li>
@@ -128,10 +128,10 @@
           </ul>
         </li>
         <li class="dropdown">
-          <a href="{{BASE_PATH}}aplicaciones/index.html" class="dropdown__trigger">
+          <button class="dropdown__trigger" type="button" aria-expanded="false" aria-controls="submenu-aplicaciones">
             Aplicaciones <i class="fa-solid fa-chevron-down"></i>
-          </a>
-          <ul class="dropdown__menu">
+          </button>
+          <ul class="dropdown__menu" id="submenu-aplicaciones">
             <li><a href="{{BASE_PATH}}aplicaciones/index.html#intramuscular">Intramuscular</a></li>
             <li><a href="{{BASE_PATH}}aplicaciones/index.html#intra-articular">Intraarticular</a></li>
             <li><a href="{{BASE_PATH}}aplicaciones/index.html#auto-hemoterapia-menor">Auto hemoterapia menor</a></li>
