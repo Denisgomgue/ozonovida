@@ -1032,12 +1032,19 @@ a {
 
 /* Cards base - diseño general */
 .cards {
-  grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
+  grid-template-columns: repeat(2, 1fr);
   margin: 0 auto;
 }
 
 /* media queries */
 @media (max-width: 768px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Dispositivos móviles pequeños - 1 columna cuando no se ajusta */
+@media (max-width: 576px) {
   .cards {
     grid-template-columns: 1fr;
   }

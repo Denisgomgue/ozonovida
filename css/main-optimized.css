@@ -174,7 +174,7 @@ body:not(.page-main) .hero {
 }
 
 .cards {
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-xl);
 }
 
@@ -335,7 +335,7 @@ body:not(.page-main) .hero {
   }
 
   .cards {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   #nosotros .container {
@@ -382,6 +382,13 @@ body:not(.page-main) .hero {
     align-items: stretch;
   }
 
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Dispositivos móviles pequeños - 1 columna cuando no se ajusta */
+@media (max-width: 576px) {
   .cards {
     grid-template-columns: 1fr;
   }
