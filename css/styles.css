@@ -446,6 +446,13 @@ a {
   letter-spacing: 0.5px;
 }
 
+.brand__ozono-vida span {
+  color: #E53E3E;
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
 .brand__huaraz {
   color: #E53E3E;
   font-size: 1rem;
